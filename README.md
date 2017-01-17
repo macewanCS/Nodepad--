@@ -1,10 +1,7 @@
 # Nodepad-
 
-Members:
--Jack Staples
--Brett Anderson
--Jordan Hewko
--Sunny Atwal
+Group Members:
+Jack Staples, Brett Anderson, Jordan Hewko, Sunny Atwal
 
 Code Style:
 We are going to follow the google style guide found at:
