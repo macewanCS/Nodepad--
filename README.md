@@ -9,5 +9,5 @@
 ## Code Style:
 We are going to follow the google style guide found at:
 
-* [JavaScript Google Style Guide](https://google.github.io/styleguide/jsguide.html#formatting-block-indentation)
-* [HTML/CSS Google Style Guide](https://google.github.io/styleguide/htmlcssguide.xml)
+* [Google's Javascript Style Guide](https://google.github.io/styleguide/jsguide.html#formatting-block-indentation)
+* [Google's HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.xml)
