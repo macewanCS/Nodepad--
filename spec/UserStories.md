@@ -1,4 +1,4 @@
-Library Worker
+##Library Worker
 
 * As a library worker, I need to be able to report issues to IT or HR through an online web portal. I should be able to report these issues even when IT or HR are closed.
 
@@ -18,14 +18,45 @@ Library Worker
 
 * As a library worker,  I want to be able to have shortcuts to speed up the process of creating a ticket.
 
-Branch Manager
+
+##Branch Manager
 
 * As a branch manager, I need to be able to report issues to IT or HR through an online web portal.
 
 * As a branch manager, I need to be able to see and edit all the IT tickets for my branch.
 
-IT or HR Worker
+
+##IT or HR Worker
 
 * As an IT or HR worker, I need to be able to access all tickets related to my department.
 
 
+##HR Worker
+
+* As a HR worker, I need to be able to report technical issues to IT through an online web portal.
+
+* As a HR worker, I need to be able to access all HR related tickets for my branch (ask vicky, is it central HR or per branch).
+
+* As a HR worker, I need to be able to close tickets that I have solved.
+
+* As a HR worker, I need to be able to add comments to tickets that will be seen only by the original ticket creator.. 
+
+
+##IT Worker
+
+* As an IT worker, I need to be able to report human issues to HR through an online web portal.
+
+* As an IT worker, I need to have access to all IT related tickets.
+
+* As an IT worker, I need to have the issue and any related data on hand so that I can fix the problem efficiently,
+
+* As an IT worker, I want to be able add comments to tickets to communicate with the original ticket creator, in case I need additional information.
+
+
+##IT/HR Manager
+
+* As a manager, I want to see all the tickets in the system so that i can assign team members to work on them.
+
+* As a manager, I want to easily be able to navigate and manage any number of tickets in the system.
+
+* As a manager, I want some way to give certain tickets higher priority within the system.
