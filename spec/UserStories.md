@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#Library Worker
+##Library Worker
 
 * As a library worker, I need to be able to report issues to IT or HR through an online web portal. I should be able to report these issues even when IT or HR are closed.
 
@@ -20,18 +19,19 @@
 * As a library worker,  I want to be able to have shortcuts to speed up the process of creating a ticket.
 
 
-#Branch Manager
+##Branch Manager
 
 * As a branch manager, I need to be able to report issues to IT or HR through an online web portal.
 
 * As a branch manager, I need to be able to see and edit all the IT tickets for my branch.
 
-#IT or HR Worker
+
+##IT or HR Worker
 
 * As an IT or HR worker, I need to be able to access all tickets related to my department.
 
 
-#HR Worker
+##HR Worker
 
 * As a HR worker, I need to be able to report technical issues to IT through an online web portal.
 
@@ -42,7 +42,7 @@
 * As a HR worker, I need to be able to add comments to tickets that will be seen only by the original ticket creator.. 
 
 
-#IT Worker
+##IT Worker
 
 * As an IT worker, I need to be able to report human issues to HR through an online web portal.
 
@@ -53,18 +53,10 @@
 * As an IT worker, I want to be able add comments to tickets to communicate with the original ticket creator, in case I need additional information.
 
 
-#IT/HR Manager
+##IT/HR Manager
 
 * As a manager, I want to see all the tickets in the system so that i can assign team members to work on them.
 
 * As a manager, I want to easily be able to navigate and manage any number of tickets in the system.
 
 * As a manager, I want some way to give certain tickets higher priority within the system.
-
-
-=======
-#Class Notes
-Start every user story with "As a _____ ", talk about what they need to accomplish
-
-"As a user i need to create a ticket through the web interface so i can get my laptop repaired"
->>>>>>> 572e4e603fcd4e3954ab5dcdc6a95082b760f840
