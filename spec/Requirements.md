@@ -29,7 +29,7 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
 - Editing tickets
 - Priority sorting based on the provided matrix
 - Closing/reopening tickets
-- Login verification syste,
+- Login verification system
 
 
 ## __System Features__:
