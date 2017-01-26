@@ -1,11 +1,17 @@
-## Summary:
+![EPL Logo](https://d34rompce3lx70.cloudfront.net/wp-content/uploads/sites/18/2015/11/DesktopLogo_190x105.png?v=1485363292148536324014853632403)
+## Edmonton Public Library (EPL) Ticket Manager:
 
-The Edmonton Public Library (EPL) uses an online ticketing system to report issues to their IT and HR departments. Tickets are created using an email, this system currently doesn’t work because the employee often does not provide all the information needed to resolve their ticket. This is an efficiency issue because there are some employees who work part-time, and may not be easily contacted by IT/HR. The current system has several issues: it is not intuitive for part-time workers, it is not efficient enough for full-time workers, ticket receivers don’t always get the required information to resolve their ticket, there is no way for the client to view their ticket resolution progress, there is no way to look at previously resolved tickets.
+The EPL uses an online ticketing system to report issues to their IT and HR departments. Tickets are created using an email, this system currently doesn’t work because the employee often does not provide all the information needed to resolve their ticket. This is an efficiency issue because there are some employees who work part-time, and may not be easily contacted by IT/HR. The current system has several issues: 
+  - it is not intuitive for part-time workers 
+  - it is not efficient enough for full-time workers 
+  - ticket receivers don’t always get the required information to resolve their ticket
+  - there is no way for the client to view their ticket resolution progress 
+  - there is no way to look at previously resolved tickets
 
 
 ## User Requirements:
 
-* Users must be able to submit tickets to both IT and HR[a]
+* Users must be able to submit tickets to both IT and HR
 * Users must be able to edit tickets to add info.
 * Users must be able to view their past tickets.
 * Users must be able to annotate their ticket for clarification.[b]
