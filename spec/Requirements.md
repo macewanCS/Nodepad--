@@ -1,31 +1,43 @@
-#Summary:
-The Edmonton Public Library (EPL) uses a online ticketing system to report issues to their IT and HR departments. Tickets are created using an email, this system doesn’t work because the employee often does not provide all the information needed to resolve the ticket. This is an efficiency issue because there are some employees who work part-time, and may not be in constant communication with IT/HR. The current system has several issues: it is not intuitive for part-time workers, it is not efficient enough for full-time workers, ticket receivers don’t always get the required information to resolve their ticket, there is no way for the client to view their ticket resolution progress, and there is no way to look at previously resolved tickets.
+![EPL Logo](https://d34rompce3lx70.cloudfront.net/wp-content/uploads/sites/18/2015/11/DesktopLogo_190x105.png?v=1485363292148536324014853632403)
+## __Edmonton Public Library (EPL) Ticket Manager__:
+
+The EPL uses an online ticketing system to report issues to their IT and HR departments. Tickets are created using an email, this system currently doesn’t work because the employee often does not provide all the information needed to resolve their ticket. This is an efficiency issue because there are some employees who work part-time, and may not be easily contacted by IT/HR. The current system has several issues: 
+  - It is not intuitive for part-time workers 
+  - It is not efficient enough for full-time workers 
+  - Ticket receivers don’t always get the required information to resolve their ticket
+  - There is no way for the client to view their ticket resolution progress 
+  - There is no way to look at previously resolved tickets
 
 
-#User Requirements:
-* User must be able to: 
-  - Submit tickets to both IT and HR
-  - Edit tickets to add info.
-  - View their past tickets.
-  - Annotate their ticket for clarification.
-  - View the tickets for their entire branch.
+## __User Requirements__:
+
+* Users must be able to submit tickets to both IT and HR
+* Users must be able to edit tickets to add info.
+* Users must be able to view their past tickets.
+* Users must be able to annotate their ticket for clarification.
+* Managers must be able to view the tickets for their entire branch.
 * IT/HR should be able to see all tickets for their respective department.
-* Manager must be able to add comments for tickets in their branch.
-* System should be easily accessible for newcomers.
-* System should be streamlined for experienced users.
+* Managesr must be able to add comments for tickets in their branch.
+* The system should be easily accessible for newcomers.
+* The system should be streamlined for experienced users.
 
 
-#Functional Requirements:
- The system will support:
-  * creating tickets
-  * viewing tickets 
-  * editing tickets
-  * Priority sorting based on the provided matrix
-  * Closing/reopening tickets
+## __Functional Requirements__:
+
+- Creating tickets
+- Viewing tickets 
+- Editing tickets
+- Priority sorting based on the provided matrix
+- Closing/reopening tickets
+- Login verification syste,
 
 
-#The system will have the following features:
+## __System Features__:
+
 * Announcements section for bigger problems to avoid influx of tickets
-* I combined the two departments to generalize and reduce redundancy
+* Ability to view other tickets from branch, to avoid duplicate tickets
+- Scalable to different screen sizes, so it can be used on mobile
+- Mandatory fields, so IT/HR will have enough information to complete the ticket
+
 
 
