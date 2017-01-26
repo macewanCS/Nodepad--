@@ -36,7 +36,7 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
 
 * Announcements section for bigger problems to avoid influx of tickets
 * Ability to view other tickets from branch, to avoid duplicate tickets
-- Scalable to different screen sizes, so it can be used on mobile
+- Scalable to different screen sizes, so it can be used on mobile devices
 - Mandatory fields, so IT/HR will have enough information to complete the ticket
 
 
