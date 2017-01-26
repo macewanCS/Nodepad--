@@ -31,11 +31,13 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
 - Closing/reopening tickets
 - Login verification syste,
 
+
 ## __System Features__:
 
 * Announcements section for bigger problems to avoid influx of tickets
 * Ability to view other tickets from branch, to avoid duplicate tickets
 - Scalable to different screen sizes, so it can be used on mobile
 - Mandatory fields, so IT/HR will have enough information to complete the ticket
+
 
 
