@@ -30,27 +30,11 @@
 
 * As an IT or HR worker, I need to be able to access all tickets related to my department.
 
+* As an IT or HR worker, I need to be able to close tickets that I have solved.
 
-##HR Worker
+* As an IT or HR worker, I need to be able to communicate with the original ticket creator.
 
-* As a HR worker, I need to be able to report technical issues to IT through an online web portal.
-
-* As a HR worker, I need to be able to access all HR related tickets for my branch (ask vicky, is it central HR or per branch).
-
-* As a HR worker, I need to be able to close tickets that I have solved.
-
-* As a HR worker, I need to be able to add comments to tickets that will be seen only by the original ticket creator.. 
-
-
-##IT Worker
-
-* As an IT worker, I need to be able to report human issues to HR through an online web portal.
-
-* As an IT worker, I need to have access to all IT related tickets.
-
-* As an IT worker, I need to have the issue and any related data on hand so that I can fix the problem efficiently,
-
-* As an IT worker, I want to be able add comments to tickets to communicate with the original ticket creator, in case I need additional information.
+* As an IT or HR worker, I need to have the issue and any related data on hand so that I can fix the problem efficiently.
 
 
 ##IT/HR Manager
