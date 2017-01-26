@@ -1,5 +1,5 @@
 ![EPL Logo](https://d34rompce3lx70.cloudfront.net/wp-content/uploads/sites/18/2015/11/DesktopLogo_190x105.png?v=1485363292148536324014853632403)
-## Edmonton Public Library (EPL) Ticket Manager:
+## __Edmonton Public Library (EPL) Ticket Manager__:
 
 The EPL uses an online ticketing system to report issues to their IT and HR departments. Tickets are created using an email, this system currently doesn’t work because the employee often does not provide all the information needed to resolve their ticket. This is an efficiency issue because there are some employees who work part-time, and may not be easily contacted by IT/HR. The current system has several issues: 
   - it is not intuitive for part-time workers 
@@ -9,12 +9,12 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
   - there is no way to look at previously resolved tickets
 
 
-## User Requirements:
+## __User Requirements__:
 
 * Users must be able to submit tickets to both IT and HR
 * Users must be able to edit tickets to add info.
 * Users must be able to view their past tickets.
-* Users must be able to annotate their ticket for clarification.[b]
+* Users must be able to annotate their ticket for clarification.
 * Managers must be able to view the tickets for their entire branch.
 * IT/HR should be able to see all tickets for their respective department.
 * Managesr must be able to add comments for tickets in their branch.
@@ -22,7 +22,7 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
 * The system should be streamlined for experienced users.
 
 
-## Functional Requirements:
+## __Functional Requirements__:
 
 * The system will support:
    * creating tickets
@@ -31,7 +31,7 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
    * Priority sorting based on the provided matrix
    * Closing/reopening tickets
 
-## System Features:
+## __System Features__:
 
 * Announcements section for bigger problems to avoid influx of tickets
 * [a]I combined the two departments to generalize and reduce redundancy
