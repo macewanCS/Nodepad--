@@ -2,11 +2,11 @@
 ## __Edmonton Public Library (EPL) Ticket Manager__:
 
 The EPL uses an online ticketing system to report issues to their IT and HR departments. Tickets are created using an email, this system currently doesn’t work because the employee often does not provide all the information needed to resolve their ticket. This is an efficiency issue because there are some employees who work part-time, and may not be easily contacted by IT/HR. The current system has several issues: 
-  - it is not intuitive for part-time workers 
-  - it is not efficient enough for full-time workers 
-  - ticket receivers don’t always get the required information to resolve their ticket
-  - there is no way for the client to view their ticket resolution progress 
-  - there is no way to look at previously resolved tickets
+  - It is not intuitive for part-time workers 
+  - It is not efficient enough for full-time workers 
+  - Ticket receivers don’t always get the required information to resolve their ticket
+  - There is no way for the client to view their ticket resolution progress 
+  - There is no way to look at previously resolved tickets
 
 
 ## __User Requirements__:
@@ -24,16 +24,18 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
 
 ## __Functional Requirements__:
 
-* The system will support:
-   * creating tickets
-   * viewing tickets 
-   * editing tickets
-   * Priority sorting based on the provided matrix
-   * Closing/reopening tickets
+- Creating tickets
+- Viewing tickets 
+- Editing tickets
+- Priority sorting based on the provided matrix
+- Closing/reopening tickets
+- Login verification syste,
 
 ## __System Features__:
 
 * Announcements section for bigger problems to avoid influx of tickets
-* [a]I combined the two departments to generalize and reduce redundancy
-[b]Is this something we need??
+* Ability to view other tickets from branch, to avoid duplicate tickets
+- Scalable to different screen sizes, so it can be used on mobile
+- Mandatory fields, so IT/HR will have enough information to complete the ticket
+
 
