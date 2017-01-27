@@ -18,7 +18,7 @@ This is the main ticketing page, which will show a list of personal tickets that
 ##Branch Ticket Page
 This page works the same as the afforementioned My Tickets Page, but the user can view any ticket that they are authorized to see from their entire branch.
 ##Ticket Submission Page
---TO BE ADDED LATER
+This page is where a user will submit a ticket. The imperative information for IT/HR will be required so there is no need to follow up. The tickets will be separated into categories, so that we can reduce confusion amongst employees
 ##Announcements
 This page will show the Announcements from IT, it can inform users of large problems, or give friendly reminders to employees
 ##Help
