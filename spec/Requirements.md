@@ -11,31 +11,40 @@ The EPL uses an online ticketing system to report issues to their IT and HR depa
 
 ## __User Requirements__:
 
-* Users must be able to submit tickets to both IT and HR
-* Users must be able to edit tickets to add info.
-* Users must be able to view their past tickets.
-* Users must be able to annotate their ticket for clarification.
-* Managers must be able to view the tickets for their entire branch.
-* IT/HR should be able to see all tickets for their respective department.
-* Managesr must be able to add comments for tickets in their branch.
-* The system should be easily accessible for newcomers.
-* The system should be streamlined for experienced users.
+- Users must be able to submit tickets to IT
+- Users must be able to edit tickets to add more information.
+- Users must be able to view their past tickets.
+- Users must be able to annotate their ticket for clarification.
+- Managers must be able to view the tickets for their entire branch.
+- IT/HR should be able to see all tickets for their respective department.
+- Managesr must be able to add comments for tickets in their branch.
+- The system should be easily accessible for newcomers.
+- The system should be streamlined for experienced users.
 
 
 ## __Functional Requirements__:
 
-- Creating tickets
-- Viewing tickets 
-- Editing tickets
-- Priority sorting based on the provided matrix
-- Closing/reopening tickets
-- Login verification system
+- The system must be able to handle tickets for the following tickets
+  - Password resets
+  - Hardware issues
+  - System/Software problems
+  - Service requests
+  - General questions
+  
+- The system must allow for the following things
+  - Creating tickets
+  - Viewing tickets 
+  - Editing tickets
+  - Filtering tickets
+  - Priority sorting based on the provided matrix
+  - Closing/reopening tickets
+  - Login verification system
 
 
 ## __System Features__:
 
-* Announcements section for bigger problems to avoid influx of tickets
-* Ability to view other tickets from branch, to avoid duplicate tickets
+- Announcements section for bigger problems to avoid influx of tickets
+- Ability to view other tickets from branch, to avoid duplicate tickets
 - Scalable to different screen sizes, so it can be used on mobile devices
 - Mandatory fields, so IT/HR will have enough information to complete the ticket
 
