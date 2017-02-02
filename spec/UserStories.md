@@ -4,7 +4,9 @@
 
 * As a library worker, I want to be able to report previous tickets as solved, in case I find the solution on my own.
 
-* As a library worker, I want to be able to see my previous tickets, so that I can edit it to add additional information if I need be.
+* As a library worker, I want to be able to see my previous tickets.
+
+* As a library worker, I want to be able to edit my previous tickets.
 
 * As a library worker, I want to be able to see other technical tickets from my branch, so that I’m aware of issues that have already been reported.
 
@@ -16,7 +18,7 @@
 
 * As a library worker, I want the new system to be easy to use, so that reporting issues does not affect my productivity.
 
-* As a library worker,  I want to be able to have shortcuts to speed up the process of creating a ticket.
+* As a library worker, I want to be able to have shortcuts to speed up the process of creating a ticket.
 
 * As a library worker, I want to be able to see if my tickets have been open or solved, so that I can get updates on the status of my tickets.
 
