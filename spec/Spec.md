@@ -1,13 +1,6 @@
 #EPL Ticketing System
 The goal of this application is to simplify the ticketing system for the EPL. The ticketing system is a Javascript application is written using Nodejs and express frameworks.
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
-
-
 #Using the Ticketing System
 ##Logging in
 You must have an account to view the content of the system. When you go to the site, you will be promted for a Username and password. Once you have logged in, you will be brought to the main page
@@ -18,7 +11,9 @@ This is the main ticketing page, which will show a list of personal tickets that
 ##Branch Ticket Page
 This page works the same as the afforementioned My Tickets Page, but the user can view any ticket that they are authorized to see from their entire branch.
 ##Ticket Submission Page
-This page is where a user will submit a ticket. The imperative information for IT/HR will be required so there is no need to follow up. The tickets will be separated into categories, so that we can reduce confusion amongst employees
+This page is where a user will submit a ticket. The imperative information for IT/HR will be required so there is no need to follow up. The tickets will be separated into categories, so that we can reduce confusion amongst employees. Before tickets are submitted, the user will see a page that confirms info.
+##IT Ticket pages
+This will be the page that IT employees see. The tabs will have Tickets that IT may submit, they have a list of open and close tickets and they will viewed by priority. IT will be able to search for a tickey by keyword, and sort by priority. The closed tickets page will have an option to view the IT solution.
 ##Announcements
 This page will show the Announcements from IT, it can inform users of large problems, or give friendly reminders to employees
 ##Help
