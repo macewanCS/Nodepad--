@@ -28,27 +28,3 @@
 * As a branch manager, I need to be able to see and edit all the IT tickets for my branch.
 
 * As a branch manager, I need to be alerted to all Human tickets that HR requires my input on.
-
-
-##IT or HR Worker
-
-* As an IT or HR worker, I need to be able to access all tickets related to my department.
-
-* As an IT or HR worker, I need to be able to close tickets that I have solved.
-
-* As an IT or HR worker, I need to be able to communicate with the original ticket creator.
-
-* As an IT or HR worker, I need to have the issue and any related data on hand so that I can fix the problem efficiently.
-
-* As an IT worker, I need to be able to make HR tickets to report Human Issues.
-
-* As a HR worker, I need to be able to make IT tickets to report Technical Issues.
-
-
-##IT/HR Manager
-
-* As a manager, I want to see all the tickets in the system so that i can assign team members to work on them.
-
-* As a manager, I want to easily be able to navigate and manage any number of tickets in the system.
-
-* As a manager, I want some way to give certain tickets higher priority within the system.
