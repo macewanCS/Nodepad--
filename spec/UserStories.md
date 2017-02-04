@@ -29,8 +29,6 @@
 
 ##Branch Manager
 
-* As a branch manager I need to do everything that a standard library worker can do.
-
 * As a branch manager, I need to be able to see and edit all the IT tickets for my branch.
 
 * As a branch manager, I need to be alerted to all Human tickets that HR requires my input on.
