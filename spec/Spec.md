@@ -1,5 +1,5 @@
 #EPL Ticketing System
-The goal of this application is to simplify the ticketing system for the EPL. The ticketing system is a Javascript application is written using Nodejs and express frameworks.
+The goal of this application is to simplify the ticketing system for the EPL. The ticketing system is a Javascript application is written using Nodejs and express frameworks. The client has expressed some frustrations with the current system in that all of the required information is not taken from the email, or that some private information such as passwords can be put inside of the body of the email. The goal of the program is to streamline the process of creating a ticket and inserting it into the existing heat database so that IT can still use their existing system for handling tickets.
 
 #Using the Ticketing System
 ##Logging in
@@ -11,11 +11,11 @@ This is the main ticketing page, which will show a list of personal tickets that
 ##Branch Ticket Page
 This page works the same as the afforementioned My Tickets Page, but the user can view any ticket that they are authorized to see from their entire branch. These will include open and closed tickets. The reason behind having a branch tickets is to try and stop an influx of tickets coming in from the same issue, such as wifi being down over the entire branch. The user should check an issue to see if it has been reported before submitting a ticket that may be effect he whole branch. 
 ##Ticket Submission Page
-This page is where a user will submit a ticket. The imperative information for IT/HR will be required so there is no need to follow up. The tickets will be separated into categories, so that we can reduce confusion amongst employees. Before tickets are submitted, the user will see a page that confirms info.
+This page is where a user will submit a ticket. The imperative information for IT/HR will be required so there is no need to follow up. The tickets will be separated into categories, so that we can reduce confusion amongst employees. Before tickets are submitted, the user will see a page that confirms info. The ticket screen will be an accordian, with the ability to go back and change fields if a mistake has been made. 
 ##IT Ticket pages
 This will be the page that IT employees see. The tabs will have Tickets that IT may submit, they have a list of open and close tickets and they will viewed by priority. IT will be able to search for a tickey by keyword, and sort by priority. The closed tickets page will have an option to view the IT solution.
 ##Announcements
-This page will show the Announcements from IT, it can inform users of large problems, or give friendly reminders to employees
+This page will show the Announcements from IT, it can inform users of large problems, or give friendly reminders to employees. This is another way to stop an influx of tickets over a known issue, such as wifi being down over the entire branch. An IT user can come in and put an announcement in like IT holiday hours, which will then show up for all users in the announcement's page.
 ##Help
-Help will have a section of frequently asked questions that some of the clients may have come accross, this helps to avoid having IT members repeatedly helping users with some easily fixed problems, these could be written and added by the IT staff.
+Help will have a section of frequently asked questions that some of the clients may have come accross, this helps to avoid having IT members repeatedly helping users with some easily fixed problems, these could be written and added by the IT staff. 
 
