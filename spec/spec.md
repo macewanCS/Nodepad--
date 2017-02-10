@@ -107,5 +107,6 @@ This system will have 3 main kinds of users, Customers, Managers, and IT workers
   * They will be able to add to the announcements screen and the help screen.
   
 ##Mobile
-The system will also be able to be viewed well on mobile screens/tablets. It will become more vertical, but the mainsystem functionality will still be there. The user will be able to view thier tickets on the mobile screen, submit a ticket, as well as looking at help and announcements. 
+A user can visit the site from mobile platforms
 
+It will have the same functionality as the desktop page
