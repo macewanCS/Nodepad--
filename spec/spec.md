@@ -1,14 +1,14 @@
 #EPL Ticketing System
 
-Our goal is to create a web application that allows EPL workers to create tickets online. Those tickets will then be inserted into their current database system.
+Our goal is to create a web application that allows EPL workers to create tickets online, which will be inserted into their current database system.
 
-This web application will be written in JavaScript using the Nodejs framework.
+This system will be written in JavaScript using the Nodejs framework.
 
 #Using the Ticketing System
 
 #General Design
 
-Our system will be designed similarly to the design of the [EPL website](https://www.epl.ca/). This should give our targetted audience, EPL workers, some baseline familiarity with the system.
+Our system will be designed similarly to the design of the [EPL website] (https://www.epl.ca/). This should give our targetted audience, EPL workers, some baseline familiarity with the system.
 
 #How a User Navigates the Site
 
