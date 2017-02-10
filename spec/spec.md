@@ -12,7 +12,11 @@ Our system will be designed similarly to the design of the [EPL website](https:/
 
 #Header
 
-Following that design goal, we will be using a header very similar to that found on epl.ca. It will have a home icon that will return users to the home screen, as well as "My Tickets", "Branch Tickets", "Announcements", and "Help" hyperlinks that will direct users to their respective screens. Finally, it will have a "Create Ticket" button that can be clicked to begin the ticket creation process from any screen on the site.
+Following that design goal, we will be using a header very similar to that found on epl.ca. 
+
+It will have a home icon that will return users to the home screen, as well as "My Tickets", "Branch Tickets", "Announcements", and "Help" hyperlinks that will direct users to their respective screens.
+
+Finally, it will have a "Create Ticket" button that can be clicked to begin the ticket creation process from any screen on the site.
 
 ##Logging in
 When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let users recover a forgotten password.
@@ -20,13 +24,20 @@ When you first navigate to the site, you will be prompted to login using a usern
 After a succesful login, users are brought to the home screen.
 
 ##Home Screen
-The main page will show a simplified version of the different tabs in the bar. Recent announcements will be shown at the top to inform any Employees of current issues (ie Internet outtage at a certain branch). In separate tables, the user will also see a list of both personal and branch tickets, starting from the most recent. If the ticket is open, it will show submission date, otherwise it will show closed. Beneath those will be the Frequently Asked Questions, which will potentially help users solve common issues, keeping IT resources free for other problems.
+
+This screen will provide a general overview of each of the other screens in the application. 
+
+Directly underneath the header there will be an "Announcements" section, that displays current issues affecting branches.
+
+Below that will be the "My Tickets" and "Branch Tickets" that displays recent individual and branch wide tickets, sorted from most to least new. These tickets will display wether they are currently open or closed.
+
+Directly above the footer, there will be a Help section, that will display frequently asked questions that users of the system have. 
 
 ##Viewing their own tickets
 The system being built will allow the signed in user to view all of their submitted tickets. These will be displayed in a tabular fashion, with all of the relevent information for the ticket displayed. The user will have the ability to sort based on the categories that the product owner has specified, as well as being able to search through the tickets by keyword. From this page as well there will be the ability to edit the Ticket as well as self close the ticket.
 
   * **Editing a Ticket**
-  Once the user has began editing the ticket, any required information will have to be input before they are able to submit the changes.   As well   the user will be shown a screen confirming their edits afterwords.
+  Once the user has begun editing the ticket, any required information will have to be input before they are able to submit the changes.   As well   the user will be shown a screen confirming their edits afterwords.
   * **Closing a Ticket**
   The user will be able to self-close the ticket if they either entered the ticket by mistake or solved the problem on their own. The user will be required to enter in the solution to the problem that they had originally submitted, so that other users can solve the problem if they run into the same issue. Now this will not actually close the ticket from the IT side, just set a flag saying that this ticket needs to be reviewed by IT after it has actually been closed.
 
