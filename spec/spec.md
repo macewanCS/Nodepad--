@@ -91,7 +91,8 @@ A user can view important announcements from IT
 The Announcements will be sorted from newest to oldest in descending order
 
 ##Help
-Help will have a section of frequently asked questions that some of the clients may have come accross, this helps to avoid having IT members repeatedly helping users with some easily fixed problems, these could be written and added by the IT staff. 
+The system will have a help section that is for simple guides and tutorials.
+
 ##Users
 This system will have 3 main kinds of users, Customers, Managers, and IT workers.
 
