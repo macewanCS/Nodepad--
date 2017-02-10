@@ -18,7 +18,7 @@ A user can also click on the tabs at the top of each section to go to the screen
 
 ##Logging in
 
-When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created account to login to the system. 
+When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. 
 
 This initial page also has the option to let a user recover a forgotten password.
 
@@ -36,18 +36,16 @@ They will also be able to see some general help that could help them solve their
 
 The system will allow a user to view all of their submitted tickets by clicking on the My Tickets screen. 
 
-This page will display in a tabular fashion, all of the relevant information for the ticket displayed. 
+This page will display in a tabular fashion, all of the relevent information for the ticket displayed. 
 
 A user will have the ability to sort tickets based on the categories that the product owner has specified, and be able to search through the tickets by keyword. 
 
 From this page there will also be the ability to edit the Ticket and self close the ticket.
 
   * **Editing a Ticket**
-  There will be required fields that must be filled before a user can submit any edits.   As well, a user will be shown a screen confirming their edits once they submit.
+  There will be required fields that must be filled before a user can submit any edits.   As well, a user will be shown a screen confirming their submission.
   * **Closing a Ticket**
-  A user will be able to self-close the ticket. A user will also be required to enter in the solution to the problem that they had originally submitted, so that other users can solve the problem if they run into the same issue. Now this will not actually close the ticket from the IT side, just set a flag saying that this ticket needs to be reviewed by IT after it has actually been closed.
-  
-  A user will be able to self-close a ticket, but they will be required to provide the solution to their problem tha
+  A user can resolve their ticket, but will be required to enter their solution to the problem before it can be resolved.
 
 ##Viewing Branch Tickets
 The user will have the ability to view their branch tickets. This feature works the same as viewing thier own tickets, but the user can view any ticket that they are authorized to see from their entire branch. These will include open and closed tickets. The reason behind having a branch tickets is to try and stop an influx of tickets coming in from the same issue, such as wifi being down over the entire branch. The user should check an issue to see if it has been reported before submitting a ticket that may be effect he whole branch. There will be a way to filter which branches are being viewed at any time, so a user will be able to see any branch's tickets. 
