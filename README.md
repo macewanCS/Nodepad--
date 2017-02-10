@@ -1,7 +1,4 @@
 # Nodepad--
-<<<<<<< HEAD
-HERRRRRRRRROOOOOOOOOOo
-=======
 
 ## Group Members:
 * [Jack Staples](https://github.com/JackStaples)
