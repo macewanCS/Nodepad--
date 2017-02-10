@@ -12,7 +12,7 @@ Our system will be designed similarly to the design of the [EPL website] (https:
 
 #How a User Navigates the Site
 
-A user will be able to click the links at the top of the page to browse between the different screens on the site.
+A user will be able to click the links in the header of the page to browse between the different screens on the site.
 
 A user will also be able to navigate the site from the footer.
 
