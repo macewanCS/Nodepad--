@@ -18,7 +18,9 @@ A user can also click on the tabs at the top of each section to go to the screen
 
 ##Logging in
 
-When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let a user recover a forgotten password.
+When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. 
+
+This initial page also has the option to let a user recover a forgotten password.
 
 After a succesful login, a user will be brought to the home screen.
 
