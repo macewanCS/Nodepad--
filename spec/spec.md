@@ -53,7 +53,7 @@ A user wil be able to see tickets made at their branch by navigating to the Bran
 
 This screen will be similar to the individual ticket screen in design. Searching will be accomplished in the same way as the my tickets screen.
 
-##Submitting a ticket
+##Creating a ticket
 
 The system will allow a user to submit a ticket into the HEAT database.  
 
@@ -75,10 +75,10 @@ Each of the categories will have different mandatory information to be filled in
 
 Category | Required Information | Non-Required information | Example
 --------- | -------------------- | ----------------------  | ----------
-Password Reset | System, Account/Username | N/A | I forgot my password and need it reset
-Hardware Issue | Equipment Type, Description of the problem | Asset Tag, Computer/Device name, Error Messages | My laptop screen is cracked
-Software       | System, Is the system Completely broken?, Description of the problem | Steps to replicate | I cannot access the EPL Website
-Service Request | Request type, Which system to allow access to, Asset Tag Where should the equipment be moved to(Move Request), what software to install, which pc should it be installed on(software request) | N/A | I need the projector moved from my room to the room next door
+Password Reset | System, Account/Username | N/A | I forgot my password and need it reset.
+Hardware Issue | Equipment Type, Description of the problem | Asset Tag, Computer/Device name, Error Messages | My laptop screen is cracked.
+Software       | System, Is the system Completely broken?, Description of the problem | Steps to replicate | I cannot access the EPL Website.
+Service Request | Request type, Which system to allow access to, Asset Tag Where should the equipment be moved to(Move Request), what software to install, which pc should it be installed on(software request) | N/A | I need the projector moved from my room to the room next door.
 General Questions | What is the problem? | N/A | I am having trouble with my personal phone connecting to the web ticketing portal.
 
 
@@ -88,25 +88,28 @@ Before the user can submit their form, they will be shown their information and 
 
 A user can view important announcements from IT
 
-The Announcements will be sorted from newest to oldest in descending order
+The announcements will be sorted from newest to oldest in descending order
 
 ##Help
+
 The system will have a help section that is for simple guides and tutorials.
 
 ##Users
-This system will have 3 main kinds of users, Customers, Managers, and IT workers.
+
+This system will have 3 main kinds of users.
 
 1. Customers
-  * The customer will be able to view their own tickets and submit tickets for either their branch or for themselves. 
+  * A customer will be able to view and submit their own tickets and submit tickets for either their branch or for themselves. 
   * They wil be able to see announcements and go to the help screen to look for guides, but not be able to add to them
 2. Managers
-  * The Manager will be able to submit and create tickets as well, but they will be able to view tickets for everyone in thier branch even if they did not create them.
-  * The Manager will also be able to see the announcements but will not be able to change them.
-3. IT
-  * These users will have higher permissions then the other users, being able to see all tickets in the system.
+  * A manager will be able to submit and create tickets as well, but they will be able to view tickets for everyone in thier branch even if they did not create them.
+  * A manager will also be able to see the announcements but will not be able to change them.
+3. Superusers
+  * A superuser will have higher permissions then the other users, being able to see all tickets in the system.
   * They will be able to add to the announcements screen and the help screen.
   
 ##Mobile
-A user can visit the site from mobile platforms
 
-It will have the same functionality as the desktop page
+A user can visit the site from mobile platforms.
+
+It will have the same functionality as the desktop page.
