@@ -2,12 +2,15 @@
 The goal of this application is to simplify the ticketing system for the EPL. The ticketing system is a Javascript application is written using Nodejs and express frameworks. The client has expressed some frustrations with the current system in that all of the required information is not taken from the email, or that some private information such as passwords can be put inside of the body of the email. The goal of the program is to streamline the process of creating a ticket and inserting it into the existing heat database so that IT can still use their existing system for handling tickets. As well, through the addition of an announcements screen as well as a a help screen, we are hoping to give the user another way to try and solve their issues before they have to put another ticket in the system for something that is either already a known issue or a simple fix that a guide can solve. 
 
 #Using the Ticketing System
+
 ##Logging in
-You must have an account to view the content of the system. When you go to the site, you will be prompted for a Username and password. Once you have logged in, you will be brought to the main page. On this page as well is a way to do a forgotten password request. 
+You must have an account to view the content of the system. When you go to the site, you will be prompted for a Username and password. Once you have logged in, you will be brought to the main page. On this page as well is a way to do a forgotten password request.
+
 ##Main Page
 The Main page will show a simplified version of the different tabs in the bar. Recent announcements will be shown at the top to inform any Employees of current issues (ie Internet outtage at a certain branch). In separate tables, the user will also see a list of both personal and branch tickets, starting from the most recent. If the ticket is open, it will show submission date, otherwise it will show closed. Beneath those will be the Frequently Asked Questions, which will potentially help users solve common issues, keeping IT resources free for other problems.
+
 ##My Ticket Page
-The My Ticket Page will show the user all of their open tickets by default, with another tab to look at all of their open and closed tickets together. These will be displayed in a tabular fashion, with columns for the type of the ticket, when the ticket was submitted and all of the pertinent information for the ticket itself. The user will have the ability to sort based on the categories that the product owner has specified, as well as being able to search through the tickets by keyword. As well, with it being in a table, there will be the ability to go through and sort the table based on the columns. From this page as well there will be the ability to edit the Ticket as well as self close the ticket.
+The My Ticket Page will show the user all of their open tickets by default, with another tab to look at all of their open and closed tickets together. These will be displayed in a tabular fashion, with all of the relevent information for the ticket displayed. The user will have the ability to sort based on the categories that the product owner has specified, as well as being able to search through the tickets by keyword. From this page as well there will be the ability to edit the Ticket as well as self close the ticket.
 
   * **Editing a Ticket**
   To edit a ticket, the user can get there from the inital My ticket page or after viewing a ticket from one of those pages. Once the
@@ -48,6 +51,7 @@ This system will have 3 main kinds of users, Customers, Managers, and IT workers
 3. IT
   * These users will have higher permissions then the other users, being able to see all tickets in the system.
   * They will be able to add to the announcements screen and the help screen.
+  
 ##Mobile
 The system will also be able to be viewed well on mobile screens/tablets. It will become more vertical, but the mainsystem functionality will still be there. The user will be able to view thier tickets on the mobile screen, submit a ticket, as well as looking at help and announcements. 
 
