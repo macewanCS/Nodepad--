@@ -1,5 +1,4 @@
 #EPL Ticketing System
-The goal of this application is to simplify the ticketing system for the EPL. The ticketing system is a Javascript application is written using Nodejs and express frameworks. The client has expressed some frustrations with the current system in that all of the required information is not taken from the email, or that some private information such as passwords can be put inside of the body of the email. The goal of the program is to streamline the process of creating a ticket and inserting it into the existing heat database so that IT can still use their existing system for handling tickets. As well, through the addition of an announcements screen as well as a a help screen, we are hoping to give the user another way to try and solve their issues before they have to put another ticket in the system for something that is either already a known issue or a simple fix that a guide can solve. 
 
 Our goal is to create a web application that allows EPL workers to create tickets online. Those tickets must then be inserted into their current database system.
 
