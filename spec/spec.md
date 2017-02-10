@@ -10,36 +10,42 @@ This system will be written in JavaScript using the Nodejs framework.
 
 Our system will be designed similarly to the design of the [EPL website](https://www.epl.ca/). This should give our targetted audience, EPL workers, some baseline familiarity with the system.
 
-#Header
+#How a User Navigates the Site
 
-Following that design goal, we will be using a header very similar to that found on epl.ca. 
+A user will be able to click the links at the top of the page to browse between the different screens on the site.
 
-it will have hyperlinks on it that will allow users to navigate to the different sections of the site.
-
-It will have a button on it that allows users to begin the process of creating tickets.
+A user can also click on the tabs at the top of each section to go to the screen for that section.
 
 ##Logging in
+
 When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let a user recover a forgotten password.
 
 After a succesful login, a user will be brought to the home screen.
 
 ##Home Screen
 
-This screen will provide a general overview of each of the other screens in the application. A user will be able to see recent announcements, tickets they created, and tickets from their branch. They will also be able to see some general help that could help them solve their issue before submitting a ticket. 
+This screen will provide a general overview of each of the other screens in the application. 
 
-##My Tickets
+A user will be able to see recent announcements, tickets they created, and tickets from their branch. 
+
+They will also be able to see some general help that could help them solve their issue before submitting a ticket. 
+
+##Viewing their own tickets
+
 The system will allow a user to view all of their submitted tickets by clicking on the My Tickets screen. 
 
 This page will display in a tabular fashion, all of the relevent information for the ticket displayed. 
 
 A user will have the ability to sort tickets based on the categories that the product owner has specified, and be able to search through the tickets by keyword. 
 
-From this page there will be the ability to edit the Ticket and self close the ticket.
+From this page there will also be the ability to edit the Ticket and self close the ticket.
 
   * **Editing a Ticket**
-  Once the user has begun editing the ticket, any required information will have to be input before they are able to submit the changes.   As well   the user will be shown a screen confirming their edits afterwords.
+  There will be required fields that must be filled before a user can submit any edits.   As well, a user will be shown a screen confirming their edits once they submit.
   * **Closing a Ticket**
-  The user will be able to self-close the ticket if they either entered the ticket by mistake or solved the problem on their own. The user will be required to enter in the solution to the problem that they had originally submitted, so that other users can solve the problem if they run into the same issue. Now this will not actually close the ticket from the IT side, just set a flag saying that this ticket needs to be reviewed by IT after it has actually been closed.
+  A user will be able to self-close the ticket. A user will also be required to enter in the solution to the problem that they had originally submitted, so that other users can solve the problem if they run into the same issue. Now this will not actually close the ticket from the IT side, just set a flag saying that this ticket needs to be reviewed by IT after it has actually been closed.
+  
+  A user will be able to self-close a ticket, but they will be required to provide the solution to their problem tha
 
 ##Viewing Branch Tickets
 The user will have the ability to view their branch tickets. This feature works the same as viewing thier own tickets, but the user can view any ticket that they are authorized to see from their entire branch. These will include open and closed tickets. The reason behind having a branch tickets is to try and stop an influx of tickets coming in from the same issue, such as wifi being down over the entire branch. The user should check an issue to see if it has been reported before submitting a ticket that may be effect he whole branch. There will be a way to filter which branches are being viewed at any time, so a user will be able to see any branch's tickets. 
