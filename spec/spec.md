@@ -18,7 +18,7 @@ A user can also click on the tabs at the top of each section to go to the screen
 
 ##Logging in
 
-When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. 
+When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created account to login to the system. 
 
 This initial page also has the option to let a user recover a forgotten password.
 
@@ -36,7 +36,7 @@ They will also be able to see some general help that could help them solve their
 
 The system will allow a user to view all of their submitted tickets by clicking on the My Tickets screen. 
 
-This page will display in a tabular fashion, all of the relevent information for the ticket displayed. 
+This page will display in a tabular fashion, all of the relevant information for the ticket displayed. 
 
 A user will have the ability to sort tickets based on the categories that the product owner has specified, and be able to search through the tickets by keyword. 
 
