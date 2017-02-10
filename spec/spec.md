@@ -2,7 +2,7 @@
 
 Our goal is to create a web application that allows EPL workers to create tickets online. Those tickets will then be inserted into their current database system.
 
-This system will be written in JavaScript using the Nodejs framework.
+This web application will be written in JavaScript using the Nodejs framework.
 
 #Using the Ticketing System
 
