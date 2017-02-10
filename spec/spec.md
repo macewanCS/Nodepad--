@@ -84,15 +84,6 @@ General Questions | What is the problem? | N/A | I am having trouble with my per
 
 Before the user can submit their form, they will be shown their information and asked if it is correct, if it is not correct they will have the option to go back and edit the previously entered information. 
 
-##Announcements
-
-A user can view important announcements from IT
-
-The Announcements will be sorted from newest to oldest in descending order
-
-##Help
-The system will have a help section that is for simple guides and tutorials.
-
 ##Users
 This system will have 3 main kinds of users, Customers, Managers, and IT workers.
 
@@ -110,3 +101,13 @@ This system will have 3 main kinds of users, Customers, Managers, and IT workers
 A user can visit the site from mobile platforms
 
 It will have the same functionality as the desktop page
+
+##Announcements
+
+A user can view important announcements from IT
+
+The Announcements will be sorted from newest to oldest in descending order
+
+##Help
+
+The system will have a help section that is for simple guides and tutorials.
