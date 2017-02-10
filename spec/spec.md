@@ -84,24 +84,6 @@ General Questions | What is the problem? | N/A | I am having trouble with my per
 
 Before the user can submit their form, they will be shown their information and asked if it is correct, if it is not correct they will have the option to go back and edit the previously entered information. 
 
-##Users
-This system will have 3 main kinds of users, Customers, Managers, and IT workers.
-
-1. Customers
-  * The customer will be able to view their own tickets and submit tickets for either their branch or for themselves. 
-  * They wil be able to see announcements and go to the help screen to look for guides, but not be able to add to them
-2. Managers
-  * The Manager will be able to submit and create tickets as well, but they will be able to view tickets for everyone in thier branch even if they did not create them.
-  * The Manager will also be able to see the announcements but will not be able to change them.
-3. IT
-  * These users will have higher permissions then the other users, being able to see all tickets in the system.
-  * They will be able to add to the announcements screen and the help screen.
-  
-##Mobile
-A user can visit the site from mobile platforms
-
-It will have the same functionality as the desktop page
-
 ##Announcements
 
 A user can view important announcements from IT
@@ -111,3 +93,24 @@ The Announcements will be sorted from newest to oldest in descending order
 ##Help
 
 The system will have a help section that is for simple guides and tutorials.
+
+##Users
+
+This system will have 3 main kinds of users.
+
+1. Basic User
+  * A basic user has access to ticket creation, editing, and resolving.
+  * A basic user can see all tickets created at their branch.
+  * A basic user can see the announcements and help screens.
+2. Manager User
+  * A manager user has access to ticket creation, editing, and resolving.
+  * A manager user can see and edit all tickets created at their branch.
+  * A manager user can see the announcements and help screens.
+3. IT Superuser
+  * An IT superuser can add annoucements and change the help screen.
+  
+##Mobile
+
+A user can visit the site from mobile platforms
+
+It will have the same functionality as the desktop page
