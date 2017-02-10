@@ -6,6 +6,10 @@ This system will be written in JavaScript using the Nodejs framework.
 
 #Using the Ticketing System
 
+#General Design
+
+Our system will be designed similarly to the design of the [EPL website](https://www.epl.ca/). This should give users some baseline familiarity with the system.
+
 ##Logging in
 When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let users recover a forgotten password.
 
