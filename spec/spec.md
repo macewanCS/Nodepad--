@@ -14,7 +14,7 @@ Our system will be designed similarly to the design of the [EPL website](https:/
 
 A user will be able to click the links at the top of the page to browse between the different screens on the site.
 
-A user can also click on the tabs at the top of each section to go to the screen for that section.
+A user will also be able to navigate the site from the footer.
 
 ##Logging in
 
@@ -53,10 +53,13 @@ A user wil be able to see tickets made at their branch by navigating to the Bran
 
 This screen will be similar to the individual ticket screen in design. Searching will be accomplished in the same way as the my tickets screen.
 
-A user should not be able to close branch tickets.
-
 ##Submitting a ticket
-The system will allow for a user to submit a ticket into the system.  The imperative information for IT/HR will be required so there is no need to follow up. The tickets will be separated into categories, so that we can reduce confusion amongst employees. 
+
+The system will allow a user to submit a ticket into the HEAT database.  
+
+There will be mandatory fields that a user must fill out.
+
+There will be five categories for users to choose from when creating a ticket.
 
 **Categories**
   * Software
@@ -79,7 +82,7 @@ Service Request | Request type, Which system to allow access to, Asset Tag Where
 General Questions | What is the problem? | N/A | I am having trouble with my personal phone connecting to the web ticketing portal.
 
 
-Before the user can submit their form, they will be shown thier information and asked if it is correct, if it is nt correct they wil have the option to go back and edit the previously entered information. 
+Before the user can submit their form, they will be shown their information and asked if it is correct, if it is not correct they will have the option to go back and edit the previously entered information. 
 
 ##Announcements
 The ticketing system will allow users to see announcements that EPL IT staff feel is good for users to see. It can inform users of large problems, or give friendly reminders to employees. This is another way to stop an influx of tickets over a known issue, such as wifi being down over the entire branch. An IT user can come in and put an announcement in like IT holiday hours, which will then show up for all users in the announcement's page. As well, the EPL already has a system in place for announcements, so giving another place for users to see those kind of announcements on their tickiting pages is a good way of focusing information all in one place.
