@@ -48,7 +48,12 @@ From this page there will also be the ability to edit the Ticket and self close 
   A user can resolve their ticket, but will be required to enter their solution to the problem before it can be resolved.
 
 ##Viewing Branch Tickets
-The user will have the ability to view their branch tickets. This feature works the same as viewing thier own tickets, but the user can view any ticket that they are authorized to see from their entire branch. These will include open and closed tickets. The reason behind having a branch tickets is to try and stop an influx of tickets coming in from the same issue, such as wifi being down over the entire branch. The user should check an issue to see if it has been reported before submitting a ticket that may be effect he whole branch. There will be a way to filter which branches are being viewed at any time, so a user will be able to see any branch's tickets. 
+
+A user wil be able to see tickets made at their branch by navigating to the Branch Tickets screen. This will include open and closed tickets.
+
+This screen will be similar to the individual ticket screen in design. Searching will be accomplished in the same way as the my tickets screen.
+
+A user should not be able to close branch tickets.
 
 ##Submitting a ticket
 The system will allow for a user to submit a ticket into the system.  The imperative information for IT/HR will be required so there is no need to follow up. The tickets will be separated into categories, so that we can reduce confusion amongst employees. 
