@@ -10,6 +10,10 @@ This system will be written in JavaScript using the Nodejs framework.
 
 Our system will be designed similarly to the design of the [EPL website](https://www.epl.ca/). This should give users some baseline familiarity with the system.
 
+#Header
+
+Following that design goal, we will be using a header very similar to that found on epl.ca. It will have a home icon that will return users to the home screen, as well as "My Tickets", "Branch Tickets", "Announcements", and "Help" hyperlinks that will direct users to their respective screens. Finally, it will have a "Create Ticket" button that can be clicked to begin the ticket creation process from any screen on the site.
+
 ##Logging in
 When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let users recover a forgotten password.
 
@@ -17,7 +21,6 @@ After a succesful login, users are brought to the home screen.
 
 ##Home Screen
 The main page will show a simplified version of the different tabs in the bar. Recent announcements will be shown at the top to inform any Employees of current issues (ie Internet outtage at a certain branch). In separate tables, the user will also see a list of both personal and branch tickets, starting from the most recent. If the ticket is open, it will show submission date, otherwise it will show closed. Beneath those will be the Frequently Asked Questions, which will potentially help users solve common issues, keeping IT resources free for other problems.
-
 
 ##Viewing their own tickets
 The system being built will allow the signed in user to view all of their submitted tickets. These will be displayed in a tabular fashion, with all of the relevent information for the ticket displayed. The user will have the ability to sort based on the categories that the product owner has specified, as well as being able to search through the tickets by keyword. From this page as well there will be the ability to edit the Ticket as well as self close the ticket.
