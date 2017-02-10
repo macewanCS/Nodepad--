@@ -44,12 +44,12 @@ Service Request | Request type, Which system to allow access to, Asset Tag Where
 General Questions | What is the problem? | N/A | I am having trouble with my personal phone connecting to the web ticketing portal.
 
 
-Before the user can submit their form, they will be shown thier information and asked if it is correct, if it is nt correct they wil have the option to go back and edit the previously entered information. 
+Before the user can submit their form, they will be shown thier information and asked if it is correct, if it is not correct they wil have the option to go back and edit the previously entered information. 
 
 ##Announcements
 The ticketing system will allow users to see announcements that EPL IT staff feel is good for users to see. It can inform users of large problems, or give friendly reminders to employees. This is another way to stop an influx of tickets over a known issue, such as wifi being down over the entire branch. An IT user can come in and put an announcement in like IT holiday hours, which will then show up for all users in the announcement's page. As well, the EPL already has a system in place for announcements, so giving another place for users to see those kind of announcements on their tickiting pages is a good way of focusing information all in one place.
 ##Help
-Help will have a section of frequently asked questions that some of the clients may have come accross, this helps to avoid having IT members repeatedly helping users with some easily fixed problems, these could be written and added by the IT staff. 
+The system will have a section of frequently asked questions that some of the clients may have come accross, this helps to avoid having IT members repeatedly helping users with some easily fixed problems, these could be written and added by the IT staff. As well, there will be links to guides to help solve some common issues.
 ##Users
 This system will have 3 main kinds of users, Customers, Managers, and IT workers.
 
