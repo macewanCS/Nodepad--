@@ -8,33 +8,33 @@ This system will be written in JavaScript using the Nodejs framework.
 
 #General Design
 
-Our system will be designed similarly to the design of the [EPL website](https://www.epl.ca/). This should give users some baseline familiarity with the system.
+Our system will be designed similarly to the design of the [EPL website](https://www.epl.ca/). This should give our targetted audience, EPL workers, some baseline familiarity with the system.
 
 #Header
 
 Following that design goal, we will be using a header very similar to that found on epl.ca. 
 
-It will have a home icon that will return users to the home screen, as well as "My Tickets", "Branch Tickets", "Announcements", and "Help" hyperlinks that will direct users to their respective screens.
+it will have hyperlinks on it that will allow users to navigate to the different sections of the site.
 
-Finally, it will have a "Create Ticket" button that can be clicked to begin the ticket creation process from any screen on the site.
+It will have a button on it that allows users to begin the process of creating tickets.
 
 ##Logging in
-When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let users recover a forgotten password.
+When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let a user recover a forgotten password.
 
-After a succesful login, users are brought to the home screen.
+After a succesful login, a user will be brought to the home screen.
 
 ##Home Screen
 
-This screen will provide a general overview of each of the other screens in the application. 
+This screen will provide a general overview of each of the other screens in the application. A user will be able to see recent announcements, tickets they created, and tickets from their branch. They will also be able to see some general help that could help them solve their issue before submitting a ticket. 
 
-Directly underneath the header there will be an "Announcements" section, that displays current issues affecting branches.
+##My Tickets
+The system will allow a user to view all of their submitted tickets by clicking on the My Tickets screen. 
 
-Below that will be the "My Tickets" and "Branch Tickets" that displays recent individual and branch wide tickets, sorted from most to least new. These tickets will display wether they are currently open or closed.
+This page will display in a tabular fashion, all of the relevent information for the ticket displayed. 
 
-Directly above the footer, there will be a Help section, that will display frequently asked questions that users of the system have. 
+A user will have the ability to sort tickets based on the categories that the product owner has specified, and be able to search through the tickets by keyword. 
 
-##Viewing their own tickets
-The system being built will allow the signed in user to view all of their submitted tickets. These will be displayed in a tabular fashion, with all of the relevent information for the ticket displayed. The user will have the ability to sort based on the categories that the product owner has specified, as well as being able to search through the tickets by keyword. From this page as well there will be the ability to edit the Ticket as well as self close the ticket.
+From this page there will be the ability to edit the Ticket and self close the ticket.
 
   * **Editing a Ticket**
   Once the user has begun editing the ticket, any required information will have to be input before they are able to submit the changes.   As well   the user will be shown a screen confirming their edits afterwords.
