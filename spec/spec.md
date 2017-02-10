@@ -1,16 +1,19 @@
 #EPL Ticketing System
 
-Our goal is to create a web application that allows EPL workers to create tickets online. Those tickets must then be inserted into their current database system.
+Our goal is to create a web application that allows EPL workers to create tickets online. Those tickets will then be inserted into their current database system.
 
 This system will be written in JavaScript using the Nodejs framework.
 
 #Using the Ticketing System
 
 ##Logging in
-You must have an account to view the content of the system. When you go to the site, you will be prompted for a Username and password. Once you have logged in, you will be brought to the main page. On this page as well is a way to do a forgotten password request.
+When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. This initial page also has the option to let users recover a forgotten password.
+
+After a succesful login, users are brought to the home screen.
 
 ##Home Screen
-The Main page will show a simplified version of the different tabs in the bar. Recent announcements will be shown at the top to inform any Employees of current issues (ie Internet outtage at a certain branch). In separate tables, the user will also see a list of both personal and branch tickets, starting from the most recent. If the ticket is open, it will show submission date, otherwise it will show closed. Beneath those will be the Frequently Asked Questions, which will potentially help users solve common issues, keeping IT resources free for other problems.
+The main page will show a simplified version of the different tabs in the bar. Recent announcements will be shown at the top to inform any Employees of current issues (ie Internet outtage at a certain branch). In separate tables, the user will also see a list of both personal and branch tickets, starting from the most recent. If the ticket is open, it will show submission date, otherwise it will show closed. Beneath those will be the Frequently Asked Questions, which will potentially help users solve common issues, keeping IT resources free for other problems.
+
 
 ##Viewing their own tickets
 The system being built will allow the signed in user to view all of their submitted tickets. These will be displayed in a tabular fashion, with all of the relevent information for the ticket displayed. The user will have the ability to sort based on the categories that the product owner has specified, as well as being able to search through the tickets by keyword. From this page as well there will be the ability to edit the Ticket as well as self close the ticket.
