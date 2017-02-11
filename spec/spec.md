@@ -26,7 +26,7 @@ After a succesful login, a user will be brought to the home screen.
 
 ##Home Screen
 
-This screen will provide a general overview of each of the other screens in the application. 
+This screen will provide a brief overview of each of the other screens in the application. 
 
 A user will be able to see recent announcements, tickets they created, and tickets from their branch. 
 
@@ -36,7 +36,7 @@ They will also be able to see some general help that could help them solve their
 
 The system will allow a user to view all of their submitted tickets by clicking on the My Tickets screen. 
 
-This page will display in a tabular fashion, all of the relevent information for the ticket displayed. 
+This page will display in a tabular fashion, all of the relevant information for the ticket displayed. 
 
 A user will have the ability to sort tickets based on the categories that the product owner has specified, and be able to search through the tickets by keyword. 
 
