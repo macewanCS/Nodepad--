@@ -12,7 +12,7 @@ Our system will be designed similarly to the design of the [EPL website] (https:
 
 #How a User Navigates the Site
 
-A user will be able to click the links at the top of the page to browse between the different screens on the site.
+A user will be able to click the links in the header of the page to browse between the different screens on the site.
 
 A user will also be able to navigate the site from the footer.
 
@@ -26,7 +26,7 @@ After a succesful login, a user will be brought to the home screen.
 
 ##Home Screen
 
-This screen will provide a general overview of each of the other screens in the application. 
+This screen will provide a brief overview of each of the other screens in the application. 
 
 A user will be able to see recent announcements, tickets they created, and tickets from their branch. 
 
@@ -36,7 +36,7 @@ They will also be able to see some general help that could help them solve their
 
 The system will allow a user to view all of their submitted tickets by clicking on the My Tickets screen. 
 
-This page will display in a tabular fashion, all of the relevent information for the ticket displayed. 
+This page will display in a tabular fashion, all of the relevant information for the ticket displayed. 
 
 A user will have the ability to sort tickets based on the categories that the product owner has specified, and be able to search through the tickets by keyword. 
 
@@ -84,16 +84,6 @@ General Questions | What is the problem? | N/A | I am having trouble with my per
 
 Before the user can submit their form, they will be shown their information and asked if it is correct, if it is not correct they will have the option to go back and edit the previously entered information. 
 
-##Announcements
-
-A user can view important announcements from IT
-
-The Announcements will be sorted from newest to oldest in descending order
-
-##Help
-
-The system will have a help section that is for simple guides and tutorials.
-
 ##Users
 
 This system will have 3 main kinds of users.
@@ -107,10 +97,23 @@ This system will have 3 main kinds of users.
   * A manager user can see and edit all tickets created at their branch.
   * A manager user can see the announcements and help screens.
 3. IT Superuser
-  * An IT superuser can add annoucements and change the help screen.
+  * An IT superuser can add or remove annoucements
+  * An IT superuser can change the help screen
+
   
 ##Mobile
 
 A user can visit the site from mobile platforms
 
 It will have the same functionality as the desktop page
+
+##Announcements
+
+A user can view important announcements from IT
+
+The Announcements will be sorted from newest to oldest in descending order
+
+##Help
+
+The system will have a help section that is for simple guides and tutorials.
+
