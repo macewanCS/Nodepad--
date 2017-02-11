@@ -2,7 +2,7 @@
 
 * As a library worker I need to report issues to IT through an online web portal.
 
-- As a library worker I can submit tickets even when IT are closed.
+- As a library worker I can submit tickets even when IT is closed.
 
 * As a library worker I need to view my previous tickets.
 
