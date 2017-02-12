@@ -5,3 +5,20 @@ body {
 header {
   background-color: #FFFFFF;
 }
+.topnav {
+  height: auto;
+  position: relative;
+}
+.main-nav {
+  margin-left: 15px;
+}
+
+.nav-item {
+  float: left;
+  height: auto;
+  display: block;
+  line-height: 59px;
+}
+.top-menu-link {
+  
+}
