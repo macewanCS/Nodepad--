@@ -1,3 +1,16 @@
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<style>
+    body    { padding-top:0;
+              padding-left:0 }
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +24,48 @@
     <footer>
       <% include ./partials/footer %>
     </footer>
-    
+    <script
+    src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('#myTable').DataTable();
+        });
+      /*$(document).ready(function(){
+        $("p").click(function(){
+            $(this).hide();
+        });
+      });
+      */
+    </script>
+
+    <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Desc</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Hardware</td>
+            <td>Laptop exploded and I am dying now</td>
+            <td>Open</td>
+        </tr>
+        <tr>
+            <td>General</td>
+            <td>Killer cat on the loose</td>
+            <td>Closed</td>
+        </tr>
+    </tbody>
+    </table>
+  </style>
+
+
+
+
   </body>
-</html> 
+
+</html>
+
