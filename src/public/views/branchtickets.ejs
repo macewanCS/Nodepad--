@@ -1,3 +1,18 @@
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+<style><background-color: blue></style>
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<style>
+    body    { padding-top:0;
+              padding-left:10;
+              padding-right:10; }
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,10 +22,58 @@
     <header>
       <% include ./partials/header %>
     </header>
-    This is the branch tickets screen
     <footer>
       <% include ./partials/footer %>
     </footer>
-    
+    <script
+    src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('#myTable').DataTable( {
+            "ajax": '../arrays.txt' } );
+        });
+    </script>
+
+    <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Desc</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <script>
+                //ROW 1
+        </script>
+        /*<tr>
+            <td>Hardware</td>
+            <td>Laptop exploded and I am dying now</td>
+            <td>Open</td>
+        </tr>
+          <script>
+                //ROW 2
+        </script>
+        <tr>
+            <td>General</td>
+            <td>Killer cat on the loose</td>
+            <td>Closed</td>
+        </tr>
+          <script>
+                //ROW 3
+          </script>
+        <tr>
+            <td>Software</td>
+            <td>Software freezes when I type and says sorry your fingers too fat</td>
+            <td>Open</td>
+        </tr>
+        */
+    </tbody>
+    </table>
+  </style>
+
   </body>
-</html> 
+
+</html>
+
