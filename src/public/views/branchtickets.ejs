@@ -29,7 +29,8 @@
     src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script>
       $(document).ready(function(){
-          $('#myTable').DataTable();
+          $('#myTable').DataTable( {
+            "ajax": '../arrays.txt' } );
         });
     </script>
 
@@ -46,7 +47,7 @@
         <script>
                 //ROW 1
         </script>
-        <tr>
+        /*<tr>
             <td>Hardware</td>
             <td>Laptop exploded and I am dying now</td>
             <td>Open</td>
@@ -67,6 +68,7 @@
             <td>Software freezes when I type and says sorry your fingers too fat</td>
             <td>Open</td>
         </tr>
+        */
     </tbody>
     </table>
   </style>
