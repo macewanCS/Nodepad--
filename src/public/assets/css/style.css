@@ -1,24 +1,42 @@
+header{
+  background-color: #FFFFFF;
+  padding:0px;
+  margin:0px;
+}
+/* logo */
+header #logo img {
+  vertical-align: baseline;
+}
+/* main navigation */
+#head-nav {
+  width: 49%;
+  display:inline-block;
+  text-align: left;
+}
+#head-nav ul {
+  list-style:none;
+  padding: 0;
+}
+
+#head-nav ul li{
+  display: inline-block;
+}
+
+#head-nav ul li a{
+  color:#3F4344;
+		font-weight:normal;
+		font-size:16px;
+		height:56px;
+		display:inline-block
+}
+
+
+
+
+
+
 body {
   background-color: #3f4344;
   margin: 0;
 } 
-header {
-  background-color: #FFFFFF;
-}
-.topnav {
-  height: auto;
-  position: relative;
-}
-.main-nav {
-  margin-left: 15px;
-}
 
-.nav-item {
-  float: left;
-  height: auto;
-  display: block;
-  line-height: 59px;
-}
-.top-menu-link {
-  
-}
