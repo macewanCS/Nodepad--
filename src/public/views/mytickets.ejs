@@ -1,31 +1,30 @@
 
-
-<!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<style>
-    body    { padding-top:0;
-              padding-left:10;
-              padding-right:10; }
-    table   { padding-left: 2;
-              padding-right: 2;}
---!>
-
-
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
-<style><background-color: blue></style>
 
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- Dependencies -->
+    <title>Datatables</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <style><background-color: blue></style>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>CSS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/mytickets.css">
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Bootstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="../assets/css/mytickets.css">
+
     <% include ./partials/head %>
   </head>
+  
   <body>
     <header>
       <% include ./partials/header %>
@@ -34,30 +33,96 @@
       <% include ./partials/footer %>
     </footer>
 
-    <script
-    src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-    <script>
-      $(document).ready(function(){
-          $('#myTable').DataTable( {
-            "ajax": '../arrays.txt' } );
-        });
-    </script>
 
-    <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-    <table id="myTable" class="display">
-    <thead>
-        <tr>
-            <th>Category</th>
-            <th>Desc</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    </table>
-  
+    <div class="container">
 
+      <h2>My Tickets</h2>
+      <!-- Set the Tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#openTab">Open</a></li>
+        <li><a data-toggle="tab" href="#closedTab">Closed</a></li>
+        <li><a data-toggle="tab" href="#allTab">All</a></li>
+      </ul>
+
+      <div class="tab-content">
+       <!-- Set contents per tab -->
+        <div id="openTab" class="tab-pane fade in active">
+          <h3>Open Tickets</h3>
+            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+            <script>
+              $(document).ready(function(){
+                $('#myOpenTable').DataTable( {
+                  "ajax": '../openTickets.json' } );
+              });
+            </script>
+
+            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+            <table id="myOpenTable" class="display">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Desc</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </div>
+
+       <!-- Set contents per tab -->
+        <div id="closedTab" class="tab-pane fade in active">
+          <h3>Closed Tickets</h3>
+            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+            <script>
+              $(document).ready(function(){
+                $('#myClosedTable').DataTable( {
+                  "ajax": '../closedTickets.json' } );
+              });
+            </script>
+
+            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+            <table id="myClosedTable" class="display">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Desc</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </div>
+      
+       <!-- Set contents per tab -->
+        <div id="allTab" class="tab-pane fade in active">
+          <h3>All Tickets</h3>
+            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+            <script>
+              $(document).ready(function(){
+                $('#myAllTable').DataTable( {
+                  "ajax": '../arrays.txt' } );
+              });
+            </script>
+
+            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+            <table id="myAllTable" class="display">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Desc</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
   </body>
-
 </html>
