@@ -1,19 +1,73 @@
-.card {
-  background: #FFFFFF;
-  width: 400px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: auto;
-  margin-top: auto;
-  border:1px solid #000;
-  height: 400px;
+.categories-box {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #fff;
+  border-width: 1px;
+  border-color: #ddd;
+  border-radius: 4px 4px 0 0;
+  box-shadow: none;
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  margin-top: 500px;
+  box-sizing: border-box;
+}
+.fa-copy::before, .fa-files-o::before {
+    content: "../images/hardware.png" alt="Hardware";
+}
+.bootcards-summary-item {
+  background: #f5f5f5;
+  display: block;
+  border-radius: 4px;
+  padding: 25px 10px;
+  text-align: center;
+  position: relative;
+  height: 125px; 
+  width: 150px;
+  color: #000;
+  border-color: #000;
 }
 
-#category-img {
-  height: 200px;
-  width: 200px;
-  border:1px solid #021a40;
-  display: inline-block;
-  margin-right: auto;
-  margin-left: auto;
+.panel-default {
+  width: 55%;
+  position: relative;
+  left: 20%;
+  margin-top: 5em;
+}
+
+.bootcards-summary .panel-body > .row > div {
+  padding: 8px;
+  width: 20%;
+  float: left;
+}
+
+.bootcards-summary-item h4{
+  margin: 0 auto;
+}
+
+.bootcards-summary .panel-body {
+  padding: 7px 25px;
+}
+.fa {
+  font: normal normal normal 14px/1 FontAwesome;
+
+}
+
+.panel-default > .panel-heading {
+  background-color: #000;
+  color: #FFF;
+}
+
+.panel-title {
+  font-family: "Open Sans", "Time New Roman", "Arial";
+  font-weight: bold;
+}
+
+.bootcards-summary-item > i {
+  Color: #000;
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 50px;
+  
 }
