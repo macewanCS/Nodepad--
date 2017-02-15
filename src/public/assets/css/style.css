@@ -2,6 +2,8 @@ header{
   background-color: #FFFFFF;
   padding:0px;
   margin:0px;
+  border-bottom-style: solid;
+  border-bottom: solid #000000
 }
 /* logo */
 header #logo img {
@@ -64,7 +66,7 @@ header #logo img {
 
 
 body {
-  background-color: #3f4344;
+  background-color: #e6e6e6;
   margin: 0;
 } 
 
