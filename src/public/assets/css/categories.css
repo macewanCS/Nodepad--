@@ -12,11 +12,19 @@
   margin-top: 500px;
   box-sizing: border-box;
 }
+#super-card{
+  background: #fff;
+  width: 70%;
+  position: relative;
+  left: 18%;
+  height: 350px;
+  width: 65%;
+  margin-top: 5em;
+}
 .fa-copy::before, .fa-files-o::before {
     content: "../images/hardware.png" alt="Hardware";
 }
 .bootcards-summary-item {
-  background: #f5f5f5;
   display: block;
   border-radius: 4px;
   padding: 25px 10px;
@@ -25,20 +33,23 @@
   height: 125px; 
   width: 150px;
   color: #000;
-  border-color: #000;
 }
 
 .panel-default {
-  width: 55%;
+  width: 85%;
   position: relative;
-  left: 20%;
-  margin-top: 5em;
+  top: 6em;
+  border-color: #000;
+  left:5em;
 }
 
 .bootcards-summary .panel-body > .row > div {
   padding: 8px;
   width: 20%;
   float: left;
+  border: solid 1px;
+  border-color: #000;
+  color: #f5f5f5;
 }
 
 .bootcards-summary-item h4{
@@ -50,7 +61,6 @@
 }
 .fa {
   font: normal normal normal 14px/1 FontAwesome;
-
 }
 
 .panel-default > .panel-heading {
@@ -69,5 +79,23 @@
   text-align: center;
   margin-bottom: 5px;
   font-size: 50px;
-  
+}
+.channel-name {
+  border-left-color: #1464f6;
+  background-color: #3f4344;
+  padding: 10px 25px;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  border-left-width: 10px;
+  border-left-style: solid;
+  z-index: 9;
+  font-weight: bold;
+  width: 200px;
+  position: absolute;
+}
+.channel-name:hover{
+  background-color: #585d5e;
+  color: #FFF;
 }
