@@ -70,6 +70,10 @@ body {
   margin: 0;
 } 
 
+a {
+  text-decoration: none;
+}
+
 footer {
   background-color: #FFFFFF;
   height: 60px;
