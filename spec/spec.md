@@ -82,7 +82,9 @@ Service Request | Request type, Which system to allow access to, Asset Tag Where
 General Questions | What is the problem? | N/A | I am having trouble with my personal phone connecting to the web ticketing portal.
 
 
+<<<<<<< HEAD
 Before the user can submit their form, they will be shown their information and asked if it is correct, if it is not correct they will have the option to go back and edit the previously entered information. 
+
 
 ##Users
 
