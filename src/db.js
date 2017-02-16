@@ -11,7 +11,8 @@ connection.connect();
 connection.query('SELECT * from users',
 	function(err, rows, fields){
 		if(!err){
-			var test = rows[1].username;
+			var toClass = {}.toString;
+			var test = rows[1];
 			console.log('The solution is: ', test);
 			return test;
 		}	
