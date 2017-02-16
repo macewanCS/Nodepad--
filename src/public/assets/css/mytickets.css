@@ -1,7 +1,7 @@
 
 
 #myOpenTable   {
-  padding: 0;
+  height: relative;
   margin-left:0px;
   margin-bottom: 0px;
 }
@@ -11,10 +11,19 @@
   background: #fff;
   position: relative;
   left: 5%;
-  Right: 5%;
-  height: 600px;
+  right: 5%;
+  height: relative;
   width: 90%;
   margin-top: 5em;
+}
+
+.panel-default { 
+  width: relative;
+  /*position:relative;*/
+  padding-top: 4em;
+  border-color: #000;
+  left:5em;
+  /*  height: relative;  */
 }
 
 .channel-name {
@@ -32,10 +41,25 @@
   width: 200px;
   position: absolute;
 }
+
 .channel-name:hover{
   background-color: #585d5e;
   color: #FFF;
 }
+
+.bootcards-summary-item {
+  display: block;
+  border-radius: 4px;
+  padding: 25px 10px;
+  text-align: center;
+  position: relative;
+  height: 125px; 
+  width: 150px;
+  color: #000;
+}
+
+
+
 /*
 	#table   { 
 	padding-left: 2;

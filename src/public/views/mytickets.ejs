@@ -41,12 +41,15 @@
 
 
     <div class="card" id="super-card-mytickets">
+
       <div class="super-panel-heading">
         <a href="/categories" class="channel-name stripe-two">My   Tickets</a>
         </div>
+
+    
       <div class="panel panel-default bootcards-summary align-middle">
-        
-      <div class="w3-container">
+        <div class="w3-container w3-">
+  
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#openTab">Open</a></li>
         <li><a data-toggle="tab" href="#closedTab">Closed</a></li>
@@ -64,14 +67,14 @@
 
                   "autoWidth": false,
                   // 
-                  "columnDefs": [{ "width": "10%", "targets": 0 }],
-                  "columnDefs": [{ "width": "50%", "targets": 1 }],
-                  "columnDefs": [{ "width": "5%", "targets": 2 }],
-                  "columnDefs": [{ "width": "25%", "targets": 3 }],
-                  "columnDefs": [{"className": "dt-center", "targets": "1"}],
+                  //"columnDefs": [{ "width": "10%", "targets": 0 }],
+                  "columnDefs": [{ "width": "80%", "targets": 1 }],
+                  //"columnDefs": [{ "width": "5%", "targets": 2 }],
+                  //"columnDefs": [{ "width": "5%", "targets": 3 }],
+                  //"columnDefs": [{"className": "dt-center", "targets": "1"}],
                   "columnDefs": [{"text-align" : "center", "targets": "2"}],
                   "ajax": '../openTickets.json', 
-                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button> <button>View</button> <button>Close</button" } ]
+                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button> <button>Edit</button> <button>Close</button" } ]
 
 
                 });
