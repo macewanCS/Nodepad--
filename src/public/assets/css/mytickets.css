@@ -1,0 +1,75 @@
+
+
+#myOpenTable   {
+  height: relative;
+  margin-left:0px;
+  margin-bottom: 0px;
+}
+
+
+#super-card-mytickets{
+  background: #fff;
+  position: relative;
+  left: 5%;
+  right: 5%;
+  height: relative;
+  width: 90%;
+  margin-top: 5em;
+}
+
+.panel-default { 
+  width: relative;
+  /*position:relative;*/
+  padding-top: 4em;
+  border-color: #000;
+  left:5em;
+  /*  height: relative;  */
+}
+
+.channel-name {
+  border-left-color: #1464f6;
+  background-color: #3f4344;
+  padding: 10px 25px;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  border-left-width: 10px;
+  border-left-style: solid;
+  z-index: 9;
+  font-weight: bold;
+  width: 200px;
+  position: absolute;
+}
+
+.channel-name:hover{
+  background-color: #585d5e;
+  color: #FFF;
+}
+
+.bootcards-summary-item {
+  display: block;
+  border-radius: 4px;
+  padding: 25px 10px;
+  text-align: center;
+  position: relative;
+  height: 125px; 
+  width: 150px;
+  color: #000;
+}
+
+
+
+/*
+	#table   { 
+	padding-left: 2;
+    padding-right: 2;}
+
+    #head-nav #new-ticket-button {
+  position: relative;
+  left: 15px;
+  top: 10px;
+  vertical-align: center-right;
+
+}
+*/
