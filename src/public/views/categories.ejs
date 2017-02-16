@@ -2,12 +2,60 @@
 <html>
   <head>
     <% include ./partials/head %>
+    <link rel="stylesheet" href="../assets/css/categories.css">
+    <script src="https://use.fontawesome.com/73171399df.js"></script>
   </head>
   <body>
     <header>
       <% include ./partials/header %>
     </header>
-    This is the categories screen
+    
+<div class="card" id="super-card">
+  <div class="super-panel-heading">
+    <a href="/categories" class="channel-name stripe-two">New Ticket</a>
+  </div>
+<div class="panel panel-default bootcards-summary align-middle">
+  <div class="panel-heading">
+    <h3 class="panel-title">Select a category</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6 col-sm-4">
+        <a class="bootcards-summary-item" href="/categories/hardware">
+          <i class="fa fa-desktop" aria-hidden="true"></i>
+          <h4>Hardware</h4>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <a class="bootcards-summary-item" href="/categories/software">
+          <i class="fa fa-code" aria-hidden="true"></i>
+          <h4>Software</h4>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <a class="bootcards-summary-item" href="/categories/password">
+          <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          <h4>Password</h4>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <a class="bootcards-summary-item" href="/categories/service">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <h4>Service</h4>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <a class="bootcards-summary-item" href="/categories/general">
+          <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+          <h4>General</h4>
+        </a>
+      </div>      
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+    
     <footer>
       <% include ./partials/footer %>
     </footer>
