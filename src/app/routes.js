@@ -1,4 +1,5 @@
-var tickets_controller = require("./controllers/tickets_controller.js")
+var tickets_controller = require("./controllers/tickets_controller.js");
+var ticket_creation_controller = require("./controllers/ticket_creation_controller.js");
 
 var appRouter = function(app) {
   app.get("/", function(req,res){
@@ -15,6 +16,9 @@ var appRouter = function(app) {
   app.get('/help', function(req, res){
     res.render((__dirname + '/../public/views/help.ejs'));
   });
+  
+  app.get('/categories', ticket_creation_controller.categories);
+  app.get('/categories/:form', ticket_creation_controller.forms);
 
   app.get('/mytickets', tickets_controller.mytickets);
   app.get('/mytickets/:ticketid/view', tickets_controller.view);
