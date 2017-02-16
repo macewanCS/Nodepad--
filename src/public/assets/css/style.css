@@ -2,6 +2,8 @@ header{
   background-color: #FFFFFF;
   padding:0px;
   margin:0px;
+  border-bottom-style: solid;
+  border-bottom: solid #000000;
 }
 /* logo */
 header #logo img {
@@ -17,6 +19,8 @@ header #logo img {
 #head-nav ul {
   list-style:none;
   padding: 0;
+  margin-left:15px;
+  margin-bottom: 20px;
 }
 
 #head-nav ul li{
@@ -27,7 +31,8 @@ header #logo img {
   color:#3F4344;
 	font-weight:normal;
 	font-size:16px;
-	display:inline-block
+	display:inline-block;
+  text-decoration:none;
 }
 
 #head-nav ul li span {
@@ -37,13 +42,43 @@ header #logo img {
   border-top: 0;
 }
 
+#head-nav ul li .nav-menu-help {
+  border-right: 1px solid #cccac8;
+}
 
+#head-nav #nav-menu-item-home {
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  margin-top: 15px;
+  margin-right: 15px;
+  position: relative;
+  top: 5px;
+}
 
+#head-nav #new-ticket-button {
+  position: relative;
+  left: 15px;
+  top: 10px;
+  vertical-align: center-right;
 
+}
 
 
 body {
-  background-color: #3f4344;
+  background-color: #e6e6e6;
   margin: 0;
 } 
 
+a {
+  text-decoration: none;
+}
+
+footer {
+  background-color: #FFFFFF;
+  height: 60px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-top: solid #000000;
+}

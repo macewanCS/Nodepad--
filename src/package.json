@@ -10,10 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "ajax": "0.0.4",
+    "body-parser": "^1.16.1",
+    "bootstrap": "^3.3.7",
+    "db-migrate": "^0.10.0-beta.20",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.5",
     "express": "^4.14.1",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
+    "node-restful": "^0.2.6",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "mysql" : "^2.5.4"
