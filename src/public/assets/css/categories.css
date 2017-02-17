@@ -20,6 +20,7 @@
   height: 350px;
   width: 65%;
   margin-top: 5em;
+  margin-bottom: 5em;
 }
 .fa-copy::before, .fa-files-o::before {
     content: "../images/hardware.png" alt="Hardware";

@@ -1,15 +1,48 @@
-
-
-
-
 #super-card{
   background: #fff;
   width: 70%;
   position: relative;
   left: 18%;
-  height: 350px;
+  height: 900px;
   width: 65%;
-  margin-top: 5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.panel-default > .panel-heading {
+  background-color: #000;
+  color: #fff;
+}
+
+.dropdown {
+  left: 70%;
+}
+
+#next-btn {
+  top: 4.75em;
+  left: 102.5%;
+  position:relative;
+}
+.issue-description {
+  position: relative;
+  left: 8%;
+  top: 4em;
+  font-family: "Open Sans", "Time New Roman", "Arial";
+}
+.panel-title {
+  font-family: "Open Sans", "Time New Roman", "Arial";
+  font-weight: bold;
+}
+
+.panel-collapse{
+  height: 200px;
+  width: 90%;
+}
+
+#sub-card{
+  width: 85%;
+  position: relative;
+  top: 5em;
+  left:5em;
 }
 
 .channel-name {
@@ -27,6 +60,7 @@
   width: 200px;
   position: absolute;
 }
+
 .channel-name:hover{
   background-color: #585d5e;
   color: #FFF;

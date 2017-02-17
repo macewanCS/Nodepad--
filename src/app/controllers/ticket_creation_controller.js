@@ -3,6 +3,9 @@ exports.categories = function(req, res){
 };
 
 exports.forms = function(req, res){
+  
+  module.exports = req.params.form;
+  
   console.log("started looking with " + req.params.form);
   if (req.params.form.match(/hardware/i)){
     console.log("Its a hardware ticket, eh");
