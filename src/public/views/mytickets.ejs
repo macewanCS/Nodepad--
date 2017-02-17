@@ -37,92 +37,91 @@
       <% include ./partials/footer %>
     </footer>
 
+    <div class="card" id="super-card-mytickets">
 
-    <div class="w3-container">
+      <div class="super-panel-heading">
+        <a href="/categories" class="channel-name stripe-two">My Tickets</a>
+      </div>
 
-      <h2>My Tickets</h2>
-      <!-- Set the Tabs -->
-      <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#openTab">Open</a></li>
-        <li><a data-toggle="tab" href="#closedTab">Closed</a></li>
-        <li><a data-toggle="tab" href="#allTab">All</a></li>
-      </ul>
+      <div class="panel panel-default bootcards-summary align-middle">
+        <div class="w3-container w3-">
+  
+          <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#openTab">Open</a></li>
+          <li><a data-toggle="tab" href="#closedTab">Closed</a></li>
+          <li><a data-toggle="tab" href="#allTab">All</a></li>
+          </ul>
 
-      <div class="tab-content">
-       <!-- Set contents per tab -->
-        <div id="openTab" class="tab-pane fade in active">
-          <h3>Open Tickets</h3>
+          <div class="tab-content">
+
+          <!-- Set contents per tab -->
+          <div id="openTab" class="tab-pane fade in active">
+            <h3>Open Tickets</h3>
+            
             <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+            
             <script>
               $(document).ready(function(){
                 $('#myOpenTable').DataTable( {
 
                   "autoWidth": false,
-                  "columnDefs": [{ "width": "10%", "targets": 0 }],
-                  "columnDefs": [{ "width": "50%", "targets": 1 }],
-                  "columnDefs": [{ "width": "5%", "targets": 2 }],
-                  "columnDefs": [{ "width": "25%", "targets": 3 }],
-                  "columnDefs": [{"className": "dt-center", "targets": "1"}],
+                  // 
+                  //"columnDefs": [{ "width": "10%", "targets": 0 }],
+                  "columnDefs": [{ "width": "80%", "targets": 1 }],
+                  //"columnDefs": [{ "width": "5%", "targets": 2 }],
+                  //"columnDefs": [{ "width": "5%", "targets": 3 }],
+                  //"columnDefs": [{"className": "dt-center", "targets": "1"}],
                   "columnDefs": [{"text-align" : "center", "targets": "2"}],
                   "ajax": '../openTickets.json', 
-                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button> <button>Close</button" } ]
-
-
+                  "columnDefs": [{"targets": 3,"data": null, "defaultContent": "<button>View</button> <button>Edit</button> <button>Close</button" }]
                 });
               });
             </script>
 
             <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
             <table id="myOpenTable" class="display">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Desc</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Desc</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
             </table>
-        </div>
+          </div>
 
-       <!-- Set contents per tab -->
-        <div id="closedTab" class="tab-pane fade">
-          <h3>Closed Tickets</h3>
+
+          <!-- CLOSED TICKETS TAB CONTENT -->
+          <div id="closedTab" class="tab-pane fade">
+            <h3>Closed Tickets</h3>
             <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
             <script>
               $(document).ready(function(){
                 $('#myClosedTable').DataTable( {
                   "autoWidth": false,
-
-
                   "ajax": '../closedTickets.json', 
                   "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button>" } ]
-
                 });
               });
             </script>
 
             <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
             <table id="myClosedTable" class="display">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Desc</th>
-                <th>Status</th>
-                <th>Action</th>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Desc</th>
+                  <th>Status</th>
+                  <th>Action</th>
               </tr>
-            </thead>
-            <tbody>
-            </tbody>
+              </thead>
             </table>
-        </div>
+          </div>
       
-
-       <!-- Set contents per tab -->
-        <div id="allTab" class="tab-pane fade">
-          <h3>All Tickets</h3>
+          <!-- ALL TICKETS TAB CONTENT-->
+          <div id="allTab" class="tab-pane fade">
+            <h3>All Tickets</h3>
             <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
             <script>
               $(document).ready(function(){
@@ -130,26 +129,31 @@
                   "autoWidth": false,
                   "columnDefs": [{ "width": "10%", "targets": 0 }],
                   "ajax": '../arrays.txt', 
-                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button> <button>Close</button" } ]
+                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button><button>Close</button" } ]
                 });
               });
             </script>
 
             <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">               
             <table id="myAllTable" class="display">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Desc</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Desc</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
             </table>
+          </div>
+
+
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  </div>
+</div>
   </body>
 </html>
