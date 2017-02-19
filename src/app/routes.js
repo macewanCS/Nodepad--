@@ -1,10 +1,26 @@
 var tickets_controller = require("./controllers/tickets_controller.js");
 var ticket_creation_controller = require("./controllers/ticket_creation_controller.js");
 
-var appRouter = function(app) {
+module.exports = function(app, passport) {
   app.get("/", function(req,res){
-    res.render((__dirname + '/../public/views/home.ejs'));
+    res.render((__dirname + '/../public/views/login.ejs'));
   })
+  
+  app.post("/", passport.authenticate('local-login', {
+    successRedirect : '/home',
+    failureRedirect : '/',
+  }),
+        function(req, res) {
+            console.log("hello");
+
+            if (req.body.remember) {
+              req.session.cookie.maxAge = 1000 * 60 * 3;
+            } else {
+              req.session.cookie.expires = false;
+            }
+        res.redirect('/');
+});
+  
   app.get('/home', function(req, res){
     res.render((__dirname + '/../public/views/home.ejs'));
   });
@@ -24,11 +40,8 @@ var appRouter = function(app) {
   app.get('/mytickets/:ticketid/view', tickets_controller.view);
   app.get('/mytickets/:ticketid/edit', tickets_controller.edit);
   app.get('/mytickets/:ticketid/resolve', tickets_controller.resolve);
-  
-
+ 
   app.get('/branchtickets', function(req, res){
     res.render((__dirname + '/../public/views/branchtickets.ejs'));
   });
 }
-
-module.exports = appRouter;
