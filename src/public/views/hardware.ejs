@@ -3,6 +3,8 @@
   <head>
     <% include ./partials/head %>
     <link rel="stylesheet" href="../assets/css/hardware.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <header>
@@ -11,55 +13,130 @@
     <div class="card" id="super-card">
       <div class="super-panel-heading">
         <a href="#" class="channel-name stripe-two">Hardware</a>
+      </div> 
+      <div class="card" id="sub-card">
+      <div class="accordian-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              
+              Step 1: Equipment Type</a>
+
+          </div>
+          <div id="collapse1" class="panel-collapse collapse in">
+            <div class="issue-description">
+              <p1>Please select the type of
+              <br>equipment that you are
+              <br>having trouble with</p1>
+            </div>
+            
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Equipment Type
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">AWE</a></li>
+                <li><a href="#">Barcode scanner</a></li>
+                <li><a href="#">Cell phone</a></li>
+                <li><a href="#">Gate</a></li>
+                <li><a href="#">Hotspot</a></li>
+                <li><a href="#">iPad</a></li>
+                <li><a href="#">Laptop</a></li>
+                <li><a href="#">Laser printer</a></li>
+                <li><a href="#">Monitor/LCD</a></li>
+                <li><a href="#">Receipt printer</a></li>
+                <li><a href="#">PC</a></li>
+                <li><a href="#">Projector</a></li>
+                <li><a href="#">RFID pad</a></li>
+                <li><a href="#">Self-checkout</a></li>
+                <li><a href="#">Smart Chute</a></li>
+                <li><a href="#">Sorter</a></li>
+                <li><a href="#">Other</a></li>
+              </ul>
+            </div>        
+            <div id="next-btn">
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian()">Next</button>                
+            </div>
+          </div>          
+        </div>
       </div>
       
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+              Step 2: Asset Tag</a>
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="issue-description">
+                <p1> will this work </p1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+              Step 3: Computer/Device Name</a>
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body">
+              Hey, maybe this will show up in an accordian
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+              Step 4: Description of Problem</a>
+            </h4>
+          </div>
+          <div id="collapse4" class="panel-collapse collapse">
+            <div class="panel-body">
+              Hey, maybe this will show up in an accordian
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+              Step 5: Error Messages</a>
+            </h4>
+          </div>
+          <div id="collapse5" class="panel-collapse collapse">
+            <div class="panel-body">
+              Hey, maybe this will show up in an accordian
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </div>
     </div>
     
-    <div id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h5>
-    </div>
-
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-block">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingTwo">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="card-block">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingThree">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="card-block">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+    <script>
+    function toggleAccordian(){
+      console.log("its working");
+      $("#collapse1").collapse("toggle");
+      $("#collapse2").collapse("toggle");
+    }
+    </script>
+    
     <footer>
       <% include ./partials/footer %>
     </footer>
