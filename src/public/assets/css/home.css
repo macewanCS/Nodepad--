@@ -1,4 +1,4 @@
-.channel-name {
+h1{
   border-left-color: #77BC1F;
   background-color: #3f4344;
   padding: 10px 25px;
@@ -11,11 +11,25 @@
   z-index: 9;
   font-weight: bold;
   width: 200px;
-    position: absolute;
-     }
-.channel-name:hover{
+  position: absolute;     
+}
+h1:hover{
   background-color: #585d5e;
   color: #FFF;
 }
 
+#super-card{
+  background: #fff;
+  width: 100%;
+  position: relative;
+  height: 25%;
+  
+  margin-top: 5px;
+}
+
+.announce-body{
+
+  color: red;
+  background-color: black;
+}
 body {background-color: white}
