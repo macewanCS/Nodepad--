@@ -4,29 +4,79 @@
     <% include ./partials/head %>
    <link rel="stylesheet" href="../assets/css/home.css">
     <script src="https://use.fontawesome.com/73171399df.js"></script>
+    
+    <title>Bootstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <header>
       <% include ./partials/header %>
     </header>
 
-    <!--Card-->
+    <!--Announcements Card-->
     <div class="card w-100" id="super-card-announcements">
           
         <div class="card-block">
-          <a  href="/announcements" class="channel-name stripe-two">Announcements</a>
+          <a href="/announcements" class="channel-name stripe-two">Announcements</a>
         </div>
         </div>
-     <!-- List -->        
-    <div class="panel panel-default bootcards-summary align-middle">
-      <u1 class="list-group list-group-flush">
-        <li class="list-group-item">Plz</li>
-        <li class="list-group-item">work</li>
-        <li class="list-group-item">man</li>
-        </u1>
-    </div>
-    </div> <!--End card-->
 
+      <!-- List -->        
+    <div class="panel panel-default bootcards-summary align-middle">
+      <ul class="list-group list-group-flush" >
+        <li class="list-group-item">Calder Branch wifi down</li>
+        <li class="list-group-item">Machine Broken</li>
+        <li class="list-group-item">THis isn't dynamic... yet</li>
+        </ul>
+    </div>
+    </div> <!--Announcements card-->
+
+    <!--My Tickets Card-->
+    <div class="card w-50" id="super-card-mytickets">
+          
+        <div class="card-block" >
+          <a  href="/MyTickets" class="channel-name stripe-one">My Tickets</a>
+        </div>
+        </div>
+
+     <!-- List -->        
+   <div id="openTab" class="tab-pane fade in active">
+
+            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+            <script>
+              $(document).ready(function(){
+                $('#myOpenTable').DataTable( {
+
+                  "autoWidth": false,
+                  "filter": false,
+                  "bPaginate": false,
+                  "columnDefs": [{ "width": "80%", "targets": 1 }],
+                  "bInfo": false,
+                  "columnDefs": [{"text-align" : "center", "targets": "2"}],
+                  "ajax": '../openTickets.json', 
+                  "columnDefs": [{"targets": 2,"data": null, "defaultContent": "<button>View</button>" }]
+                });
+              });
+            </script>
+
+            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+            <table id="myOpenTable" class="cell-border">
+              <thead>
+                <tr>
+                  <th>Category:</th>
+                  <th>Desc:</th>
+                  <th>Action:</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+    </div>
+    </div> <!--My Tickets card-->
 
 
 
