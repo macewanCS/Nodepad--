@@ -4,7 +4,8 @@
     <% include ./partials/head %>
    <link rel="stylesheet" href="../assets/css/home.css">
     <script src="https://use.fontawesome.com/73171399df.js"></script>
-    
+    <title>Datatables</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
     <title>Bootstrap</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,49 +13,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
+
   <body>
     <header>
       <% include ./partials/header %>
     </header>
 
-    <!--Announcements Card-->
-    <div class="card w-100" id="super-card-announcements">
-          
-        <div class="card-block">
-          <a href="/announcements" class="channel-name stripe-two">Announcements</a>
-        </div>
-        </div>
-
-      <!-- List -->        
-    <div class="panel panel-default bootcards-summary align-middle">
-      <ul class="list-group list-group-flush" >
-        <li class="list-group-item">Calder Branch wifi down</li>
-        <li class="list-group-item">Machine Broken</li>
-        <li class="list-group-item">THis isn't dynamic... yet</li>
+<!--Announcements-->
+<div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><a  href="/announcements" class="channel-name stripe-two">Announcements</a></h3>
+        <ul class="list-group list-group-flush" >
+        <li class="list-group-item"><b>Whitemud Branch Wifi Outage: </b>The Wireless internet at Whitemud branch has been out since Feb 14th. This is a known issue and IT is currently working on it</li>
+        <li class="list-group-item"><b>Make sure you log out: </b>Be sure to log out of your account so people can't see your personal information</li>
+        <li class="list-group-item"><b>This isn't dynamic: </b>This isn't dynamic... yet</li>
         </ul>
+        
+      </div>
     </div>
-    </div> <!--Announcements card-->
+</div>
 
-    <!--My Tickets Card-->
-    <div class="card w-50" id="super-card-mytickets">
-          
-        <div class="card-block" >
-          <a  href="/MyTickets" class="channel-name stripe-one">My Tickets</a>
-        </div>
-        </div>
-
-     <!-- List -->        
-   <div id="openTab" class="tab-pane fade in active">
+<!--Tickets side by side-->
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><a  href="/MyTickets" class="channel-name stripe-one">My Tickets</a></h3>
+         <div id="openTab" class="tab-pane fade in active">
 
             <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
             <script>
               $(document).ready(function(){
                 $('#myOpenTable').DataTable( {
 
-                  "autoWidth": false,
+                  
                   "filter": false,
                   "bPaginate": false,
                   "columnDefs": [{ "width": "80%", "targets": 1 }],
+                  "bsortClasses": false,
                   "bInfo": false,
                   "columnDefs": [{"text-align" : "center", "targets": "2"}],
                   "ajax": '../openTickets.json', 
@@ -73,17 +69,42 @@
                 </tr>
               </thead>
             </table>
-          </div>
+   </div>
 
+        
+      </div>
     </div>
-    </div> <!--My Tickets card-->
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><a  href="/branchtickets" class="channel-name stripe-one">Branch Tickets</a></h3>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
+<!--Help-->
+<div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><a href="/help" class="channel-name stripe-three">Help</a></h3>
+       <ul class="list-group list-group-flush" >
+        <li class="list-group-item"><b>Reset iPad: </b>click <a href="http://i.imgur.com/R390EId.jpg">here</a> for an easy guide to hard reset an iPad</li>
+        <li class="list-group-item"><b>Cable guide:</b> click <a href="http://i.imgur.com/R390EId.jpg">here</a> for an easy guide to learn about cables</li>
+        <li class="list-group-item"><b>This isn't dynamic...</b>We don't have a list of help issues for users</li>
+        </ul>
+        
+      </div>
+    </div>
+</div>
 
+  <footer>
+    <% include ./partials/footer %>
+  </footer>
+     
 
-
-    <footer>
-      <% include ./partials/footer %>
-    </footer>
-    
   </body>
+
 </html> 
