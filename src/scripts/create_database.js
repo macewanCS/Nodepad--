@@ -9,6 +9,21 @@ var connection = mysql.createConnection(dbconfig.connection);
 connection.query('DROP DATABASE ' + dbconfig.database);
 connection.query('CREATE DATABASE ' + dbconfig.database);
 
+connection.query(' \
+	CREATE TABLE `395project`.`users` ( \
+	`username` varchar(20) NULL,\
+	`id` INT NOT NULL, \
+	`password` varchar(20) NULL, \
+	PRIMARY KEY (`id`)\
+	)');
+
+connection.query('\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`) VALUES ("brett", 1, "1234")\
+	');
+connection.query('\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`) VALUES ("jack", 2, "1234")\
+	');
+
 connection.query('\
  CREATE TABLE `395project`.`profile` ( \
  `CustID` INT  NOT NULL, \
