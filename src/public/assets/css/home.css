@@ -1,3 +1,5 @@
+
+/*Card headers*/
 .channel-name{
   
   background-color: #3f4344;
@@ -36,61 +38,57 @@
   font: Open Sans;
 
 }
+
+#columns{
+
+
+
+}
+/*cards */
+.card{
+  margin-top: 5px;
+  border-radius: 1px;
+  border-style: solid;
+  border-color: #c0c0c0;
+  background-color: white;
+
+}
+
 #super-card-announcements{
-  background: #FFF;
-  width: 100%;
-  position: relative;
-  height: 25%;
-  font-size: 2rem;
-  color: white;
-  padding-top: 5px;
-  padding-bottom: 7px;
-  padding-left: 10px;
-  padding-right: 10px;
+
 }
 
 #super-card-mytickets{
 
-  background: #fff;  
-  width: 50%;
-  padding-bottom: 10px;
-  padding-top: 0px;
+} 
+#super-card-branch-tickets{
 
 } 
 
 #super-card-help{
 
- background: white;
-  width: 100%;
-  position: relative;
-  height: 25%;
-  padding-top: 25px;
-  padding-bottom: 10px;
-  left: 0;
 }
+
 .announce-body{
 
   color: red;
   background-color: black;
+  padding: 0px;
+  box-sizing: content-box;
+  
 }
 
 #myOpenTable {
 
   height: relative;
-  width: 50%;
+  width: 100%;
+
   margin-left:0px;
   margin-bottom: 0px;
   box-sizing: content-box;
 
 }
 
-body {
-  background-color: black
-  color: white;
-}
-
-footer {
-
-  background-color: black;
+#deck{
 
 }
