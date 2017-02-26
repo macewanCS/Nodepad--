@@ -21,40 +21,53 @@
   color: #FFF;
 }
 
-.channel-name.stripe-two{
-  border-left-color: #77BC1F;
-}
-
+/*Customization of stripe in the card headers*/
 .channel-name.stripe-one{
   border-left-color: #1464f6;
 }
 
-.channel-name.stripe-three{
-  border-left-color: #fec63d;
+.channel-name.stripe-two{
+  border-left-color: #77BC1F;
 }
 
-.ul{
+.channel-name.stripe-three{
+  border-left-color: #631878;
+}
 
-  font: Open Sans;
-
+.channel-name.stripe-four{
+  border-left-color: #fec63d;
 }
 
 /*cards */
 .card{
-  margin-top: 5px;
-  border-radius: 1px;
-  border-style: solid;
-  border-color: #c0c0c0;
+
   background-color: white;
+  margin: 10px;
+ 
 
 }
-.announce-body{
 
-  color: red;
-  background-color: black;
-  padding: 0px;
-  box-sizing: content-box;
-  
+#announcement-card, #help-card{
+  margin-top: 15px;
+  padding-top: 1px;
+}
+
+.card-title{
+
+  height: 37px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding-top: 3px;
+
+}
+#branch-rows{
+
+  margin: 0;
+}
+
+#col1, #col2{
+
+  padding: 0;
 }
 
 /*table*/
@@ -62,12 +75,16 @@
 
   height: relative;
   width: 100%;
-
   margin-left:0px;
   margin-bottom: 0px;
-  table-layout: fixed;
-
   box-sizing: content-box;
 
 }
 
+#deck{
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
