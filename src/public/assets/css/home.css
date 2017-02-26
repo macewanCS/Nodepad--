@@ -39,11 +39,6 @@
 
 }
 
-#columns{
-
-
-
-}
 /*cards */
 .card{
   margin-top: 5px;
@@ -53,22 +48,6 @@
   background-color: white;
 
 }
-
-#super-card-announcements{
-
-}
-
-#super-card-mytickets{
-
-} 
-#super-card-branch-tickets{
-
-} 
-
-#super-card-help{
-
-}
-
 .announce-body{
 
   color: red;
@@ -78,6 +57,7 @@
   
 }
 
+/*table*/
 #myOpenTable {
 
   height: relative;
@@ -85,10 +65,9 @@
 
   margin-left:0px;
   margin-bottom: 0px;
+  table-layout: fixed;
+
   box-sizing: content-box;
 
 }
 
-#deck{
-
-}
