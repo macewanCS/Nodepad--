@@ -25,6 +25,11 @@ module.exports = function(app, passport) {
     res.render((__dirname + '/../public/views/home.ejs'), {username : req.user});
   });
 
+  app.get('/logout', function(req,res){
+    req.logout();
+    res.redirect('/');
+  });
+
   app.get('/announcements', function(req, res){
     res.render((__dirname + '/../public/views/announcements.ejs'));
   });
