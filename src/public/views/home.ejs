@@ -2,6 +2,7 @@
 <html>
   <head>
     <% include ./partials/head %>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
    <link rel="stylesheet" href="../assets/css/home.css">
     <script src="https://use.fontawesome.com/73171399df.js"></script>
     <title>Datatables</title>
@@ -12,20 +13,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   </head>
 
   <body style="background-color: #c0c0c0">
     <header>
       <% include ./partials/header %>
-      <%= username.id %>
-      <label id="lab"></label>
     </header>
 
 <!--Deck-->
 <div class="card-deck" id="deck">
   
 <!--Announcements card-->
-  <div class="card">   
+  <div class="card" id="announcement-card">   
     <div class="card-block">
       <h4 class="card-title"><a  href="/announcements" class="channel-name stripe-two">Announcements</a></h4>
       <ul class="list-group list-group-flush" >
@@ -36,34 +36,36 @@
       
     </div>
   </div>
+
+
   <!--/Announcements card-->
+
 <!--Deck-->
 
 <!--Branch group-->
-<div class="row allign-items-start">
-  <div class="col-sm-6 col-md-6 col-lg-6" id="columns" >
+<div class="row allign-items-start" id="branch-rows">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="col1">
     <!--My Tickets-->
     <div class="card" >
       <div class="card-block">
         <h3 class="card-title"><a  href="/MyTickets" class="channel-name stripe-one">My Tickets</a></h3>
          <div id="openTab" class="tab-pane fade in active">
 
-            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
             <script>
               $(document).ready(function(){
                 $('#myOpenTable').DataTable( {
 
-                  
                   "filter": false,
                   "bPaginate": false,
-                  "columnDefs": [{ "width": "80%", "targets": 1 }],
                   "bsort": false,
-                  
                   "bsortClasses": false,
                   "bInfo": false,
+                  "autoWidth": false,
+                  "columnDefs": [{ "width": "80%", "targets": 1}],
                   "columnDefs": [{"text-align" : "center", "targets": "2"}],
                   "ajax": '../openTickets.json', 
-                  "columnDefs": [{"targets": 2,"data": null, "defaultContent": "<button>View</button>" }]
+                  "columnDefs": [{"targets": 2,"data": null, "defaultContent": "<button>View</button>" }],
+
                 });
               });
             </script>
@@ -83,10 +85,11 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="col2">
     <div class="card">
       <div class="card-block">
-        <h3 class="card-title"><a  href="/branchtickets" class="channel-name stripe-one">Branch Tickets</a></h3>
+        <h3 class="card-title"><a  href="/branchtickets" class="channel-name stripe-four">Branch Tickets</a></h3>
                      <script>
               $(document).ready(function(){
                 $('#BranchTable').DataTable( {
@@ -94,14 +97,14 @@
                   
                   "filter": false,
                   "bPaginate": false,
-                  "columnDefs": [{ "width": "80%", "targets": 1 }],
                   "bsort": false,
-                  
                   "bsortClasses": false,
                   "bInfo": false,
+                  "autoWidth": false,
+                  "columnDefs": [{ "width": "80%", "targets": 1}],
                   "columnDefs": [{"text-align" : "center", "targets": "2"}],
                   "ajax": '../openTickets.json', 
-                  "columnDefs": [{"targets": 2,"data": null, "defaultContent": "<button>View</button>" }]
+                  "columnDefs": [{"targets": 2,"data": null, "defaultContent": "<button>View</button>" }],
                 });
               });
             </script>
@@ -122,9 +125,8 @@
   </div>
 </div>
 
-
  <!--help card-->
-  <div class="card">
+  <div class="card" id="help-card">
     <div class="card-block">
       <h4 class="card-title"><a href="/help" class="channel-name stripe-three">Help</a></h4>
       <ul class="list-group list-group-flush" >
@@ -139,12 +141,10 @@
 </div>
 <!--Deck-->
 
-
   <footer>
     <% include ./partials/footer %>
   </footer>
-
-
+    
   </body>
 
 </html> 
