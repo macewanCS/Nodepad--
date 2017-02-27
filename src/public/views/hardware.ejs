@@ -31,9 +31,9 @@
             </div>
             
             <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Equipment Type
+              <button class="btn btn-primary dropdown-toggle status" type="button" data-toggle="dropdown">Equipment Type
               <span class="caret"></span></button>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-inverse">
                 <li><a href="#">AWE</a></li>
                 <li><a href="#">Barcode scanner</a></li>
                 <li><a href="#">Cell phone</a></li>
@@ -147,7 +147,7 @@
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-5">
-                <button type="button" class="btn btn-primary">Next </button>                
+                <button type="button" class="btn btn-primary" onclick="createObject()">Next </button>                
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -161,10 +161,21 @@
     </div>
   </div>
     <script>
+    $('.dropdown-inverse li > a').click(function(e){
+      $('.status').text(this.innerHTML);
+    });
+    
       function toggleAccordian(close, open){
         console.log("its working");
         $(close).collapse("toggle");
         $(open).collapse("toggle");
+      }
+      
+      function createObject(){
+        console.log("Object creating!");
+        ticket = {type:document.getElementById("dropdown").value, 
+                      please:"work"};
+        console.log(ticket.type);  
       }
     </script>
     
