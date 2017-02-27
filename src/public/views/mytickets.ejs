@@ -92,30 +92,39 @@
 
           <!-- CLOSED TICKETS TAB CONTENT -->
           <div id="closedTab" class="tab-pane fade">
-            <h3>Closed Tickets</h3>
-            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-            <script>
-              $(document).ready(function(){
-                $('#myClosedTable').DataTable( {
-                  "autoWidth": false,
-                  "ajax": '../closedTickets.json', 
-                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button>" } ]
-                });
-              });
-            </script>
+           <h3>Closed Tickets</h3>
+           <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+           <script>
+           var obj = <%- data %>;
+             $(document).ready(function(){
+               $('#myClosedTable').DataTable( {
+                 "autoWidth": false,
+                 "aaData": obj,
+                 "aoColumns": [
+                   { "mDataProp": "Category" },
+                   { "mDataProp": "Symptoms" },
+                   { "mDataProp": "CallStatus" },
+                 ],
+                 //"ajax": '../closedTickets.json',
+                 "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button>" } ]
+               });
+             });
+                           console.log("Creating closed tickets");
 
-            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-            <table id="myClosedTable" class="display">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Desc</th>
-                  <th>Status</th>
-                  <th>Action</th>
-              </tr>
-              </thead>
-            </table>
-          </div>
+           </script>
+
+           <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+           <table id="myClosedTable" class="display">
+             <thead>
+               <tr>
+                 <th>Category</th>
+                 <th>Desc</th>
+                 <th>Status</th>
+                 <th>Action</th>
+             </tr>
+             </thead>
+           </table>
+         </div>
       
           <!-- ALL TICKETS TAB CONTENT-->
           <div id="allTab" class="tab-pane fade">

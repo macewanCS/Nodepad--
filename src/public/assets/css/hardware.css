@@ -10,19 +10,70 @@
   margin-bottom: 2em;
 }
 .panel-default > .panel-heading {
-  background-color: #000;
+  background-color: #3f4344;
   color: #fff;
+  height: 55px;
 }
 
 .dropdown {
   left: 70%;
 }
 
-#next-btn {
-  top: 4.75em;
-  left: 102.5%;
+#panel-text-box {
+  left:70%;
+  bottom: 2.2em;
   position:relative;
 }
+
+#next-btn {
+  position: relative;
+  left: 104%;
+  bottom: -31%;
+}
+
+#next-btn-2 {
+  position: relative;
+  left: 105.9%;
+  bottom: -5.5em;
+}
+
+#next-btn-4 {
+  position: relative;
+  left: 104%;
+  bottom: -5.7em; 
+}
+
+#next-btn-5 {
+  position: relative;
+  left: 105.9%;
+  bottom: -10em; 
+}
+
+#skip-btn {
+  position:relative;
+  left: 90%;
+  bottom: 50%;
+  
+}
+
+#text-block {
+  position:relative;
+  left: 40%;
+  top: -40%
+}
+
+#text-block-2 {
+  position:relative;
+  left: 20%;
+  bottom: 4em;
+}
+
+#label-error {
+  position:relative;
+  left: 40%;
+  bottom: 14em;
+}
+
 .issue-description {
   position: relative;
   left: 8%;
@@ -46,6 +97,9 @@
   left:5em;
 }
 
+.panel-body {
+  position: relative;
+}
 
 .channel-name {
   border-left-color: #1464f6;

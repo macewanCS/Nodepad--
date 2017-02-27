@@ -145,9 +145,21 @@ connection.query('\
 	`TempTime` int NULL \
 	)');
 
+  connection.query('\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
+    ');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`) VALUES ("100048", "CU", "Employee", "Renewal line not responding", "System Service");\
-	');
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100049", "1", "Employee", "Computer broken in half", "Hardware", "Open");\
+    ');
+connection.query('\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100050", "1", "Employee", "I forgot my password", "Password Request", "Closed");\
+    ');
+connection.query('\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100051", "1", "Employee", "I forgot my password again", "Password Request", "Closed");\
+    ');
+connection.query('\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "I forgot my password a third time", "Password Request", "Open");\
+    ');
 
 
 console.log('Success: Database Created!')
