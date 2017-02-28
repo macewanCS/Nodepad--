@@ -146,9 +146,59 @@ connection.query('\
 	)');
 
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`) VALUES ("100048", "CU", "Employee", "Renewal line not responding", "System Service");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
 	');
-
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100049", "1", "Employee", "Computer broken in half", "Hardware", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100050", "1", "Employee", "I forgot my password", "Password Request", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100051", "1", "Employee", "I forgot my password again", "Password Request", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100052", "1", "Employee", "I forgot my password a third time", "Password Request", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100053", "1", "Employee", "Laptop exploded, send help", "Hardware", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100054", "1", "Employee", "Router got coffee spilled on it", "Hardware", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100055", "1", "Employee", "Inovah is down", "Software", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100056", "1", "Employee", "All projecters need to be moved", "Service", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100057", "1", "Employee", "Laptop screen is flickering everytime i launch word", "Hardware", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100058", "1", "Employee", "New screen we ordered had dead pixels", "Hardware", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100059", "1", "Employee", "I dont know how to connect to the wifi", "General", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100060", "1", "Employee", "I need help in making the printer work", "General", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100061", "1", "Employee", "Wires frayed under margerets desk again, we think its on purpose", "Service", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100062", "1", "Employee", "Weird circle on one monitor, screen flickers", "Hardware", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100063", "1", "Employee", "Circle getting bigger, seems spooky", "Hardware", "Open");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100064", "1", "Employee", "ALL IS GOOD", "Hardware", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed");\
+	');
 
 console.log('Success: Database Created!')
 
