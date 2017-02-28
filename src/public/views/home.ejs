@@ -2,21 +2,22 @@
 <html>
   <head>
     <% include ./partials/head %>
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+   
    <link rel="stylesheet" href="../assets/css/home.css">
+
     <script src="https://use.fontawesome.com/73171399df.js"></script>
     <title>Datatables</title>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
     <title>Bootstrap</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   </head>
 
-  <body style="background-color: #c0c0c0">
+  <body>
     <header>
       <% include ./partials/header %>
     </header>
@@ -28,17 +29,14 @@
   <div class="card" id="announcement-card">   
     <div class="card-block">
       <h4 class="card-title"><a  href="/announcements" class="channel-name stripe-two">Announcements</a></h4>
-      <ul class="list-group list-group-flush" >
+      <ul class="list-group list-group-flush" id="announce-body" >
         <li class="list-group-item"><b>Whitemud Branch Wifi Outage: </b>The Wireless internet at Whitemud branch has been out since Feb 14th. This is a known issue and IT is currently working on it</li>
         <li class="list-group-item"><b>Make sure you log out: </b>Be sure to log out of your account so people can't see your personal information/</li>
         <li class="list-group-item"><b>This isn't dynamic: </b>This isn't dynamic... yet</li>
         </ul>
       
     </div>
-  </div>
-
-
-  <!--/Announcements card-->
+  </div> <!--/Announcements card-->
 
 <!--Deck-->
 
@@ -49,7 +47,7 @@
     <div class="card" >
       <div class="card-block">
         <h3 class="card-title"><a  href="/MyTickets" class="channel-name stripe-one">My Tickets</a></h3>
-         <div id="openTab" class="tab-pane fade in active">
+         <div id="openTab" class="tab-pane fade in active" >
 
             <script>
               $(document).ready(function(){
@@ -92,7 +90,7 @@
         <h3 class="card-title"><a  href="/branchtickets" class="channel-name stripe-four">Branch Tickets</a></h3>
                      <script>
               $(document).ready(function(){
-                $('#BranchTable').DataTable( {
+                $('#branchTable').DataTable( {
 
                   
                   "filter": false,
@@ -110,7 +108,7 @@
             </script>
 
             <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-            <table id="BranchTable" class="cell-border">
+            <table id="branchTable" class="cell-border">
               <thead>
                 <tr>
                   <th>Category:</th>
@@ -129,7 +127,7 @@
   <div class="card" id="help-card">
     <div class="card-block">
       <h4 class="card-title"><a href="/help" class="channel-name stripe-three">Help</a></h4>
-      <ul class="list-group list-group-flush" >
+      <ul class="list-group list-group-flush" id="help-body" >
         <li class="list-group-item"><b>Reset iPad: </b>click <a href="http://i.imgur.com/R390EId.jpg">here</a> for an easy guide to hard reset an iPad</li>
         <li class="list-group-item"><b>Cable guide:</b> click <a href="http://i.imgur.com/R390EId.jpg">here</a> for an easy guide to learn about cables</li>
         <li class="list-group-item"><b>This isn't dynamic...</b>We don't have a list of help issues for users</li>
