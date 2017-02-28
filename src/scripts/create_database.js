@@ -149,7 +149,6 @@ connection.query('\
     INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
     ');
 connection.query('\
-<<<<<<< HEAD
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
 	');
 connection.query('\
@@ -202,6 +201,12 @@ connection.query('\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100066", "2", "Employee", "I never got a password for inovah, where can i get that?", "Service", "Closed");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100067", "2", "Employee", "I forgot my inovah password", "Service", "Open");\
 	');
 
 
