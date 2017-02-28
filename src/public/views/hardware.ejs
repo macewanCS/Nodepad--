@@ -147,7 +147,7 @@
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-5">
-                <button type="button" class="btn btn-primary" onclick="createObject()">Next </button>                
+                <button type="button" class="btn btn-primary" onclick="postData()">Submit</button>                
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -161,6 +161,13 @@
     </div>
   </div>
     <script>
+      function postData(req, res){
+        console.log("clicked the submit button");
+        console.log(document.getElementById('text-block-2').value);
+      };
+    </script>
+    <script>
+    
     $('.dropdown-inverse li > a').click(function(e){
       $('.status').text(this.innerHTML);
     });
@@ -169,14 +176,17 @@
         console.log("its working");
         $(close).collapse("toggle");
         $(open).collapse("toggle");
-      }
+      };
       
       function createObject(){
         console.log("Object creating!");
         ticket = {type:document.getElementById("dropdown").value, 
                       please:"work"};
         console.log(ticket.type);  
-      }
+      };
+      
+
+
     </script>
     
     <footer>

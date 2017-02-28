@@ -28,3 +28,8 @@ exports.forms = function(req, res){
     res.render((__dirname + '/../../public/views/general.ejs'));
   }
 }
+
+exports.create = function(req, res){
+  console.log("Create is running");
+  console.log(req.body.description);
+}
