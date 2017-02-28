@@ -1,3 +1,5 @@
+
+/*Card headers*/
 .channel-name{
   
   background-color: #3f4344;
@@ -19,78 +21,70 @@
   color: #FFF;
 }
 
-.channel-name.stripe-two{
-  border-left-color: #77BC1F;
-}
-
+/*Customization of stripe in the card headers*/
 .channel-name.stripe-one{
   border-left-color: #1464f6;
 }
 
+.channel-name.stripe-two{
+  border-left-color: #77BC1F;
+}
+
 .channel-name.stripe-three{
+  border-left-color: #631878;
+}
+
+.channel-name.stripe-four{
   border-left-color: #fec63d;
 }
 
-.ul{
+/*cards */
+.card{
 
-  font: Open Sans;
+  background-color: white;
+  margin: 10px;
+ 
 
 }
-#super-card-announcements{
-  background: #FFF;
-  width: 100%;
-  position: relative;
-  height: 25%;
-  font-size: 2rem;
-  color: white;
-  padding-top: 5px;
-  padding-bottom: 7px;
-  padding-left: 10px;
-  padding-right: 10px;
+
+#announcement-card, #help-card{
+  margin-top: 15px;
+  padding-top: 1px;
 }
 
-#super-card-mytickets{
+.card-title{
 
-  background: #fff;  
-  width: 50%;
-  padding-bottom: 10px;
-  padding-top: 0px;
+  height: 37px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding-top: 3px;
 
-} 
-
-#super-card-help{
-
- background: white;
-  width: 100%;
-  position: relative;
-  height: 25%;
-  padding-top: 25px;
-  padding-bottom: 10px;
-  left: 0;
 }
-.announce-body{
+#branch-rows{
 
-  color: red;
-  background-color: black;
+  margin: 0;
 }
 
+#col1, #col2{
+
+  padding: 0;
+}
+
+/*table*/
 #myOpenTable {
 
   height: relative;
-  width: 50%;
+  width: 100%;
   margin-left:0px;
   margin-bottom: 0px;
   box-sizing: content-box;
 
 }
 
-body {
-  background-color: black
-  color: white;
-}
+#deck{
 
-footer {
-
-  background-color: black;
-
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 100px;
+  margin-right: 100px;
 }

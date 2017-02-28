@@ -145,7 +145,11 @@ connection.query('\
 	`TempTime` int NULL \
 	)');
 
+  connection.query('\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
+    ');
 connection.query('\
+<<<<<<< HEAD
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
 	');
 connection.query('\
@@ -199,6 +203,7 @@ connection.query('\
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed");\
 	');
+
 
 console.log('Success: Database Created!')
 
