@@ -31,9 +31,9 @@
             </div>
             
             <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Equipment Type
+              <button class="btn btn-primary dropdown-toggle status" type="button" data-toggle="dropdown">Equipment Type
               <span class="caret"></span></button>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-inverse">
                 <li><a href="#">AWE</a></li>
                 <li><a href="#">Barcode scanner</a></li>
                 <li><a href="#">Cell phone</a></li>
@@ -54,7 +54,7 @@
               </ul>
             </div>        
             <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian()">Next</button>                
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2')">Next</button>                
             </div>
           </div>          
         </div>
@@ -64,31 +64,52 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-              Step 2: Asset Tag</a>
+              Step 2: Asset Tag</
             </h4>
           </div>
           <div id="collapse2" class="panel-collapse collapse">
             <div class="panel-body">
               <div class="issue-description">
-                <p1> will this work </p1>
+                <p1> Please enter the asset tag<br>
+                      for the piece of hardware<br>
+                      you are having trouble with</p1>
+              </div>
+              <div id="next-btn-2">
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Next</button>  
+              </div>
+             <!-- <div id="skip-btn">
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Skip</button>                
+              </div> -->
+              <div id="panel-text-box">
+                <input type="text">
               </div>
             </div>
+            
           </div>
         </div>
+        
       </div>
       
       <div class="panel-group" id="accordian">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-              Step 3: Computer/Device Name</a>
+              Step 3: Computer/Device Name
             </h4>
           </div>
           <div id="collapse3" class="panel-collapse collapse">
             <div class="panel-body">
-              Hey, maybe this will show up in an accordian
+              <div class="issue-description">
+                Please enter the device <br>
+                name for the hardware that <br>
+                you are having problems with
+              </div>
+            </div>
+            <div id="next-btn">
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4')">Next</button>                
+            </div>
+            <div id="panel-text-box">
+                <input type="text">
             </div>
           </div>
         </div>
@@ -98,14 +119,20 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-              Step 4: Description of Problem</a>
+              Step 4: Description of Problem
             </h4>
           </div>
           <div id="collapse4" class="panel-collapse collapse">
             <div class="panel-body">
-              Hey, maybe this will show up in an accordian
+              <div class="issue-description">
+              Tell us anything you think is <br>
+              relevant to the problems
+              </div>
             </div>
+            <div id="next-btn-4">
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse4', '#collapse5')">Next</button>                
+            </div>
+            <textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>
           </div>
         </div>
       </div>
@@ -114,27 +141,42 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-              Step 5: Error Messages</a>
+              Step 5: Error Messages
             </h4>
           </div>
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
-              Hey, maybe this will show up in an accordian
+              <div id="next-btn-5">
+                <button type="button" class="btn btn-primary" onclick="createObject()">Next </button>                
+              </div>
+              <label class="control-label">Select A File</label>
+              <input id="input-1a" type="file" class="file" data-show-preview="false">
+              <label class="control-label" id="label-error">Or tell us about your error:</label>
+              <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>
             </div>
           </div>
         </div>
-      </div>
       
       </div>
     </div>
-    
+  </div>
     <script>
-    function toggleAccordian(){
-      console.log("its working");
-      $("#collapse1").collapse("toggle");
-      $("#collapse2").collapse("toggle");
-    }
+    $('.dropdown-inverse li > a').click(function(e){
+      $('.status').text(this.innerHTML);
+    });
+    
+      function toggleAccordian(close, open){
+        console.log("its working");
+        $(close).collapse("toggle");
+        $(open).collapse("toggle");
+      }
+      
+      function createObject(){
+        console.log("Object creating!");
+        ticket = {type:document.getElementById("dropdown").value, 
+                      please:"work"};
+        console.log(ticket.type);  
+      }
     </script>
     
     <footer>

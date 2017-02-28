@@ -54,96 +54,131 @@
 
           <!-- Set contents per tab -->
           <div id="openTab" class="tab-pane fade in active">
-            <h3>Open Tickets</h3>
-            
-            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-            
-            <script>
-              $(document).ready(function(){
-                $('#myOpenTable').DataTable( {
+           <h3>Open Tickets</h3>
+           <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+           <script>
+           var obj1 = <%- openTickets %>;
+           //var obj1JSON = JSON.parse(JSON.stringify(obj1));
+             $(document).ready(function(){
+               var myOpen = $('#myOpenTable').DataTable( {
+                 "autoWidth": false,
+                 "aaData": obj1,
+                 "aoColumns": [
+                   { "mDataProp": "Category" },
+                   { "mDataProp": "Symptoms" },
+                   { "mDataProp": "CallStatus" },
+                 ],
+                 //"ajax": '../closedTickets.json',
+                 "columnDefs": [ {"targets": 0, "width": "12%"},{"targets": 1, "width": "60%"},{"targets": 2, "width": "2%"} ,{"targets": 3,"data": null,"width": "13%", "defaultContent": "<button>View</button>  <button>Edit</button>  <button>Resolve</button>" } ]
+               });
 
-                  "autoWidth": false,
-                  // 
-                  //"columnDefs": [{ "width": "10%", "targets": 0 }],
-                  "columnDefs": [{ "width": "80%", "targets": 1 }],
-                  //"columnDefs": [{ "width": "5%", "targets": 2 }],
-                  //"columnDefs": [{ "width": "5%", "targets": 3 }],
-                  //"columnDefs": [{"className": "dt-center", "targets": "1"}],
-                  "columnDefs": [{"text-align" : "center", "targets": "2"}],
-                  "ajax": '../openTickets.json', 
-                  "columnDefs": [{"targets": 3,"data": null, "defaultContent": "<button>View</button> <button>Edit</button> <button>Close</button" }]
-                });
-              });
-            </script>
+            
+              //Object.keys(obj1).length;
+              //var tempJSON = JSON.stringify(myOpen.column(2).row(0).data())
+                console.log( obj1[i].CallStatus );
+               //myOpen.
+             });
 
-            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-            <table id="myOpenTable" class="display">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Desc</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
+            
+           </script>
+
+           <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+           <table id="myOpenTable" class="display">
+             <thead>
+               <tr>
+                 <th>Category</th>
+                 <th>Desc</th>
+                 <th>Status</th>
+                 <th>Action</th>
+             </tr>
+             </thead>
+           </table>
+         </div>
+
 
 
           <!-- CLOSED TICKETS TAB CONTENT -->
           <div id="closedTab" class="tab-pane fade">
-            <h3>Closed Tickets</h3>
-            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-            <script>
-              $(document).ready(function(){
-                $('#myClosedTable').DataTable( {
-                  "autoWidth": false,
-                  "ajax": '../closedTickets.json', 
-                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button>" } ]
-                });
-              });
-            </script>
+           <h3>Closed Tickets</h3>
+           <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+           <script>
+           var obj2 = <%- closedTickets %>;
+             $(document).ready(function(){
+               $('#myClosedTable').DataTable( {
+                 "autoWidth": false,
+                 "aaData": obj2,
+                 "aoColumns": [
+                   { "mDataProp": "Category" },
+                   { "mDataProp": "Symptoms" },
+                   { "mDataProp": "CallStatus" },
+                 ],
+                 //"ajax": '../closedTickets.json',{ "width": "15%", "targets": 3 }
+                 "columnDefs": [ {"targets": 0, "width": "12%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%"}, {"targets": 3, "width": "13%","data": null, "defaultContent": "<button>View</button>" } ]
+               });
+             });
+            console.log("Creating closed tickets");
 
-            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-            <table id="myClosedTable" class="display">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Desc</th>
-                  <th>Status</th>
-                  <th>Action</th>
-              </tr>
-              </thead>
-            </table>
-          </div>
+           </script>
+
+           <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+           <table id="myClosedTable" class="display">
+             <thead>
+               <tr>
+                 <th>Category</th>
+                 <th>Desc</th>
+                 <th>Status</th>
+                 <th>Action</th>
+             </tr>
+             </thead>
+           </table>
+         </div>
       
           <!-- ALL TICKETS TAB CONTENT-->
           <div id="allTab" class="tab-pane fade">
-            <h3>All Tickets</h3>
-            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-            <script>
-              $(document).ready(function(){
-                $('#myAllTable').DataTable( {
-                  "autoWidth": false,
-                  "columnDefs": [{ "width": "10%", "targets": 0 }],
-                  "ajax": '../arrays.txt', 
-                  "columnDefs": [ {"targets": 3,"data": null, "defaultContent": "<button>View</button><button>Close</button" } ]
-                });
-              });
-            </script>
+           <h3>All Tickets</h3>
+           <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+           <script>
+           var obj3 = <%- allTickets %>;
 
-            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">               
-            <table id="myAllTable" class="display">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Desc</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
+              for(var i = 0; i < Object.keys(obj3).length; i++) {
+                if (obj3[i].CallStatus == "Open"){
+                  obj3[i].action = "<button>View</button>  <button>Edit</button>  <button>Resolve</button>"
+                }
+                else{
+                  obj3[i].action = "<button>View</button>"
+                }
+              }
+
+
+             $(document).ready(function(){
+               var myAll = $('#myAllTable').DataTable( {
+                 "autoWidth": false,
+                 "aaData": obj3,
+                 "aoColumns": [
+                   { "mDataProp": "Category" },
+                   { "mDataProp": "Symptoms" },
+                   { "mDataProp": "CallStatus" },
+                   { "mDataProp": "action" },
+                 ],
+                 "columnDefs" : [{"targets": 0, "width": "12%"},{"targets": 1, "width": "50%"},{"targets": 2, "width": "2%"},{ "width": "13%", "targets": 3 }]
+               });
+             });
+            console.log("Creating closed tickets");
+
+           </script>
+
+           <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+           <table id="myAllTable" class="display">
+             <thead>
+               <tr>
+                 <th>Category</th>
+                 <th>Desc</th>
+                 <th>Status</th>
+                 <th>Action</th>
+             </tr>
+             </thead>
+           </table>
+         </div>
 
 
         </div>
