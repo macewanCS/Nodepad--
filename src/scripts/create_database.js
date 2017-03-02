@@ -145,7 +145,7 @@ connection.query('\
 	`TempTime` int NULL \
 	)');
 
-var date = new Date("October 14 2016");	
+var date = new Date();
 var stringDate = date.toLocaleDateString();
 connection.query('\
     INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open", "' + stringDate + '");\

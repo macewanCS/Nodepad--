@@ -5,6 +5,12 @@ module.exports = function(app, passport) {
   app.get("/", function(req,res){
     res.render((__dirname + '/../public/views/login.ejs'));
   })
+
+  var isAuthenticated = function (req, res, next) {
+    if (req.isAuthenticated())
+      return next()
+    res.redirect('/')
+  }
   
   app.post("/", passport.authenticate('local-login', {
     successRedirect : '/home',
@@ -21,7 +27,7 @@ module.exports = function(app, passport) {
         res.redirect('/');
 });
   
-  app.get('/home', function(req, res){
+  app.get('/home',isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/home.ejs'), {username : req.user});
   });
 
