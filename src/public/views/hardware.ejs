@@ -166,7 +166,8 @@
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
         console.log($("#type-button").text());
-        var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&ErrorMessageText=" + document.getElementById('text-block-2').value;
+        var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#text-block').val()
+        +"&ErrorMessageText=" + document.getElementById('text-block-2').value;
         console.log(params);
         var url = "/createTicket";
         console.log("sent " + http.status + " " + http.readyState);
