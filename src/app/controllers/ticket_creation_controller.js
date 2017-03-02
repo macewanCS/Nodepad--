@@ -31,5 +31,5 @@ exports.forms = function(req, res){
 
 exports.create = function(req, res){
   console.log("Create is running");
-  console.log(req.body.description);
+  console.log(req.body);
 }
