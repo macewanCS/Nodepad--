@@ -31,7 +31,7 @@
             </div>
             
             <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle status" type="button" data-toggle="dropdown">Equipment Type
+              <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Equipment Type
               <span class="caret"></span></button>
               <ul class="dropdown-menu dropdown-inverse">
                 <li><a href="#">AWE</a></li>
@@ -80,8 +80,8 @@
              <!-- <div id="skip-btn">
                 <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Skip</button>                
               </div> -->
-              <div id="panel-text-box">
-                <input type="text">
+              <div class="panel-text-box">
+                <input type="text" id="asset-tag-text">
               </div>
             </div>
             
@@ -108,8 +108,8 @@
             <div id="next-btn">
               <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4')">Next</button>                
             </div>
-            <div id="panel-text-box">
-                <input type="text">
+            <div class="panel-text-box">
+                <input type="text" id="name-text">
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-5">
-                <button type="button" class="btn btn-primary" onclick="createObject()">Next </button>                
+                <button type="button" class="btn btn-primary" onclick="postData()">Submit</button>                
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -160,7 +160,32 @@
       </div>
     </div>
   </div>
+  
     <script>
+      function postData(req, res){
+        var http = new XMLHttpRequest();
+        console.log("clicked the submit button");
+        console.log($("#type-button").text());
+        var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#text-block').val()
+        +"&ErrorMessageText=" + document.getElementById('text-block-2').value;
+        console.log(params);
+        var url = "/createTicket";
+        console.log("sent " + http.status + " " + http.readyState);
+        http.open("POST", url, true);
+        console.log(url + " " + http.status + " " + http.readyState);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {//Call a function when the state changes.
+          if(http.readyState == 4 && http.status == 200) {
+            console.log(http.responseText);
+          }
+        };
+        http.send(params);
+        console.log("sent " + http.status + " " + http.readyState);
+      };
+    </script>
+    
+    <script>
+    
     $('.dropdown-inverse li > a').click(function(e){
       $('.status').text(this.innerHTML);
     });
@@ -169,14 +194,17 @@
         console.log("its working");
         $(close).collapse("toggle");
         $(open).collapse("toggle");
-      }
+      };
       
       function createObject(){
         console.log("Object creating!");
         ticket = {type:document.getElementById("dropdown").value, 
                       please:"work"};
         console.log(ticket.type);  
-      }
+      };
+      
+
+
     </script>
     
     <footer>
