@@ -33,9 +33,7 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div class="issue-description">
-                <p1>Please select the relative 
-
-                <br>system that you are
+                <p1>Please select the relative system that you are
                 <br>having trouble with</p1>
               </div>
               
@@ -58,11 +56,11 @@
                   <li><a href="#">Workflows</a></li>
                   <li><a href="#">Other </a></li>
                 </ul>
+                
+              </div>        
                 <div id="next-btn">
                   <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2')">Next</button>                
                 </div>
-              </div>        
-
             </div>
           </div>          
         
@@ -83,7 +81,7 @@
                       Please select and option</p1>
               </div>
 
-              <div class="btn-group" id="filterDay" data-toggle="buttons">
+              <div class="btn-group" id="status-radio" data-toggle="buttons">
                 <label class="btn btn-default blue">
                     <input type="radio" class="toggle" value="1"> Yes
                 </label>
@@ -159,6 +157,7 @@
       </div>
     </div>
   </div>
+
     <script>
     $('.dropdown-inverse li > a').click(function(e){
       $('.status').text(this.innerHTML);

@@ -54,6 +54,15 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj1 = <%- openTickets %>;
+
+                for(var i = 0; i < Object.keys(obj1).length; i++) {
+                if (obj1[i].CallStatus == "Open"){
+                  obj1[i].action = "<button>View</button>  <button>Edit</button>  <button>Resolve</button>"
+                }
+                else{
+                  obj1[i].action = "<button>View</button>"
+                }
+              }
            //var obj1JSON = JSON.parse(JSON.stringify(obj1));
              $(document).ready(function(){
                var myOpen = $('#myOpenTable').DataTable( {
@@ -64,9 +73,10 @@
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
+                   { "mDataProp": "action" }
                  ],
                  //"ajax": '../closedTickets.json',
-                 "columnDefs": [ {"targets": 0, "width": "12%"},{"targets": 1, "width": "60%"},{"targets": 2, "width": "2%"} ,{"targets": 3,"data": null,"width": "13%", "defaultContent": "<button>View</button>  <button>Edit</button>  <button>Resolve</button>" } ]
+                 "columnDefs": [ {"targets": 1, "width": "12%"},{"targets": 2, "width": "60%"},{"targets": 3, "width": "2%"} ,{"targets": 4,"data": null,"width": "20%", "defaultContent": "<button>View</button>  <button>Edit</button>  <button>Resolve</button>" } ]
                });
 
             
@@ -83,6 +93,7 @@
            <table id="myOpenTable" class="display">
              <thead>
                <tr>
+                 <th>Date</th>
                  <th>Category</th>
                  <th>Desc</th>
                  <th>Status</th>
@@ -100,6 +111,16 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj2 = <%- closedTickets %>;
+
+           for(var i = 0; i < Object.keys(obj2).length; i++) {
+                if (obj2[i].CallStatus == "Open"){
+                  obj2[i].action = "<button>View</button>  <button>Edit</button>  <button>Resolve</button>"
+                }
+                else{
+                  obj2[i].action = "<button>View</button>"
+                }
+              }
+
              $(document).ready(function(){
                $('#myClosedTable').DataTable( {
                  "autoWidth": false,
@@ -109,8 +130,8 @@
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
-                 ],
-                
+                   { "mDataProp": "action" }
+                 ],        
                  "columnDefs": [ {"targets": 0, "width": "12%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%", "data": null, "defaultContent": "<button>View</button>"}]
                });
              });
@@ -122,6 +143,7 @@
            <table id="myClosedTable" class="display">
              <thead>
                <tr>
+                 <th>Date</th>
                  <th>Category</th>
                  <th>Desc</th>
                  <th>Action</th>
@@ -156,9 +178,9 @@
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
-                   { "mDataProp": "action" },
+                   { "mDataProp": "action" }
                  ],
-                 "columnDefs" : [{"targets": 0, "width": "12%"},{"targets": 1, "width": "50%"},{"targets": 2, "width": "2%"},{ "width": "13%", "targets": 3 }]
+                 "columnDefs" : [{"targets": 1, "width": "12%"},{"targets": 2, "width": "50%"},{"targets": 3, "width": "2%"},{ "width": "20%", "targets": 4 }]
                });
              });
             console.log("Creating closed tickets");
@@ -169,6 +191,7 @@
            <table id="myAllTable" class="display">
              <thead>
                <tr>
+                 <th>Date</th>
                  <th>Category</th>
                  <th>Desc</th>
                  <th>Status</th>
