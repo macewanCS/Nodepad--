@@ -145,70 +145,73 @@ connection.query('\
 	`TempTime` int NULL \
 	)');
 
-  connection.query('\
-    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
+var date = new Date();
+var stringDate = date.toLocaleDateString();
+console.log(stringDate);
+connection.query('\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open", "' + stringDate + '");\
     ');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100049", "1", "Employee", "Computer broken in half", "Hardware", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100050", "1", "Employee", "I forgot my password", "Password Request", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100051", "1", "Employee", "I forgot my password again", "Password Request", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100052", "1", "Employee", "I forgot my password a third time", "Password Request", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100053", "1", "Employee", "Laptop exploded, send help", "Hardware", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100054", "1", "Employee", "Router got coffee spilled on it", "Hardware", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100055", "1", "Employee", "Inovah is down", "Software", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100056", "1", "Employee", "All projecters need to be moved", "Service", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100057", "1", "Employee", "Laptop screen is flickering everytime i launch word", "Hardware", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100058", "1", "Employee", "New screen we ordered had dead pixels", "Hardware", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100059", "1", "Employee", "I dont know how to connect to the wifi", "General", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100060", "1", "Employee", "I need help in making the printer work", "General", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100061", "1", "Employee", "Wires frayed under margerets desk again, we think its on purpose", "Service", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100062", "1", "Employee", "Weird circle on one monitor, screen flickers", "Hardware", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100063", "1", "Employee", "Circle getting bigger, seems spooky", "Hardware", "Open");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100064", "1", "Employee", "ALL IS GOOD", "Hardware", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100066", "2", "Employee", "I never got a password for inovah, where can i get that?", "Service", "Closed");\
-	');
-connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`) VALUES ("100067", "2", "Employee", "I forgot my inovah password", "Service", "Open");\
-	');
 
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open", "1/3/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100049", "1", "Employee", "Computer broken in half", "Hardware", "Open", "1/4/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100050", "1", "Employee", "I forgot my password", "Password Request", "Closed", "2/22/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100051", "1", "Employee", "I forgot my password again", "Password Request", "Closed", "2/15/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100052", "1", "Employee", "I forgot my password a third time", "Password Request", "Open", "3/27/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100053", "1", "Employee", "Laptop exploded, send help", "Hardware", "Open", "3/1/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100054", "1", "Employee", "Router got coffee spilled on it", "Hardware", "Open", "3/2/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100055", "1", "Employee", "Inovah is down", "Software", "Closed", "4/1/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100056", "1", "Employee", "All projecters need to be moved", "Service", "Closed", "4/2/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100057", "1", "Employee", "Laptop screen is flickering everytime i launch word", "Hardware", "Closed", "4/3/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100058", "1", "Employee", "New screen we ordered had dead pixels", "Hardware", "Open", "4/4/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100059", "1", "Employee", "I dont know how to connect to the wifi", "General", "Closed", "4/5/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100060", "1", "Employee", "I need help in making the printer work", "General", "Closed", "4/6/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100061", "1", "Employee", "Wires frayed under margerets desk again, we think its on purpose", "Service", "Open", "4/6/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100062", "1", "Employee", "Weird circle on one monitor, screen flickers", "Hardware", "Open","4/7/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100063", "1", "Employee", "Circle getting bigger, seems spooky", "Hardware", "Open","5/7/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100064", "1", "Employee", "ALL IS GOOD", "Hardware", "Closed", "5/8/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed","5/9/2017");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100066", "2", "Employee", "I never got a password for inovah, where can i get that?", "Service", "Closed", "5/10/2016");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`) VALUES ("100067", "2", "Employee", "I forgot my inovah password", "Service", "Open", "5/11/2016");\
+	');
 
 console.log('Success: Database Created!')
 
