@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <% include ./partials/head %>
     
   </head>
   <script type="text/javascript" src="/../../../src/test.js"></script>
@@ -19,7 +21,7 @@
     </a>
 
     </header>
-
+    <div class="card" id="login-card">
     <div class="container">
 
         <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6">
@@ -42,16 +44,18 @@
             <hr>
 
         </div>
-        <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6" id="info">
-            <h1>
+        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" id="info">
+            <h1 id="login-title">
             EPL Web Ticketing
+            </h1>
 
-                <h4>
+                <h4 id="login-message">
                 Welcome to the EPL Web Ticketing System. Please login to manage and create tickets
                 </h4>
         </div>
 
-    </div>    
+    </div> 
+    </div>  
     
       
     <footer>
