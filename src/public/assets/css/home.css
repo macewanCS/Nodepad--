@@ -43,7 +43,7 @@
 
   background-color: white;
   margin: 10px;
- 
+  padding-bottom: 15px;
 
 }
 
@@ -60,6 +60,12 @@
   padding-top: 3px;
 
 }
+
+#myOpenTable, #branchTable, #announce-body, #help-body{
+
+  padding-left: 10px;
+  padding-right: 10px;
+}
 #branch-rows{
 
   margin: 0;
@@ -71,14 +77,11 @@
 }
 
 /*table*/
-#myOpenTable {
 
+#myOpenTable   {
   height: relative;
-  width: 100%;
   margin-left:0px;
   margin-bottom: 0px;
-  box-sizing: content-box;
-
 }
 
 #deck{

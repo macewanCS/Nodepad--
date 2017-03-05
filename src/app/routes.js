@@ -1,7 +1,7 @@
 var tickets_controller = require("./controllers/tickets_controller.js");
 var ticket_creation_controller = require("./controllers/ticket_creation_controller.js");
-
-module.exports = function(app, passport) {
+var home_controller = require("./controllers/home_controller.js");
+  module.exports = function(app, passport) {
   app.get("/", function(req,res){
     res.render((__dirname + '/../public/views/login.ejs'));
   })
@@ -26,10 +26,6 @@ module.exports = function(app, passport) {
             }
         res.redirect('/');
 });
-  
-  app.get('/home',isAuthenticated, function(req, res){
-    res.render((__dirname + '/../public/views/home.ejs'), {username : req.user});
-  });
 
   app.get('/logout', isAuthenticated, function(req,res){
     req.logout();
@@ -44,14 +40,19 @@ module.exports = function(app, passport) {
     res.render((__dirname + '/../public/views/help.ejs'));
   });
   
+  //Categories
   app.get('/categories', isAuthenticated, ticket_creation_controller.categories);
   app.get('/categories/:form', ticket_creation_controller.forms);
   app.post('/createTicket', ticket_creation_controller.create);
 
+  //MyTickets
   app.get('/mytickets', isAuthenticated, tickets_controller.mytickets);
   app.get('/mytickets/:ticketid/view', tickets_controller.view);
   app.get('/mytickets/:ticketid/edit', tickets_controller.edit);
-  app.get('/mytickets/:ticketid/resolve', tickets_controller.resolve);
+
+  //Home
+  app.get('/home', isAuthenticated, home_controller.home);
+  app.get('/home/:ticketid/view', home_controller.view);
   app.get('/user1', function(req, res) {
         console.log("Shits fucked yo");
             if (req.user === undefined) {

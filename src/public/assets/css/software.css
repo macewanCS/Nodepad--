@@ -5,7 +5,6 @@
   position: relative;
   left: 18%;
   height: 900px;
-  width: 65%;
   margin-top: 2em;
   margin-bottom: 2em;
 }
@@ -17,31 +16,42 @@
 
 .dropdown {
   left: 70%;
+  bottom: -1em;
 }
 
-#panel-text-box {
+.panel-text-box {
   left:70%;
   bottom: 2.2em;
   position:relative;
 }
 
+#status-radio {
+  position: relative;
+  padding-left: 55%;
+}
+
 #next-btn {
   position: relative;
-  bottom: -10em;
-  padding-left: 90%;
-  
+  bottom: -6em;
+  padding-left: 103%;
 }
 
 #next-btn-2 {
   position: relative;
-  bottom: 0em;
-  padding-left: 90%;
+  bottom: -3.5em;
+  padding-left: 104.5%;
+}
+
+#next-btn-3 {
+  position: relative;
+  bottom: -6em;
+  padding-left: 103.5%;
 }
 
 #next-btn-4 {
   position: relative;
-  left: 104%;
-  bottom: -5.7em; 
+  bottom: -10em; 
+  padding-left: 104.5%;
 }
 
 #next-btn-5 {
@@ -59,24 +69,27 @@
 
 #text-block {
   position:relative;
+  width: 55%;
   left: 40%;
-  top: -40%
+  bottom: 5em;
 }
 
 #text-block-2 {
   position:relative;
-  left: 20%;
-  bottom: 4em;
+  width: 55%;
+  left: 0%;
+  bottom: 2em;
 }
 
 #label-error {
   position:relative;
   left: 40%;
-  bottom: 14em;
+  bottom: 12em;
 }
 
 .issue-description {
   position: relative;
+  width: 40%;
   left: 8%;
   top: 4em;
   font-family: "Open Sans", "Time New Roman", "Arial";
@@ -84,6 +97,7 @@
 .panel-title {
   font-family: "Open Sans", "Time New Roman", "Arial";
   font-weight: bold;
+  margin-top:0.5em;
 }
 
 .panel-collapse{
