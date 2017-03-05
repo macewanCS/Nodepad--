@@ -5,14 +5,14 @@
     <link rel="stylesheet" href="../assets/css/software.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>The W3.CSS Containers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
   </head>
   <body>
+
     <header>
       <% include ./partials/header %>
     </header>
+
+
     <div class="card" id="super-card">
 
       <div class="super-panel-heading">
@@ -32,9 +32,6 @@
 
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
-                    <div id="next-btn">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2')">Next</button>                
-              </div>
               <div class="issue-description">
                 <p1>Please select the relative 
 
@@ -61,7 +58,9 @@
                   <li><a href="#">Workflows</a></li>
                   <li><a href="#">Other </a></li>
                 </ul>
-
+                <div id="next-btn">
+                  <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2')">Next</button>                
+                </div>
               </div>        
 
             </div>
