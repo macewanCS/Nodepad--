@@ -46,6 +46,7 @@ module.exports = function(app, passport) {
   
   app.get('/categories', isAuthenticated, ticket_creation_controller.categories);
   app.get('/categories/:form', ticket_creation_controller.forms);
+  app.post('/createTicket', ticket_creation_controller.create);
 
   app.get('/mytickets', isAuthenticated, tickets_controller.mytickets);
   app.get('/mytickets/:ticketid/view', tickets_controller.view);

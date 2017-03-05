@@ -19,7 +19,7 @@
   left: 70%;
 }
 
-.panel-text-box {
+#panel-text-box {
   left:70%;
   bottom: 2.2em;
   position:relative;
@@ -27,14 +27,15 @@
 
 #next-btn {
   position: relative;
-  left: 104%;
-  bottom: -31%;
+  bottom: -10em;
+  padding-left: 90%;
+  
 }
 
 #next-btn-2 {
   position: relative;
-  left: 105.9%;
-  bottom: -5.5em;
+  bottom: 0em;
+  padding-left: 90%;
 }
 
 #next-btn-4 {
@@ -83,7 +84,6 @@
 .panel-title {
   font-family: "Open Sans", "Time New Roman", "Arial";
   font-weight: bold;
-  margin-top:0.5em;
 }
 
 .panel-collapse{
@@ -92,8 +92,9 @@
 }
 
 #sub-card{
-  width: 85%;
+  width: relative;
   position: relative;
+  padding-right:9em;
   top: 5em;
   left:5em;
 }

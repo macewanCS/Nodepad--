@@ -2,12 +2,183 @@
 <html>
   <head>
     <% include ./partials/head %>
+    <link rel="stylesheet" href="../assets/css/software.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>The W3.CSS Containers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
   </head>
   <body>
     <header>
       <% include ./partials/header %>
     </header>
-    This is the software screen
+    <div class="card" id="super-card">
+
+      <div class="super-panel-heading">
+        <a href="#" class="channel-name stripe-two">Software</a>
+      </div>
+
+      <div class="card" id="sub-card">
+      <div class="accordian-group" id="accordian">
+
+        
+      
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                
+                Step 1: Effected System</a>
+
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="next-btn">
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2')">Next</button>                
+              </div>
+              <div class="issue-description">
+                <p1>Please select the relative 
+
+                <br>system that you are
+                <br>having trouble with</p1>
+              </div>
+              
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle status" type="button" data-toggle="dropdown">System
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-inverse">
+                  <li><a href="#">Apps.epl.ca</a></li>
+                  <li><a href="#">Bibliocommons</a></li>
+                  <li><a href="#">Dayforce</a></li>
+                  <li><a href="#">iNovah</a></li>
+                  <li><a href="#">Internet/network access</a></li>
+                  <li><a href="#">LibraryOnline</a></li>
+                  <li><a href="#">Peoplesoft</a></li>
+                  <li><a href="#">Public website / www.epl.ca</a></li>
+                  <li><a href="#">SAP</a></li>
+                  <li><a href="#">S:/ drive / file share</a></li>
+                  <li><a href="#">StaffWeb/Active Directory</a></li>
+                  <li><a href="#">VPN</a></li>
+                  <li><a href="#">Workflows</a></li>
+                  <li><a href="#">Other </a></li>
+                </ul>
+
+              </div>        
+
+            </div>
+          </div>          
+        
+      </div>
+      
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              Step 2: System Status</
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="issue-description">
+                <p1> Is the system completely <br>
+                      offline/broken?<br>
+                      Please select and option</p1>
+              </div>
+
+              <div class="btn-group" id="filterDay" data-toggle="buttons">
+                <label class="btn btn-default blue">
+                    <input type="radio" class="toggle" value="1"> Yes
+                </label>
+                <label class="btn btn-default blue">
+                  <input type="radio" class="toggle" value="2"> No
+                </label>
+                <label class="btn btn-default blue">
+                  <input type="radio" class="toggle" value="3"> I'm not sure
+                </label>
+    <!--    <label class="btn btn-default blue active">
+           <input type="radio" class="toggle" value="0"> Sunday
+       </label> -->
+            </div>
+
+              <div id="next-btn-2">
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Next</button>  
+              </div>
+             <!-- <div id="skip-btn">
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Skip</button>                
+              </div> -->
+              <!-- <div id="panel-text-box">
+                <input type="text">
+              </div> -->
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              Step 3: Description of Problem
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="issue-description">
+              Tell us anything you think is <br>
+              relevant to the problems
+              </div>
+            </div>
+            <div id="next-btn-3">
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4')">Next</button>                
+            </div>
+            <textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              Step 4: Problem Cause
+            </h4>
+          </div>
+          <div id="collapse4" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div id="next-btn-4">
+                <button type="button" class="btn btn-primary" onclick="createObject()">Next </button>                
+              </div>
+              <label class="control-label">Select A File</label>
+              <input id="input-1a" type="file" class="file" data-show-preview="false">
+              <label class="control-label" id="label-error">Or tell us the steps to replicate the problem:</label>
+              <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+    <script>
+    $('.dropdown-inverse li > a').click(function(e){
+      $('.status').text(this.innerHTML);
+    });
+    
+      function toggleAccordian(close, open){
+        console.log("its working");
+        $(close).collapse("toggle");
+        $(open).collapse("toggle");
+      }
+      
+      function createObject(){
+        console.log("Object creating!");
+        ticket = {type:document.getElementById("dropdown").value, 
+                      please:"work"};
+        console.log(ticket.type);  
+      }
+    </script>
+    
     <footer>
       <% include ./partials/footer %>
     </footer>
