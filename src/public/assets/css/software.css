@@ -27,15 +27,14 @@
 
 #next-btn {
   position: relative;
-  bottom: -10em;
-  padding-left: 90%;
-  
+  bottom: -3em;
+  padding-left: 27%;
 }
 
 #next-btn-2 {
   position: relative;
-  bottom: 0em;
-  padding-left: 90%;
+  left: 105.9%;
+  bottom: -5.5em;
 }
 
 #next-btn-4 {
@@ -84,6 +83,7 @@
 .panel-title {
   font-family: "Open Sans", "Time New Roman", "Arial";
   font-weight: bold;
+  margin-top:0.5em;
 }
 
 .panel-collapse{
