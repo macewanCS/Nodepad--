@@ -4,13 +4,29 @@
   margin-bottom: 0px;
 }
 
+<<<<<<< HEAD
+=======
+#table-holder{
+  height: relative;
+  width: 100%;
+  margin-left:0px;
+  margin-bottom: 0px;
+}
+
+>>>>>>> upstream/master
 #super-card-mytickets{
   background: #fff;
-  width: 80%;
+  width: 70%;
   position: relative;
+<<<<<<< HEAD
   left: 10%;
   padding-left: 20%;
   height: relative;
+=======
+  left: 18%;
+  height: 900px;
+  width: 65%;
+>>>>>>> upstream/master
   margin-top: 2em;
   margin-bottom: 2em;
 }
