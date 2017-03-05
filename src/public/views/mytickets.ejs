@@ -38,7 +38,7 @@
 
       <div class="panel panel-default bootcards-summary align-middle">
      
-        <div class="container">
+        <div id="table-holder" class="container">
   
           <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#openTab">Open</a></li>
@@ -76,7 +76,7 @@
                    { "mDataProp": "action" }
                  ],
                  //"ajax": '../closedTickets.json',
-                 "columnDefs": [ {"targets": 1, "width": "12%"},{"targets": 2, "width": "60%"},{"targets": 3, "width": "2%"} ,{"targets": 4,"data": null,"width": "20%", "defaultContent": "<button>View</button>  <button>Edit</button>  <button>Resolve</button>" } ]
+                 "columnDefs": [ {"targets": 1, "width": "12%"},{"targets": 2, "width": "60%"},{"targets": 3, "width": "2%"} ,{"targets": 4,"data": null,"width": "22%", "defaultContent": "<button>View</button>  <button>Edit</button>  <button>Resolve</button>" } ]
                });
 
             
@@ -131,8 +131,9 @@
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
-                 ],        
-                 "columnDefs": [ {"targets": 0, "width": "12%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%", "data": null, "defaultContent": "<button>View</button>"}]
+                 ],
+                 //"ajax": '../closedTickets.json',{ "width": "15%", "targets": 3 }
+                 "columnDefs": [ {"targets": 1, "width": "12%"}, {"targets": 2, "width": "70%"},{"targets": 3, "width": "2%"}, {"targets": 4, "width": "10%","data": null, "defaultContent": "<button>View</button>" } ]
                });
              });
             console.log("Creating closed tickets");
@@ -180,7 +181,7 @@
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs" : [{"targets": 1, "width": "12%"},{"targets": 2, "width": "50%"},{"targets": 3, "width": "2%"},{ "width": "20%", "targets": 4 }]
+                 "columnDefs" : [{"targets": 1, "width": "12%"},{"targets": 2, "width": "50%"},{"targets": 3, "width": "2%"},{ "width": "22%", "targets": 4 }]
                });
              });
             console.log("Creating closed tickets");
