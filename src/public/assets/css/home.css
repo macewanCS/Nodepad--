@@ -61,7 +61,7 @@
 
 }
 
-#myOpenTable, #branchTable, #announce-body, #help-body{
+#announce-body, #help-body{
 
   padding-left: 10px;
   padding-right: 10px;
@@ -83,7 +83,13 @@
   margin-left:0px;
   margin-bottom: 0px;
 }
+#openTab{
 
+  padding-left: 10px;
+  padding-right: 10px;
+
+
+}
 #deck{
 
   margin-top: 25px;
