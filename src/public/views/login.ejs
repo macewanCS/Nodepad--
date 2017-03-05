@@ -29,16 +29,17 @@
 
             <!-- LOGIN FORM -->
             <form action="/" method="post"  id= "login-container">
-                <div class="form-group">
-                    <label>Username:</label>
-                    <input type="text" class="form-control" placeholder="Username" name="username" required="">
+                <div class="col-sm-10">
+                    <label id="user">Username:</label>
+                    <input type="text" id="user-input" class="form-control" placeholder="Username" name="username" required="">
                 </div>
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input type="password" class="form-control" placeholder = "Password" name="password" required>
-                </div>
+                 <div class="col-sm-10">
+                    <label id="user">Password:</label>
+                    <input type="password" class="form-control" id="user-input" placeholder = "Password" name="password" required>
+    
 
                 <button type="submit" class="btn btn-warning btn-lg" id="login-btn">Login</button>
+                </div>
             </form>
 
             <hr>
@@ -48,10 +49,12 @@
             <h1 id="login-title">
             EPL Web Ticketing
             </h1>
+                <div class="col-md-8">
+                <h3 id="login-message">
+                Welcome to the EPL Web Ticketing System. <br><br>Please login to manage and create tickets
+                </h3>
+                </div>
 
-                <h4 id="login-message">
-                Welcome to the EPL Web Ticketing System. Please login to manage and create tickets
-                </h4>
         </div>
 
     </div> 

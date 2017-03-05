@@ -31,23 +31,23 @@ module.exports = function(app, passport) {
     res.render((__dirname + '/../public/views/home.ejs'), {username : req.user});
   });
 
-  app.get('/logout', function(req,res){
+  app.get('/logout', isAuthenticated, function(req,res){
     req.logout();
     res.redirect('/');
   });
 
-  app.get('/announcements', function(req, res){
+  app.get('/announcements',isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/announcements.ejs'));
   });
 
-  app.get('/help', function(req, res){
+  app.get('/help', isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/help.ejs'));
   });
   
-  app.get('/categories', ticket_creation_controller.categories);
+  app.get('/categories', isAuthenticated, ticket_creation_controller.categories);
   app.get('/categories/:form', ticket_creation_controller.forms);
 
-  app.get('/mytickets', tickets_controller.mytickets);
+  app.get('/mytickets', isAuthenticated, tickets_controller.mytickets);
   app.get('/mytickets/:ticketid/view', tickets_controller.view);
   app.get('/mytickets/:ticketid/edit', tickets_controller.edit);
   app.get('/mytickets/:ticketid/resolve', tickets_controller.resolve);
@@ -63,7 +63,7 @@ module.exports = function(app, passport) {
             }
         });
  
-  app.get('/branchtickets', function(req, res){
+  app.get('/branchtickets', isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/branchtickets.ejs'));
   });
 }
