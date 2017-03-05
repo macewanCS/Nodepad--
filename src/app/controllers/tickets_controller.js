@@ -54,6 +54,6 @@ exports.mytickets = function(req, res){
             });
     });
     console.log('all');
-    connection.close();
+    connection.end();
   });
 }
