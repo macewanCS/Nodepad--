@@ -76,7 +76,13 @@
   padding: 0;
 }
 
+/*table*/
 
+#myOpenTable   {
+  height: relative;
+  margin-left:0px;
+  margin-bottom: 0px;
+}
 
 #deck{
 

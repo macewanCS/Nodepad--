@@ -48,7 +48,37 @@
       <div class="card-block">
         <h3 class="card-title"><a  href="/MyTickets" class="channel-name stripe-one">My Tickets</a></h3>
          <div id="openTab" class="tab-pane fade in active" >
+           <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+           <script>
+           var obj1 = <%- openTickets %>;
+           //var obj1JSON = JSON.parse(JSON.stringify(obj1));
+             $(document).ready(function(){
+               var myOpen = $('#myOpenTable').DataTable( {
+                 "autoWidth": false,
+                 "aaData": obj1,
+                 "aoColumns": [
+                   { "mDataProp": "Category" },
+                   { "mDataProp": "Symptoms" },
+                   { "mDataProp": "CallStatus" },
+                 ],
+                  "filter": false,
+                  "bPaginate": false,
+                  "bsort": false,
+                  "bsortClasses": false,
+                  "bInfo": false,
+                  "autoWidth": false,
+                 "columnDefs": [ {"targets": 0, "width": "12%"},{"targets": 1, "width": "60%"},{"targets": 2, "width": "2%"} ,{"targets": 2,"data": null,"width": "13%", "defaultContent": "<button>View</button>" } ]
+               });
 
+                console.log( obj1[i].CallStatus );
+               //myOpen.
+             });
+
+            
+           </script>
+
+
+            <!--
             <script>
               $(document).ready(function(){
                 $('#myOpenTable').DataTable( {
@@ -66,7 +96,7 @@
 
                 });
               });
-            </script>
+            </script> -->
 
             <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
             <table id="myOpenTable" class="cell-border">
