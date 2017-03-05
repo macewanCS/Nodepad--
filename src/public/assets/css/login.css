@@ -2,5 +2,36 @@
 
 background-color: #2a6496;
 border-color: #2a6496;
+margin-top:15px;
 
+}
+
+#login-card{
+  background: #fff;
+  position: relative;
+  left: 12.5%;
+  height: 350px;
+  width: 75%;
+  margin-bottom: 5em;
+}
+
+#login-title{
+	display:inline-block;
+	word-wrap: break-word;
+}
+
+#login-message{
+	display: inline-block;
+	word-wrap: break-word;
+}
+
+#info{
+	display: inline-block;
+}
+#user{
+	padding-top: 10px;
+}
+#login-message{
+	line-height: 1em;
+	padding-left: 40px;
 }

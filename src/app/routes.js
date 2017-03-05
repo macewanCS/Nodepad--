@@ -5,6 +5,12 @@ var home_controller = require("./controllers/home_controller.js");
   app.get("/", function(req,res){
     res.render((__dirname + '/../public/views/login.ejs'));
   })
+
+  var isAuthenticated = function (req, res, next) {
+    if (req.isAuthenticated())
+      return next()
+    res.redirect('/')
+  }
   
   app.post("/", passport.authenticate('local-login', {
     successRedirect : '/home',
@@ -20,35 +26,32 @@ var home_controller = require("./controllers/home_controller.js");
             }
         res.redirect('/');
 });
-  
-  //app.get('/home', function(req, res){
-   // res.render((__dirname + '/../public/views/home.ejs'), {username : req.user});
-  //});
 
-  app.get('/logout', function(req,res){
+  app.get('/logout', isAuthenticated, function(req,res){
     req.logout();
     res.redirect('/');
   });
 
-  app.get('/announcements', function(req, res){
+  app.get('/announcements',isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/announcements.ejs'));
   });
 
-  app.get('/help', function(req, res){
+  app.get('/help', isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/help.ejs'));
   });
   
   //Categories
-  app.get('/categories', ticket_creation_controller.categories);
+  app.get('/categories', isAuthenticated, ticket_creation_controller.categories);
   app.get('/categories/:form', ticket_creation_controller.forms);
+  app.post('/createTicket', ticket_creation_controller.create);
 
   //MyTickets
-  app.get('/mytickets', tickets_controller.mytickets);
+  app.get('/mytickets', isAuthenticated, tickets_controller.mytickets);
   app.get('/mytickets/:ticketid/view', tickets_controller.view);
   app.get('/mytickets/:ticketid/edit', tickets_controller.edit);
 
   //Home
-  app.get('/home', home_controller.home);
+  app.get('/home', isAuthenticated, home_controller.home);
   app.get('/home/:ticketid/view', home_controller.view);
   app.get('/user1', function(req, res) {
         console.log("Shits fucked yo");
@@ -62,7 +65,7 @@ var home_controller = require("./controllers/home_controller.js");
             }
         });
  
-  app.get('/branchtickets', function(req, res){
+  app.get('/branchtickets', isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/branchtickets.ejs'));
   });
 }
