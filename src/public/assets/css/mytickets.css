@@ -1,17 +1,14 @@
-
-
 #myOpenTable   {
   height: relative;
   margin-left:0px;
   margin-bottom: 0px;
 }
 
-
-#super-card{
+#super-card-mytickets{
   background: #fff;
   width: 80%;
   position: relative;
-  left: 50%;
+  left: 10%;
   padding-left: 20%;
   height: relative;
   margin-top: 2em;
