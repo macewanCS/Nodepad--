@@ -1,0 +1,125 @@
+
+#super-card{
+  background: #fff;
+  width: 70%;
+  position: relative;
+  left: 18%;
+  height: 900px;
+  width: 65%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.panel-default > .panel-heading {
+  background-color: #3f4344;
+  color: #fff;
+  height: 55px;
+}
+
+.dropdown {
+  left: 70%;
+}
+
+#panel-text-box {
+  left:70%;
+  bottom: 2.2em;
+  position:relative;
+}
+
+#next-btn {
+  position: relative;
+  bottom: -10em;
+  padding-left: 90%;
+  
+}
+
+#next-btn-2 {
+  position: relative;
+  bottom: 0em;
+  padding-left: 90%;
+}
+
+#next-btn-4 {
+  position: relative;
+  left: 104%;
+  bottom: -5.7em; 
+}
+
+#next-btn-5 {
+  position: relative;
+  left: 105.9%;
+  bottom: -10em; 
+}
+
+#skip-btn {
+  position:relative;
+  left: 90%;
+  bottom: 50%;
+  
+}
+
+#text-block {
+  position:relative;
+  left: 40%;
+  top: -40%
+}
+
+#text-block-2 {
+  position:relative;
+  left: 20%;
+  bottom: 4em;
+}
+
+#label-error {
+  position:relative;
+  left: 40%;
+  bottom: 14em;
+}
+
+.issue-description {
+  position: relative;
+  left: 8%;
+  top: 4em;
+  font-family: "Open Sans", "Time New Roman", "Arial";
+}
+.panel-title {
+  font-family: "Open Sans", "Time New Roman", "Arial";
+  font-weight: bold;
+}
+
+.panel-collapse{
+  height: 200px;
+  width: 90%;
+}
+
+#sub-card{
+  width: relative;
+  position: relative;
+  padding-right:9em;
+  top: 5em;
+  left:5em;
+}
+
+.panel-body {
+  position: relative;
+}
+
+.channel-name {
+  border-left-color: #1464f6;
+  background-color: #3f4344;
+  padding: 10px 25px;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  border-left-width: 10px;
+  border-left-style: solid;
+  z-index: 9;
+  font-weight: bold;
+  width: 200px;
+  position: absolute;
+}
+
+.channel-name:hover{
+  background-color: #585d5e;
+  color: #FFF;
+}
