@@ -51,7 +51,7 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj1 = <%- openTickets %>;
-           
+           console.log(obj1);
              $(document).ready(function(){
                var myOpen = $('#myOpenTable').DataTable( {
                  "autoWidth": false,
@@ -59,7 +59,7 @@
                  "aoColumns": [
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
-                   { "mDataProp": "CallStatus" },
+                   { "mDataProp": "RecvdDate" },
                  ],
                   "filter": false,
                   "bsort": false,
@@ -69,18 +69,10 @@
                   "pageLength": 7,
                   "sPaginationType": "full_numbers",
                   "lengthChange": false,
-                  
-                  
-                  "columnDefs": [{ "width": "80%", "targets": 1}],
-                  "columnDefs": [{"text-align" : "center", "targets": "2"}],                 
-                  "columnDefs": [{"targets": 2,"data": null, "defaultContent": "<button>View</button>" }],
+                                    
+                   "columnDefs": [ {"targets": 0, "width": "12%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%", "data": null, "defaultContent": "n/a"}]
                });
-
-               var tableSettings = myOpenTable.fnSettings();
-               tableSettings._iDisplayLength = 7;
-               myOpenTable.fnDraw();
-
-                console.log( obj1[i].CallStatus );
+ 
                //myOpen.
              });
 
@@ -92,8 +84,8 @@
               <thead>
                 <tr>
                   <th>Category:</th>
-                  <th>Desc:</th>
-                  <th>Status:</th>
+                  <th>Description:</th>
+                  <th>Date Submitted:</th>
                 </tr>
               </thead>
             </table>
@@ -116,7 +108,7 @@
                  "aoColumns": [
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
-                   { "mDataProp": "CallStatus" },
+                   { "mDataProp": "RecvdDate" },
                  ],
                   "filter": false,
                   "bsort": false,
@@ -127,10 +119,9 @@
                   "sPaginationType": "full_numbers",
                   "lengthChange": false,
 
-                  "columnDefs": [{ "width": "80%", "targets": 1}],
-                  "columnDefs": [{"text-align" : "center", "targets": "2"}],                 
-                  "columnDefs": [{"targets": 2,"data": null, "defaultContent": "<button>View</button>" }],
-                });
+                 "columnDefs": [ {"targets": 0, "width": "12%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%", "data": null, "defaultContent": "n/a"}]
+               });
+
               });
             </script>
 
@@ -139,8 +130,8 @@
               <thead>
                 <tr>
                   <th>Category:</th>
-                  <th>Desc:</th>
-                  <th>Action:</th>
+                  <th>Description:</th>
+                  <th>Date Submitted:</th>
                 </tr>
               </thead>
             </table>
