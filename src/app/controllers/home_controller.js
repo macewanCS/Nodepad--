@@ -26,12 +26,14 @@ exports.home = function(req, res){
     var myVar, myVar2, myVar3;
     if (err) throw err
       console.log('You are now connected...')
-      
-      connection.query('SELECT Category, CallStatus, Symptoms FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed";', function(err, result) {
+/*
+      connection.query('SELECT Category, CallStatus, Symptoms, RecvdDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed";', function(err, result) {
         if (err) throw err
             myVar = JSON.stringify(result);
             console.log(myVar);
     });
+
+    //  
     console.log('closed');
     if (err) throw err
       connection.query('SELECT Category, CallStatus, Symptoms FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open";', function(err, result) {
@@ -39,18 +41,19 @@ exports.home = function(req, res){
             myVar2 = JSON.stringify(result);
             console.log(myVar2);
     });
+    */
     console.log('open');
     
     if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
+      connection.query('SELECT Category, CallStatus, Symptoms, RecvdDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
         if (err) throw err
             myVar3 = JSON.stringify(result);
             console.log(myVar3);
             res.render((__dirname + '/../../public/views/home.ejs'), {
           
-            openTickets:myVar2,            
+            openTickets:myVar3,            
             });
     });
-    console.log('all');
+    
   });
 }

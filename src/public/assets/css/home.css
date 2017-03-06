@@ -66,6 +66,7 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
 #branch-rows{
 
   margin: 0;
@@ -83,7 +84,7 @@
   margin-left:0px;
   margin-bottom: 0px;
 }
-#openTab{
+#openTab, #branchTable_wrapper{
 
   padding-left: 10px;
   padding-right: 10px;
