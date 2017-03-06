@@ -169,7 +169,7 @@
         var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#text-block').val()
         +"&ErrorMessageText=" + document.getElementById('text-block-2').value;
         console.log(params);
-        var url = "/createTicket";
+        var url = "/createHardware";
         console.log("sent " + http.status + " " + http.readyState);
         http.open("POST", url, true);
         console.log(url + " " + http.status + " " + http.readyState);

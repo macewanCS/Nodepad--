@@ -44,7 +44,8 @@ var home_controller = require("./controllers/home_controller.js");
   //Categories
   app.get('/categories', isAuthenticated, ticket_creation_controller.categories);
   app.get('/categories/:form', ticket_creation_controller.forms);
-  app.post('/createTicket', ticket_creation_controller.create);
+  app.post('/createHardware', ticket_creation_controller.hardware);
+  app.post('/createSoftware', ticket_creation_controller.software);
 
   //MyTickets
   app.get('/mytickets', isAuthenticated, tickets_controller.mytickets);
