@@ -27,14 +27,14 @@ exports.mytickets = function(req, res){
     if (err) throw err
       console.log('You are now connected...')
       
-      connection.query('SELECT Category, CallStatus, Symptoms, RecvdDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed";', function(err, result) {
+      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed";', function(err, result) {
         if (err) throw err
             myVar = JSON.stringify(result);
             console.log(myVar);
     });
     console.log('closed');
     if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms, RecvdDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open";', function(err, result) {
+      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open";', function(err, result) {
         if (err) throw err
             myVar2 = JSON.stringify(result);
             console.log(myVar2);
@@ -42,7 +42,7 @@ exports.mytickets = function(req, res){
     console.log('open');
     
     if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms, RecvdDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
+      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
         if (err) throw err
             myVar3 = JSON.stringify(result);
             console.log(myVar3);
