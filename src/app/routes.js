@@ -1,6 +1,7 @@
 var tickets_controller = require("./controllers/tickets_controller.js");
 var ticket_creation_controller = require("./controllers/ticket_creation_controller.js");
 var home_controller = require("./controllers/home_controller.js");
+
   module.exports = function(app, passport) {
   app.get("/", function(req,res){
     res.render((__dirname + '/../public/views/login.ejs'));

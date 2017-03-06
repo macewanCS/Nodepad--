@@ -92,8 +92,9 @@
 }
 
 #sub-card{
-  width: 85%;
+  width: relative;
   position: relative;
+  padding-right:9em;
   top: 5em;
   left:5em;
 }
