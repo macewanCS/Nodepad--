@@ -73,19 +73,18 @@
                       offline/broken?<br>
                       Please select and option</p1>
               </div>
-              <input type=""
+              
               <div class="btn-group" id="radio-button" data-toggle="buttons">
-                <div class="btn btn-default blue">
-                     Yes
-                </div>
-                <div class="btn btn-default blue">
-                  No
-                </div>
-                <div class="btn btn-default blue">
-                  Don't Know
-                </div>
-                
-            </div>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" value="Yes"> Yes
+                </label>
+                <label class="btn btn-primary">
+                  <input type="radio" name="options" value="No"> No
+                </label>
+                <label class="btn btn-primary">
+                  <input type="radio" name="options" value="Don't Know"> Don't Know
+                </label>
+              </div>
 
               <div id="next-btn-2">
                 <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Next</button>  
@@ -148,7 +147,7 @@
         var http = new XMLHttpRequest();
         console.log("clicked the next button");
         console.log($("#type-button").text());
-        var params = "EffectedSystem=" + $("#type-button").text() + "&SystemStatus="+ $('radio-button input:radio:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
+        var params = "AffectedSystem=" + $("#type-button").text() + "&SystemStatus="+ $('input[name=options]:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
         console.log(params);
         var url = "/createSoftware";
         console.log("sent " + http.status + " " + http.readyState);
