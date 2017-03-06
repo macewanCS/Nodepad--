@@ -128,7 +128,7 @@
           <div id="collapse4" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-4">
-                <button type="button" class="btn btn-primary" onclick="postData()">Next </button>                
+              <a href="/home"><button type="button" class="btn btn-primary" onclick="postData()">Next</button></a>             
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -146,7 +146,6 @@
       function postData(req, res){
         var http = new XMLHttpRequest();
         console.log("clicked the next button");
-        console.log($("#type-button").text());
         var params = "AffectedSystem=" + $("#type-button").text() + "&SystemStatus="+ $('input[name=options]:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
         console.log(params);
         var url = "/createSoftware";
