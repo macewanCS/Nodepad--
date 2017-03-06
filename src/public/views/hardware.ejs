@@ -147,7 +147,7 @@
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-5">
-                <a href="/home"><button type="button" class="btn btn-primary" onclick="postData()">Submit</button></a>              
+                <a href="/home"><button type="button" class="btn btn-primary" onclick="postData()">Next</button></a>              
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -169,7 +169,7 @@
         var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#text-block').val()
         +"&ErrorMessageText=" + document.getElementById('text-block-2').value;
         console.log(params);
-        var url = "/createTicket";
+        var url = "/createHardware";
         console.log("sent " + http.status + " " + http.readyState);
         http.open("POST", url, true);
         console.log(url + " " + http.status + " " + http.readyState);
