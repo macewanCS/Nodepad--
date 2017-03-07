@@ -69,6 +69,7 @@
            //var obj1JSON = JSON.parse(JSON.stringify(obj1));
              $(document).ready(function(){
                var myOpen = $('#myOpenTable').DataTable( {
+                 "order": [[0, "desc"]],
                  "autoWidth": false,
                  "aaData": obj1,
                  "aoColumns": [
@@ -130,6 +131,7 @@
 
              $(document).ready(function(){
                $('#myClosedTable').DataTable( {
+                "order": [[0, "desc"]],
                  "autoWidth": false,
                  "aaData": obj2,
                  "aoColumns": [
@@ -188,6 +190,7 @@
 
              $(document).ready(function(){
                var myAll = $('#myAllTable').DataTable( {
+                "order": [[0, "desc"]],
                  "autoWidth": false,
                  "aaData": obj3,
                  "aoColumns": [
