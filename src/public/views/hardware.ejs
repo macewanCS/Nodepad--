@@ -17,7 +17,7 @@
       <div class="card" id="sub-card">
       <div class="accordian-group" id="accordian">
         <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading" id="heading-one">
             <h4 class="panel-title">
               
               Step 1: Equipment Type</a>
@@ -54,7 +54,7 @@
               </ul>
             </div>        
             <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2')">Next</button>                
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one')">Next</button>                
             </div>
           </div>          
         </div>
@@ -62,7 +62,7 @@
       
       <div class="panel-group" id="accordian">
         <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading" id="heading-two">
             <h4 class="panel-title">
               Step 2: Asset Tag</
             </h4>
@@ -75,7 +75,7 @@
                       you are having trouble with</p1>
               </div>
               <div id="next-btn-2">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Next</button>  
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two')">Next</button>  
               </div>
              <!-- <div id="skip-btn">
                 <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Skip</button>                
@@ -92,7 +92,7 @@
       
       <div class="panel-group" id="accordian">
         <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading" id="heading-three">
             <h4 class="panel-title">
               Step 3: Computer/Device Name
             </h4>
@@ -106,7 +106,7 @@
               </div>
             </div>
             <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4')">Next</button>                
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three')">Next</button>                
             </div>
             <div class="panel-text-box">
                 <input type="text" id="name-text">
@@ -117,7 +117,7 @@
       
       <div class="panel-group" id="accordian">
         <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading" id="heading-four">
             <h4 class="panel-title">
               Step 4: Description of Problem
             </h4>
@@ -130,7 +130,7 @@
               </div>
             </div>
             <div id="next-btn-4">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse4', '#collapse5')">Next</button>                
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse4', '#collapse5'); colorHeader('#heading-four')">Next</button>                
             </div>
             <textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>
           </div>
@@ -185,26 +185,30 @@
     </script>
     
     <script>
+    function colorHeader(header){
+      console.log("changing header color");
+      console.log(header);
+      $(header).css('background-color', 'rgb(170,170,170)');
+    };
+    
+    </script>
+    
+    <script>
+    function toggleAccordian(close, open, header){
+        console.log("its working");
+        $(close).collapse("toggle");
+        
+        $(open).collapse("toggle");
+      };
+    </script>
+    
+    
+    <script>
     
     $('.dropdown-inverse li > a').click(function(e){
       $('.status').text(this.innerHTML);
     });
     
-      function toggleAccordian(close, open){
-        console.log("its working");
-        $(close).collapse("toggle");
-        $(open).collapse("toggle");
-      };
-      
-      function createObject(){
-        console.log("Object creating!");
-        ticket = {type:document.getElementById("dropdown").value, 
-                      please:"work"};
-        console.log(ticket.type);  
-      };
-      
-
-
     </script>
     
     <footer>
