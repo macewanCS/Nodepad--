@@ -50,8 +50,15 @@
           <button type="button" class="btn btn-success pull-right" id="logout-button">Logout</button>
         </a>
       </li>
-      </ul>
-  
+      
+
+      <li class="nav-menu-item">
+          <h4 class="user-name"> 
+        Hello, <%= username.charAt(0).toUpperCase() + 
+        username.substr(1).toLowerCase(); %>
+        </h4>
+      </li>
+  </ul>
 
 </nav>
 

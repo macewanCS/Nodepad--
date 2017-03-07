@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 exports.categories = function(req, res){
-  res.render((__dirname + './../../public/views/categories.ejs'));
+  res.render((__dirname + './../../public/views/categories.ejs'), {username:req.user.username});
 };
 var category;
 
@@ -12,12 +12,12 @@ exports.forms = function(req, res){
   console.log("started looking with " + req.params.form);
   if (req.params.form.match(/hardware/i)){
     console.log("Its a hardware ticket, eh");
-    res.render((__dirname + '/../../public/views/hardware.ejs'));
+    res.render((__dirname + '/../../public/views/hardware.ejs'), {username:req.user.username});
     category = "hardware";
   }
   else if (req.params.form.match(/software/i)){
     console.log("Its a software ticket, eh");
-    res.render((__dirname + '/../../public/views/software.ejs'));
+    res.render((__dirname + '/../../public/views/software.ejs'), {username:req.user.username});
     category = "software";
   }
   else if (req.params.form.match(/password/i)){

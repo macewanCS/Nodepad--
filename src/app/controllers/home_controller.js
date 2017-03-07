@@ -51,7 +51,8 @@ exports.home = function(req, res){
             console.log(myVar3);
             res.render((__dirname + '/../../public/views/home.ejs'), {
           
-            openTickets:myVar3,            
+            openTickets:myVar3,
+            username:req.user.username,            
             });
     });
     
