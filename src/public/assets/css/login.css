@@ -29,9 +29,12 @@ margin-top:15px;
 #info{
 	padding-left: 55px;
 	display: inline-block;
+  left:8%;
+  top: 2.7em;
 }
 #user{
 	padding-top: 10px;
+
 }
 #login-message{
 	line-height: 1em;
@@ -39,4 +42,6 @@ margin-top:15px;
 }
 #login-info{
 	padding-left: 15px;
+    top: 2em;
+  left: 7%;
 }

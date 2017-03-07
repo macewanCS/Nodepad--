@@ -217,7 +217,7 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100064", "1", "Employee", "ALL IS GOOD", "Hardware", "Closed", "5/8/2016", "2016/5/8");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed","5/9/2017", "2017/5/9");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed","5/9/2016", "2016/5/9");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100066", "2", "Employee", "I never got a password for inovah, where can i get that?", "Service", "Closed", "5/10/2016", "2016/5/10");\
