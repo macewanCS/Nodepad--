@@ -35,7 +35,7 @@ exports.home = function(req, res){
             openTickets:myVar3,
             username:req.user.username,            
             });
-            connection.end()
     });
+    connection.end()
   });
 }
