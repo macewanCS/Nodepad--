@@ -45,13 +45,14 @@ exports.home = function(req, res){
     console.log('open');
     
     if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms, RecvdDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
+      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
         if (err) throw err
             myVar3 = JSON.stringify(result);
             console.log(myVar3);
             res.render((__dirname + '/../../public/views/home.ejs'), {
           
-            openTickets:myVar3,            
+            openTickets:myVar3,
+            username:req.user.username,            
             });
     });
     
