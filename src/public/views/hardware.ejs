@@ -20,7 +20,8 @@
           <div class="panel-heading" id="heading-one">
             <h4 class="panel-title">
               
-              Step 1: Equipment Type</a>
+              Step 1: Equipment Type <a class="changer" id="changeType" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
+              </h4>
 
           </div>
           <div id="collapse1" class="panel-collapse collapse in">
@@ -54,7 +55,7 @@
               </ul>
             </div>        
             <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one')">Next</button>                
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
             </div>
           </div>          
         </div>
@@ -64,7 +65,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-two">
             <h4 class="panel-title">
-              Step 2: Asset Tag</
+              Step 2: Asset Tag <a id="changeAsset" class="changer" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse2" class="panel-collapse collapse">
@@ -75,7 +76,7 @@
                       you are having trouble with</p1>
               </div>
               <div id="next-btn-2">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two')">Next</button>  
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two','#changeAsset')">Next</button>  
               </div>
              <!-- <div id="skip-btn">
                 <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Skip</button>                
@@ -94,7 +95,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-three">
             <h4 class="panel-title">
-              Step 3: Computer/Device Name 
+              Step 3: Computer/Device Name <a class="changer" id="changeName" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse3" class="panel-collapse collapse">
@@ -106,7 +107,7 @@
               </div>
             </div>
             <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three')">Next</button>                
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeName')">Next</button>                
             </div>
             <div class="panel-text-box">
                 <input type="text" id="name-text">
@@ -119,7 +120,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-four">
             <h4 class="panel-title">
-              Step 4: Description of Problem
+              Step 4: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse4" class="panel-collapse collapse">
@@ -130,7 +131,7 @@
               </div>
             </div>
             <div id="next-btn-4">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse4', '#collapse5'); colorHeader('#heading-four')">Next</button>                
+              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse4', '#collapse5'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
             </div>
             <textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>
           </div>
@@ -185,9 +186,11 @@
     </script>
     
     <script>
-    function colorHeader(header){
+    function colorHeader(header, change){
       console.log("changing header color");
       console.log(header);
+      console.log(change);
+      $(change).css('visibility', 'visible');
       $(header).css('background-color', 'rgb(170,170,170)');
     };
     </script>
@@ -200,7 +203,20 @@
         $(open).collapse("toggle");
       };
     </script>
+    <script>
+      function undo(open, close1, close2, close3, close4){
+        console.log("change was clicked");
+        $(close1).collapse("hide");
+        $(close2).collapse("hide");
+        $(close3).collapse("hide");
+        $(close4).collapse("hide");
+        console.log("they should be close");
+        $(open).collapse("show");
+        console.log("it should be opened");
+      
+      };
     
+    </script>
     
     <script>
     

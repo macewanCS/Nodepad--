@@ -91,6 +91,11 @@
   width: 90%;
 }
 
+.changer{
+  color: #0645AD !important;
+  margin-left: 1em;
+}
+
 #sub-card{
   width: relative;
   position: relative;
