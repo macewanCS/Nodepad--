@@ -34,11 +34,11 @@ var home_controller = require("./controllers/home_controller.js");
   });
 
   app.get('/announcements',isAuthenticated, function(req, res){
-    res.render((__dirname + '/../public/views/announcements.ejs'));
+    res.render((__dirname + '/../public/views/announcements.ejs'), {username:req.user.username});
   });
 
   app.get('/help', isAuthenticated, function(req, res){
-    res.render((__dirname + '/../public/views/help.ejs'));
+    res.render((__dirname + '/../public/views/help.ejs'), {username:req.user.username});
   });
   
   //Categories
@@ -68,6 +68,6 @@ var home_controller = require("./controllers/home_controller.js");
         });
  
   app.get('/branchtickets', isAuthenticated, function(req, res){
-    res.render((__dirname + '/../public/views/branchtickets.ejs'));
+    res.render((__dirname + '/../public/views/branchtickets.ejs'), {username:req.user.username});
   });
 }

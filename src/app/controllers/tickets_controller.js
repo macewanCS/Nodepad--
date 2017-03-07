@@ -50,6 +50,7 @@ exports.mytickets = function(req, res){
             allTickets:myVar3,
             openTickets:myVar2,
             closedTickets:myVar,
+            username:req.user.username,
             
             });
     });
