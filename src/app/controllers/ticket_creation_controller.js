@@ -134,6 +134,24 @@ function changePriorityHardware(hardwareType){
   return value;
 }
 
-function changeTeam(eType){
-  var name = 3;
+function changeSoftwareTeam(sWare){
+  var name =  "Help Desk Team";
+
+  if (sWare == "Internet/network access" || sare == "S:/ drive / file share"){
+    name = "Network Team";
+  }
+
+  else if (sWare == "Worflows"){
+    name = "ILS Team";
+  }
+  return name;
+}
+
+function changeHardwareTeam(hType){
+  var name = "Project Team";
+
+  if (hType == "PC" || hType == "Laptop"){
+    name = "Help Desk Team";
+  }
+  return name;
 }
