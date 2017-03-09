@@ -78,7 +78,7 @@ exports.hardware = function(req, res){
 exports.software = function(req, res){
   console.log("Create software is running");
   console.log(req.body);
-  var value = changePrioritySoftware(req.body.AffectedSystem);
+  var value = changePrioritySoftware(req.body.SystemStatus);
   console.log(value);
   var connection = mysql.createConnection({
     host: 'localhost',
@@ -117,8 +117,8 @@ exports.software = function(req, res){
 
 function changePrioritySoftware(softwareType){
   var value = 3;
-  if (softwareType == "StaffWeb/Active Directory" || softwareType == "Dayforce"){
-    value = 2;
+  if (softwareType == "Yes"){
+    value = 1;
   }
   return value;
 }
@@ -132,4 +132,8 @@ function changePriorityHardware(hardwareType){
     value=2;
   }
   return value;
+}
+
+function changeTeam(eType){
+  var name = 3;
 }
