@@ -23,27 +23,8 @@ exports.home = function(req, res){
   
   connection.connect(function(err) {
     
-    var myVar, myVar2, myVar3;
-    if (err) throw err
-      console.log('You are now connected...')
-/*
-      connection.query('SELECT Category, CallStatus, Symptoms, RecvdDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed";', function(err, result) {
-        if (err) throw err
-            myVar = JSON.stringify(result);
-            console.log(myVar);
-    });
-
-    //  
-    console.log('closed');
-    if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open";', function(err, result) {
-        if (err) throw err
-            myVar2 = JSON.stringify(result);
-            console.log(myVar2);
-    });
-    */
-    console.log('open');
-    
+    var myVar3;
+    console.log('You are now connecting...')
     if (err) throw err
       connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
         if (err) throw err
@@ -55,6 +36,6 @@ exports.home = function(req, res){
             username:req.user.username,            
             });
     });
-    
+    connection.end()
   });
 }

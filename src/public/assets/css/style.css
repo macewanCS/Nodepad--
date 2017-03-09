@@ -72,9 +72,6 @@ header #logo img {
 
 }
 
-
-
-
 body {
   background-color: #e6e6e6;
   margin: 0;
@@ -90,4 +87,5 @@ footer {
   vertical-align: baseline;
   width: 100%;
   border-top: solid #000000;
+  visibility: hidden;
 }
