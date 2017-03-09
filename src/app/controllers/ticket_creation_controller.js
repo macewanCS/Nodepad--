@@ -68,7 +68,7 @@ exports.hardware = function(req, res){
     //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
     
     console.log("Ending insertion, check the database to confirm");
-    
+    connection.end();
   });
 }
 
@@ -103,6 +103,10 @@ exports.software = function(req, res){
     //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
     
     console.log("Ending insertion, check the database to confirm");
+
     
+    console.log("finished");
+    connection.end();
   });
+
 }
