@@ -49,13 +49,15 @@ exports.hardware = function(req, res){
   });
   
   console.log(req.body.EquipmentType);
-  
+  var hPrioVal = changePriorityHardware(req.body.EquipmentType);
   connection.connect(function(err) {
     
     console.log("Beginning insertion");
     
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
+
+
     
     console.log('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`) VALUES ("' 
     + req.body.EquipmentType + ", " + req.body.AssetTag + ", " + req.body.Name + ", " + req.body.Description + ", " +req.body.ErrorMessageText + " " +
@@ -63,7 +65,7 @@ exports.hardware = function(req, res){
     
     connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`) VALUES ("' 
     + req.body.EquipmentType + ", " + req.body.AssetTag + ", " + req.body.Name + ", " + req.body.Description + ", " +req.body.ErrorMessageText + " " +
-    '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Hardware", "Employee", "' + stringDate + '")');
+    '", "' + hPrioVal + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Hardware", "Employee", "' + stringDate + '")');
     
     //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
     
@@ -76,7 +78,8 @@ exports.hardware = function(req, res){
 exports.software = function(req, res){
   console.log("Create software is running");
   console.log(req.body);
-  
+  var value = changePrioritySoftware(req.body.AffectedSystem);
+  console.log(value);
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -84,7 +87,9 @@ exports.software = function(req, res){
     database: '395project'
   });
   
-  console.log(req.body.EquipmentType);
+  if (req.body.AffectedSystem == "Dayforce"){
+    console.log("Hey it matched");
+  }
   
   connection.connect(function(err) {
     
@@ -95,11 +100,11 @@ exports.software = function(req, res){
     
     console.log('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`) VALUES ("' 
     + req.body.AffectedSystem + ", " + req.body.SystemStatus + ", " + req.body.Description + ", " + req.body.ProblemCause + " " +
-    '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Software", "Employee")');
+    '", "' + value + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Software", "Employee")');
     
     connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`) VALUES ("' 
     + req.body.AffectedSystem + ", " + req.body.SystemStatus + ", " + req.body.Description + ", " + req.body.ProblemCause + " " +
-    '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Software", "Employee", "' + stringDate + '")');
+    '", "' + value + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Software", "Employee", "' + stringDate + '")');
     
     //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
     
@@ -108,4 +113,23 @@ exports.software = function(req, res){
     connection.end();
   });
 
+}
+
+function changePrioritySoftware(softwareType){
+  var value = 3;
+  if (softwareType == "StaffWeb/Active Directory" || softwareType == "Dayforce"){
+    value = 2;
+  }
+  return value;
+}
+
+function changePriorityHardware(hardwareType){
+  var value = 3;
+  if (hardwareType == "Sorter"){
+    value =1;
+  }
+  else if(hardwareType == "Smart Chute" || hardwareType == "Self-checkout"){
+    value=2;
+  }
+  return value;
 }
