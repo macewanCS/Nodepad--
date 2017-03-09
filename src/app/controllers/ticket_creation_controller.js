@@ -22,17 +22,17 @@ exports.forms = function(req, res){
   }
   else if (req.params.form.match(/password/i)){
     console.log("Its a password ticket, eh");
-    res.render((__dirname + '/../../public/views/password.ejs'));
+    res.render((__dirname + '/../../public/views/password.ejs'), {username:req.user.username});
     category = "password";
   }
   else if (req.params.form.match(/service/i)){
     console.log("Its a service ticket, eh");
-    res.render((__dirname + '/../../public/views/service.ejs'));
+    res.render((__dirname + '/../../public/views/service.ejs'), {username:req.user.username});
     category = "service";
   }
   else if (req.params.form.match(/general/i)){
     console.log("Its a general ticket, eh");
-    res.render((__dirname + '/../../public/views/general.ejs'));
+    res.render((__dirname + '/../../public/views/general.ejs'), {username:req.user.username});
     category = "general";
   }
 }
