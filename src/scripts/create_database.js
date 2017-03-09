@@ -162,14 +162,14 @@ function getDateString(obj){
 	return string = obj.getFullYear() + "/" + monthInt + "/" + date.getDate();
 }
 connection.query('\
-    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open", "1/3/2016", "' + stringDateTest +'");\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open", "1/3/2016", "2016/2/23");\
     ');
 
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "System Service", "Open", "1/3/2016", "' + stringDateTest2 +'");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`) VALUES ("100049", "1", "Employee", "Computer broken in half", "Hardware", "Open", "1/4/2016", "2016/01/16");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`) VALUES ("100049", "1", "Employee", "Computer wont boot", "Hardware", "Open", "1/4/2016", "2016/01/16");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100050", "1", "Employee", "I forgot my password", "Password Request", "Closed", "2/22/2016", "2016/2/22");\
@@ -181,7 +181,7 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100052", "1", "Employee", "I forgot my password a third time", "Password Request", "Open", "3/27/2016", "2016/3/27");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100053", "1", "Employee", "Laptop exploded, send help", "Hardware", "Open", "3/1/2016", "2016/3/1");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100053", "1", "Employee", "Laptop says that there are no users installed", "Hardware", "Open", "3/1/2016", "2016/3/1");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100054", "1", "Employee", "Router got coffee spilled on it", "Hardware", "Open", "3/2/2016", "2016/3/2");\
@@ -217,10 +217,10 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100064", "1", "Employee", "ALL IS GOOD", "Hardware", "Closed", "5/8/2016", "2016/5/8");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed","5/9/2017", "2017/5/9");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100065", "1", "Employee", "Wires frayed under margerets desk", "Hardware", "Closed","5/9/2016", "2016/5/9");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100066", "2", "Employee", "I never got a password for inovah, where can i get that?", "Service", "Closed", "5/10/2016", "2016/5/10");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100066", "2", "Employee", "I never got a password for inovah, where can I get that?", "Service", "Closed", "5/10/2016", "2016/5/10");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`) VALUES ("100067", "2", "Employee", "I forgot my inovah password", "Service", "Open", "5/11/2016", "2016/5/11");\

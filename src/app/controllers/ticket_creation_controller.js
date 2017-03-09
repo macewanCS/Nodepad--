@@ -69,6 +69,7 @@ exports.hardware = function(req, res){
     
     console.log("Ending insertion, check the database to confirm");
     connection.end();
+
   });
 }
 
@@ -104,8 +105,6 @@ exports.software = function(req, res){
     
     console.log("Ending insertion, check the database to confirm");
 
-    
-    console.log("finished");
     connection.end();
   });
 
