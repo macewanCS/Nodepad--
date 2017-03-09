@@ -12,155 +12,40 @@
     </header>
     <div class="card" id="super-card">
       <div class="super-panel-heading">
-        <a href="#" class="channel-name stripe-two">Hardware</a>
+        <a href="#" class="channel-name stripe-two">Service</a>
       </div> 
       <div class="card" id="sub-card">
-      <div class="accordian-group" id="accordian">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="heading-one">
-            <h4 class="panel-title">
-              
-              Step 1: Equipment Type <a class="changer" id="changeType" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
-              </h4>
-
-          </div>
-          <div id="collapse1" class="panel-collapse collapse in">
-            <div class="issue-description">
-              <p1>Please select the type of
-              <br>equipment that you are
-              <br>having trouble with</p1>
+        <div class="accordian-group" id="accordian">
+          <div class="panel panel-default">
+            <div class="panel-heading" id="heading-one">
+              <h4 class="panel-title">
+                Step 1: Service Type <a class="changer" id="changeType" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
+                </h4>
             </div>
-            
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Equipment Type
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu dropdown-inverse">
-                <li><a href="#">AWE</a></li>
-                <li><a href="#">Barcode scanner</a></li>
-                <li><a href="#">Cell phone</a></li>
-                <li><a href="#">Gate</a></li>
-                <li><a href="#">Hotspot</a></li>
-                <li><a href="#">iPad</a></li>
-                <li><a href="#">Laptop</a></li>
-                <li><a href="#">Laser printer</a></li>
-                <li><a href="#">Monitor/LCD</a></li>
-                <li><a href="#">Receipt printer</a></li>
-                <li><a href="#">PC</a></li>
-                <li><a href="#">Projector</a></li>
-                <li><a href="#">RFID pad</a></li>
-                <li><a href="#">Self-checkout</a></li>
-                <li><a href="#">Smart Chute</a></li>
-                <li><a href="#">Sorter</a></li>
-                <li><a href="#">Other</a></li>
-              </ul>
-            </div>        
-            <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
-            </div>
-          </div>          
-        </div>
-      </div>
-      
-      <div class="panel-group" id="accordian1">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="heading-two">
-            <h4 class="panel-title">
-              Step 2: Asset Tag <a id="changeAsset" class="changer" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
-            </h4>
-          </div>
-          <div id="collapse2" class="panel-collapse collapse">
-            <div class="panel-body">
+            <div id="collapse1" class="panel-collapse collapse in">
               <div class="issue-description">
-                <p1> Please enter the asset tag<br>
-                      for the piece of hardware<br>
-                      you are having trouble with</p1>
+                <p1>Please select the type of
+                <br>request that you are have</p1>
               </div>
-              <div id="next-btn-2">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two','#changeAsset')">Next</button>  
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Equipment Type
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-inverse">
+                  <li><a href="#">System Access</a></li>
+                  <li><a href="#">Move Equipment</a></li>
+                  <li><a href="#">New Software</a></li>
+                  <li><a href="#">New Equipment</a></li>
+                  <li><a href="#">Surplus Equipment</a></li>
+                </ul>
+              </div>        
+              <div id="next-btn">
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
               </div>
-             <!-- <div id="skip-btn">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Skip</button>                
-              </div> -->
-              <div class="panel-text-box">
-                <input type="text" id="asset-tag-text">
-              </div>
-            </div>
-            
+            </div>          
           </div>
         </div>
-        
-      </div>
-      
-      <div class="panel-group" id="accordian">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="heading-three">
-            <h4 class="panel-title">
-              Step 3: Computer/Device Name <a class="changer" id="changeName" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
-            </h4>
-          </div>
-          <div id="collapse3" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="issue-description">
-                Please enter the device <br>
-                name for the hardware that <br>
-                you are having problems with
-              </div>
-            </div>
-            <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeName')">Next</button>                
-            </div>
-            <div class="panel-text-box">
-                <input type="text" id="name-text">
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="panel-group" id="accordian">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="heading-four">
-            <h4 class="panel-title">
-              Step 4: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
-            </h4>
-          </div>
-          <div id="collapse4" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="issue-description">
-              Tell us anything you think is <br>
-              relevant to the problems
-              </div>
-            </div>
-            <div id="next-btn-4">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse4', '#collapse5'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
-            </div>
-            <textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>
-          </div>
-        </div>
-      </div>
-      
-      <div class="panel-group" id="accordian">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              Step 5: Error Messages
-            </h4>
-          </div>
-          <div id="collapse5" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div id="next-btn-5">
-                <a href="/home"><button type="button" class="btn btn-primary" onclick="return(postData())">Next</button></a>              
-              </div>
-              <label class="control-label">Select A File</label>
-              <input id="input-1a" type="file" class="file" data-show-preview="false">
-              <label class="control-label" id="label-error">Or tell us about your error:</label>
-              <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>
-            </div>
-          </div>
-        </div>
-      
       </div>
     </div>
-  </div>
   
     <script>
       function postData(req, res){
