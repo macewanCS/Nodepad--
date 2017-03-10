@@ -5,9 +5,13 @@
     <link rel="stylesheet" href="../assets/css/service.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <script>document.documentElement.className = "js";</script>
+    <script src="../vendor/jquery-1.9.1.js"></script>
+    <script src="../vendor/json2.js"></script>
+    <script src="../src/jquery.collapse.js"></script>
+    <script src="../src/jquery.collapse_storage.js"></script>
+    <script src="../src/jquery.collapse_cookie_storage.js"></script>
   </head>
   <body>
     <header>
@@ -82,9 +86,13 @@
     </script>
     
     <script>
-    function toggleAccordian(close, open, header){
-        $(close).collapse("toggle");
-        $(open).collapse("toggle");
+    function toggleAccordian(close, open){
+        console.log("toggling ");
+        console.log($(close));
+        console.log($(open));
+        $(close).collapse("hide");
+        console.log("closed");
+        $(open).collapse("show");
       };
     </script>
     
@@ -102,47 +110,69 @@
     <script> 
       $(document).ready(function(){
         $('.dropdown-inverse li > a').click(function(e){
-        console.log("swapping");
-        var content = 
         
+        if (this.innerHTML.match(/Surplus Equipment/i))
+        {
+        var content = 
+       ' <div class="panel-group" id="accordion1">' +
         '<div class="panel panel-default">' +
-           ' <div class="panel-heading" id="heading-one">'+
+           ' <div class="panel-heading" id="heading-two">'+
              ' <h4 class="panel-title">'+
-              '  Step 2: System Access <a class="changer" id="changeType" onclick="undo("#collapse1", "#collapse2", "#collapse3", "#collapse4", "#collapse")" style="visibility:hidden"> Change </a>'+
+              '  Step 2: System Access <a class="changer" id="changeAccess" onclick="undo(\'#collapse2\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse5\')" style="visibility:hidden"> Change </a>'+
                 '</h4>'+
            ' </div>'+
-            '<div id="collapse1" class="panel-collapse collapse in">'+
+            '<div id="collapse2" class="panel-collapse collapse">'+
              ' <div class="issue-description">'+
-                '<p1>Please select the type of'+
-               ' <br>system that you need to access</p1>'+
+                '<p1>Which system would'+
+               ' <br>you like to get access to?</p1>'+
              ' </div>'+
              ' <div class="dropdown">'+
-               ' <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type'+
+               ' <button class="btn btn-primary dropdown-toggle status" id="system-button" type="button" data-toggle="dropdown">System Name'+
                 '<span class="caret"></span></button>'+
                ' <ul class="dropdown-menu dropdown-inverse">'+
-                 ' <li><a href="#">System Access</a></li>'+
-                 ' <li><a href="#">Move Equipment</a></li>'+
-                 ' <li><a href="#">New Software</a></li>'+
-                  '<li><a href="#">New Equipment</a></li>'+
-                 ' <li><a href="#">Surplus Equipment</a></li>'+
+                 ' <li><a href="#">Dayforce</a></li>'+
+                 ' <li><a href="#">iNovah</a></li>'+
+                 ' <li><a href="#">Library Online</a></li>'+
+                 ' <li><a href="#">SAP</a></li>'+
+                  '<li><a href="#">S:/ Drive Folder</a></li>'+
+                 ' <li><a href="#">VPN</a></li>'+
+                 
                 '</ul>'+
              ' </div>     '   +
              ' <div id="next-btn">'+
-                '<button type="button" class="btn btn-primary" onclick="toggleAccordian("#collapse1", "#collapse2"); colorHeader("#heading-one", "#changeType")">Next</button>  '              +
+                '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse2\',\'#collapse3\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
              ' </div>'+
             '</div> ' +        
           '</div>'+
-      '  </div>';
-        
+      '  </div>' +
+      '</div>'+
+      
+      '<div class="panel-group" id="accordion">'+
+      '<div class="panel panel-default">' +
+           ' <div class="panel-heading" id="heading-one">'+
+             ' <h4 class="panel-title">'+
+              '  Step 3: Asset Tags '+
+                '</h4>'+
+           ' </div>'+
+            '<div id="collapse3" class="panel-collapse collapse">'+
+             ' <div class="issue-description">'+
+                '<p1>What is the Asset Tag of the'+
+               ' <br>Equipment you would like handled?</p1>'+
+             ' </div>'+
+             ' <div id="next-btn">'+
+                '<button type="button" class="btn btn-primary" onclick="")">Next</button>  '              +
+             ' </div>'+
+            '</div> ' +        
+          '</div>'+
+      '  </div>'+
+      '</div>';
 
-        
-        
-        console.log(content);
         $('#accordion').append(content);
         console.log("appended");
-        $('#accordion').accordion("refresh");
-        console.log("changing status");
-        $('.status').text(this.innerHTML);
+        }
+        
+        
+        $('#type-button').text(this.innerHTML);
         console.log("exiting");
         });
       });
