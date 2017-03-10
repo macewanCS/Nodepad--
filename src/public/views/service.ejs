@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="../assets/css/service.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
     <header>
@@ -15,7 +18,7 @@
         <a href="#" class="channel-name stripe-two">Service</a>
       </div> 
       <div class="card" id="sub-card">
-        <div class="accordian-group" id="accordian">
+        <div id="accordion" class="widget">
           <div class="panel panel-default">
             <div class="panel-heading" id="heading-one">
               <h4 class="panel-title">
@@ -25,10 +28,10 @@
             <div id="collapse1" class="panel-collapse collapse in">
               <div class="issue-description">
                 <p1>Please select the type of
-                <br>request that you are have</p1>
+                <br>request that you have</p1>
               </div>
               <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Equipment Type
+                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-inverse">
                   <li><a href="#">System Access</a></li>
@@ -46,7 +49,7 @@
         </div>
       </div>
     </div>
-  
+   
     <script>
       function postData(req, res){
         var http = new XMLHttpRequest();
@@ -96,17 +99,55 @@
     
     </script>
     
-    <script>
-    $('.dropdown-inverse li > a').click(function(e){
-      console.log("swapping");
-      if(this.innerHTML.match(/iPad/i) || this.innerHTML.match(/Laptop/i) || this.innerHTML.match(/PC/i) || this.innerHTML.match(/Self-checkout/i)){
-        console.log(this.innerHTML);
-      }
-      $('.status').text(this.innerHTML);
-    });
-    
+    <script> 
+      $(document).ready(function(){
+        $('.dropdown-inverse li > a').click(function(e){
+        console.log("swapping");
+        var content = 
+        
+        '<div class="panel panel-default">' +
+           ' <div class="panel-heading" id="heading-one">'+
+             ' <h4 class="panel-title">'+
+              '  Step 2: System Access <a class="changer" id="changeType" onclick="undo("#collapse1", "#collapse2", "#collapse3", "#collapse4", "#collapse")" style="visibility:hidden"> Change </a>'+
+                '</h4>'+
+           ' </div>'+
+            '<div id="collapse1" class="panel-collapse collapse in">'+
+             ' <div class="issue-description">'+
+                '<p1>Please select the type of'+
+               ' <br>system that you need to access</p1>'+
+             ' </div>'+
+             ' <div class="dropdown">'+
+               ' <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type'+
+                '<span class="caret"></span></button>'+
+               ' <ul class="dropdown-menu dropdown-inverse">'+
+                 ' <li><a href="#">System Access</a></li>'+
+                 ' <li><a href="#">Move Equipment</a></li>'+
+                 ' <li><a href="#">New Software</a></li>'+
+                  '<li><a href="#">New Equipment</a></li>'+
+                 ' <li><a href="#">Surplus Equipment</a></li>'+
+                '</ul>'+
+             ' </div>     '   +
+             ' <div id="next-btn">'+
+                '<button type="button" class="btn btn-primary" onclick="toggleAccordian("#collapse1", "#collapse2"); colorHeader("#heading-one", "#changeType")">Next</button>  '              +
+             ' </div>'+
+            '</div> ' +        
+          '</div>'+
+      '  </div>';
+        
+
+        
+        
+        console.log(content);
+        $('#accordion').append(content);
+        console.log("appended");
+        $('#accordion').accordion("refresh");
+        console.log("changing status");
+        $('.status').text(this.innerHTML);
+        console.log("exiting");
+        });
+      });
     </script>
-    
+
     <footer>
       <% include ./partials/footer %>
     </footer>
