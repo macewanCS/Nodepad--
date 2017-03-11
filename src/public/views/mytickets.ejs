@@ -237,7 +237,35 @@
            
         <script>  //This function handles the on click events for all the "view" buttons 
            function table_button_handler(table){
-                $(table).on( 'click', '#view', function () {
+                $(table).on( 'click', '#view', function () { // VIEW BUTTON
+                    console.log("HEY");
+                    if(table == "#myOpenTable"){
+                      var data = myOpen.row($(this).parents('tr')).data();
+                    }
+                    else if(table == "#myClosedTable"){
+                      var data = myClose.row($(this).parents('tr')).data();
+                    }
+                    else{
+                      var data = myAll.row($(this).parents('tr')).data();
+                    }
+                    alert(data.CallID);
+                  });
+
+                $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
+                    console.log("HEY");
+                    if(table == "#myOpenTable"){
+                      var data = myOpen.row($(this).parents('tr')).data();
+                    }
+                    else if(table == "#myClosedTable"){
+                      var data = myClose.row($(this).parents('tr')).data();
+                    }
+                    else{
+                      var data = myAll.row($(this).parents('tr')).data();
+                    }
+                    alert(data.CallID);
+                  });
+
+                $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
                       var data = myOpen.row($(this).parents('tr')).data();
