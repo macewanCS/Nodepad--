@@ -109,12 +109,19 @@
     
     <script> 
       $(document).ready(function(){
+        var len = 1;
         $('#collapse1 .dropdown-inverse li > a').click(function(e){
+        
+        while (len != 1){
+          console.log("#accordion"+len)
+          $("#accordion" + len).remove();
+          len--;
+        }
         
         if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
         
           var content = 
-        ' <div class="panel-group" id="accordion1">' +
+        ' <div class="panel-group" id="accordion2">' +
           '<div class="panel panel-default">' +
             ' <div class="panel-heading" id="heading-two">'+
               ' <h4 class="panel-title">'+
@@ -146,9 +153,8 @@
             '</div>'+
         '  </div>' +
         '</div>';
-      
-        
-
+          
+          len++;
           $('#accordion').append(content);
           $('#collapse2 .dropdown-inverse li > a').click(function(e){
           $('#collapse2 .status').text(this.innerHTML);
@@ -157,7 +163,7 @@
         
         if (this.innerHTML.match(/Move Equipment/i)){
           var content =
-          '<div class="panel-group" id="accordion">'+
+          '<div class="panel-group" id="accordion3">'+
           '<div class="panel panel-default">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
@@ -181,7 +187,7 @@
           '  </div>'+
           '</div>'+
           
-          '<div class="panel-group" id="accordion">'+
+          '<div class="panel-group" id="accordion4">'+
           '<div class="panel panel-default">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
@@ -202,12 +208,13 @@
               '</div>'+
           '  </div>'+
           '</div>';
+          len += 2;
           $('#accordion').append(content);
         }
         
         if (this.innerHTML.match(/Surplus Equipment/i)){
           var content =
-          '<div class="panel-group" id="accordion">'+
+          '<div class="panel-group" id="accordion3">'+
           '<div class="panel panel-default">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
@@ -230,12 +237,13 @@
               '</div>'+
           '  </div>'+
           '</div>';
+          len++;
           $('#accordion').append(content);
         }
         
         if (this.innerHTML.match(/New Software/i)){
           var content =
-          '<div class="panel-group" id="accordion">'+
+          '<div class="panel-group" id="accordion2">'+
           '<div class="panel panel-default">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
@@ -257,10 +265,10 @@
               '</div>'+
           '  </div>'+
           '</div>';
-          
+          len++;
           $('#accordion').append(content);
         }
-        
+        console.log(len);
         $('#type-button').text(this.innerHTML);
         });
       });
