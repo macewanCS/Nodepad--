@@ -14,6 +14,7 @@ connection.query(' \
 	`username` varchar(20) NULL,\
 	`id` INT NOT NULL, \
 	`password` varchar(20) NULL, \
+	`Site` varchar(3) NULL, \
 	PRIMARY KEY (`id`)\
 	)');
 
@@ -24,6 +25,33 @@ connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`) VALUES ("jack", 2, "1234")\
 	');
 
+connection.query('\
+	CREATE TABLE `395project`.`branch` (\
+	`FullName` varchar(60) NULL,\
+	`Site` varchar(3) NOT NULL, \
+	PRIMARY KEY(`Site`) \
+	)');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ABB","AbbotsField - Penny McKee");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CLR","Calder");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CAP","Capilano");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CDS","Castle Downs");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CTP","Century Park LRT Lending Macine");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CLV","Clareview");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ENS","Enterprise Square (Downtown)");\
+	');
 connection.query('\
  CREATE TABLE `395project`.`profile` ( \
  `CustID` INT  NOT NULL, \
