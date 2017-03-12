@@ -117,7 +117,7 @@
           $("#accordion" + len).remove();
           len--;
         }
-        
+        $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
         
           var content = 
@@ -268,11 +268,16 @@
           len++;
           $('#accordion').append(content);
         }
+        if (this.innerHTML.match(/New Equipment/i) || this.innerHTML.match(/System Access/i)){
+        console.log(" T R I G G E R E D")
+          $('#next-btn').attr('onClick', 'postData()');
+        }
         console.log(len);
         $('#type-button').text(this.innerHTML);
         });
       });
     </script>
+    
     <script>
 
     <footer>
