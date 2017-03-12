@@ -40,7 +40,7 @@ exports.forms = function(req, res){
 exports.hardware = function(req, res){
   console.log("Create hardware is running");
   console.log(req.body);
-  
+  console.log(req.user.Site);
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -63,9 +63,9 @@ exports.hardware = function(req, res){
     + req.body.EquipmentType + ", " + req.body.AssetTag + ", " + req.body.Name + ", " + req.body.Description + ", " +req.body.ErrorMessageText + " " +
     '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Hardware", "Employee", "' + stringDate + '")');
     
-    connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`) VALUES ("' 
+    connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`, `Site`) VALUES ("' 
     + req.body.EquipmentType + ", " + req.body.AssetTag + ", " + req.body.Name + ", " + req.body.Description + ", " +req.body.ErrorMessageText + " " +
-    '", "' + hPrioVal + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Hardware", "Employee", "' + stringDate + '")');
+    '", "' + hPrioVal + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Hardware", "Employee", "' + stringDate + '", "' + req.user.Site + '")');
     
     //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
     
@@ -102,9 +102,9 @@ exports.software = function(req, res){
     + req.body.AffectedSystem + ", " + req.body.SystemStatus + ", " + req.body.Description + ", " + req.body.ProblemCause + " " +
     '", "' + value + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Software", "Employee")');
     
-    connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`) VALUES ("' 
+    connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`, `Site`) VALUES ("' 
     + req.body.AffectedSystem + ", " + req.body.SystemStatus + ", " + req.body.Description + ", " + req.body.ProblemCause + " " +
-    '", "' + value + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Software", "Employee", "' + stringDate + '")');
+    '", "' + value + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Software", "Employee", "' + stringDate + '", "' + req.user.Site + '")');
     
     //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
     
