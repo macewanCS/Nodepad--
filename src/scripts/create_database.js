@@ -53,6 +53,51 @@ connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ENS","Enterprise Square (Downtown)");\
 	');
 connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HIG","Highlands");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("IDY","Idylwydlde (Bonnie Doon)");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("JSP","Jasper Place");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("LOH","Lois Hole (Callingwood)");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MLM","Macewan Lending Machine");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MCE","McConachie");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MEA","Meadows");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MIL","Mill Woods");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("RIV","Riverbend");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("SPR","Sprucewood");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("STR","Strathcona");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WHP","West Henday Promenade (Lewis Estates)");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WHC","Whitemud Crossing");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WOD","Woodcroft");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HR","Human Resources");\
+	');
+connection.query('\
  CREATE TABLE `395project`.`profile` ( \
  `CustID` INT  NOT NULL, \
 	`CustType` varchar(50) NULL, \
