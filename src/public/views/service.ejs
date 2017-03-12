@@ -58,11 +58,10 @@
       function postData(req, res){
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
-        console.log($("#type-button").text());
-        var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#text-block').val()
-        +"&ErrorMessageText=" + document.getElementById('text-block-2').value;
+        var params = "EquipmentType=" + $("#type-button").text() + "&System=" + $("#system-button").text() +  "&AssetTag=" + $('#asset-tag-text').val()
+        + "&Location=" +$('#text-block').val() + "&SoftwareName=" + $("#text-block-2").val();
         console.log(params);
-        var url = "/createHardware";
+        var url = "/createService";
         console.log("sent " + http.status + " " + http.readyState);
         http.open("POST", url, true);
         console.log(url + " " + http.status + " " + http.readyState);
@@ -201,7 +200,7 @@
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData")">Next</button>  '              +
+                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
                 ' </div>'+
                 '<textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>'+
                 '</div> ' +        
@@ -228,7 +227,7 @@
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData")">Next</button>  '              +
+                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
                 ' </div>'+
                ' <div class="panel-text-box">'+
                   '<input type="text" id="asset-tag-text">'+
@@ -256,7 +255,7 @@
                 '  <br>looking for?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse2\',\'#collapse3\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
+                    '<button type="button" class="btn btn-primary" onclick="postData()">Next</button>  '              +
                 ' </div>'+
                 '<input id="input-1a" type="file" class="file" data-show-preview="false">'+
                 '<label class="control-label" id="label-error">Tell us the name of the software:</label>'+

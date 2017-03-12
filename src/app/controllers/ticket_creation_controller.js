@@ -36,7 +36,9 @@ exports.forms = function(req, res){
     category = "general";
   }
 }
-
+exports.service = function(req, res){
+  console.log("create service is running");
+}
 exports.hardware = function(req, res){
   console.log("Create hardware is running");
   console.log(req.body);
