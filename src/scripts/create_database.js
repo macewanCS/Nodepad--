@@ -19,10 +19,10 @@ connection.query(' \
 	)');
 
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`) VALUES ("brett", 1, "1234")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("brett", 1, "1234", "MIL")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`) VALUES ("jack", 2, "1234")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jack", 2, "1234", "MIL")\
 	');
 
 connection.query('\
