@@ -22,21 +22,52 @@ exports.forms = function(req, res){
   }
   else if (req.params.form.match(/password/i)){
     console.log("Its a password ticket, eh");
-    res.render((__dirname + '/../../public/views/password.ejs'));
+    res.render((__dirname + '/../../public/views/password.ejs'), {username:req.user.username});
     category = "password";
   }
   else if (req.params.form.match(/service/i)){
     console.log("Its a service ticket, eh");
-    res.render((__dirname + '/../../public/views/service.ejs'));
+    res.render((__dirname + '/../../public/views/service.ejs'), {username:req.user.username});
     category = "service";
   }
   else if (req.params.form.match(/general/i)){
     console.log("Its a general ticket, eh");
-    res.render((__dirname + '/../../public/views/general.ejs'));
+    res.render((__dirname + '/../../public/views/general.ejs'), {username:req.user.username});
     category = "general";
   }
 }
-
+exports.service = function(req, res){
+  console.log("create service is running");
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: '395project'
+  });
+  
+  console.log(req.body.EquipmentType);
+  
+  connection.connect(function(err) {
+    
+    console.log("Beginning insertion");
+    
+    var today = new Date();
+    var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
+    
+    console.log('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`) VALUES ("' 
+    + req.body.EquipmentType + ", " + req.body.System + ", " + req.body.AssetTag + ", " + req.body.Location + ", " +req.body.SoftwareName + " " +
+    '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Service", "Employee")');
+    
+    connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`) VALUES ("' 
+    + req.body.EquipmentType + ", " + req.body.System + ", " + req.body.AssetTag + ", " + req.body.Location + ", " +req.body.SoftwareName + " " +
+    '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Service", "Employee")');
+    
+    //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
+    
+    console.log("Ending insertion, check the database to confirm");
+    connection.end();
+  });
+}
 exports.hardware = function(req, res){
   console.log("Create hardware is running");
   console.log(req.body);
