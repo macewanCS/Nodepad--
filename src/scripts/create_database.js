@@ -97,6 +97,15 @@ connection.query('\
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HR","Human Resources");\
 	');
+
+connection.query('SELECT * FROM `395project`.`branch`', function(err, rows){
+	if (err){
+		return done(err);
+	}
+	else{
+		console.log(rows);
+	}
+});
 connection.query('\
  CREATE TABLE `395project`.`profile` ( \
  `CustID` INT  NOT NULL, \
