@@ -61,7 +61,7 @@
         </div>
       </div>
       
-      <div class="panel-group" id="accordian">
+      <div class="panel-group" id="accordian1">
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-two">
             <h4 class="panel-title">
@@ -188,9 +188,6 @@
     
     <script>
     function colorHeader(header, change){
-      console.log("changing header color");
-      console.log(header);
-      console.log(change);
       $(change).css('visibility', 'visible');
       $(header).css('background-color', 'rgb(170,170,170)');
     };
@@ -198,30 +195,28 @@
     
     <script>
     function toggleAccordian(close, open, header){
-        console.log("its working");
         $(close).collapse("toggle");
-        
         $(open).collapse("toggle");
       };
     </script>
+    
     <script>
       function undo(open, close1, close2, close3, close4){
-        console.log("change was clicked");
         $(close1).collapse("hide");
         $(close2).collapse("hide");
         $(close3).collapse("hide");
         $(close4).collapse("hide");
-        console.log("they should be close");
         $(open).collapse("show");
-        console.log("it should be opened");
-      
       };
     
     </script>
     
     <script>
-    
     $('.dropdown-inverse li > a').click(function(e){
+      console.log("swapping");
+      if(this.innerHTML.match(/iPad/i) || this.innerHTML.match(/Laptop/i) || this.innerHTML.match(/PC/i) || this.innerHTML.match(/Self-checkout/i)){
+        console.log(this.innerHTML);
+      }
       $('.status').text(this.innerHTML);
     });
     

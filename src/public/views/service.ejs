@@ -2,12 +2,283 @@
 <html>
   <head>
     <% include ./partials/head %>
+    <link rel="stylesheet" href="../assets/css/service.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <script>document.documentElement.className = "js";</script>
+    <script src="../vendor/jquery-1.9.1.js"></script>
+    <script src="../vendor/json2.js"></script>
+    <script src="../src/jquery.collapse.js"></script>
+    <script src="../src/jquery.collapse_storage.js"></script>
+    <script src="../src/jquery.collapse_cookie_storage.js"></script>
   </head>
   <body>
     <header>
       <% include ./partials/header %>
     </header>
-    This is the service form
+    <div class="card" id="super-card">
+      <div class="super-panel-heading">
+        <a href="#" class="channel-name stripe-two">Service</a>
+      </div> 
+      <div class="card" id="sub-card">
+        <div id="accordion" class="widget">
+          <div class="panel panel-default">
+            <div class="panel-heading" id="heading-one">
+              <h4 class="panel-title">
+                Step 1: Service Type <a class="changer" id="changeType" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+              <div class="issue-description">
+                <p1>Please select the type of
+                <br>request that you have</p1>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-inverse">
+                  <li><a href="#">System Access</a></li>
+                  <li><a href="#">Move Equipment</a></li>
+                  <li><a href="#">New Software</a></li>
+                  <li><a href="#">New Equipment</a></li>
+                  <li><a href="#">Surplus Equipment</a></li>
+                </ul>
+              </div>        
+              <div id="next-btn">
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
+              </div>
+            </div>          
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <script>
+      function postData(req, res){
+        var http = new XMLHttpRequest();
+        console.log("clicked the submit button");
+        var params = "EquipmentType=" + $("#type-button").text() + "&System=" + $("#system-button").text() +  "&AssetTag=" + $('#asset-tag-text').val()
+        + "&Location=" +$('#text-block').val() + "&SoftwareName=" + $("#text-block-2").val();
+        console.log(params);
+        var url = "/createService";
+        console.log("sent " + http.status + " " + http.readyState);
+        http.open("POST", url, true);
+        console.log(url + " " + http.status + " " + http.readyState);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {//Call a function when the state changes.
+          if(http.readyState == 4 && http.status == 200) {
+            console.log(http.responseText);
+          }
+        };
+        http.send(params);
+        console.log("sent " + http.status + " " + http.readyState);
+        return true;
+      };
+    </script>
+    
+    <script>
+    function colorHeader(header, change){
+      $(change).css('visibility', 'visible');
+      $(header).css('background-color', 'rgb(170,170,170)');
+    };
+    </script>
+    
+    <script>
+    function toggleAccordian(close, open){
+        console.log("toggling ");
+        console.log($(close));
+        console.log($(open));
+        $(close).collapse("hide");
+        console.log("closed");
+        $(open).collapse("show");
+      };
+    </script>
+    
+    <script>
+      function undo(open, close1, close2, close3, close4){
+        $(close1).collapse("hide");
+        $(close2).collapse("hide");
+        $(close3).collapse("hide");
+        $(close4).collapse("hide");
+        $(open).collapse("show");
+      };
+    
+    </script>
+    
+    <script> 
+      $(document).ready(function(){
+        var len = 1;
+        $('#collapse1 .dropdown-inverse li > a').click(function(e){
+        
+        while (len != 1){
+          console.log("#accordion"+len)
+          $("#accordion" + len).remove();
+          len--;
+        }
+        $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
+        if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
+        
+          var content = 
+        ' <div class="panel-group" id="accordion2">' +
+          '<div class="panel panel-default">' +
+            ' <div class="panel-heading" id="heading-two">'+
+              ' <h4 class="panel-title">'+
+                '  Step 2: System Access <a class="changer" id="changeAccess" onclick="undo(\'#collapse2\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse5\')" style="visibility:hidden"> Change </a>'+
+                  '</h4>'+
+            ' </div>'+
+              '<div id="collapse2" class="panel-collapse collapse">'+
+              ' <div class="issue-description">'+
+                  '<p1>Which system would'+
+                ' <br>you like to get access to?</p1>'+
+              ' </div>'+
+              ' <div class="dropdown">'+
+                ' <button class="btn btn-primary dropdown-toggle status" id="system-button" type="button" data-toggle="dropdown">System Name'+
+                  '<span class="caret"></span></button>'+
+                ' <ul class="dropdown-menu dropdown-inverse">'+
+                  ' <li><a href="#">Dayforce</a></li>'+
+                  ' <li><a href="#">iNovah</a></li>'+
+                  ' <li><a href="#">Library Online</a></li>'+
+                  ' <li><a href="#">SAP</a></li>'+
+                    '<li><a href="#">S:/ Drive Folder</a></li>'+
+                  ' <li><a href="#">VPN</a></li>'+
+                 
+                  '</ul>'+
+              ' </div>     '   +
+              ' <div id="next-btn">'+
+                  '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse2\',\'#collapse3\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
+              ' </div>'+
+              '</div> ' +        
+            '</div>'+
+        '  </div>' +
+        '</div>';
+          
+          len++;
+          $('#accordion').append(content);
+          $('#collapse2 .dropdown-inverse li > a').click(function(e){
+          $('#collapse2 .status').text(this.innerHTML);
+          });
+        }
+        
+        if (this.innerHTML.match(/Move Equipment/i)){
+          var content =
+          '<div class="panel-group" id="accordion3">'+
+          '<div class="panel panel-default">' +
+           ' <div class="panel-heading" id="heading-one">'+
+             ' <h4 class="panel-title">'+
+              '  Step 3: Asset Tags'+
+              '</h4>'+
+             ' </div>'+
+              '<div id="collapse3" class="panel-collapse collapse">'+
+               ' <div class="issue-description">'+
+                  '<p1>What is the asset tag of'+
+                '  <br>the equipment you would like'+
+                '<br> moved or surplused?</p1>'+
+             '   </div>'+
+                ' <div id="next-btn">'+
+                    '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse3\',\'#collapse4\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
+                ' </div>'+
+                ' <div class="panel-text-box">'+
+                  '<input type="text" id="asset-tag-text">'+
+                '</div>'+
+                '</div> ' +        
+              '</div>'+
+          '  </div>'+
+          '</div>'+
+          
+          '<div class="panel-group" id="accordion4">'+
+          '<div class="panel panel-default">' +
+           ' <div class="panel-heading" id="heading-one">'+
+             ' <h4 class="panel-title">'+
+              '  Step 4: Destination '+
+              '</h4>'+
+             ' </div>'+
+              '<div id="collapse4" class="panel-collapse collapse">'+
+               ' <div class="issue-description">'+
+                  '<p1>Where would you like this'+
+                '  <br>equipment moved to?'+
+                '<br> moved or surplused?</p1>'+
+             '   </div>'+
+                ' <div id="next-btn">'+
+                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
+                ' </div>'+
+                '<textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>'+
+                '</div> ' +        
+              '</div>'+
+          '  </div>'+
+          '</div>';
+          len += 2;
+          $('#accordion').append(content);
+        }
+        
+        if (this.innerHTML.match(/Surplus Equipment/i)){
+          var content =
+          '<div class="panel-group" id="accordion3">'+
+          '<div class="panel panel-default">' +
+           ' <div class="panel-heading" id="heading-one">'+
+             ' <h4 class="panel-title">'+
+              '  Step 3: Asset Tags '+
+              '</h4>'+
+             ' </div>'+
+              '<div id="collapse3" class="panel-collapse collapse">'+
+               ' <div class="issue-description">'+
+                  '<p1>What is the asset tag of'+
+                '  <br>the equipment you would like'+
+                '<br> moved or surplused?</p1>'+
+             '   </div>'+
+                ' <div id="next-btn">'+
+                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
+                ' </div>'+
+               ' <div class="panel-text-box">'+
+                  '<input type="text" id="asset-tag-text">'+
+                '</div>'+
+                '</div> ' +        
+              '</div>'+
+          '  </div>'+
+          '</div>';
+          len++;
+          $('#accordion').append(content);
+        }
+        
+        if (this.innerHTML.match(/New Software/i)){
+          var content =
+          '<div class="panel-group" id="accordion2">'+
+          '<div class="panel panel-default">' +
+           ' <div class="panel-heading" id="heading-one">'+
+             ' <h4 class="panel-title">'+
+              '  Step 2: Software Name'+
+              '</h4>'+
+             ' </div>'+
+              '<div id="collapse2" class="panel-collapse collapse">'+
+               ' <div class="issue-description">'+
+                  '<p1>What software are you'+
+                '  <br>looking for?</p1>'+
+             '   </div>'+
+                ' <div id="next-btn">'+
+                    '<button type="button" class="btn btn-primary" onclick="postData()">Next</button>  '              +
+                ' </div>'+
+                '<input id="input-1a" type="file" class="file" data-show-preview="false">'+
+                '<label class="control-label" id="label-error">Tell us the name of the software:</label>'+
+                '<textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>'+
+                '</div> ' +        
+              '</div>'+
+          '  </div>'+
+          '</div>';
+          len++;
+          $('#accordion').append(content);
+        }
+        if (this.innerHTML.match(/New Equipment/i) || this.innerHTML.match(/System Access/i)){
+        console.log(" T R I G G E R E D")
+          $('#next-btn').attr('onClick', 'postData()');
+        }
+        console.log(len);
+        $('#type-button').text(this.innerHTML);
+        });
+      });
+    </script>
+    
+    <script>
+
     <footer>
       <% include ./partials/footer %>
     </footer>

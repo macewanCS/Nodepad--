@@ -1,6 +1,3 @@
-#accordian1{
-  /*visibility:hidden;*/
-}
 
 #super-card{
   background: #fff;
@@ -32,24 +29,6 @@
   position: relative;
   left: 104%;
   bottom: -31%;
-}
-
-#next-btn-2 {
-  position: relative;
-  left: 105.9%;
-  bottom: -5.5em;
-}
-
-#next-btn-4 {
-  position: relative;
-  left: 104%;
-  bottom: -5.7em; 
-}
-
-#next-btn-5 {
-  position: relative;
-  left: 105.9%;
-  bottom: -10em; 
 }
 
 #skip-btn {

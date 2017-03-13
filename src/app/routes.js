@@ -1,7 +1,8 @@
 var tickets_controller = require("./controllers/tickets_controller.js");
 var ticket_creation_controller = require("./controllers/ticket_creation_controller.js");
 var home_controller = require("./controllers/home_controller.js");
-
+var branch_controller = require("./controllers/branch_controller.js");
+  
   module.exports = function(app, passport) {
   app.get("/", function(req,res){
     res.render((__dirname + '/../public/views/login.ejs'));
@@ -33,6 +34,11 @@ var home_controller = require("./controllers/home_controller.js");
     res.redirect('/');
   });
 
+  //success
+  app.get('/success', isAuthenticated, function(req, res){
+    res.render((__dirname + '/../public/views/success.ejs'), {username:req.user.username});
+  });
+
   app.get('/announcements',isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/announcements.ejs'), {username:req.user.username});
   });
@@ -46,6 +52,8 @@ var home_controller = require("./controllers/home_controller.js");
   app.get('/categories/:form', ticket_creation_controller.forms);
   app.post('/createHardware', ticket_creation_controller.hardware);
   app.post('/createSoftware', ticket_creation_controller.software);
+  app.post('/createService', ticket_creation_controller.service);
+
 
   //MyTickets
   app.get('/mytickets', isAuthenticated, tickets_controller.mytickets);
@@ -66,8 +74,12 @@ var home_controller = require("./controllers/home_controller.js");
                 });
             }
         });
- 
-  app.get('/branchtickets', isAuthenticated, function(req, res){
-    res.render((__dirname + '/../public/views/branchtickets.ejs'), {username:req.user.username});
-  });
+  
+  //Branch Tickets
+  app.get('/branchtickets', isAuthenticated, branch_controller.mytickets);
+  app.get('/branchtickets/:ticketid/view', branch_controller.view);
+  app.get('/branchtickets/:ticketid/edit', branch_controller.edit);
+  //app.get('/branchtickets', isAuthenticated, function(req, res){
+   // res.render((__dirname + '/../public/views/branchtickets.ejs'), {username:req.user.username});
+  //});
 }
