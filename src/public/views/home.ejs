@@ -54,8 +54,9 @@
           for(var i = 0; i < Object.keys(obj1).length; i++) {
               obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
               }
-           console.log(obj1);
-             $(document).ready(function(){
+           
+
+              $(document).ready(function(){
                var myOpen = $('#myOpenTable').DataTable( {
                 "order": [[0, "desc"]],
                  "autoWidth": false,
@@ -66,7 +67,7 @@
                    { "mDataProp": "Category" },
                  ],
                   "filter": false,
-                  "pageLength": 7,
+
                   "lengthChange": false,
                   //"bPaginate": false,
                   "bsort": false,
@@ -80,7 +81,6 @@
                    "columnDefs": [ {"targets": 0, "width": "20%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%", "data": null, "defaultContent": "n/a"}]
                });
  
-               //myOpen.
              });
 
             
