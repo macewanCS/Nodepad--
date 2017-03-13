@@ -54,9 +54,7 @@
                 <li><a href="#">Other</a></li>
               </ul>
             </div>        
-            <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
-            </div>
+              <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')">Next</button>                
           </div>          
         </div>
       </div>
@@ -78,7 +76,7 @@
                 you are having problems with
               </div>
             </div>
-            <div id="next-btn">
+            <div id="next-btn-4">
               <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeName')">Next</button>                
             </div>
             <div class="panel-text-box">
@@ -120,7 +118,7 @@
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-5">
-                <a href="/home"><button type="button" class="btn btn-primary" onclick="return(postData())">Next</button></a>              
+                <button type="button" class="btn btn-primary" onclick="return(postData())">Next</button>            
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -166,7 +164,7 @@
     </script>
     
     <script>
-    function toggleAccordian(close, open, header){
+    function toggleAccordian(close, open){
         $(close).collapse("toggle");
         $(open).collapse("toggle");
       };
@@ -187,8 +185,10 @@
     $('.dropdown-inverse li > a').click(function(e){
       console.log("swapping");
       $('#accordion2').remove();
+      $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')");
       if(this.innerHTML.match(/iPad/i) || this.innerHTML.match(/Laptop/i) || this.innerHTML.match(/PC/i) || this.innerHTML.match(/Self-checkout/i)){
         console.log("it matched");
+        $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         var content =
           '<div class="panel-group" id="accordion2">' +
             '<div class="panel panel-default">' +
@@ -218,7 +218,6 @@
       }
       $('.status').text(this.innerHTML);
     });
-    
     </script>
     
     <footer>
