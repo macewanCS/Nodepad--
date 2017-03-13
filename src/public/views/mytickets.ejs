@@ -5,19 +5,15 @@
 
     <!-- Dependencies -->
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script> <!-- MUST BE AT THE TOP (DECLARED FIRST) -->
-
-
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
     <style><background-color: blue></style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="../assets/css/mytickets.css">
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -68,11 +64,10 @@
                 else{
                   obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
+
+                obj1[i].TempDate = obj1[i].TempDate.slice(0,10);
               }
 
-              for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
-                  obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
-              }
 
               //var obj1JSON = JSON.parse(JSON.stringify(obj1));
              $(document).ready(function(){
@@ -234,9 +229,23 @@
     </div>
   </div>
   </div>
-           
+
+
+<!--  <script>
+  $(document).ready(function(){
+    $("#view").click(function(){
+      //$("#myModal").modal();
+      alert("this is view from Jordan");
+    });
+});
+</script> -->
+
+
         <script>  //This function handles the on click events for all the "view" buttons 
            function table_button_handler(table){
+                
+              
+
                 $(table).on( 'click', '#view', function () { // VIEW BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -248,7 +257,11 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
-                    alert(data.CallID);
+                    
+                    //alert("this is view from Sunny");
+                    
+                    bootbox.alert("#data.CallID");
+
                   });
 
                 $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
@@ -262,7 +275,7 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
-                    alert(data.CallID);
+                    alert("this is edi");
                   });
 
                 $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
@@ -280,6 +293,7 @@
                   });
             }
          </script>
+
 
  <footer>
       <% include ./partials/footer %>

@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="../assets/css/hardware.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   </head>
   <body>
     <header>
@@ -148,7 +150,7 @@
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-5">
-                <a href="/home"><button type="button" class="btn btn-primary" onclick="return(postData())">Next</button></a>              
+                <button type="button" class="btn btn-primary" onClick="showInfo()">Next</button>              
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -162,6 +164,61 @@
     </div>
   </div>
   
+
+  <!--This is for the confirmation-->
+  <script>
+  function showInfo(){
+
+    var equipment = $("#type-button").text();
+    var assetTag = $('#asset-tag-text').val();    
+    var deviceName = $('#name-text').val();
+    var ticketInfo =  $('#text-block').val();
+    var errorInfo = document.getElementById('text-block-2').value;
+    var errorImage = $("#input-1a").val();
+    if (assetTag === ""){
+      assetTag = "n/a";
+    }
+    if (deviceName === ""){
+      deviceName = "n/a";
+    }
+    if (errorInfo === ""){
+      errorInfo = "n/a";
+    }
+    bootbox.confirm({
+      title: "Please confirm your information:",
+      message: "<b>Equipment Type:</b> " + equipment +
+               "<br><b>Asset Tag:</b> " + assetTag +
+               "<br><b>device Name:</b> " + deviceName +
+               "<br><b>Description:</b> " + ticketInfo +
+               "<br><b>Error Information:</b> " + errorInfo +
+               "<br><b>Error url:</b> " + errorImage +
+               "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
+      buttons: {
+          confirm: {
+              label: 'Submit',
+              class: 'btn-success',
+              
+          },
+          cancel: {
+              label: 'Go back',
+              class: 'btn-danger'
+          }
+      },
+      callback: function (result) {
+        
+        if(result){
+          
+          postData();
+          window.location.href = "/success";
+        }
+      }
+    });
+
+
+  }
+
+
+  </script>
     <script>
       function postData(req, res){
         var http = new XMLHttpRequest();
