@@ -1,0 +1,135 @@
+#super-card-mytickets{
+  background: #fff;
+  position: relative;
+  left: 18%;
+  height: 900px;
+  width: 65%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 0%;
+}
+
+/*#buttons {
+  padding
+  position:relative !important;
+  text-align: center !important;
+}*/
+
+/*p1 {
+    color: red;
+}
+
+p2 {
+    color: red;
+}*/
+
+p3 {
+    /*color: red;*/
+    position: relative;
+    left:20%;
+}
+
+p4 {
+    color: red;
+    position: 80%;
+}
+
+p5 {
+    /*color: red;*/
+    position: relative;
+    Left:26%;
+}
+
+p6 {
+    /*color: red;*/
+    position: relative;
+    left:23%;
+}
+p7 {
+    /*color: red;*/
+    position: relative;
+    left:26%;
+}
+p8 {
+    /*color: red;*/
+    position: relative;
+    left:30%;
+}
+
+
+#button-container{ 
+  width: relative;
+  margin-left: 0%;
+  padding-top: 4em;
+}
+
+#body-container{ 
+  width: relative;
+  padding-top: 2em;
+}
+
+#buttons{
+  position:relative;
+
+}
+
+#edit-btn {
+  position: relative;
+  left:0%;
+  width:8%;
+}
+
+#resolve-btn {
+  position: relative;
+  left:0%;
+  width:8%;
+}
+
+#exit-btn {
+  position: relative;
+  left:0%;
+  width:8%;
+}
+
+#desc-lb {
+  position: relative;
+  left:0%;
+  padding-bottom: 0em;
+  /*border-radius: 50px;*/
+}
+#desc-text {
+  /*position: relative;*/
+  margin: 0 auto 0 auto;
+  /*size: relative;*/
+  /*left:0%;*/
+  /*padding-left: 2%;*/
+  /*padding-bottom: 10em;*/
+  /*border-radius: 50px;*/
+}
+#text_results{
+  margin: 0 auto 0 auto;
+  border-radius: 5px;
+  width: 80%;
+  height: 20em;
+}
+
+.channel-name {
+  border-left-color: #1464f6;
+  background-color: #3f4344;
+  padding: 10px 25px;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  border-left-width: 10px;
+  border-left-style: solid;
+  z-index: 9;
+  font-weight: bold;
+  width: 200px;
+  position: absolute;
+}
+
+.channel-name:hover{
+  background-color: #585d5e;
+  color: #FFF;
+}

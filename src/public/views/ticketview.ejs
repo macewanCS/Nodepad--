@@ -32,7 +32,6 @@
 <script type="text/javascript">
 var data = <%- data %>;
   console.log(data);
-
 </script>
     <div class="card" id="super-card-mytickets">
   
@@ -48,12 +47,17 @@ var data = <%- data %>;
            <button id="exit-btn" type="button" class="btn btn-outline-secondary">Exit</button> 
           </div>
         </div>
-
         <div class="container" id="body-container">
           <div id="cate-lb">
             <label class="control-label">Category:</label>
-            <p1></p>
+            <p1>this is where p1 is</p1>
           </div>
+
+            <p3 id="symptoms0"></p3>
+            <p5 id="symptoms1"></p5>
+            <p6 id="symptoms2"></p6>
+            <p7 id="symptoms3"></p7>
+            <p8 id="symptoms4"></p8>
           <div id="desc-lb">
             <label class="control-label">Description of the problem:</label>
           </div>
@@ -70,11 +74,37 @@ var data = <%- data %>;
 
       <script>
         $(document).ready(function(){
-                $('#text_results').text(data[0].Symptoms);
+                // parse here
+                // data[0].Symptoms
+                // alert("HEY");
+                var counter = 0;
+                var word="";                                           //last word parsed out
+                var parse_data = data[0].Symptoms;                  //unparsed data
+                var headings = ["Equipment Type: ", "", "DeviceID: ", "", "Error Code: "] 
+                var objectArr = ["#symptoms0","#symptoms1", "#symptoms2", "#text_results", "#symptoms4"];                                      //array of objects to store parsed words into
+                 for(var i = 0; i < parse_data.length; i++){
+                    var t = parse_data.charAt(i);
+                    if(t == ","){
+                      if(t=="" || t=="undefined"){
+                        word="N/A";
+                      }
+                      $(objectArr[counter]).text(headings[counter] + word);
+                      word = "";
+                      counter++;
+                    }
+                    else{
+                      word = word + t;
+                    }
+                 }
+                 $(objectArr[counter]).text(headings[counter] + word);
+                 // alert("HEY");
+
+                //$('#text_results').text(data[0].Symptoms);
                 $('p1').text(data[0].Category);
                 $('p2').text(data[0].CallStatus);
-                $('p3').text(data[0].CallID);
-                $('p4').text(data[0].CallStatus);
+                // alert("HOE");
+                // $('p3').text(data[0].CallID);
+                // $('p4').text(data[0].CallStatus);
 
                 //var n = str.indexOf(",", 0);  //starting from 0
         });
