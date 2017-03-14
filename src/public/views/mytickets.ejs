@@ -58,6 +58,9 @@
            var myOpen, myClose, myAll;
            var obj1 = <%- openTickets %>;
            var myTemp;
+            for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
+                obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
+              }
 
              $(document).ready(function(){
                myOpen = $('#myOpenTable').DataTable( {
@@ -90,9 +93,6 @@
                 }
               }
 
-              for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
-                  obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
-              }
 
               //var obj1JSON = JSON.parse(JSON.stringify(obj1));
 
