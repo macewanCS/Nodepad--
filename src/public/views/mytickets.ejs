@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
     <% include ./partials/head %>
   </head>
   
@@ -30,6 +29,8 @@
       <% include ./partials/header %>
     </header>
 
+    <script> var tid; </script>
+    
     <div>
     <div class="card" id="super-card-mytickets">
 
@@ -55,26 +56,9 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var myOpen, myClose, myAll;
-
            var obj1 = <%- openTickets %>;
            var myTemp;
-           
-              for(var i = 0; i < Object.keys(obj1).length; i++) { // TURN THIS INTO FUNCTION
-                if (obj1[i].CallStatus == "Open"){
 
-                  myTemp = JSON.stringify(obj1[i].CallID);
-                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
-                }
-                else{
-                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
-                }
-              }
-
-              for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
-                  obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
-              }
-
-              //var obj1JSON = JSON.parse(JSON.stringify(obj1));
              $(document).ready(function(){
                myOpen = $('#myOpenTable').DataTable( {
                  "order": [[0, "desc"]],
@@ -88,12 +72,30 @@
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false } ]
+                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "className": "dt-center", "width": "2%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "25%", "searchable": false } ]
                });
               
                 // This is how we get the CALLID(ticket id) from the row of the selected button
                 table_button_handler('#myOpenTable');
              });
+
+              for(var i = 0; i < Object.keys(obj1).length; i++) { // TURN THIS INTO FUNCTION
+                if (obj1[i].CallStatus == "Open"){
+        
+                  myTemp = JSON.stringify(obj1[i].CallID);
+                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button> <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
+                }
+                else{
+                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
+                }
+              }
+
+              for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
+                  obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
+              }
+
+              //var obj1JSON = JSON.parse(JSON.stringify(obj1));
+
 
             
            </script>
@@ -115,7 +117,7 @@
 
 
 
-          <!-- CLOSED TICKETS TAB CONTENT -->
+          <!-- CLOSED TICKETS TAB CONTENT                                   CLOSED     CLOSED     CLOSED                       -->
           <div id="closedTab" class="tab-pane fade">
            <h3>Closed Tickets</h3>
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
@@ -127,7 +129,7 @@
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
+                  obj2[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
                 }
               }
 
@@ -141,18 +143,19 @@
                  "autoWidth": false,
                  "aaData": obj2,
                  "aoColumns": [
+                   { "mDataProp": "CallID"},
                    { "mDataProp": "TempDate"},
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs": [ {"targets": 1, "width": "12%"}, {"targets": 2, "width": "70%"},{"targets": 3, "width": "2%"}, {"targets": 4, "width": "10%","data": null, "defaultContent": "<button>View</button>" } ]
+                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "className": "dt-center", "width": "2%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "25%", "searchable": false } ]
                });
 
-
-
                table_button_handler('#myClosedTable');
+
+               $("[name='closed']").width('75%');
              });
             console.log("Creating closed tickets");
 
@@ -162,13 +165,12 @@
            <table id="myClosedTable" class="display">
              <thead>
                <tr>
-
+                 <th>CallID:</th>
                  <th>Date:</th>
                  <th>Category:</th>
-                 <th>Desc:</th>
+                 <th>Description:</th>
                  <th>Status:</th>
                  <th>Action:</th>
-
              </tr>
              </thead>
            </table>
@@ -180,13 +182,12 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj3 = <%- allTickets %>;
-
               for(var i = 0; i < Object.keys(obj3).length; i++) {
                 if (obj3[i].CallStatus == "Open"){
-                  obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
+                  obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button> <button type=button id=edit class=btn btn-secondary>Edit</button> <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
+                  obj3[i].action = "<button type=button name=closed id=view class=btn btn-secondary>View</button>"
                 }
               }
 
@@ -201,16 +202,18 @@
                  "autoWidth": false,
                  "aaData": obj3,
                  "aoColumns": [
+                   { "mDataProp": "CallID"},
                    { "mDataProp": "TempDate"},
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs" : [{"targets": 1, "width": "12%"},{"targets": 2, "width": "50%"},{"targets": 3, "width": "2%"},{ "width": "22%", "targets": 4 }]
+                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "className": "dt-center", "width": "2%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "25%", "searchable": false } ]
                });
 
                table_button_handler('#myAllTable');
+              $("[name='closed']").width('75%');
              });
             console.log("Creating closed tickets");
 
@@ -220,11 +223,12 @@
            <table id="myAllTable" class="display">
              <thead>
                <tr>
-                 <th>Date</th>
-                 <th>Category</th>
-                 <th>Desc</th>
-                 <th>Status</th>
-                 <th>Action</th>
+                 <th>CallID:</th>
+                 <th>Date:</th>
+                 <th>Category:</th>
+                 <th>Description:</th>
+                 <th>Status:</th>
+                 <th>Action:</th>
              </tr>
              </thead>
            </table>
@@ -237,6 +241,7 @@
            
         <script>  //This function handles the on click events for all the "view" buttons 
            function table_button_handler(table){
+
                 $(table).on( 'click', '#view', function () { // VIEW BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -248,7 +253,23 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
-                    alert(data.CallID);
+
+                    tid=data.CallID;
+                    window.location="/mytickets/view"+tid;
+                    // window.location="/mytickets/" + tid + "/view"
+
+                     $("#viewlink").change(function(){
+                          alert(tid);
+                          document.location.href = "/mytickets/" + tid + "/view"
+                      });
+
+                    $("#view").change(function(){
+                          alert(tid);
+                          document.location.href = "/mytickets/:" + tid + "/view"
+                      });
+                   
+                    //alert(tid);
+                    //alert(data.CallID);
                   });
 
                 $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
@@ -262,6 +283,7 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
+                    tid=data.CallID;
                     alert(data.CallID);
                   });
 
@@ -276,6 +298,8 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
+
+                    tid=data.CallID;
                     alert(data.CallID);
                   });
             }
