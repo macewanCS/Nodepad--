@@ -15,7 +15,7 @@
         <a href="#" class="channel-name stripe-two">Hardware</a>
       </div> 
       <div class="card" id="sub-card">
-      <div class="accordian-group" id="accordian">
+      <div class="accordian-group" id="accordion">
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-one">
             <h4 class="panel-title">
@@ -54,48 +54,18 @@
                 <li><a href="#">Other</a></li>
               </ul>
             </div>        
-            <div id="next-btn">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
-            </div>
+              <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')">Next</button>                
           </div>          
         </div>
       </div>
       
-      <div class="panel-group" id="accordian1">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="heading-two">
-            <h4 class="panel-title">
-              Step 2: Asset Tag <a id="changeAsset" class="changer" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
-            </h4>
-          </div>
-          <div id="collapse2" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="issue-description">
-                <p1> Please enter the asset tag<br>
-                      for the piece of hardware<br>
-                      you are having trouble with</p1>
-              </div>
-              <div id="next-btn-2">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two','#changeAsset')">Next</button>  
-              </div>
-             <!-- <div id="skip-btn">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3')">Skip</button>                
-              </div> -->
-              <div class="panel-text-box">
-                <input type="text" id="asset-tag-text">
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        
-      </div>
       
-      <div class="panel-group" id="accordian">
+      
+      <div class="panel-group" id="accordion3">
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-three">
             <h4 class="panel-title">
-              Step 3: Computer/Device Name <a class="changer" id="changeName" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
+              Step 2: Computer/Device Name <a class="changer" id="changeName" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse3" class="panel-collapse collapse">
@@ -106,7 +76,7 @@
                 you are having problems with
               </div>
             </div>
-            <div id="next-btn">
+            <div id="next-btn-4">
               <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeName')">Next</button>                
             </div>
             <div class="panel-text-box">
@@ -116,11 +86,11 @@
         </div>
       </div>
       
-      <div class="panel-group" id="accordian">
+      <div class="panel-group" id="accordion4">
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-four">
             <h4 class="panel-title">
-              Step 4: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
+              Step 3: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse4" class="panel-collapse collapse">
@@ -138,17 +108,17 @@
         </div>
       </div>
       
-      <div class="panel-group" id="accordian">
+      <div class="panel-group" id="accordion5">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              Step 5: Error Messages
+              Step 4: Error Messages
             </h4>
           </div>
           <div id="collapse5" class="panel-collapse collapse">
             <div class="panel-body">
               <div id="next-btn-5">
-                <a href="/home"><button type="button" class="btn btn-primary" onclick="return(postData())">Next</button></a>              
+                <button type="button" class="btn btn-primary" onclick="return(postData())">Next</button>            
               </div>
               <label class="control-label">Select A File</label>
               <input id="input-1a" type="file" class="file" data-show-preview="false">
@@ -194,7 +164,7 @@
     </script>
     
     <script>
-    function toggleAccordian(close, open, header){
+    function toggleAccordian(close, open){
         $(close).collapse("toggle");
         $(open).collapse("toggle");
       };
@@ -214,12 +184,40 @@
     <script>
     $('.dropdown-inverse li > a').click(function(e){
       console.log("swapping");
+      $('#accordion2').remove();
+      $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')");
       if(this.innerHTML.match(/iPad/i) || this.innerHTML.match(/Laptop/i) || this.innerHTML.match(/PC/i) || this.innerHTML.match(/Self-checkout/i)){
-        console.log(this.innerHTML);
+        console.log("it matched");
+        $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
+        var content =
+          '<div class="panel-group" id="accordion2">' +
+            '<div class="panel panel-default">' +
+              '<div class="panel-heading" id="heading-two">' +
+                '<h4 class="panel-title">' +
+                  'Step 1A: Asset Tag <a id="changeAsset" class="changer" onclick="undo(\'#collapse2\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse5\')" style="visibility:hidden"> Change </a>' +
+                '</h4>' +
+              '</div>' +
+              '<div id="collapse2" class="panel-collapse collapse">' +
+                '<div class="panel-body">' +
+                  '<div class="issue-description">' +
+                    '<p1> Please enter the asset tag<br>' +
+                      'for the piece of hardware<br>' +
+                      'you are having trouble with</p1>' +
+                  '</div>' +
+                  '<div id="next-btn-2">' +
+                  '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse2\', \'#collapse3\'); colorHeader(\'#heading-two\',\'#changeAsset\')">Next</button>' +
+                  '</div>' +
+                  '<div class="panel-text-box">' +
+                    '<input type="text" id="asset-tag-text">' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        $('#accordion').after(content);
       }
       $('.status').text(this.innerHTML);
     });
-    
     </script>
     
     <footer>
