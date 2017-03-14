@@ -50,22 +50,24 @@ exports.service = function(req, res){
   connection.connect(function(err) {
     
     console.log("Beginning insertion");
-    
+    var lastRec;
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
     
     console.log('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`) VALUES ("' 
     + req.body.EquipmentType + ", " + req.body.System + ", " + req.body.AssetTag + ", " + req.body.Location + ", " +req.body.SoftwareName + " " +
     '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Service", "Employee")');
-    
-    connection.query('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`) VALUES ("' 
+    connection.query("SELECT * FROM `395project`.`calllog` ORDER BY CallID DESC LIMIT 1", function(err,result){
+      lastRec = addLastRecord(result);
+    connection.query('INSERT INTO `395project`.`calllog`(`CallID`,`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`) VALUES ("' + lastRec + '", "' 
     + req.body.EquipmentType + ", " + req.body.System + ", " + req.body.AssetTag + ", " + req.body.Location + ", " +req.body.SoftwareName + " " +
     '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Service", "Employee")');
+    connection.end();
+  });
     
     //connection.query('INSERT INTO `395project`.`asgnmnt`(`Description`, `TeamName`, `AssignedBy`, `Status`, `DateAssign`, `TimeAssign`) VALUES ("' + Concat info '", + "Help Desk Team", "Selfserve", "Unacknowledged", "' + CURRENT DATE '", "' + CURRENT TIME + '"'););
     
     console.log("Ending insertion, check the database to confirm");
-    connection.end();
   });
 }
 exports.hardware = function(req, res){
@@ -89,8 +91,8 @@ exports.hardware = function(req, res){
     if(err) throw err
     connection.query("SELECT * FROM `395project`.`calllog` ORDER BY CallID DESC LIMIT 1", function(err,result){
       if (err) throw err
-        lastRec = result;
-        connection.query('INSERT INTO `395project`.`calllog`(`CallID`,`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`, `Site`) VALUES ("' + lastRec[0].CallID.toString() + '", "' 
+        lastRec = addLastRecord(result);
+        connection.query('INSERT INTO `395project`.`calllog`(`CallID`,`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`, `Site`) VALUES ("' + lastRec + '", "' 
         + req.body.EquipmentType + ", " + req.body.AssetTag + ", " + req.body.Name + ", " + req.body.Description + ", " +req.body.ErrorMessageText + " " +
         '", "' + hPrioVal + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Hardware", "Employee", "' + stringDate + '", "' + req.user.Site + '")');
         connection.end();
@@ -192,4 +194,10 @@ function changeHardwareTeam(hType){
     name = "Help Desk Team";
   }
   return name;
+}
+
+function addLastRecord(record){
+  var number = parseInt(record[0].CallID.toString());
+  number += 1;
+  return number.toString();
 }
