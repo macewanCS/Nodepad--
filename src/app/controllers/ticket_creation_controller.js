@@ -92,7 +92,7 @@ exports.hardware = function(req, res){
     connection.query("SELECT * FROM `395project`.`calllog` ORDER BY CallID DESC LIMIT 1", function(err,result){
       if (err) throw err
         lastRec = addLastRecord(result);
-        connection.query('INSERT INTO `395project`.`calllog`(`CallID`,`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`, `Site`, `TempDate`) VALUES ("' + lastRec + '", "' 
+        connection.query('INSERT INTO `395project`.`calllog`(`CallID`,`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`, `TempDate`, `Site`) VALUES ("' + lastRec + '", "' 
         + req.body.EquipmentType + ", " + req.body.AssetTag + ", " + req.body.Name + ", " + req.body.Description + ", " +req.body.ErrorMessageText + " " +
         '", "' + hPrioVal + '", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Hardware", "Employee", "' + stringDate + '", "' + req.user.Site + '")');
         connection.end();

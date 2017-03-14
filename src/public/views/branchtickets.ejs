@@ -31,7 +31,7 @@
       <div class="panel panel-default bootcards-summary align-middle">
         <label style="margin-left: 10px">Chose your desired branch:</label>
         <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle status" id="branchSelector" type="button" data-toggle="dropdown">Select Branch Here
+        <button class="btn btn-primary dropdown-toggle status" id="branchSelector" type="button" data-toggle="dropdown" placeholder="yooo">Select Branch Here
         <span class="caret"></span></button>
         <ul class="dropdown-menu dropdown-inverse">
           <li><a href="#">Abbotsfield</a></li>
@@ -74,7 +74,7 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var myOpen, myClose, myAll;
-
+           var currBranch = $("branchSelector").text();
            var obj1 = <%- openTickets %>;
            var myTemp;
            
@@ -103,9 +103,11 @@
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
-                   { "mDataProp": "action" }
+                   { "mDataProp": "action" },
+                   { "mDataProp": "Site"}
+
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false } ]
+                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false} ]
                });
               
                 // This is how we get the CALLID(ticket id) from the row of the selected button
@@ -125,6 +127,7 @@
                  <th>Description:</th>
                  <th>Status:</th>
                  <th>Action:</th>
+                 <th>Site</th>
              </tr>
              </thead>
            </table>
@@ -309,8 +312,82 @@
         <script>
         
         $('.dropdown-inverse li > a').click(function(e){
-          $('.status').text(this.innerHTML);
+          var branch = $('.status').text(this.innerHTML);
+
+          switch(branch){
+            case "Abbotsfield":
+              branch ="ABB";
+              break;
+            case "Calder":
+              branch ="CLR";
+              break;
+            case "Capilano":
+              branch ="CAP";
+              break;
+            case "Castle Downs":
+              branch ="CDS";
+              break;
+            case "Century Park LRT":
+              branch ="CTP";
+              break;
+            case "Clareview":
+              branch ="CLV";
+              break;      
+            case "Enterprise Square":
+              branch ="ENS";
+              break;      
+            case "Highlands":
+              branch ="HIG";
+              break;      
+            case "Idylwylde":
+              branch ="IDY";
+              break;
+            case "Japser Place":
+              branch ="JSP";
+              break;      
+            case "Lois Hole":
+              branch ="LOH";
+              break;
+            case "Londonderry":
+              branch ="LOH";
+              break;
+            case "Macewan Lending Machine":
+              branch ="MLM";
+              break;        
+            case "McConachie":
+              branch ="MCE";
+              break;              
+            case "Meadows":
+              branch ="MEA";
+              break;
+            case "Mill Woods":
+              branch ="MIL";
+              break;
+            case "Riverbend":
+              branch ="RIV";
+              break;
+            case "Sprucewood":
+              branch ="SPR";
+              break;
+            case "Strathcona":
+              branch ="STR";
+              break;      
+            case "West Henday Promenade":
+              branch ="WHP";
+              break;
+            case "Whitemud Crossing":
+              branch ="WHC";
+              break;
+            case "Woodcroft":
+              branch ="WOD";
+              break;
+            case "Human Resources":
+              branch ="HR";
+              break;     
+            default:
+              branch ="IT";
         
+          }
 
         });
         
