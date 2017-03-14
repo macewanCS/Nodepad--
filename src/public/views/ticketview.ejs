@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- Dependencies -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <style><background-color: blue></style>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/viewticket.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <% include ./partials/head %>
+  </head>
+  
+  <body>
+    <header>
+      <% include ./partials/header %>
+    </header>
+   <script type="text/javascript" src="../view.json></script>
+<script type="text/javascript" src="javascrip.js"></script>
+<script type="text/javascript">
+var data = <%- data %>;
+  console.log(data);
+
+</script>
+    <div class="card" id="super-card-mytickets">
+  
+        <div class="super-panel-heading">
+          <a href="/categories" class="channel-name stripe-two">View Ticket</a>
+        </div>
+
+        <div class="container" id="button-container">
+
+          <div id="buttons">
+           <button id="edit-btn" type="button" class="btn btn-outline-secondary">Edit</button> 
+           <button id="resolve-btn" type="button" class="btn btn-outline-secondary">Resolve</button>
+           <button id="exit-btn" type="button" class="btn btn-outline-secondary">Exit</button> 
+          </div>
+        </div>
+
+        <div class="container" id="body-container">
+          <div id="cate-lb">
+            <label class="control-label">Category:</label>
+            <p1></p>
+          </div>
+          <div id="desc-lb">
+            <label class="control-label">Description of the problem:</label>
+          </div>
+          <div id="desc-text">
+
+            <textarea id="text_results" readonly></textarea>
+          </div>
+          <div id="stat-lb">
+            <label class="control-label">Status:</label>
+            <p2></p2>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        $(document).ready(function(){
+                $('#text_results').text(data[0].Symptoms);
+                $('p1').text(data[0].Category);
+                $('p2').text(data[0].CallStatus);
+                $('p3').text(data[0].CallID);
+                $('p4').text(data[0].CallStatus);
+
+                //var n = str.indexOf(",", 0);  //starting from 0
+        });
+      </script>
+
+ <footer>
+      <% include ./partials/footer %>
+    </footer>
+  </body>
+</html>
