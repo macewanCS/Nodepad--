@@ -76,7 +76,7 @@ exports.mytickets = function(req, res){
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
         if (err) throw err
             myVar3 = JSON.stringify(result);
-            console.log(myVar3);
+            console.log("This is my var\n\n\n" + myVar);
             res.render((__dirname + '/../../public/views/mytickets.ejs'), {
             allTickets:myVar3,
             openTickets:myVar2,
