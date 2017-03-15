@@ -49,15 +49,28 @@ var data = <%- data %>;
         </div>
         <div class="container" id="body-container">
           <div id="cate-lb">
-            <label class="control-label">Category:</label>
-            <p1>this is where p1 is</p1>
+            <form1>
+              <fieldset0>
+                <label class="control-label">Category</label><p><span class="label label-default" id="categ">N/A1</span></p>
+                <label class="control-label" id="H1"></label><p><span class="label label-default" id="L1"></span></p>
+                <label class="control-label" id="H2"></label><p><span class="label label-default" id="L2"></span></p>
+
+              </fieldset0>
+              <fieldset1>
+                <label class="control-label" id="H3"></label><p><span class="label label-default" id="L3"></span></p>
+                <label class="control-label" id="H4"></label><p><span class="label label-default" id="L4"></span></p>
+                <label class="control-label" id="H5"></label><p><span class="label label-default" id="L5"></span></p>
+              </fieldset1>
+            </form1>
+          </div>
+          <div>
+            <p0 id="symptoms0"></p0>
+            <p1 id="symptoms1"></p1>
+            <p2 id="symptoms2"></p2>
+            <p3 id="symptoms3"></p3>
+            <p4 id="symptoms4"></p4>
           </div>
 
-            <p3 id="symptoms0"></p3>
-            <p5 id="symptoms1"></p5>
-            <p6 id="symptoms2"></p6>
-            <p7 id="symptoms3"></p7>
-            <p8 id="symptoms4"></p8>
           <div id="desc-lb">
             <label class="control-label">Description of the problem:</label>
           </div>
@@ -67,7 +80,8 @@ var data = <%- data %>;
           </div>
           <div id="stat-lb">
             <label class="control-label">Status:</label>
-            <p2></p2>
+            <span class="label label-default" id="stat"></span>
+
           </div>
         </div>
       </div>
@@ -77,31 +91,38 @@ var data = <%- data %>;
                 // parse here
                 // data[0].Symptoms
                 // alert("HEY");
-                var counter = 0;
-                var word="";                                           //last word parsed out
-                var parse_data = data[0].Symptoms;                  //unparsed data
-                var headings = ["Equipment Type: ", "", "DeviceID: ", "", "Error Code: "] 
-                var objectArr = ["#symptoms0","#symptoms1", "#symptoms2", "#text_results", "#symptoms4"];                                      //array of objects to store parsed words into
-                 for(var i = 0; i < parse_data.length; i++){
-                    var t = parse_data.charAt(i);
-                    if(t == ","){
-                      if(t=="" || t=="undefined"){
-                        word="N/A";
-                      }
-                      $(objectArr[counter]).text(headings[counter] + word);
-                      word = "";
-                      counter++;
-                    }
-                    else{
-                      word = word + t;
-                    }
-                 }
-                 $(objectArr[counter]).text(headings[counter] + word);
-                 // alert("HEY");
+                //   var counter = 0;
+                //   var word="";                                           //last word parsed out
+                //   // var parse_data = data[0].Symptoms;                  //unparsed data
+                //   var headings = ["Equipment Type: ", "DeviceID", "DeviceID: ", "", "Error Code: "] 
+                //   var objectArr = ["#symptoms0","#symptoms1", "#symptoms2", "#text_results", "#symptoms4"];
 
-                //$('#text_results').text(data[0].Symptoms);
-                $('p1').text(data[0].Category);
-                $('p2').text(data[0].CallStatus);
+          if(data[0].Category == "Hardware"){
+              // <label class="control-label">Category:</label>
+
+            var parsed = (data[0].Symptoms).split(",");
+            var n = parsed.length;                  //how many entries in array
+            // if(n==4){
+            //   var headings = ["","","",""]
+            //   var ids = ["#symptoms0","#symptoms1", "#symptoms2", "#text_results", "#symptoms3", "#symptoms4"];
+            // }
+            if(n==5){
+              var headings = ["Equip Type","Something","Device","Error Message",""]
+              var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+              var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
+              for(var i=0;i<n;i++){
+                if(parsed[i] ==" undefined"){
+                  parsed[i]="N/A";
+                  
+                }
+                $(hids[i]).text(headings[i]);
+                $(ids[i]).text(parsed[i]);
+              }
+            }
+          }
+
+          $('#categ').text(data[0].Category);
+          $('#stat').text(data[0].CallStatus);
                 // alert("HOE");
                 // $('p3').text(data[0].CallID);
                 // $('p4').text(data[0].CallStatus);
@@ -115,3 +136,27 @@ var data = <%- data %>;
     </footer>
   </body>
 </html>
+
+
+        
+<!-- 
+                //                                     //array of objects to store parsed words into
+                //    for(var i = 0; i < parse_data.length; i++){
+                //       var t = parse_data.charAt(i);
+                //       if(t == ","){
+                //         if(t=="" || t=="undefined"){
+                //           word="N/A";
+                //         }
+                //         $(objectArr[counter]).text(headings[counter] + word);
+                //         word = "";
+                //         counter++;
+                //       }
+                //       else{
+                //         word = word + t;
+                //       }
+                //    }
+                //    $(objectArr[counter]).text(headings[counter] + word);
+                //    // alert("HEY");
+                // }
+                //$('#text_results').text(data[0].Symptoms);
+                // document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!'; -->
