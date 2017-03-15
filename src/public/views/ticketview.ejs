@@ -51,7 +51,7 @@ var data = <%- data %>;
           <div id="cate-lb">
             <form1>
               <fieldset0>
-                <label class="control-label">Category</label><p><span class="label label-default" id="categ">N/A1</span></p>
+                <label class="control-label">Category</label><p><span class="label label-default" id="categ"></span></p>
                 <label class="control-label" id="H1"></label><p><span class="label label-default" id="L1"></span></p>
                 <label class="control-label" id="H2"></label><p><span class="label label-default" id="L2"></span></p>
 
@@ -88,46 +88,75 @@ var data = <%- data %>;
 
       <script>
         $(document).ready(function(){
-                // parse here
-                // data[0].Symptoms
-                // alert("HEY");
-                //   var counter = 0;
-                //   var word="";                                           //last word parsed out
-                //   // var parse_data = data[0].Symptoms;                  //unparsed data
-                //   var headings = ["Equipment Type: ", "DeviceID", "DeviceID: ", "", "Error Code: "] 
-                //   var objectArr = ["#symptoms0","#symptoms1", "#symptoms2", "#text_results", "#symptoms4"];
 
           if(data[0].Category == "Hardware"){
-              // <label class="control-label">Category:</label>
 
             var parsed = (data[0].Symptoms).split(",");
-            var n = parsed.length;                  //how many entries in array
-            // if(n==4){
-            //   var headings = ["","","",""]
-            //   var ids = ["#symptoms0","#symptoms1", "#symptoms2", "#text_results", "#symptoms3", "#symptoms4"];
-            // }
-            if(n==5){
-              var headings = ["Equip Type","Something","Device","Error Message",""]
-              var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
-              var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
-              for(var i=0;i<n;i++){
-                if(parsed[i] ==" undefined"){
-                  parsed[i]="N/A";
-                  
-                }
-                $(hids[i]).text(headings[i]);
-                $(ids[i]).text(parsed[i]);
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["Equip Type","Asset Tag","Device","Error Message",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
               }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+          }
+          else if(data[0].Category == "Software"){
+
+            var parsed = (data[0].Symptoms).split(",");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["Affected Systems","System Status","Problem Cause","",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+          }
+          else if(data[0].Category == "Service"){
+            var parsed = (data[0].Symptoms).split(",");
+            var n = parsed.length;                          //how many entries in array
+            if(parsed[0]=="System Access"){
+              var headings = ["Service Type","","","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else if(parsed[0]=="Move Equipment"){
+              var headings = ["Service Type","System Access","Asset Tags","Destination",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else if(parsed[0]=="New Software"){
+              var headings = ["Service Type","Software Name","","",""]
+              var ids = ["#L1","","", "", "#L2"];
+            }
+            else if(parsed[0]=="New Equipment"){
+              var headings = ["Service Type","","","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else{
+              var headings = ["Service Type","System Access","Asset Tags","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined" || parsed[i] =="undefined" || parsed[i] ==" undefined " || parsed[i] ==" "){
+                parsed[i]="";
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
             }
           }
 
           $('#categ').text(data[0].Category);
           $('#stat').text(data[0].CallStatus);
-                // alert("HOE");
-                // $('p3').text(data[0].CallID);
-                // $('p4').text(data[0].CallStatus);
-
-                //var n = str.indexOf(",", 0);  //starting from 0
         });
       </script>
 
@@ -136,27 +165,3 @@ var data = <%- data %>;
     </footer>
   </body>
 </html>
-
-
-        
-<!-- 
-                //                                     //array of objects to store parsed words into
-                //    for(var i = 0; i < parse_data.length; i++){
-                //       var t = parse_data.charAt(i);
-                //       if(t == ","){
-                //         if(t=="" || t=="undefined"){
-                //           word="N/A";
-                //         }
-                //         $(objectArr[counter]).text(headings[counter] + word);
-                //         word = "";
-                //         counter++;
-                //       }
-                //       else{
-                //         word = word + t;
-                //       }
-                //    }
-                //    $(objectArr[counter]).text(headings[counter] + word);
-                //    // alert("HEY");
-                // }
-                //$('#text_results').text(data[0].Symptoms);
-                // document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!'; -->
