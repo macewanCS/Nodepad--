@@ -251,14 +251,14 @@ function getDateString(obj){
 	return string = obj.getFullYear() + "/" + monthInt + "/" + date.getDate();
 }
 connection.query('\
-    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "Service", "Open", "1/3/2016", "2016/2/23", "MIL");\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100048", "1", "Employee", "| | | | Renewal line not responding", "Service", "Open", "1/3/2016", "2016/2/23", "MIL");\
     ');
 
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`, `Site`) VALUES ("100048", "1", "Employee", "Renewal line not responding", "Service", "Open", "1/3/2016", "' + stringDateTest2 +'", "MIL");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`, `Site`) VALUES ("100048", "1", "Employee", "| | | | Renewal line not responding", "Service", "Open", "1/3/2016", "' + stringDateTest2 +'", "MIL");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`, `Site`) VALUES ("100049", "1", "Employee", "Computer wont boot", "Hardware", "Open", "1/4/2016", "2016/01/16", "MIL");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`, `Site`) VALUES ("100049", "1", "Employee", "| | | | Computer wont boot", "Hardware", "Open", "1/4/2016", "2016/01/16", "MIL");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100050", "1", "Employee", "I forgot my password", "Password Request", "Closed", "2/22/2016", "2016/2/22", "MIL");\
