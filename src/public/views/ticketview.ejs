@@ -32,7 +32,6 @@
 <script type="text/javascript">
 var data = <%- data %>;
   console.log(data);
-
 </script>
     <div class="card" id="super-card-mytickets">
   
@@ -48,12 +47,30 @@ var data = <%- data %>;
            <button id="exit-btn" type="button" class="btn btn-outline-secondary">Exit</button> 
           </div>
         </div>
-
         <div class="container" id="body-container">
           <div id="cate-lb">
-            <label class="control-label">Category:</label>
-            <p1></p>
+            <form1>
+              <fieldset0>
+                <label class="control-label">Category</label><p><span class="label label-default" id="categ"></span></p>
+                <label class="control-label" id="H1"></label><p><span class="label label-default" id="L1"></span></p>
+                <label class="control-label" id="H2"></label><p><span class="label label-default" id="L2"></span></p>
+
+              </fieldset0>
+              <fieldset1>
+                <label class="control-label" id="H3"></label><p><span class="label label-default" id="L3"></span></p>
+                <label class="control-label" id="H4"></label><p><span class="label label-default" id="L4"></span></p>
+                <label class="control-label" id="H5"></label><p><span class="label label-default" id="L5"></span></p>
+              </fieldset1>
+            </form1>
           </div>
+          <div>
+            <p0 id="symptoms0"></p0>
+            <p1 id="symptoms1"></p1>
+            <p2 id="symptoms2"></p2>
+            <p3 id="symptoms3"></p3>
+            <p4 id="symptoms4"></p4>
+          </div>
+
           <div id="desc-lb">
             <label class="control-label">Description of the problem:</label>
           </div>
@@ -63,20 +80,83 @@ var data = <%- data %>;
           </div>
           <div id="stat-lb">
             <label class="control-label">Status:</label>
-            <p2></p2>
+            <span class="label label-default" id="stat"></span>
+
           </div>
         </div>
       </div>
 
       <script>
         $(document).ready(function(){
-                $('#text_results').text(data[0].Symptoms);
-                $('p1').text(data[0].Category);
-                $('p2').text(data[0].CallStatus);
-                $('p3').text(data[0].CallID);
-                $('p4').text(data[0].CallStatus);
 
-                //var n = str.indexOf(",", 0);  //starting from 0
+          if(data[0].Category == "Hardware"){
+
+            var parsed = (data[0].Symptoms).split(",");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["Equip Type","Asset Tag","Device","Error Message",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+          }
+          else if(data[0].Category == "Software"){
+
+            var parsed = (data[0].Symptoms).split(",");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["Affected Systems","System Status","Problem Cause","",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+          }
+          else if(data[0].Category == "Service"){
+            var parsed = (data[0].Symptoms).split(",");
+            var n = parsed.length;                          //how many entries in array
+            if(parsed[0]=="System Access"){
+              var headings = ["Service Type","","","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else if(parsed[0]=="Move Equipment"){
+              var headings = ["Service Type","System Access","Asset Tags","Destination",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else if(parsed[0]=="New Software"){
+              var headings = ["Service Type","Software Name","","",""]
+              var ids = ["#L1","","", "", "#L2"];
+            }
+            else if(parsed[0]=="New Equipment"){
+              var headings = ["Service Type","","","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else{
+              var headings = ["Service Type","System Access","Asset Tags","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined" || parsed[i] =="undefined" || parsed[i] ==" undefined " || parsed[i] ==" "){
+                parsed[i]="";
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+          }
+
+          $('#categ').text(data[0].Category);
+          $('#stat').text(data[0].CallStatus);
         });
       </script>
 
