@@ -28,7 +28,7 @@ connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jordan", 3, "1234", "CLR")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 2, "1234", "MLM")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 4, "1234", "MLM")\
 	');
 
 connection.query('\
@@ -313,6 +313,15 @@ connection.query('\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100067", "2", "Employee", "inovah | Jack", "Service", "Open", "5/11/2016", "2016/5/11", "MIL");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100068", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CLR");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100069", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CLR");\
+	');
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100070", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CLR");\
 	');
 
 console.log('Success: Database Created!')
