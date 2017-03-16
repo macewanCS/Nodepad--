@@ -58,7 +58,8 @@ var branch_controller = require("./controllers/branch_controller.js");
   //MyTickets
   app.get('/mytickets', isAuthenticated, tickets_controller.mytickets);
   app.get('/mytickets/view:ticketid', isAuthenticated, tickets_controller.view);
-  app.get('/mytickets/:ticketid/edit', tickets_controller.edit);
+  app.get('/mytickets/edit:ticketid', isAuthenticated, tickets_controller.edit);
+  app.get('/mytickets/resolve:ticketid', isAuthenticated, tickets_controller.resolve);
 
   //Home
   app.get('/home', isAuthenticated, home_controller.home);

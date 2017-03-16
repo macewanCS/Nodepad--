@@ -58,9 +58,6 @@
            var myOpen, myClose, myAll;
            var obj1 = <%- openTickets %>;
            var myTemp;
-            for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
-                obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
-              }
 
              $(document).ready(function(){
                myOpen = $('#myOpenTable').DataTable( {
@@ -75,7 +72,7 @@
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "className": "dt-center", "width": "2%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "25%", "searchable": false } ]
+                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "white-space": "nowrap", "className": "dt-center", "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "className": "dt-center", "width": "2%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "26%", "searchable": false } ]
                });
               
                 // This is how we get the CALLID(ticket id) from the row of the selected button
@@ -93,6 +90,9 @@
                 }
               }
 
+              for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
+                  obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
+              }
 
               //var obj1JSON = JSON.parse(JSON.stringify(obj1));
 
@@ -209,7 +209,7 @@
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "className": "dt-center", "width": "2%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "25%", "searchable": false } ]
+                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "className": "dt-center", "width": "2%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "26%", "searchable": false } ]
                });
 
                table_button_handler('#myAllTable');
@@ -258,15 +258,15 @@
                     window.location="/mytickets/view"+tid;
                     // window.location="/mytickets/" + tid + "/view"
 
-                     $("#viewlink").change(function(){
-                          alert(tid);
-                          document.location.href = "/mytickets/" + tid + "/view"
-                      });
+                    //  $("#viewlink").change(function(){
+                    //       alert(tid);
+                    //       document.location.href = "/mytickets/" + tid + "/view"
+                    //   });
 
-                    $("#view").change(function(){
-                          alert(tid);
-                          document.location.href = "/mytickets/:" + tid + "/view"
-                      });
+                    // $("#view").change(function(){
+                    //       alert(tid);
+                    //       document.location.href = "/mytickets/:" + tid + "/view"
+                    //   });
                    
                     //alert(tid);
                     //alert(data.CallID);
@@ -284,7 +284,8 @@
                       var data = myAll.row($(this).parents('tr')).data();
                     }
                     tid=data.CallID;
-                    alert(data.CallID);
+                    window.location="/mytickets/edit"+tid;
+                    // alert(data.CallID);
                   });
 
                 $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
@@ -300,7 +301,9 @@
                     }
 
                     tid=data.CallID;
-                    alert(data.CallID);
+                    window.location="/mytickets/resolve"+tid;
+
+                    // alert(data.CallID);
                   });
             }
          </script>
