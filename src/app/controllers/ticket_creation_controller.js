@@ -88,7 +88,7 @@ exports.hardware = function(req, res){
       if (err) throw err
         lastRec = addLastRecord(result);
         var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        var appendedString  = req.body.EquipmentType  + " | " + req.body.AssetTag + " | " + req.body.Description + " | " + req.body.ErrorMessageText;
+        var appendedString  = req.body.EquipmentType  + " | " + req.body.AssetTag + " | " req.body.Name + " | " + req.body.Description + " | " + req.body.ErrorMessageText;
         connection.query(queryString, [lastRec,appendedString,hPrioVal, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8),req.user.id, "selfserve", "Open", "Hardware", "Employee",stringDate,req.user.Site]);
         connection.end();
         console.log("Insert is over");
