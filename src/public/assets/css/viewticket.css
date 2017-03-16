@@ -9,10 +9,6 @@
   margin-left: 0%;
 }
 
-/*form, fieldset, label{
-  margin:0; padding:0;
-}*/
-
 fieldset0{
   position: absolute;
   width: 40%
@@ -20,9 +16,6 @@ fieldset0{
   top: 12%;
 }
 
-/*#categ{
-  margin:0; padding:0;
-}*/
 fieldset1{
   position: absolute;
   width: 40%;

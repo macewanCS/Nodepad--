@@ -96,7 +96,7 @@ var data = <%- data %>;
 
           if(data[0].Category == "Hardware"){
 
-            var parsed = (data[0].Symptoms).split(",");
+            var parsed = (data[0].Symptoms).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["Equip Type","Asset Tag","Device","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
@@ -112,7 +112,7 @@ var data = <%- data %>;
           }
           else if(data[0].Category == "Software"){
 
-            var parsed = (data[0].Symptoms).split(",");
+            var parsed = (data[0].Symptoms).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["Affected Systems","System Status","Problem Cause","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
@@ -127,7 +127,7 @@ var data = <%- data %>;
             }
           }
           else if(data[0].Category == "Service"){
-            var parsed = (data[0].Symptoms).split(",");
+            var parsed = (data[0].Symptoms).split("|");
             var n = parsed.length;                          //how many entries in array
             if(parsed[0]=="System Access"){
               var headings = ["Service Type","","","",""];
