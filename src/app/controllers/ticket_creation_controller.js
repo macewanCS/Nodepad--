@@ -54,14 +54,11 @@ exports.service = function(req, res){
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
     
-    console.log('INSERT INTO `395project`.`calllog`(`Symptoms`, `Priority`, `CallSource`, `RecvdDate`, `RecvdTime`, `CustID`, `Tracker`, `CallStatus`, `Category`, `CustType`,`Site`) VALUES ("' 
-    + req.body.EquipmentType + ", " + req.body.System + ", " + req.body.AssetTag + ", " + req.body.Location + ", " +req.body.SoftwareName + " " +
-    '", "3", "Web", "' + today.toLocaleDateString() + '", "' + today.toTimeString().slice(0,8) + '", "' + req.user.id + '", "selfserve" , "Open", "Service", "Employee")');
-    connection.query("SELECT * FROM `395project`.`calllog` ORDER BY CallID DESC LIMIT 1", function(err,result){
-      var queryString = "INSERT INTO `395Project`.`calllog` (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)"
+    connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
+      var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)"
       var appendedString = req.body.EquipmentType + " | " + req.body.System + " | " + req.body.AssetTag + " | " + req.body.Location + " | " + req.body.SoftwareName; 
       lastRec = addLastRecord(result);
-      
+
     connection.query(queryString, [lastRec, appendedString, "3", "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "Service","Employee",stringDate,req.user.Site]);
     connection.end();
   });
@@ -87,10 +84,10 @@ exports.hardware = function(req, res){
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
     if(err) throw err
-    connection.query("SELECT * FROM `395project`.`calllog` ORDER BY CallID DESC LIMIT 1", function(err,result){
+    connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       if (err) throw err
         lastRec = addLastRecord(result);
-        var queryString = "INSERT INTO `395Project`.`calllog` (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         var appendedString  = req.body.EquipmentType  + " | " + req.body.AssetTag + " | " + req.body.Description + " | " + req.body.ErrorMessageText;
         connection.query(queryString, [lastRec,appendedString,hPrioVal, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8),req.user.id, "selfserve", "Open", "Hardware", "Employee",stringDate,req.user.Site]);
 
@@ -127,10 +124,10 @@ exports.software = function(req, res){
     var lastRec;
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
 
-    var queryString = "INSERT INTO `395Project`.`calllog` (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
     var appendedString = req.body.AffectedSystem +  " | " + req.body.SystemStatus + " | " + req.body.Description + " | " + req.body.ProblemCause;
 
-    connection.query("SELECT * FROM `395project`.`calllog` ORDER BY CallID DESC LIMIT 1", function(err,result){
+    connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       lastRec = addLastRecord(result);
       connection.query(queryString, [lastRec, appendedString, sPriority, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "Software", "Employee", stringDate, req.body.Site]);
       connection.end();

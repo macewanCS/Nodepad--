@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/resolveticket.css">
+    <link rel="stylesheet" href="../assets/css/viewticket.css">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,14 +36,14 @@ var data = <%- data %>;
     <div class="card" id="super-card-mytickets">
   
         <div class="super-panel-heading">
-          <a href="/categories" class="channel-name stripe-two">Resolve Ticket</a>
+          <a href="/categories" class="channel-name stripe-two">View Ticket</a>
         </div>
 
         <div class="container" id="button-container">
 
           <div id="buttons">
-<!--            <button id="edit-btn" type="button" class="btn btn-outline-secondary">Edit</button> 
-           <button id="resolve-btn" type="button" class="btn btn-outline-secondary">Resolve</button> -->
+           <button id="edit-btn" type="button" class="btn btn-outline-secondary">Edit</button> 
+           <button id="resolve-btn" type="button" class="btn btn-outline-secondary">Resolve</button>
            <button id="exit-btn" type="button" class="btn btn-outline-secondary">Exit</button> 
           </div>
         </div>
@@ -54,10 +54,13 @@ var data = <%- data %>;
                 <label class="control-label">Category</label><p><span class="label label-default" id="categ"></span></p>
                 <label class="control-label" id="H1"></label><p><span class="label label-default" id="L1"></span></p>
                 <label class="control-label" id="H2"></label><p><span class="label label-default" id="L2"></span></p>
+
+              </fieldset0>
+              <fieldset1>
                 <label class="control-label" id="H3"></label><p><span class="label label-default" id="L3"></span></p>
                 <label class="control-label" id="H4"></label><p><span class="label label-default" id="L4"></span></p>
                 <label class="control-label" id="H5"></label><p><span class="label label-default" id="L5"></span></p>
-              </fieldset0>
+              </fieldset1>
             </form1>
           </div>
           <div>
@@ -80,14 +83,6 @@ var data = <%- data %>;
             <span class="label label-default" id="stat"></span>
 
           </div>
-
-          <div id="res-lb">
-            <label class="control-label">Resolution:</label>
-          </div>
-          <div id="res-text">
-            <textarea id="res_box"></textarea>
-          </div>
-          <button type="button" id="confirm-btn" class="btn btn-primary">Confirm</button>
         </div>
       </div>
 

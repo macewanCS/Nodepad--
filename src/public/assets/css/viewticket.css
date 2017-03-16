@@ -1,0 +1,122 @@
+#super-card-mytickets{
+  background: #fff;
+  position: relative;
+  left: 18%;
+  height: 900px;
+  width: 65%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 0%;
+}
+
+/*form, fieldset, label{
+  margin:0; padding:0;
+}*/
+
+fieldset0{
+  position: absolute;
+  width: 40%
+  /*left:20em;*/
+  top: 12%;
+}
+
+/*#categ{
+  margin:0; padding:0;
+}*/
+fieldset1{
+  position: absolute;
+  width: 40%;
+  top: 12%;
+  left:50%;
+
+}
+
+p {  
+  line-height: 0;
+}
+
+
+#button-container{ 
+  width: relative;
+  margin-left: 0%;
+  padding-top: 4em;
+}
+
+#body-container{ 
+  width: relative;
+  padding-top: 1.25em;
+}
+
+/*#buttons{
+  position:relative;
+
+}*/
+
+#edit-btn {
+  position: relative;
+  left:0%;
+  width:15%;
+  min-width: 3.5em;
+}
+
+#resolve-btn {
+/*  overflow: hidden;
+  text-overflow: ellipsis;*/
+  position: relative;
+  left:0%;
+  width:15%;
+  min-width: 5.5em;
+}
+
+#exit-btn {
+  position: relative;
+  left:0%;
+  width:15%;
+  min-width: 3.5em;
+}
+
+#desc-lb {
+  position: absolute;
+  padding-bottom: 0em;
+  padding-top: 3em;
+  top: 24%;
+}
+
+#desc-text {
+  /*margin: 0 auto 0 auto;*/
+}
+
+#text_results{
+  position: absolute;
+  /*margin: 0 auto 0 auto;*/
+  border-radius: 5px;
+  width: 95%;
+  height: 30%;
+  top:32%;
+}
+
+#stat-lb{
+  position: absolute;
+  top:63%;
+}
+
+.channel-name {
+  border-left-color: #1464f6;
+  background-color: #3f4344;
+  padding: 10px 25px;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  border-left-width: 10px;
+  border-left-style: solid;
+  z-index: 9;
+  font-weight: bold;
+  width: 200px;
+  position: absolute;
+}
+
+.channel-name:hover{
+  background-color: #585d5e;
+  color: #FFF;
+}
