@@ -53,6 +53,7 @@ var branch_controller = require("./controllers/branch_controller.js");
   app.post('/createHardware', ticket_creation_controller.hardware);
   app.post('/createSoftware', ticket_creation_controller.software);
   app.post('/createService', ticket_creation_controller.service);
+  app.post('/createPassword',ticket_creation_controller.password);
 
 
   //MyTickets
