@@ -76,7 +76,6 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var myOpen, myClose, myAll;
-           var holder = 'Hard';
            var obj1 = <%- openTickets %>;
            var myTemp;
            
@@ -108,7 +107,6 @@
                    { "mDataProp": "action" }
                  ],
                  "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false } ],
-
               });
 
                //  Set up branch filters
