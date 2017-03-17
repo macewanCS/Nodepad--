@@ -150,7 +150,7 @@ exports.password = function(req,res){
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
     var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    var appendedString = req.body.PasswordSystem + " | " + req.body.Username + " | " + req.body.Fullname;
+    var appendedString = req.body.PasswordSystem + " | " + req.body.Usernametext + " | " + req.body.Fullname;
     var pPriority = changePriorityPassword(req.body.PasswordSystem);
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       lastRec = addLastRecord(result);
