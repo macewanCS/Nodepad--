@@ -34,7 +34,9 @@ var data = <%- data %>;
   console.log(data);
 </script>
     <div class="card" id="super-card-mytickets">
-  
+        <hr id="divider">
+        <hr id="divider1">
+        <hr id="divider2">
         <div class="super-panel-heading">
           <a href="/categories" class="channel-name stripe-two">View Ticket</a>
         </div>
@@ -42,9 +44,9 @@ var data = <%- data %>;
         <div class="container" id="button-container">
 
           <div id="buttons">
-           <button id="edit-btn" type="button" class="btn btn-outline-secondary">Edit</button> 
-           <button id="resolve-btn" type="button" class="btn btn-outline-secondary">Resolve</button>
-           <button id="exit-btn" type="button" class="btn btn-outline-secondary">Exit</button> 
+           <button id="edit-btn" type="button" class="btn btn-primary">Edit</button> 
+           <button id="resolve-btn" type="button" class="btn btn-primary">Resolve</button>
+           <button id="exit-btn" type="button" class="btn btn-primary">Exit</button> 
           </div>
         </div>
         <div class="container" id="body-container">
@@ -57,12 +59,13 @@ var data = <%- data %>;
 
               </fieldset0>
               <fieldset1>
-                <label class="control-label" id="H3"></label><p><span class="control-label" id="L3"></span></p>
+                <label class="control-label" id="H3"></label><p><textarea id="L3"></textarea></p>
                 <label class="control-label" id="H4"></label><p><span class="control-label" id="L4"></span></p>
                 <label class="control-label" id="H5"></label><p><span class="control-label" id="L5"></span></p>
               </fieldset1>
             </form1>
           </div>
+
           <div>
             <p0 id="symptoms0"></p0>
             <p1 id="symptoms1"></p1>
@@ -75,7 +78,7 @@ var data = <%- data %>;
             <label class="control-label">Description of the problem:</label>
           </div>
           <div id="desc-text">
-            <p><span class="control-label" id="text_results"></span></p>
+            <textarea class="control-label" id="text_results"></textarea>
             <!-- <textarea disabled id="text_results" readonly></textarea> -->
           </div>
           <div id="stat-lb">
@@ -110,7 +113,7 @@ var data = <%- data %>;
 
             var parsed = (data[0].Symptoms).split("|");
             var n = parsed.length;                          //how many entries in array
-            var headings = ["Affected Systems","System Status","Problem Cause","",""]
+            var headings = ["Affected Systems","System Status","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
             var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
             for(var i=0;i<n;i++){
@@ -122,7 +125,7 @@ var data = <%- data %>;
               $(ids[i]).text(parsed[i]);
             }
 
-            $("#L3").attr('style', "line-height: 130%; width: auto; min-width: 0px; max-width: 95%; max-height: 10em; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;");
+            $("#L3").attr('style', "line-height: 130%;background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 10em; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px; height:9em;");
           }
           else if(data[0].Category == "Service"){
             var parsed = (data[0].Symptoms).split("|");

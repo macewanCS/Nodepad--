@@ -41,6 +41,53 @@ p {
   line-height: 10px;
 }
 
+#divider { 
+    position:absolute;
+    top:30%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:97%;
+    height:60%;
+    background-color: #eeeeee;
+    left:1%;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /*border-style: inset;*/
+    /*border-width: 1px;*/
+}
+
+#divider1 { 
+    position:absolute;
+    top:9.75%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:58.5%;
+    height:18%;
+    background-color: #eeeeee;
+    left:39.5%;
+    /*display: block;*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+/*    border-style: inset;
+    border-width: 1px;*/
+}
+
+#divider2 { 
+    position:absolute;
+    top:9.75%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:35%;
+    height:18%;
+    background-color: #eeeeee;
+    left:1%;
+    /*display: block;*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+/*    border-style: inset;
+    border-width: 1px;*/
+}
 
 #button-container{ 
   width: relative;
@@ -60,6 +107,10 @@ p {
 
 #edit-btn {
   position: relative;
+  /*color:teal;*/
+  font-weight: bold;
+  opacity: 0.7;
+  /*background-color: #283593;*/
   left:0%;
   width:15%;
   min-width: 3.5em;
@@ -68,6 +119,8 @@ p {
 #resolve-btn {
 /*  overflow: hidden;
   text-overflow: ellipsis;*/
+  font-weight: bold;
+  opacity: 0.7;
   position: relative;
   left:0%;
   width:15%;
@@ -76,6 +129,8 @@ p {
 
 #exit-btn {
   position: relative;
+  font-weight: bold;
+  opacity: 0.7;
   left:0%;
   width:15%;
   min-width: 3.5em;
@@ -94,10 +149,13 @@ p {
 
 #text_results{
   position: absolute;
-  line-height: 22px; width: auto; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word; inline-block;
+  line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word; inline-block;
   /*width: 95%;*/
   font-family: 'Inder', sans-serif;
-  color:#666;
+  border: 0;
+  /*color:#666;*/
+  background-color: #eeeeee;
+  /*opacity: 0;*/
   margin-bottom: 15px;
 
   height: 30%;
@@ -107,6 +165,10 @@ p {
 #stat-lb{
   position: absolute;
   top:33%;
+}
+
+#stat{
+  background-color: #c5e1a5;
 }
 
 .channel-name {
