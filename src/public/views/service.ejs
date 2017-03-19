@@ -46,7 +46,7 @@
                 </ul>
               </div>        
               <div id="next-btn">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
+                <a href="#" id="btn-change"><button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button> </a>               
               </div>
             </div>          
           </div>
@@ -116,6 +116,7 @@
           $("#accordion" + len).remove();
           len--;
         }
+        $('#btn-change').attr('href', '#')
         $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
         
@@ -200,7 +201,7 @@
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
+                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()")">Next</button></a>  '              +
                 ' </div>'+
                 '<textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>'+
                 '</div> ' +        
@@ -227,7 +228,7 @@
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
+                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()")">Next</button></a>  '              +
                 ' </div>'+
                ' <div class="panel-text-box">'+
                   '<input type="text" id="asset-tag-text">'+
@@ -255,7 +256,7 @@
                 '  <br>looking for?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData()">Next</button>  '              +
+                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()">Next</button></a>  '              +
                 ' </div>'+
                 '<input id="input-1a" type="file" class="file" data-show-preview="false">'+
                 '<label class="control-label" id="label-error">Tell us the name of the software:</label>'+
@@ -268,8 +269,8 @@
           $('#accordion').append(content);
         }
         if (this.innerHTML.match(/New Equipment/i) || this.innerHTML.match(/System Access/i)){
-        console.log(" T R I G G E R E D")
           $('#next-btn').attr('onClick', 'postData()');
+          $('#btn-change').attr('href', '/home')
         }
         console.log(len);
         $('#type-button').text(this.innerHTML);

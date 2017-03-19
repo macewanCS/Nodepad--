@@ -12,6 +12,7 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
+
 .panel-default > .panel-heading {
   background-color: #3f4344;
   color: #fff;
@@ -20,6 +21,16 @@
 
 .dropdown {
   left: 70%;
+  width: 17%;
+}
+
+#type-button{
+  width: 100%;
+}
+
+.btn .caret{
+  position: relative;
+  right: -5%;
 }
 
 .panel-text-box {
@@ -28,53 +39,30 @@
   position:relative;
 }
 
-#next-btn {
+#confirmation-buttons {
+  float: right;
   position: relative;
-  left: 104%;
-  bottom: -31%;
+  right: 1%;
+  bottom: -78%;
 }
 
-#next-btn-2 {
-  position: relative;
-  left: 105.9%;
-  bottom: -5.5em;
-}
-
-#next-btn-4 {
-  position: relative;
-  left: 104%;
-  bottom: -5.7em; 
-}
-
-#next-btn-5 {
-  position: relative;
-  left: 105.9%;
-  bottom: -10em; 
-}
-
-#skip-btn {
-  position:relative;
-  left: 90%;
-  bottom: 50%;
-  
+#divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
 }
 
 #text-block {
   position:relative;
-  left: 40%;
-  top: -40%
-}
-
-#text-block-2 {
-  position:relative;
-  left: 20%;
-  bottom: 4em;
+  left: 38%;
+  top: -10%;
+  width:30%;
 }
 
 #label-error {
   position:relative;
-  left: 40%;
-  bottom: 14em;
+  left: 38%;
+  top: -15%;
 }
 
 .issue-description {
@@ -83,6 +71,7 @@
   top: 4em;
   font-family: "Open Sans", "Time New Roman", "Arial";
 }
+
 .panel-title {
   font-family: "Open Sans", "Time New Roman", "Arial";
   font-weight: bold;
@@ -91,7 +80,7 @@
 
 .panel-collapse{
   height: 200px;
-  width: 90%;
+  width: 100%;
 }
 
 .changer{
