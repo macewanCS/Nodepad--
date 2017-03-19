@@ -165,6 +165,31 @@ exports.password = function(req,res){
 
 }
 
+exports.general = function(req,res){
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: '395project'
+  });
+
+  connection.connect(function(err){
+
+    var today = new Date();
+    var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
+    var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    var appendedString = req.body.GeneralSystem;
+    var pPriority = changePriorityPassword(req.body.System);
+    connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
+      lastRec = addLastRecord(result);
+      connection.query(queryString, [lastRec, appendedString, "4", "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "General", "Employee", stringDate, req.user.Site]);
+      connection.end();
+    });
+
+  });
+
+}
+
 function changePrioritySoftware(softwareType){
   var value = 3;
   if (softwareType == "Yes"){

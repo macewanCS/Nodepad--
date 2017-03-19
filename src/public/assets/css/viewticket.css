@@ -1,7 +1,7 @@
 #super-card-mytickets{
   background: #fff;
   position: relative;
-  left: 18%;
+  left: 15%;
   height: 900px;
   width: 65%;
   margin-top: 2em;
@@ -10,24 +10,93 @@
 }
 
 fieldset0{
-  position: absolute;
-  width: 40%
+  position: relative;
+  width: 40%;
+  padding-left:0.5%;
+  /*padding-left: 1%;*/
   /*left:20em;*/
   top: 12%;
 }
 
 fieldset1{
   position: absolute;
-  width: 40%;
+  width: 55%;
   top: 12%;
-  left:50%;
+  left:40%;
 
+}
+#categ{
+  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+
+#L1{
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+#L2{
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+#L3{
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+
+#H1{
+  padding-left:0.5%;
+}
+#H2{
+  padding-left:0.5%;
 }
 
 p {  
-  line-height: 0;
+  line-height: 10px;
 }
 
+#divider { 
+    position:absolute;
+    top:30%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:97%;
+    height:60%;
+    background-color: #eeeeee;
+    left:2%;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /*border-style: inset;*/
+    /*border-width: 1px;*/
+}
+
+#divider1 { 
+    position:absolute;
+    top:9.75%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:58.5%;
+    height:18%;
+    background-color: #eeeeee;
+    left:39.5%;
+    /*display: block;*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+/*    border-style: inset;
+    border-width: 1px;*/
+}
+
+#divider2 { 
+    position:absolute;
+    top:9.75%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:35%;
+    height:18%;
+    background-color: #eeeeee;
+    left:2%;
+    /*display: block;*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+/*    border-style: inset;
+    border-width: 1px;*/
+}
 
 #button-container{ 
   width: relative;
@@ -47,6 +116,10 @@ p {
 
 #edit-btn {
   position: relative;
+  /*color:teal;*/
+  font-weight: bold;
+  opacity: 0.7;
+  /*background-color: #283593;*/
   left:0%;
   width:15%;
   min-width: 3.5em;
@@ -55,6 +128,8 @@ p {
 #resolve-btn {
 /*  overflow: hidden;
   text-overflow: ellipsis;*/
+  font-weight: bold;
+  opacity: 0.7;
   position: relative;
   left:0%;
   width:15%;
@@ -63,6 +138,8 @@ p {
 
 #exit-btn {
   position: relative;
+  font-weight: bold;
+  opacity: 0.7;
   left:0%;
   width:15%;
   min-width: 3.5em;
@@ -72,7 +149,7 @@ p {
   position: absolute;
   padding-bottom: 0em;
   padding-top: 3em;
-  top: 24%;
+  top: 31%;
 }
 
 #desc-text {
@@ -81,16 +158,26 @@ p {
 
 #text_results{
   position: absolute;
-  /*margin: 0 auto 0 auto;*/
-  border-radius: 5px;
-  width: 95%;
+  line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word; inline-block;
+  /*width: 95%;*/
+  font-family: 'Inder', sans-serif;
+  border: 0;
+  /*color:#666;*/
+  background-color: #eeeeee;
+  /*opacity: 0;*/
+  margin-bottom: 15px;
+
   height: 30%;
-  top:32%;
+  top:38%;
 }
 
 #stat-lb{
   position: absolute;
-  top:63%;
+  top:33%;
+}
+
+#stat{
+  background-color: #c5e1a5;
 }
 
 .channel-name {
