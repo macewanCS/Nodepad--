@@ -53,13 +53,17 @@ exports.service = function(req, res){
     var lastRec;
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
+    var team = changeServiceTeam(req.body.EquipmentType);
     
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)"
+      var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
+
       var appendedString = req.body.EquipmentType + " | " + req.body.System + " | " + req.body.AssetTag + " | " + req.body.Location + " | " + req.body.SoftwareName; 
       lastRec = addLastRecord(result);
 
     connection.query(queryString, [lastRec, appendedString, "3", "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "Service","Employee",stringDate,req.user.Site]);
+    connection.query(queryStringAsign, [lastRec, appendedString, team,  "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
     connection.end();
   });
     console.log("Ending insertion, check the database to confirm");
@@ -235,6 +239,15 @@ function changeHardwareTeam(hType){
     name = "Help Desk Team";
   }
   return name;
+}
+
+function changeServiceTeam(service){
+  var team = "Administrative Team";
+  if (service == "Move Equipment"){
+    team = "Project Team";
+  }
+  return team;
+
 }
 
 function addLastRecord(record){
