@@ -37,6 +37,16 @@ connection.query('\
 	`Site` varchar(3) NOT NULL, \
 	PRIMARY KEY(`Site`) \
 	)');
+
+connection.query('\
+	CREATE TABLE `395project`.`edits` (\
+	`EditID` INT NOT NULL AUTO_INCREMENT, \
+	`CallID` varchar(8) NOT NULL,\
+	`Edit` text NULL, \
+	`EDate` date  NULL, \
+	PRIMARY KEY(`EditID`) \
+	)');
+
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ABB","AbbotsField - Penny McKee");\
 	');
