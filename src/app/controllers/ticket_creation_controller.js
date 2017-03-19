@@ -96,7 +96,9 @@ exports.hardware = function(req, res){
         var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
         var appendedString  = req.body.EquipmentType  + " | " + req.body.AssetTag + " | " + req.body.Name + " | " + req.body.Description + " | " + req.body.ErrorMessageText;
         connection.query(queryString, [lastRec,appendedString,hPrioVal, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8),req.user.id, "selfserve", "Open", "Hardware", "Employee",stringDate,req.user.Site]);
+
         connection.query(queryStringAsign, [lastRec, appendedString, team, "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
+
         connection.end();
         console.log("Insert is over");
     });
