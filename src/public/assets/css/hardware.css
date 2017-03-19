@@ -28,35 +28,11 @@
   position:relative;
 }
 
-#next-btn {
+#confirmation-buttons {
+  float: right;
   position: relative;
-  left: 104%;
-  bottom: -31%;
-}
-
-#next-btn-2 {
-  position: relative;
-  left: 105.9%;
-  bottom: -5.5em;
-}
-
-#next-btn-4 {
-  position: relative;
-  left: 104%;
-  bottom: -5.7em; 
-}
-
-#next-btn-5 {
-  position: relative;
-  left: 105.9%;
-  bottom: -10em; 
-}
-
-#skip-btn {
-  position:relative;
-  left: 90%;
-  bottom: 50%;
-  
+  right: 1%;
+  bottom: -78%;
 }
 
 #text-block {
@@ -91,7 +67,7 @@
 
 .panel-collapse{
   height: 200px;
-  width: 90%;
+  width: 100%;
 }
 
 .changer{
