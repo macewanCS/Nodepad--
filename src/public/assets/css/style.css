@@ -65,11 +65,24 @@ header #logo img {
 }
 
 #head-nav #logout-button{
-  position: relative;
-  left: 400px;
-  top: 10px;
+  position: absolute;
+  left: 92%;
+  top: 10%;
   vertical-align: center-right; 
 
+}
+
+#user_holder{
+  /*width: 50%;*/
+  position: absolute;
+  top:2%;
+  left:90%;
+  padding-left: 0%;
+}
+
+h4{
+  font-size: 14px;
+  left: 55%;
 }
 
 body {
