@@ -86,14 +86,17 @@ exports.hardware = function(req, res){
     console.log("Beginning insertion");
     var lastRec;
     var today = new Date();
+    var team = changeHardwareTeam(req.body.EquipmentType);
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
     if(err) throw err
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       if (err) throw err
         lastRec = addLastRecord(result);
         var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
         var appendedString  = req.body.EquipmentType  + " | " + req.body.AssetTag + " | " + req.body.Name + " | " + req.body.Description + " | " + req.body.ErrorMessageText;
         connection.query(queryString, [lastRec,appendedString,hPrioVal, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8),req.user.id, "selfserve", "Open", "Hardware", "Employee",stringDate,req.user.Site]);
+        connection.query(queryStringAsign, [lastRec, appendedString, team, "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
         connection.end();
         console.log("Insert is over");
     });
