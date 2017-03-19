@@ -95,13 +95,15 @@
             </div>
             <div id="collapse4" class="panel-collapse collapse">
               <div id="confirmation-buttons">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse4', '#collapse5', '#text-block'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
+                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse4', '#collapse5', '#desc-text-block'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
               </div>
               <div class="issue-description">
                 Tell us anything you think is <br>
                 relevant to the problems
               </div>
-              <textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>
+              <div id="text-block">
+                <textarea name="paragraph_text" cols="60" rows="7" id="desc-text-block"> </textarea>
+              </div>
             </div>
           </div>
 
@@ -117,9 +119,11 @@
                 <button type="button" class="btn btn-primary" onClick="showInfo()">Next</button>              
               </div>
               <label class="control-label">Select A File</label>
-              <input id="input-1a" type="file" class="file" data-show-preview="false">
+              <input id="input-1a" type="file" class="file" data-show-preview="false"></input>
               <label class="control-label" id="label-error">Or tell us about your error:</label>
-              <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>            
+              <div id="text-block">
+                <textarea name="paragraph_text" cols="50" rows="5"></textarea>  
+              </div>
             </div>
           </div>
         </div>
@@ -272,6 +276,7 @@
         $('#accordion #equipment-panel').after(content);
       }
       $('.status').text(this.innerHTML);
+      $('.status').append('<span class=\"caret\"></span>')
     });
     </script>
     

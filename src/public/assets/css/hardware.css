@@ -21,6 +21,16 @@
 
 .dropdown {
   left: 70%;
+  width: 17%;
+}
+
+#type-button{
+  width: 100%;
+}
+
+.btn .caret{
+  position: relative;
+  right: -5%;
 }
 
 .panel-text-box {
@@ -44,20 +54,15 @@
 
 #text-block {
   position:relative;
-  left: 40%;
-  top: -40%
-}
-
-#text-block-2 {
-  position:relative;
-  left: 20%;
-  bottom: 4em;
+  left: 38%;
+  top: -10%;
+  width:30%;
 }
 
 #label-error {
   position:relative;
-  left: 40%;
-  bottom: 14em;
+  left: 38%;
+  top: -15%;
 }
 
 .issue-description {
