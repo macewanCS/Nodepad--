@@ -1,7 +1,7 @@
 #super-card-mytickets{
   background: #fff;
   position: relative;
-  left: 18%;
+  left: 15%;
   height: 900px;
   width: 65%;
   margin-top: 2em;
@@ -10,8 +10,10 @@
 }
 
 fieldset0{
-  position: absolute;
-  width: 40%
+  position: relative;
+  width: 40%;
+  padding-left:0.5%;
+  /*padding-left: 1%;*/
   /*left:20em;*/
   top: 12%;
 }
@@ -24,17 +26,24 @@ fieldset1{
 
 }
 #categ{
-  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 
 #L1{
-  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L2{
-  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L3{
-  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+
+#H1{
+  padding-left:0.5%;
+}
+#H2{
+  padding-left:0.5%;
 }
 
 p {  
@@ -49,7 +58,7 @@ p {
     width:97%;
     height:60%;
     background-color: #eeeeee;
-    left:1%;
+    left:2%;
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -81,7 +90,7 @@ p {
     width:35%;
     height:18%;
     background-color: #eeeeee;
-    left:1%;
+    left:2%;
     /*display: block;*/
     margin-top: 1em;
     margin-bottom: 1em;
