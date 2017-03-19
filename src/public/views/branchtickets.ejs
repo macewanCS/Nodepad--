@@ -81,17 +81,14 @@
            
               for(var i = 0; i < Object.keys(obj1).length; i++) { // TURN THIS INTO FUNCTION
                 if (obj1[i].CallStatus == "Open"){
-
                   myTemp = JSON.stringify(obj1[i].CallID);
                   obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
                   obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
-
                 obj1[i].TempDate = obj1[i].TempDate.slice(0,10);
               }
-
              $(document).ready(function(){
                myOpen = $('#myOpenTable').DataTable( {
                  "order": [[0, "desc"]],
@@ -117,8 +114,6 @@
                 table_button_handler('#myOpenTable');
             });
 
-
-            
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -144,7 +139,6 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj2 = <%- closedTickets %>;
-
            for(var i = 0; i < Object.keys(obj2).length; i++) {
                 if (obj2[i].CallStatus == "Open"){
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
@@ -153,11 +147,9 @@
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
               }
-
               for(var i = 0; i < Object.keys(obj2).length; i++) {
                   obj2[i].TempDate = obj2[i].TempDate.slice(0,10)
               }
-
              $(document).ready(function(){
                myClose = $('#myClosedTable').DataTable( {
                 "order": [[0, "desc"]],
@@ -172,13 +164,9 @@
                  ],
                  "columnDefs": [ {"targets": 1, "width": "12%"}, {"targets": 2, "width": "70%"},{"targets": 3, "width": "2%"}, {"targets": 4, "width": "10%","data": null, "defaultContent": "<button>View</button>" } ]
                });
-
-
-
                table_button_handler('#myClosedTable');
              });
             console.log("Creating closed tickets");
-
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -203,7 +191,6 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj3 = <%- allTickets %>;
-
               for(var i = 0; i < Object.keys(obj3).length; i++) {
                 if (obj3[i].CallStatus == "Open"){
                   obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
@@ -212,12 +199,9 @@
                   obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
               }
-
               for(var i = 0; i < Object.keys(obj3).length; i++) {
                   obj3[i].TempDate = obj3[i].TempDate.slice(0,10)
               }
-
-
              $(document).ready(function(){
                myAll = $('#myAllTable').DataTable( {
                 "order": [[0, "desc"]],
@@ -232,11 +216,9 @@
                  ],
                  "columnDefs" : [{"targets": 1, "width": "12%"},{"targets": 2, "width": "50%"},{"targets": 3, "width": "2%"},{ "width": "22%", "targets": 4 }]
                });
-
                table_button_handler('#myAllTable');
              });
             console.log("Creating closed tickets");
-
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -277,9 +259,7 @@
                     }
                                 
                     bootbox.alert("#data.CallID");
-
                   });
-
                 $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -293,7 +273,6 @@
                     }
                     alert("this is edi");
                   });
-
                 $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -317,6 +296,7 @@
 
               });
               //use $(".dropdown-toggle").text() to retrieve current branch
+
               $("#myOpenTable").dataTable().fnFilter("null", "6"); // Default Branch
 
               $("[name='temp']").click(function (evt) {
@@ -325,7 +305,7 @@
                 myOpen.draw();
               });
             }
-
+            
             // ----------------------------------------------------------------
             function alias(branch){
               switch (branch) {
@@ -424,11 +404,7 @@
               }
             };
 
-
-
          </script>
-
-
 
 
     <footer>
