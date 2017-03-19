@@ -193,7 +193,6 @@ exports.general = function(req,res){
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       lastRec = addLastRecord(result);
       connection.query(queryString, [lastRec, appendedString, "4", "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "General", "Employee", stringDate, req.user.Site]);
-      
       connection.end();
     });
 
