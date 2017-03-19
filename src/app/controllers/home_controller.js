@@ -24,20 +24,23 @@ exports.home = function(req, res){
   connection.connect(function(err) {
     
     var myVar3;
-    console.log('You are now connecting...')
     if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
+      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" LIMIT 10;', function(err, result) {
         if (err) throw err
+            connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE Site="' + req.user.Site + '" LIMIT 10;', function(err, branchResult) {
             myVar3 = JSON.stringify(result);
-            console.log(myVar3);
+            branch = JSON.stringify(branchResult);
             res.render((__dirname + '/../../public/views/home.ejs'), {
-          
-            openTickets:myVar3,
-            username:req.user.username,            
-            });
             
+            openTickets:myVar3,
+            branchTickets:branch,
+            username:req.user.username,
+
+            });
+            });
+       connection.end();
     });
-    connection.end()
+
   });
 
 }
