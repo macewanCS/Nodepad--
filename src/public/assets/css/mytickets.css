@@ -2,7 +2,48 @@
   height: relative;
   margin-left:0px;
   margin-bottom: 0px;
+  font-size: 10.5px;
+  table-layout: fixed;
 }
+
+#myOpenTable.dataTable td{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#myClosedTable   {
+  height: relative;
+  margin-left:0px;
+  margin-bottom: 0px;
+  font-size: 10.5px;
+  table-layout: fixed;
+}
+
+#myClosedTable.dataTable td{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#myAllTable   {
+  height: relative;
+  margin-left:0px;
+  margin-bottom: 0px;
+  font-size: 10.5px;
+  table-layout: fixed;
+}
+
+#myAllTable.dataTable td{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*.closed{
+  position: relative;
+  width: 100%;
+}*/
 
 #table-holder{
   height: relative;
@@ -15,9 +56,9 @@
   background: #fff;
   width: 70%;
   position: relative;
-  left: 18%;
+  left: 15%;
   height: 900px;
-  width: 65%;
+  /*width: 65%;*/
   margin-top: 2em;
   margin-bottom: 2em;
 }
