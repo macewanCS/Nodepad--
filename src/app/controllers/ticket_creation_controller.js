@@ -129,13 +129,16 @@ exports.software = function(req, res){
     var today = new Date();
     var lastRec;
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
-
+    var team = changeSoftwareTeam(req.body.AffectedSystem);
     var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
     var appendedString = req.body.AffectedSystem +  " | " + req.body.SystemStatus + " | " + req.body.Description + " | " + req.body.ProblemCause;
 
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       lastRec = addLastRecord(result);
+      var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
+
       connection.query(queryString, [lastRec, appendedString, sPriority, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "Software", "Employee", stringDate, req.body.Site]);
+      connection.query(queryStringAsign, [lastRec, appendedString, team, "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
       connection.end();
     });
     
@@ -157,11 +160,14 @@ exports.password = function(req,res){
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
     var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
     var appendedString = req.body.PasswordSystem + " | " + req.body.Usernametext + " | " + req.body.Fullname;
+    var team = "Help Desk Team";
     var pPriority = changePriorityPassword(req.body.PasswordSystem);
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       lastRec = addLastRecord(result);
       connection.query(queryString, [lastRec, appendedString, pPriority, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "Password", "Employee", stringDate, req.user.Site]);
+      connection.query(queryStringAsign, [lastRec, appendedString, team, "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
       connection.end();
     });
 
@@ -187,6 +193,7 @@ exports.general = function(req,res){
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       lastRec = addLastRecord(result);
       connection.query(queryString, [lastRec, appendedString, "4", "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "General", "Employee", stringDate, req.user.Site]);
+      
       connection.end();
     });
 
