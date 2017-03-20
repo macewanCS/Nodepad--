@@ -221,9 +221,11 @@
     <script>
     function toggleAccordianCheck(close, open, mandatory){
       if ($(mandatory).val().length > 0){
+        console.log($(mandatory).val());
         $(close).collapse("toggle");
         $(open).collapse("toggle");
       } else {
+      console.log($(mandatory).val());
         alert("Please fill it out the information before proceeding")
       }
     };
@@ -242,7 +244,6 @@
     
     <script>
     $('.dropdown-inverse li > a').click(function(e){
-      console.log("swapping");
       $('#accordion2').remove();
       $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')");
       if(this.innerHTML.match(/iPad/i) || this.innerHTML.match(/Laptop/i) || this.innerHTML.match(/PC/i) || this.innerHTML.match(/Self-checkout/i)){
