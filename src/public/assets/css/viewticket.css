@@ -3,7 +3,7 @@
   position: relative;
   left: 15%;
   height: 900px;
-  width: 65%;
+  width: 70%;
   margin-top: 2em;
   margin-bottom: 2em;
   margin-left: 0%;
@@ -23,8 +23,24 @@ fieldset1{
   width: 55%;
   top: 12%;
   left:40%;
-
 }
+
+#history{
+  position: absolute;
+  top:55%;
+  height:15%;
+  overflow-y:auto;
+  overflow-x:auto;
+  max-width: 90%;
+  line-height: 22px;
+}
+#hist_date{
+  line-height: 22px;
+}
+#hist_text{
+  line-height: 22px;
+}
+
 #categ{
   padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
@@ -109,11 +125,6 @@ p {
   padding-top: 1.25em;
 }
 
-/*#buttons{
-  position:relative;
-
-}*/
-
 #edit-btn {
   position: relative;
   /*color:teal;*/
@@ -158,16 +169,12 @@ p {
 
 #text_results{
   position: absolute;
-  line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word; inline-block;
-  /*width: 95%;*/
+  line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
   font-family: 'Inder', sans-serif;
   border: 0;
-  /*color:#666;*/
   background-color: #eeeeee;
-  /*opacity: 0;*/
   margin-bottom: 15px;
-
-  height: 30%;
+  height: 17%;
   top:38%;
 }
 

@@ -79,6 +79,15 @@ var data = <%- data %>;
           </div>
           <div id="desc-text">
             <textarea class="control-label" id="text_results"></textarea>
+            <div id="history">
+              <form3>
+                <fieldset>
+                  <label class="control-label" id="hist_date">June16,1990</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
+                </fieldset>
+              </form3>
+
+            </div>
             <!-- <textarea disabled id="text_results" readonly></textarea> -->
           </div>
           <div id="stat-lb">
@@ -166,7 +175,7 @@ var data = <%- data %>;
         });
       </script>
 
- <footer>
+    <footer>
       <% include ./partials/footer %>
     </footer>
   </body>

@@ -31,7 +31,7 @@
       <div class="panel panel-default bootcards-summary align-middle">
         <label style="margin-left: 10px">Chose your desired branch:</label>
         <div class="dropdown">
-        <button class="btn btn-info dropdown-toggle status" id="branchSelector" type="button" data-toggle="dropdown">Select Branch Here
+        <button class="btn btn-info dropdown-toggle status" id="branchSelector" type="button" data-toggle="dropdown">Select Branch
         <span class="caret"></span></button>
         <ul class="dropdown-menu dropdown-inverse">
           <li><a href="#" name='temp'>Abbotsfield</a></li>
@@ -49,7 +49,7 @@
           <li><a href="#" name='temp'>MacEwan Lending Machine</a></li>
           <li><a href="#" name='temp'>McConachie</a></li>
           <li><a href="#" name='temp'>Meadows</a></li>
-          <li><a href="#" name='temp'>Mill Woods</a></li>
+          <li><a href="#" name='temp' value='MIL'>Mill Woods</a></li>
           <li><a href="#" name='temp'>Riverbend</a></li>
           <li><a href="#" name='temp'>Sprucewood</a></li>
           <li><a href="#" name='temp'>Strathcona</a></li>
@@ -81,17 +81,14 @@
            
               for(var i = 0; i < Object.keys(obj1).length; i++) { // TURN THIS INTO FUNCTION
                 if (obj1[i].CallStatus == "Open"){
-
                   myTemp = JSON.stringify(obj1[i].CallID);
                   obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
                   obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
-
                 obj1[i].TempDate = obj1[i].TempDate.slice(0,10);
               }
-
              $(document).ready(function(){
                myOpen = $('#myOpenTable').DataTable( {
                  "order": [[0, "desc"]],
@@ -104,9 +101,10 @@
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
-                   { "mDataProp": "action" }
+                   { "mDataProp": "action" },
+                   { "mDataProp": "Site" }
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false } ],
+                 "columnDefs": [ {"targets": 0}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false }, {"targets": 6, "width": "2%", "visible": false} ],
               });
 
                //  Set up branch filters
@@ -116,8 +114,6 @@
                 table_button_handler('#myOpenTable');
             });
 
-
-            
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -143,7 +139,6 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj2 = <%- closedTickets %>;
-
            for(var i = 0; i < Object.keys(obj2).length; i++) {
                 if (obj2[i].CallStatus == "Open"){
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
@@ -152,11 +147,9 @@
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
               }
-
               for(var i = 0; i < Object.keys(obj2).length; i++) {
                   obj2[i].TempDate = obj2[i].TempDate.slice(0,10)
               }
-
              $(document).ready(function(){
                myClose = $('#myClosedTable').DataTable( {
                 "order": [[0, "desc"]],
@@ -171,13 +164,9 @@
                  ],
                  "columnDefs": [ {"targets": 1, "width": "12%"}, {"targets": 2, "width": "70%"},{"targets": 3, "width": "2%"}, {"targets": 4, "width": "10%","data": null, "defaultContent": "<button>View</button>" } ]
                });
-
-
-
                table_button_handler('#myClosedTable');
              });
             console.log("Creating closed tickets");
-
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -202,7 +191,6 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj3 = <%- allTickets %>;
-
               for(var i = 0; i < Object.keys(obj3).length; i++) {
                 if (obj3[i].CallStatus == "Open"){
                   obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
@@ -211,12 +199,9 @@
                   obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
               }
-
               for(var i = 0; i < Object.keys(obj3).length; i++) {
                   obj3[i].TempDate = obj3[i].TempDate.slice(0,10)
               }
-
-
              $(document).ready(function(){
                myAll = $('#myAllTable').DataTable( {
                 "order": [[0, "desc"]],
@@ -231,11 +216,9 @@
                  ],
                  "columnDefs" : [{"targets": 1, "width": "12%"},{"targets": 2, "width": "50%"},{"targets": 3, "width": "2%"},{ "width": "22%", "targets": 4 }]
                });
-
                table_button_handler('#myAllTable');
              });
             console.log("Creating closed tickets");
-
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -276,9 +259,7 @@
                     }
                                 
                     bootbox.alert("#data.CallID");
-
                   });
-
                 $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -292,7 +273,6 @@
                     }
                     alert("this is edi");
                   });
-
                 $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -310,19 +290,121 @@
 
             // ---------------------------------------------------------------
             function dropdown_handler(){
+
+              $('.dropdown-inverse li > a').click(function(e){
+                $('.status').text(this.innerHTML);
+
+              });
               //use $(".dropdown-toggle").text() to retrieve current branch
-              $("#myOpenTable").dataTable().fnFilter("Hard", "2"); // Default Branch
+
+              $("#myOpenTable").dataTable().fnFilter("null", "6"); // Default Branch
 
               $("[name='temp']").click(function (evt) {
-                $("#myOpenTable").dataTable().fnFilter("Soft", "2"); // On Branch Selection
+                $("#myOpenTable").dataTable().fnFilter(alias($(".dropdown-toggle").text()), "6"); // On Branch Selection
+                
                 myOpen.draw();
               });
             }
-
+            
+            // ----------------------------------------------------------------
+            function alias(branch){
+              switch (branch) {
+                  case 'Abbottsfield':
+                      return "ABB";
+                  case 'Administration':
+                      return "ADM";
+                  case 'Assessment & Research':
+                      return "PMR";
+                  case 'Calder':
+                      return "CAL";
+                  case 'Call In Pool':
+                      return "CIP";
+                  case 'Capilano':
+                      return "CPL";
+                  case 'Castle Downs':
+                      return "CSD";
+                  case 'Century Park LM':
+                      return "CPLM";
+                  case 'Clareview':
+                      return "CLV";
+                  case 'Collection Management':
+                      return "CMA";
+                  case 'Design & Production':
+                      return "PRD";
+                  case 'Digital Literacy':
+                      return "DLI";
+                  case 'Enterprise Square':
+                      return "ESQ";
+                  case 'Facilities':
+                      return "FAO";
+                  case 'Finance':
+                      return "FIN";
+                  case 'Fund Development':
+                      return "FDO";
+                  case 'Grant MacEwan LM':
+                      return "GMLM";
+                  case 'HR':
+                      return "HRS";
+                  case 'Highlands':
+                      return "HIG";
+                  case 'IT':
+                      return "ITS";
+                  case 'Idylwylde':
+                      return "IDY";
+                  case 'Jasper Place':
+                      return "JPL";
+                  case 'Lois Hole':
+                      return "LHL";
+                  case 'Londonderry':
+                      return "LON";
+                  case 'MNP Building':
+                      return "MNP";
+                  case 'Marketing':
+                      return "MKT";
+                  case 'McConachiey':
+                      return "MCN";
+                  case 'Meadows':
+                      return "MEA";
+                  case 'Mill Woods':
+                      return "MIL";
+                  case 'Public Services':
+                      return "PUB";
+                  case 'Purchasing':
+                      return "PUR";
+                  case 'Riverbend':
+                      return "RIV";
+                  case 'Sprucewood':
+                      return "SPW";
+                  case 'Stanley A. Milner':
+                      return "MNA";
+                  case 'Strathcona':
+                      return "STR";
+                  case 'Van':
+                      return "LTV";
+                  case 'Van 1':
+                      return "LTV1";
+                  case 'Van 2':
+                      return "LTV2";
+                  case 'Van 3':
+                      return "LTV3";
+                  case 'Van 4':
+                      return "LTV4";
+                  case 'Warehouse':
+                      return "105";
+                  case 'Web Services':
+                      return "WEB";
+                  case 'West Henday':
+                      return "WHP";
+                  case 'Woodcroft':
+                      return "WOO";
+                  case 'Youth Services':
+                      return "MNJ";
+                  case 'eplGO U of A':
+                      return "UAC";
+              }
+            };
 
          </script>
-
-
 
 
     <footer>

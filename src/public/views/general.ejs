@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../assets/css/general.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   </head>
   <body>
     <header>
@@ -31,12 +32,45 @@
               <br>you are currently having</p1>
             </div>
             <textarea name="paragraph_text" cols="60" rows="4" id="text-block"></textarea> 
-            <button type="button" id="next-btn" class="btn btn-primary" onclick="postData()">Submit</button>                   
+            <button type="button" id="next-btn" class="btn btn-primary" onclick="showInfo()">Submit</button>                   
           </div>          
         </div>
       </div>
 
 
+ <!--This is for the confirmation-->
+  <script>
+  function showInfo(){
+
+    var generalSystem = $('#text-block').val();
+    
+    bootbox.confirm({
+      title: "Please confirm your information:",
+      message: "<b>general System:</b> " + generalSystem,
+      buttons: {
+          confirm: {
+              label: 'Submit',
+              class: 'btn-success',
+              
+          },
+          cancel: {
+              label: 'Go back',
+              class: 'btn-danger'
+          }
+      },
+      callback: function (result) {
+        
+        if(result){
+          
+          postData();
+          window.location.href = "/success";
+        }
+      }
+    });
+  }
+
+  </script>
+ 
     <script>
       function postData(req, res){
         var http = new XMLHttpRequest();
