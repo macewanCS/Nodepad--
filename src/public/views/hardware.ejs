@@ -119,7 +119,7 @@
                 <button type="button" class="btn btn-primary" onClick="showInfo()">Next</button>              
               </div>
               <label class="control-label">Select A File</label>
-              <input id="input-1a" type="file" class="file" data-show-preview="false"></input>
+              <!--<input id="input-1a" type="file" class="file" data-show-preview="false" style="width: 21%;"></input>-->
               <label class="control-label" id="label-error">Or tell us about your error:</label>
               <div id="text-block">
                 <textarea id="error-text" name="paragraph_text" cols="50" rows="5"></textarea>  
@@ -131,72 +131,68 @@
     </div>
 
   <!--This is for the confirmation-->
-  <script>
-  function showInfo(){
-
-    var equipment = $("#type-button").text();
-    var assetTag = $('#asset-tag-text').val();    
-    var deviceName = $('#name-text').val();
-    var ticketInfo =  $('#desc-text').val();
-    var errorInfo = document.getElementById('error-text').value;
-    var errorImage = $("#input-1a").val();
-    if (assetTag === ""){
-      assetTag = "n/a";
-    }
-    if (deviceName === ""){
-      deviceName = "n/a";
-    }
-    if (errorInfo === ""){
-      errorInfo = "n/a";
-    }
-    bootbox.confirm({
-      title: "Please confirm your information:",
-      message: "<b>Equipment Type:</b> " + equipment +
-               "<br><b>Asset Tag:</b> " + assetTag +
-               "<br><b>device Name:</b> " + deviceName +
-               "<br><b>Description:</b> " + ticketInfo +
-               "<br><b>Error Information:</b> " + errorInfo +
-               "<br><b>Error url:</b> " + errorImage +
-               "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
-      buttons: {
-          confirm: {
-              label: 'Submit',
-              class: 'btn-success',
-              
-          },
-          cancel: {
-              label: 'Go back',
-              class: 'btn-danger'
-          }
-      },
-      callback: function (result) {
-        
-        if(result){
-          
-          postData();
-          window.location.href = "/success";
-        }
-      }
-    });
-  }
-  </script>
     <script>
-      function postData(req, res){
-        var http = new XMLHttpRequest();
-        console.log("clicked the submit button");
-        console.log($("#type-button").text());
-        var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#desc-text').val()
-        +"&ErrorMessageText=" + document.getElementById('error-text').value;
-        console.log(params);
-        var url = "/createHardware";
-        console.log("sent " + http.status + " " + http.readyState);
-        http.open("POST", url, true);
-        console.log(url + " " + http.status + " " + http.readyState);
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.onreadystatechange = function() {//Call a function when the state changes.
-          if(http.readyState == 4 && http.status == 200) {
-            console.log(http.responseText);
+    function showInfo(){
+      var equipment = $("#type-button").text();
+      var assetTag = $('#asset-tag-text').val();    
+      var deviceName = $('#name-text').val();
+      var ticketInfo =  $('#desc-text').val();
+      var errorInfo = document.getElementById('error-text').value;
+      var errorImage = $("#input-1a").val();
+      if (assetTag === ""){
+        assetTag = "n/a";
+      }
+      if (deviceName === ""){
+        deviceName = "n/a";
+      }
+      if (errorInfo === ""){
+        errorInfo = "n/a";
+      }
+      bootbox.confirm({
+        title: "Please confirm your information:",
+        message: "<b>Equipment Type:</b> " + equipment +
+            "<br><b>Asset Tag:</b> " + assetTag +
+            "<br><b>device Name:</b> " + deviceName +
+            "<br><b>Description:</b> " + ticketInfo +
+            "<br><b>Error Information:</b> " + errorInfo +
+            "<br><b>Error url:</b> " + errorImage +
+            "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
+        buttons: {
+            confirm: {
+              label: 'Submit',
+              class: 'btn-success',    
+        },
+        cancel: {
+            label: 'Go back',
+            class: 'btn-danger'
+        }
+        },
+        callback: function (result) { 
+          if(result){        
+            postData();
+            window.location.href = "/success";
           }
+        }
+      });
+    }
+    </script>
+    <script>
+    function postData(req, res){
+      var http = new XMLHttpRequest();
+      console.log("clicked the submit button");
+      console.log($("#type-button").text());
+      var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#desc-text').val()
+      +"&ErrorMessageText=" + document.getElementById('error-text').value;
+      console.log(params);
+      var url = "/createHardware";
+      console.log("sent " + http.status + " " + http.readyState);
+      http.open("POST", url, true);
+      console.log(url + " " + http.status + " " + http.readyState);
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 200) {
+          console.log(http.responseText);
+        }
         };
         http.send(params);
         console.log("sent " + http.status + " " + http.readyState);
