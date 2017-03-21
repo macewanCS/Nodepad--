@@ -3,9 +3,10 @@
   <head>
     <% include ./partials/head %>
     <link rel="stylesheet" href="../assets/css/hardware.css">
+    <script src="../assets/js/ticketscripts.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../assets/js/ticketscripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   </head>
   <body>
@@ -31,9 +32,7 @@
                 <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
               </div>
               <div class="issue-description">
-                <p1>Please select the type of
-                <br>equipment that you are
-                <br>having trouble with</p1>
+                Please select the type of equipment that you are having trouble with
               </div>
               <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Equipment Type
@@ -73,12 +72,8 @@
                 <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeName')">Skip</button>
                 <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse3', '#collapse4', '#name-text'); colorHeader('#heading-three', '#changeName')">Next</button>                
               </div>
-              <div class="panel-body">
-                <div class="issue-description">
-                  Please enter the device <br>
-                  name for the hardware that <br>
-                  you are having problems with
-                </div>
+              <div class="issue-description">
+                Please enter the device name for the hardware that you are having problems with
               </div>
               <div class="panel-text-box">
                   <input type="text" id="name-text">
@@ -98,11 +93,10 @@
                 <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse4', '#collapse5', '#desc-text'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
               </div>
               <div class="issue-description">
-                Tell us anything you think is <br>
-                relevant to the problems
+                Tell us anything you think is relevant to the problems
               </div>
               <div id="text-block">
-                <textarea name="paragraph_text" cols="60" rows="7" id="desc-text"> </textarea>
+                <textarea name="paragraph_text" cols="50" rows="5" id="desc-text"> </textarea>
               </div>
             </div>
           </div>

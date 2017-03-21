@@ -4,6 +4,7 @@
     <% include ./partials/head %>
     <link rel="stylesheet" href="../assets/css/hardware.css">
     <script src="../assets/js/ticketscripts.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
@@ -29,16 +30,15 @@
                 <button type="button" id="next-btn" class="btn btn-primary" onclick="checkFilled('#text-block')">Submit</button>     
               </div>
               <div class="issue-description">
-                <p1>Please provide a description
-                <br>of the problem that 
-                <br>you are currently having</p1>
+                <p1>Please provide a description of the problem that you are currently having</p1>
               </div>
-              <textarea name="paragraph_text" cols="50" rows="5" id="text-block"></textarea>               
+              <textarea name="paragraph_text" cols="60" rows="5" id="text-block"></textarea>               
             </div>          
           </div>
         </div>
       </div>
     </div>
+    
  <!--This is for the confirmation-->
   <script>
   function showInfo(){
@@ -66,19 +66,6 @@
       }
     });
   }
-  </script>
-  
-  <script>
-    function checkFilled(mandatory){
-    console.log($(mandatory).val())
-      if ($(mandatory).val().length > 0){
-        showInfo();
-      } else {
-      console.log($(mandatory).val());
-        alert("Please fill it out the information before proceeding")
-      }
-    
-    }
   </script>
   
   <script>
