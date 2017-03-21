@@ -67,7 +67,8 @@ header #logo img {
 #head-nav #logout-button{
   position: absolute;
   left: 92%;
-  top: 10%;
+  /*top: 10%;*/
+  top: 60px;
   vertical-align: center-right; 
 
 }

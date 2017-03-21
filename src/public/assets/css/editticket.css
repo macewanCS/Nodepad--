@@ -11,9 +11,9 @@
 #super-card-mytickets{
   background: #fff;
   position: relative;
-  left: 15%;
+  left: 17%;
   height: 900px;
-  width: 65%;
+  width: 70%;
   margin-top: 2em;
   margin-bottom: 2em;
   margin-left: 0%;
@@ -178,7 +178,6 @@ p {
   background-color: #eeeeee;
   /*opacity: 0;*/
   margin-bottom: 15px;
-
   height: 19%;
   top:38%;
 }
@@ -191,7 +190,7 @@ p {
 
 #stat{
   position: relative;
-  left: 1%;
+  left: 2.5%;
   background-color: #c5e1a5;
 }
 
@@ -216,6 +215,7 @@ p {
   color: #FFF;
 }
 #change-lb {
+  left: 2.5%;
   position: absolute;
   padding-bottom: 0em;
   padding-top: 3em;
@@ -224,6 +224,7 @@ p {
 
 #change_box{
   position: absolute;
+  left: 2.5%;
   /*margin: 0 auto 0 auto;*/
   border-radius: 5px;
   width: 90%;

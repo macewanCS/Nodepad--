@@ -67,8 +67,11 @@ exports.service = function(req, res){
     connection.end();
   });
     console.log("Ending insertion, check the database to confirm");
+    res.send('www.google.ca');
+    console.log("Oh shit wuddup");
   });
 }
+
 exports.hardware = function(req, res){
   console.log("Create hardware is running");
   console.log(req.body);
