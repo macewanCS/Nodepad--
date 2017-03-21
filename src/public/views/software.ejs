@@ -102,7 +102,7 @@
             <div class="issue-description">
               Tell us anything you think is relevant to the problems.
             </div>
-            <textarea name="paragraph_text" cols="60" rows="5" id="text-block"></textarea>
+            <textarea name="paragraph_text" cols="60" rows="5" id="text-block" class="text-area"></textarea>
           </div>
         </div>
       
@@ -117,10 +117,10 @@
             <div id="confirmation-buttons">
               <button type="button" class="btn btn-primary" onclick="showInfo()">Next</button>             
             </div>
-            <label class="control-label">Select A File</label>
+            <label>Select A File</label>
+            <label id="label-error">Or tell us the steps to replicate the problem:</label>
             <input id="input-1a" type="file" class="file" data-show-preview="false">
-            <label class="control-label" id="label-error">Or tell us the steps to replicate the problem:</label>
-            <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>
+            <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2" class="text-area"></textarea>
           </div>
         </div>
         

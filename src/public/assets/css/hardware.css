@@ -52,7 +52,7 @@
   display:inline-block;
 }
 
-#text-block {
+.text-area {
   position:relative;
   left: 45%;
   top: 10%;
