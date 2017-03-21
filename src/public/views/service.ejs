@@ -46,7 +46,7 @@
                 </ul>
               </div>        
               <div id="next-btn">
-                <a href="#" id="btn-change"><button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button> </a>               
+                <a href="#" id="btn-change"><button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button> </a>               
               </div>
             </div>          
           </div>
@@ -93,6 +93,17 @@
         console.log("closed");
         $(open).collapse("show");
       };
+    </script>
+    
+    <script>
+    function toggleAccordianCheck(close, open, mandatory){   
+      if ($(mandatory).val().length > 0){
+        $(close).collapse("toggle");
+        $(open).collapse("toggle");
+      } else {
+        alert("Please fill it out the information before proceeding")
+      }
+    };
     </script>
     
     <script>
