@@ -9,7 +9,11 @@ function toggleAccordian(close, open){
 };
 
 function toggleAccordianCheck(close, open, mandatory){
-if ( !($(mandatory).val() == null) && ($(mandatory).val().length > 0) && !($(mandatory).val().match(/^\s$/))){
+if (($(mandatory).val() == null)){
+  alert("Please fill it out the information before proceeding");
+  return;
+}
+if (($(mandatory).val().length > 0) && !($(mandatory).val().match(/^\s$/))){
     console.log($(mandatory).val());
     $(close).collapse("toggle");
     $(open).collapse("toggle");
@@ -18,7 +22,7 @@ if ( !($(mandatory).val() == null) && ($(mandatory).val().length > 0) && !($(man
     console.log(!($(mandatory).val() == null));
     console.log(($(mandatory).val().length > 0));
     console.log(!($(mandatory).val().match(/^\s$/)));
-    alert("Please fill it out the information before proceeding")
+    alert("Please fill it out the information before proceeding");
   }
 };
 
