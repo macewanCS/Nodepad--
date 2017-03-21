@@ -3,9 +3,10 @@
   <head>
     <% include ./partials/head %>
     <link rel="stylesheet" href="../assets/css/hardware.css">
+    <script src="../assets/js/ticketscripts.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   </head>
   <body>
@@ -17,9 +18,9 @@
         <a href="#" class="channel-name stripe-two">Hardware</a>
       </div> 
       <div class="card" id="sub-card">
-        <!-- This is the Accordian for Hardware -->
+        <!-- This is the accordian for hardware tickets -->
         <div class="accordian-group" id="accordion">
-          <!-- This is the panel for Equipment Type --> 
+          <!-- This is the panel for equipment type --> 
           <div class="panel panel-default" id="equipment-panel">
             <div class="panel-heading" id="heading-one">
               <h4 class="panel-title">   
@@ -31,9 +32,7 @@
                 <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
               </div>
               <div class="issue-description">
-                <p1>Please select the type of
-                <br>equipment that you are
-                <br>having trouble with</p1>
+                Please select the type of equipment that you are having trouble with
               </div>
               <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Equipment Type
@@ -61,7 +60,7 @@
             </div>          
           </div>
          
-          <!-- This is the panel for Computer/Device name --> 
+          <!-- This is the panel for computer/device name --> 
           <div class="panel panel-default">
             <div class="panel-heading" id="heading-three">
               <h4 class="panel-title">
@@ -73,12 +72,8 @@
                 <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeName')">Skip</button>
                 <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse3', '#collapse4', '#name-text'); colorHeader('#heading-three', '#changeName')">Next</button>                
               </div>
-              <div class="panel-body">
-                <div class="issue-description">
-                  Please enter the device <br>
-                  name for the hardware that <br>
-                  you are having problems with
-                </div>
+              <div class="issue-description">
+                Please enter the device name for the hardware that you are having problems with
               </div>
               <div class="panel-text-box">
                   <input type="text" id="name-text">
@@ -86,7 +81,7 @@
             </div>
           </div>
       
-          <!-- This is the panel for Description of Problem -->
+          <!-- This is the panel for description of problem -->
           <div class="panel panel-default">
             <div class="panel-heading" id="heading-four">
               <h4 class="panel-title">
@@ -95,19 +90,18 @@
             </div>
             <div id="collapse4" class="panel-collapse collapse">
               <div id="confirmation-buttons">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse4', '#collapse5', '#desc-text-block'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
+                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse4', '#collapse5', '#desc-text'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
               </div>
               <div class="issue-description">
-                Tell us anything you think is <br>
-                relevant to the problems
+                Tell us anything you think is relevant to the problems
               </div>
-              <div id="text-block">
-                <textarea name="paragraph_text" cols="60" rows="7" id="desc-text-block"> </textarea>
+              <div class="text-area">
+                <textarea name="paragraph_text" cols="50" rows="5" id="desc-text"> </textarea>
               </div>
             </div>
           </div>
 
-          <!-- This is the panel for Error Messages -->
+          <!-- This is the panel for error messages -->
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
@@ -116,13 +110,15 @@
             </div>
             <div id="collapse5" class="panel-collapse collapse">             
               <div id="confirmation-buttons">
-                <button type="button" class="btn btn-primary" onClick="showInfo()">Next</button>              
+                <button type="button" class="btn btn-primary" onClick="showInfo()">Submit</button>              
               </div>
-              <label class="control-label">Select A File</label>
-              <input id="input-1a" type="file" class="file" data-show-preview="false"></input>
               <label class="control-label" id="label-error">Or tell us about your error:</label>
-              <div id="text-block">
-                <textarea name="paragraph_text" cols="50" rows="5"></textarea>  
+              <div class="text-upload">
+                <textarea id="error-text" name="paragraph_text" cols="50" rows="5"></textarea>  
+              </div>
+              <div>
+                <label class="control-label">Select A File</label>
+                <input id="input-1a" type="file" class="file" data-show-preview="false" style="width: 21%;"></input>
               </div>
             </div>
           </div>
@@ -130,119 +126,78 @@
       </div>
     </div>
 
-  <!--This is for the confirmation-->
-  <script>
-  function showInfo(){
-
-    var equipment = $("#type-button").text();
-    var assetTag = $('#asset-tag-text').val();    
-    var deviceName = $('#name-text').val();
-    var ticketInfo =  $('#text-block').val();
-    var errorInfo = document.getElementById('text-block-2').value;
-    var errorImage = $("#input-1a").val();
-    if (assetTag === ""){
-      assetTag = "n/a";
-    }
-    if (deviceName === ""){
-      deviceName = "n/a";
-    }
-    if (errorInfo === ""){
-      errorInfo = "n/a";
-    }
-    bootbox.confirm({
-      title: "Please confirm your information:",
-      message: "<b>Equipment Type:</b> " + equipment +
-               "<br><b>Asset Tag:</b> " + assetTag +
-               "<br><b>device Name:</b> " + deviceName +
-               "<br><b>Description:</b> " + ticketInfo +
-               "<br><b>Error Information:</b> " + errorInfo +
-               "<br><b>Error url:</b> " + errorImage +
-               "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
-      buttons: {
-          confirm: {
-              label: 'Submit',
-              class: 'btn-success',
-              
-          },
-          cancel: {
-              label: 'Go back',
-              class: 'btn-danger'
-          }
-      },
-      callback: function (result) {
-        
-        if(result){
-          
-          postData();
-          window.location.href = "/success";
-        }
-      }
-    });
-  }
-  </script>
     <script>
-      function postData(req, res){
-        var http = new XMLHttpRequest();
-        console.log("clicked the submit button");
-        console.log($("#type-button").text());
-        var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#text-block').val()
-        +"&ErrorMessageText=" + document.getElementById('text-block-2').value;
-        console.log(params);
-        var url = "/createHardware";
-        console.log("sent " + http.status + " " + http.readyState);
-        http.open("POST", url, true);
-        console.log(url + " " + http.status + " " + http.readyState);
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.onreadystatechange = function() {//Call a function when the state changes.
-          if(http.readyState == 4 && http.status == 200) {
-            console.log(http.responseText);
-          }
+    function showInfo(){
+  var equipment = $("#type-button").text();
+  var assetTag = $('#asset-tag-text').val();    
+  var deviceName = $('#name-text').val();
+  var ticketInfo =  $('#desc-text').val();
+  var errorInfo = document.getElementById('error-text').value;
+  var errorImage = $("#input-1a").val();
+  if (assetTag === ""){
+    assetTag = "n/a";
+  }
+  if (deviceName === ""){
+    deviceName = "n/a";
+  }
+  if (errorInfo === ""){
+    errorInfo = "n/a";
+  }
+  bootbox.confirm({
+    title: "Please confirm your information:",
+    message: "<b>Equipment Type:</b> " + equipment +
+        "<br><b>Asset Tag:</b> " + assetTag +
+        "<br><b>device Name:</b> " + deviceName +
+        "<br><b>Description:</b> " + ticketInfo +
+        "<br><b>Error Information:</b> " + errorInfo +
+        "<br><b>Error url:</b> " + errorImage +
+        "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
+    buttons: {
+        confirm: {
+          label: 'Submit',
+          class: 'btn-success',    
+    },
+      cancel: {
+        label: 'Go back',
+        class: 'btn-danger'
+    }
+    },
+    callback: function (result) { 
+      if(result){        
+        postData();
+        window.location.href = "/success";
+      }
+    }
+  });
+}
+</script>
+    
+    <script>
+    function postData(req, res){
+      var http = new XMLHttpRequest();
+      console.log("clicked the submit button");
+      console.log($("#type-button").text());
+      var params = "EquipmentType=" + $("#type-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#desc-text').val()
+      +"&ErrorMessageText=" + document.getElementById('error-text').value;
+      console.log(params);
+      var url = "/createHardware";
+      console.log("sent " + http.status + " " + http.readyState);
+      http.open("POST", url, true);
+      console.log(url + " " + http.status + " " + http.readyState);
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 200) {
+          console.log(http.responseText);
+        }
         };
         http.send(params);
         console.log("sent " + http.status + " " + http.readyState);
         return true;
       };
     </script>
-    
-    <script>
-    function colorHeader(header, change){
-      $(change).css('visibility', 'visible');
-      $(header).css('background-color', 'rgb(170,170,170)');
-    };
-    </script>
-    
-    <script>
-    function toggleAccordian(close, open){
-        $(close).collapse("toggle");
-        $(open).collapse("toggle");
-      };
-    </script>
-    
-    <script>
-    function toggleAccordianCheck(close, open, mandatory){
-      if ($(mandatory).val().length > 0){
-        $(close).collapse("toggle");
-        $(open).collapse("toggle");
-      } else {
-        alert("Please fill it out the information before proceeding")
-      }
-    };
-    </script>
-    
-    <script>
-      function undo(open, close1, close2, close3, close4){
-        $(close1).collapse("hide");
-        $(close2).collapse("hide");
-        $(close3).collapse("hide");
-        $(close4).collapse("hide");
-        $(open).collapse("show");
-      };
-    
-    </script>
-    
+
     <script>
     $('.dropdown-inverse li > a').click(function(e){
-      console.log("swapping");
       $('#accordion2').remove();
       $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')");
       if(this.innerHTML.match(/iPad/i) || this.innerHTML.match(/Laptop/i) || this.innerHTML.match(/PC/i) || this.innerHTML.match(/Self-checkout/i)){
