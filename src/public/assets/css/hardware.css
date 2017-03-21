@@ -56,13 +56,20 @@
   position:relative;
   left: 45%;
   top: 10%;
-  width:30%;
+  width: 40%;
+}
+
+.text-upload{
+  width: 40%;
+  left: 35%;
+  position: relative;
+  top: 5%;
 }
 
 #label-error {
   position:relative;
-  left: 38%;
-  top: -15%;
+  left: 35%;
+  top: 5%;
 }
 
 .issue-description {
@@ -81,8 +88,10 @@
 }
 
 .panel-collapse{
+  position:relative;
   height: 200px;
   width: 100%;
+  
 }
 
 .changer{
@@ -96,10 +105,6 @@
   padding-right:9em;
   top: 5em;
   left:5em;
-}
-
-.panel-body {
-  position: relative;
 }
 
 .channel-name {
