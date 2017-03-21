@@ -2,7 +2,9 @@
 <html>
   <head>
     <% include ./partials/head %>
-    <link rel="stylesheet" href="../assets/css/service.css">
+    <link rel="stylesheet" href="../assets/css/hardware.css">
+    <script src="../assets/js/ticketscripts.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width">
@@ -31,8 +33,7 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div class="issue-description">
-                <p1>Please select the type of
-                <br>request that you have</p1>
+                Please select the type of request that you have
               </div>
               <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type
@@ -46,7 +47,7 @@
                 </ul>
               </div>        
               <div id="next-btn">
-                <a href="#" id="btn-change"><button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button> </a>               
+                <a href="#" id="btn-change"><button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button> </a>               
               </div>
             </div>          
           </div>
@@ -93,6 +94,17 @@
         console.log("closed");
         $(open).collapse("show");
       };
+    </script>
+    
+    <script>
+    function toggleAccordianCheck(close, open, mandatory){   
+      if ($(mandatory).val().length > 0){
+        $(close).collapse("toggle");
+        $(open).collapse("toggle");
+      } else {
+        alert("Please fill it out the information before proceeding")
+      }
+    };
     </script>
     
     <script>
