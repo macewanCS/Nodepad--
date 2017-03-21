@@ -98,3 +98,10 @@
   margin-left: 100px;
   margin-right: 100px;
 }
+
+#deck{
+
+  margin-right: 0px;
+  margin-left: 0px;
+  display: flex;
+}
