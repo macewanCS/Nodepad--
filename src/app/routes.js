@@ -2,6 +2,7 @@ var tickets_controller = require("./controllers/tickets_controller.js");
 var ticket_creation_controller = require("./controllers/ticket_creation_controller.js");
 var home_controller = require("./controllers/home_controller.js");
 var branch_controller = require("./controllers/branch_controller.js");
+var edit_controller = require("./controllers/edit_controller.js");
   
   module.exports = function(app, passport) {
   app.get("/", function(req,res){
@@ -82,6 +83,9 @@ var branch_controller = require("./controllers/branch_controller.js");
   app.get('/branchtickets', isAuthenticated, branch_controller.mytickets);
   app.get('/branchtickets/:ticketid/view', branch_controller.view);
   app.get('/branchtickets/:ticketid/edit', branch_controller.edit);
+
+  //Mytickets
+  app.post('/mytickets/edit:ticketid', edit_controller.edit);
   //app.get('/branchtickets', isAuthenticated, function(req, res){
    // res.render((__dirname + '/../public/views/branchtickets.ejs'), {username:req.user.username});
   //});

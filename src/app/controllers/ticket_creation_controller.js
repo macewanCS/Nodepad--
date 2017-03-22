@@ -68,7 +68,7 @@ exports.service = function(req, res){
   });
     console.log("Ending insertion, check the database to confirm");
   });
-}
+};
 exports.hardware = function(req, res){
   console.log("Create hardware is running");
   console.log(req.body);
