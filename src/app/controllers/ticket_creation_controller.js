@@ -236,7 +236,7 @@ function changePriorityHardware(hardwareType){
 function changeSoftwareTeam(sWare){
   var name =  "Help Desk Team";
 
-  if (sWare == "Internet/network access" || sare == "S:/ drive / file share"){
+  if (sWare == "Internet/network access" || sWare == "S:/ drive / file share"){
     name = "Network Team";
   }
 

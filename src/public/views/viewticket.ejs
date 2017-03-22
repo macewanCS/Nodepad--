@@ -58,11 +58,13 @@ var data = <%- data %>;
                 <label class="control-label" id="H2"></label><p><span class="control-label" id="L2"></span></p>
 
               </fieldset0>
+              <!-- <div id=div0> -->
               <fieldset1>
-                <label class="control-label" id="H3"></label><p><textarea id="L3"></textarea></p>
-                <label class="control-label" id="H4"></label><p><span class="control-label" id="L4"></span></p>
-                <label class="control-label" id="H5"></label><p><span class="control-label" id="L5"></span></p>
+                <label class="control-label" id="H3"></label><pre id="L3"></pre>
+                <label class="control-label" id="H4"></label><p><pre id="L4"></pre>
+                <label class="control-label" id="H5"></label><p><pre id="L5"></pre>
               </fieldset1>
+              <!-- </div> -->
             </form1>
           </div>
 
@@ -75,7 +77,7 @@ var data = <%- data %>;
           </div>
 
           <div id="desc-lb">
-            <label class="control-label">Description of the problem:</label>
+            <label  id=text_results_id class="control-label">Description of the problem:</label>
           </div>
           <div id="desc-text">
             <textarea class="control-label" id="text_results"></textarea>
@@ -143,9 +145,11 @@ var data = <%- data %>;
               var headings = ["Service Type","","","",""];
               var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
             }
-            else if(parsed[0]=="Move Equipment"){
-              var headings = ["Service Type","System Access","Asset Tags","Destination",""];
-              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            else if(parsed[0]=="Move Equipment "){  //fix move equipment later
+              var headings = ["Service Type","System Access","Asset Tags","","", ""];
+              var ids = ["#L1","#L2","#L3", "#text_results", "#L5"];
+              $('#text_results_id').text('Destination:')
+
             }
             else if(parsed[0]=="New Software"){
               var headings = ["Service Type","Software Name","","",""]
@@ -171,8 +175,13 @@ var data = <%- data %>;
           }
 
           $('#categ').text(data[0].Category);
+          if(data[0].CallStatus =="Closed"){
+            $('#stat').css('background-color', '#F44336');
+
+          }
           $('#stat').text(data[0].CallStatus);
         });
+        
       </script>
 
     <footer>
