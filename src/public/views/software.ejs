@@ -1,10 +1,15 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <% include ./partials/head %>
-    <link rel="stylesheet" href="../assets/css/software.css">
+    <link rel="stylesheet" href="../assets/css/hardware.css"/>
+    <script src="../assets/js/ticketscripts.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
   </head>
   <body>
 
@@ -12,23 +17,25 @@
       <% include ./partials/header %>
     </header>
 
-
     <div class="card" id="super-card">
-
       <div class="super-panel-heading">
         <a href="#" class="channel-name stripe-two">Software</a>
       </div>
       <div class="card" id="sub-card">
-      <div class="accordian-group" id="accordian">
+        <!-- This is the accordian for software tickets -->
+        <div class="accordian-group" id="accordian">
+          <!-- This is the panel for affected systems --> 
           <div class="panel panel-default">
             <div class="panel-heading" id="heading-one">
               <h4 class="panel-title"> 
                 Step 1: Affected System<a class="changer" id="changeSystem" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
+              <div id="confirmation-buttons">
+                <button id="next-btn" type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#type-button'); colorHeader('#heading-one', '#changeSystem')">Next</button>                
+              </div>
               <div class="issue-description">
-                <p1>Please select the relative system that you are
-                <br>having trouble with</p1>
+                Please select the relative system that you are having trouble with.
               </div> 
               <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">System
@@ -49,17 +56,12 @@
                   <li><a href="#">Workflows</a></li>
                   <li><a href="#">Other </a></li>
                 </ul>
-                
               </div>        
-                <div id="next-btn">
-                  <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeSystem')">Next</button>                
-                </div>
             </div>
           </div>          
-        
-      </div>
+        </div>
       
-      <div class="panel-group" id="accordian">
+        <!-- This is the panel for system status --> 
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-two">
             <h4 class="panel-title">
@@ -67,58 +69,45 @@
             </h4>
           </div>
           <div id="collapse2" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="issue-description">
-                <p1> Is the system completely <br>
-                      offline/broken?<br>
-                      Please select and option</p1>
-              </div>
-              
-              <div class="btn-group" id="radio-button" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="radio" name="options" value="Yes"> Yes
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" value="No"> No
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" value="Don't Know"> Don't Know
-                </label>
-              </div>
-
-              <div id="next-btn-2">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two', '#changeStatus')">Next</button>  
-              </div>
+            <div id="confirmation-buttons">
+              <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse2', '#collapse3', 'input[name=options]:checked'); colorHeader('#heading-two', '#changeStatus')">Next</button>  
             </div>
-            
+            <div class="issue-description">
+              Is the system completely offline/broken? Please select an option.
+            </div>
+            <div class="btn-group" id="radio-button" data-toggle="buttons">
+              <label class="btn btn-primary">
+                <input type="radio" name="options" value="Yes"> Yes
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="options" value="No"> No
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="options" value="Don't Know"> Don't Know
+              </label>
+            </div>
           </div>
         </div>
-        
-      </div>
-      
-      <div class="panel-group" id="accordian">
+
+        <!-- This is the panel for descriptions of problem --> 
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-three">
             <h4 class="panel-title">
-              Step 3: Description of Problem<a class="changer" id="changeDesc" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4')" style="visibility:hidden"> Change </a>
+              Step 3: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse3" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="issue-description">
-              Tell us anything you think is <br>
-              relevant to the problems
-              </div>
+            <div id="confirmation-buttons">
+              <button id="next-btn"type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse3', '#collapse4', '#text-block'); colorHeader('#heading-three', '#changeDesc')">Next</button>                
             </div>
-            <div id="next-btn-3">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeDesc')">Next</button>                
+            <div class="issue-description">
+              Tell us anything you think is relevant to the problems.
             </div>
-            <textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>
+            <textarea name="paragraph_text" cols="60" rows="5" id="text-block" class="text-area"></textarea>
           </div>
         </div>
-      </div>
       
-      <div class="panel-group" id="accordian">
+        <!-- This is the panel for problem cause --> 
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
@@ -126,23 +115,70 @@
             </h4>
           </div>
           <div id="collapse4" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div id="next-btn-4">
-              <a href="/home"><button type="button" class="btn btn-primary" onclick="postData()">Next</button></a>             
-              </div>
-              <label class="control-label">Select A File</label>
-              <input id="input-1a" type="file" class="file" data-show-preview="false">
-              <label class="control-label" id="label-error">Or tell us the steps to replicate the problem:</label>
+            <div id="confirmation-buttons">
+              <button type="button" class="btn btn-primary" onclick="showInfo()">Submit</button>             
+            </div>
+            <label id="label-error">Or tell us the steps to replicate the problem:</label>
+            <div class="text-upload">
               <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>
+            </div>
+            <div>
+              <label>Select A File</label>
+              <input id="input-1a" type="file" class="file" data-show-preview="false">
             </div>
           </div>
         </div>
-      
+        
       </div>
     </div>
-  </div>
-
+  
+   <!--This is for the confirmation-->
   <script>
+  function showInfo(){
+    var equipment = $("#type-button").text();
+    var systemStatus = $('input[name=options]:checked').val();
+    var ticketInfo =  $('#text-block').val();
+    var errorInfo = document.getElementById('text-block-2').value;
+    var errorImage = $("#input-1a").val();
+    if (systemStatus === ""){
+      systemStatus = "n/a";
+    }
+    if (errorInfo === ""){
+      errorInfo = "n/a";
+    }
+    
+    bootbox.confirm({
+      title: "Please confirm your information:",
+      message: "<b>Affected System:</b> " + equipment +
+               "<br><b>System Status:</b> " + systemStatus +
+               "<br><b>Description:</b> " + ticketInfo +
+               "<br><b>Error Information:</b> " + errorInfo +
+               "<br><b>Error url:</b> " + errorImage +
+               "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
+      buttons: {
+          confirm: {
+              label: 'Submit',
+              class: 'btn-success',
+              
+          },
+          cancel: {
+              label: 'Go back',
+              class: 'btn-danger'
+          }
+      },
+      callback: function (result) {
+        
+        if(result){
+          
+          postData();
+          window.location.href = "/success";
+        }
+      }
+    });
+  }
+  </script>
+  
+    <script>
       function postData(req, res){
         var http = new XMLHttpRequest();
         console.log("clicked the next button");
@@ -163,47 +199,14 @@
       };
     </script>
     
-     <script>
-    function colorHeader(header, change){
-      console.log("changing header color");
-      console.log(header);
-      console.log(change);
-      $(change).css('visibility', 'visible');
-      $(header).css('background-color', 'rgb(170,170,170)');
-    };
-    </script>
-    
     <script>
     $('.dropdown-inverse li > a').click(function(e){
+      $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
       $('.status').text(this.innerHTML);
+      $('.status').append('<span class=\"caret\"></span>')
     });
-    
-      function toggleAccordian(close, open){
-        console.log("its working");
-        $(close).collapse("toggle");
-        $(open).collapse("toggle");
-      }
-      
-      function createObject(){
-        console.log("Object creating!");
-        ticket = {type:document.getElementById("dropdown").value, 
-                      please:"work"};
-        console.log(ticket.type);  
-      }
     </script>
-        <script>
-      function undo(open, close1, close2, close3){
-        console.log("change was clicked");
-        $(close1).collapse("hide");
-        $(close2).collapse("hide");
-        $(close3).collapse("hide");
-        console.log("they should be close");
-        $(open).collapse("show");
-        console.log("it should be opened");
-      
-      };
     
-    </script>
     <footer>
       <% include ./partials/footer %>
     </footer>

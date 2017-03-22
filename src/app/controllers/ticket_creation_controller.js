@@ -67,8 +67,11 @@ exports.service = function(req, res){
     connection.end();
   });
     console.log("Ending insertion, check the database to confirm");
+    res.send('www.google.ca');
+    console.log("Oh shit wuddup");
   });
 };
+
 exports.hardware = function(req, res){
   console.log("Create hardware is running");
   console.log(req.body);
@@ -233,7 +236,7 @@ function changePriorityHardware(hardwareType){
 function changeSoftwareTeam(sWare){
   var name =  "Help Desk Team";
 
-  if (sWare == "Internet/network access" || sare == "S:/ drive / file share"){
+  if (sWare == "Internet/network access" || sWare == "S:/ drive / file share"){
     name = "Network Team";
   }
 

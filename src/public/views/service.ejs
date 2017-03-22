@@ -2,7 +2,9 @@
 <html>
   <head>
     <% include ./partials/head %>
-    <link rel="stylesheet" href="../assets/css/service.css">
+    <link rel="stylesheet" href="../assets/css/hardware.css">
+    <script src="../assets/js/ticketscripts.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width">
@@ -31,8 +33,7 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div class="issue-description">
-                <p1>Please select the type of
-                <br>request that you have</p1>
+                Please select the type of request that you have
               </div>
               <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type
@@ -46,7 +47,7 @@
                 </ul>
               </div>        
               <div id="next-btn">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')">Next</button>                
+                <a href="#" id="btn-change"><button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button> </a>               
               </div>
             </div>          
           </div>
@@ -96,6 +97,17 @@
     </script>
     
     <script>
+    function toggleAccordianCheck(close, open, mandatory){   
+      if ($(mandatory).val().length > 0){
+        $(close).collapse("toggle");
+        $(open).collapse("toggle");
+      } else {
+        alert("Please fill it out the information before proceeding")
+      }
+    };
+    </script>
+    
+    <script>
       function undo(open, close1, close2, close3, close4){
         $(close1).collapse("hide");
         $(close2).collapse("hide");
@@ -116,6 +128,7 @@
           $("#accordion" + len).remove();
           len--;
         }
+        $('#btn-change').attr('href', '#')
         $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
         
@@ -200,7 +213,7 @@
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
+                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()")">Next</button></a>  '              +
                 ' </div>'+
                 '<textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>'+
                 '</div> ' +        
@@ -227,7 +240,7 @@
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>  '              +
+                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()")">Next</button></a>  '              +
                 ' </div>'+
                ' <div class="panel-text-box">'+
                   '<input type="text" id="asset-tag-text">'+
@@ -255,7 +268,7 @@
                 '  <br>looking for?</p1>'+
              '   </div>'+
                 ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="postData()">Next</button>  '              +
+                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()">Next</button></a>  '              +
                 ' </div>'+
                 '<input id="input-1a" type="file" class="file" data-show-preview="false">'+
                 '<label class="control-label" id="label-error">Tell us the name of the software:</label>'+
@@ -268,8 +281,8 @@
           $('#accordion').append(content);
         }
         if (this.innerHTML.match(/New Equipment/i) || this.innerHTML.match(/System Access/i)){
-        console.log(" T R I G G E R E D")
           $('#next-btn').attr('onClick', 'postData()');
+          $('#btn-change').attr('href', '/home')
         }
         console.log(len);
         $('#type-button').text(this.innerHTML);

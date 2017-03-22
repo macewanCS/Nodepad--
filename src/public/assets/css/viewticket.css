@@ -3,7 +3,7 @@
   position: relative;
   left: 15%;
   height: 900px;
-  width: 65%;
+  width: 70%;
   margin-top: 2em;
   margin-bottom: 2em;
   margin-left: 0%;
@@ -23,8 +23,35 @@ fieldset1{
   width: 55%;
   top: 12%;
   left:40%;
+}
+
+#history{
+  position: absolute;
+  top:55%;
+  height:15%;
+  overflow-y:auto;
+  overflow-x:auto;
+  max-width: 90%;
+  line-height: 22px;
+}
+
+#div0{
+  position: absolute;
+  overflow-y:auto;
+  /*overflow-x:auto;*/
+  max-width: 80%;
+  /*width:1px;*/
+  /*max-height:10px; */
 
 }
+
+#hist_date{
+  line-height: 22px;
+}
+#hist_text{
+  line-height: 22px;
+}
+
 #categ{
   padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
@@ -36,7 +63,24 @@ fieldset1{
   padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L3{
-  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  position: absolute;
+  top: 21%;
+  padding-top: 0%;
+  line-height: 2px;
+  max-height: 10px;
+  overflow-y:auto;
+  /*overflow-x:auto;*/
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+}
+#L4{
+  position: absolute;
+  top: 145%;
+  height: 10px;
+  overflow-y:auto;
+  border:0px;background-color: #eeeeee;
+}
+#L5{
+  border:0px;background-color: #eeeeee;
 }
 
 #H1{
@@ -45,6 +89,19 @@ fieldset1{
 #H2{
   padding-left:0.5%;
 }
+#H3{
+  padding-left: 0.5%;
+  /*top:20%;*/
+}
+/*#H4{
+  position: absolute;
+  top:30px;
+  left: 0px;
+}
+#H5{
+    position: relative;
+  top:100%;
+}*/
 
 p {  
   line-height: 10px;
@@ -58,7 +115,7 @@ p {
     width:97%;
     height:60%;
     background-color: #eeeeee;
-    left:2%;
+    left:1.5%;
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -90,7 +147,7 @@ p {
     width:35%;
     height:18%;
     background-color: #eeeeee;
-    left:2%;
+    left:1.5%;
     /*display: block;*/
     margin-top: 1em;
     margin-bottom: 1em;
@@ -108,11 +165,6 @@ p {
   width: relative;
   padding-top: 1.25em;
 }
-
-/*#buttons{
-  position:relative;
-
-}*/
 
 #edit-btn {
   position: relative;
@@ -148,6 +200,7 @@ p {
 #desc-lb {
   position: absolute;
   padding-bottom: 0em;
+  padding-left:0.5%;
   padding-top: 3em;
   top: 31%;
 }
@@ -158,26 +211,24 @@ p {
 
 #text_results{
   position: absolute;
-  line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word; inline-block;
-  /*width: 95%;*/
+  line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
   font-family: 'Inder', sans-serif;
   border: 0;
-  /*color:#666;*/
   background-color: #eeeeee;
-  /*opacity: 0;*/
   margin-bottom: 15px;
-
-  height: 30%;
+  height: 17%;
   top:38%;
 }
 
 #stat-lb{
   position: absolute;
   top:33%;
+  padding-left:0.5%;
 }
 
 #stat{
-  background-color: #c5e1a5;
+  opacity: 0.65;
+  background-color: #81C784;
 }
 
 .channel-name {
