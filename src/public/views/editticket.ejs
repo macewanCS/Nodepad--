@@ -31,7 +31,7 @@
 <script type="text/javascript" src="javascrip.js"></script>
 <script type="text/javascript">
 var data = <%- data %>;
-  console.log(data);
+  console.log(data.CallID);
 </script>
     <div class="card" id="super-card-mytickets">
         <hr id="divider">
@@ -91,7 +91,7 @@ var data = <%- data %>;
             <label class="control-label">Status:</label>
             <span class="label label-default" id="stat"></span>
           </div>
-          <button type="button" id="confirm-btn" class="btn btn-primary">Confirm</button>
+          <button type="button" onclick="postData()" id="confirm-btn" class="btn btn-primary">Confirm</button>
 
         </div>
       </div>
@@ -132,7 +132,7 @@ var data = <%- data %>;
               $(ids[i]).text(parsed[i]);
             }
 
-            $("#L3").attr('style', "line-height: 130%;background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 10em; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px; height:9em;");
+            $("#L3").attr('style', "line-height: 110%;background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 10em; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px; height:9em;");
           }
           else if(data[0].Category == "Service"){
             var parsed = (data[0].Symptoms).split("|");
@@ -182,7 +182,29 @@ var data = <%- data %>;
         });
       </script>
 
- <footer>
+      <script>
+      function postData(req, res){
+        var http = new XMLHttpRequest();
+        console.log("clicked the next button");
+        var params = "Editinfo=" + $("#change_box").val() + "&TicketID=" + data[0].CallID;
+        console.log(data.CallID);
+        console.log(params);
+        var url = "/mytickets/edit:ticketid";
+        console.log("sent " + http.status + " " + http.readyState);
+        http.open("POST", url, true);
+        console.log(url + " " + http.status + " " + http.readyState);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {//Call a function when the state changes.
+          if(http.readyState == 4 && http.status == 200) {
+            console.log(http.responseText);
+          }
+        };
+        http.send(params);
+        console.log("sent " + http.status + " " + http.readyState);
+      };
+      </script>
+
+    <footer>
       <% include ./partials/footer %>
     </footer>
   </body>

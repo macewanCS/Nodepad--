@@ -70,7 +70,7 @@ exports.service = function(req, res){
     res.send('www.google.ca');
     console.log("Oh shit wuddup");
   });
-}
+};
 
 exports.hardware = function(req, res){
   console.log("Create hardware is running");

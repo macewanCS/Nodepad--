@@ -34,7 +34,9 @@ var data = <%- data %>;
   console.log(data);
 </script>
     <div class="card" id="super-card-mytickets">
-  
+        <hr id="divider">
+        <hr id="divider1">
+        <hr id="divider2">
         <div class="super-panel-heading">
           <a href="/categories" class="channel-name stripe-two">Resolve Ticket</a>
         </div>
@@ -51,16 +53,20 @@ var data = <%- data %>;
           <div id="cate-lb">
             <form1>
               <fieldset0>
-                <label class="control-label">Category</label><p><span class="label label-default" id="categ"></span></p>
-                <label class="control-label" id="H1"></label><p><span class="label label-default" id="L1"></span></p>
-                <label class="control-label" id="H2"></label><p><span class="label label-default" id="L2"></span></p>
-                <label class="control-label" id="H3"></label><p><span class="label label-default" id="L3"></span></p>
-                <label class="control-label" id="H4"></label><p><span class="label label-default" id="L4"></span></p>
-                <label class="control-label" id="H5"></label><p><span class="label label-default" id="L5"></span></p>
+                <label class="control-label">Category</label><p><span class="control-label" id="categ"></span></p>
+                <label class="control-label" id="H1"></label><p><span class="control-label" id="L1"></span></p>
+                <label class="control-label" id="H2"></label><p><span class="control-label" id="L2"></span></p>
+
               </fieldset0>
+              <!-- <div id=div0> -->
+              <fieldset1>
+                <label class="control-label" id="H3"></label><pre id="L3"></pre>
+                <label class="control-label" id="H4"></label><p><pre id="L4"></pre>
+                <label class="control-label" id="H5"></label><p><pre id="L5"></pre>
+              </fieldset1>
+              <!-- </div> -->
             </form1>
           </div>
-          <div>
             <p0 id="symptoms0"></p0>
             <p1 id="symptoms1"></p1>
             <p2 id="symptoms2"></p2>
@@ -69,7 +75,7 @@ var data = <%- data %>;
           </div>
 
           <div id="desc-lb">
-            <label class="control-label">Description of the problem:</label>
+            <label id=text_results_id class="control-label">Description of the problem:</label>
           </div>
           <div id="desc-text">
 
@@ -87,7 +93,7 @@ var data = <%- data %>;
           <div id="res-text">
             <textarea id="res_box"></textarea>
           </div>
-          <button type="button" id="confirm-btn" class="btn btn-primary">Confirm</button>
+          <button type="button" id="confirm-btn" onclick="postData()" class="btn btn-primary">Confirm</button>
         </div>
       </div>
 
@@ -98,7 +104,7 @@ var data = <%- data %>;
 
             var parsed = (data[0].Symptoms).split("|");
             var n = parsed.length;                          //how many entries in array
-            var headings = ["Equip Type","Asset Tag","Device","Error Message",""]
+            var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
             var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
             for(var i=0;i<n;i++){
@@ -109,12 +115,13 @@ var data = <%- data %>;
               $(hids[i]).text(headings[i]);
               $(ids[i]).text(parsed[i]);
             }
+            $("#L4").attr('style', "top:70%; line-height: 110%; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
           }
           else if(data[0].Category == "Software"){
 
             var parsed = (data[0].Symptoms).split("|");
             var n = parsed.length;                          //how many entries in array
-            var headings = ["Affected Systems","System Status","Problem Cause","",""]
+            var headings = ["Affected Systems","System Status","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
             var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
             for(var i=0;i<n;i++){
@@ -125,6 +132,8 @@ var data = <%- data %>;
               $(hids[i]).text(headings[i]);
               $(ids[i]).text(parsed[i]);
             }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 95%; min-width: 0px; max-width: 95%; max-height: 60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
           }
           else if(data[0].Category == "Service"){
             var parsed = (data[0].Symptoms).split("|");
@@ -133,9 +142,11 @@ var data = <%- data %>;
               var headings = ["Service Type","","","",""];
               var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
             }
-            else if(parsed[0]=="Move Equipment"){
-              var headings = ["Service Type","System Access","Asset Tags","Destination",""];
-              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            else if(parsed[0]=="Move Equipment "){  //fix move equipment later
+              var headings = ["Service Type","System Access","Asset Tags","","", ""];
+              var ids = ["#L1","#L2","#L3", "#text_results", "#L5"];
+              $('#text_results_id').text('Destination:')
+
             }
             else if(parsed[0]=="New Software"){
               var headings = ["Service Type","Software Name","","",""]
@@ -161,11 +172,38 @@ var data = <%- data %>;
           }
 
           $('#categ').text(data[0].Category);
+          if(data[0].CallStatus =="Closed"){
+            $('#stat').css('background-color', '#F44336');
+
+          }
           $('#stat').text(data[0].CallStatus);
         });
+        
       </script>
 
- <footer>
+      <script>
+      function postData(req, res){
+        var http = new XMLHttpRequest();
+        console.log("clicked the next button");
+        var params = "Resolveinfo=" + $("#res_box").val() + "&TicketID=" + data[0].CallID;
+        console.log(data.CallID);
+        console.log(params);
+        var url = "/mytickets/resolve:ticketid";
+        console.log("sent " + http.status + " " + http.readyState);
+        http.open("POST", url, true);
+        console.log(url + " " + http.status + " " + http.readyState);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {//Call a function when the state changes.
+          if(http.readyState == 4 && http.status == 200) {
+            console.log(http.responseText);
+          }
+        };
+        http.send(params);
+        console.log("sent " + http.status + " " + http.readyState);
+      };
+      </script>
+
+    <footer>
       <% include ./partials/footer %>
     </footer>
   </body>
