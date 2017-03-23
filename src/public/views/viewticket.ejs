@@ -86,6 +86,9 @@ var data = <%- data %>;
                 <fieldset>
                   <label class="control-label" id="hist_date">June16,1990</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
                   <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
                 </fieldset>
               </form3>
 
@@ -107,7 +110,7 @@ var data = <%- data %>;
 
             var parsed = (data[0].Symptoms).split("|");
             var n = parsed.length;                          //how many entries in array
-            var headings = ["Equip Type","Asset Tag","Device","Error Message",""]
+            var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
             var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
             for(var i=0;i<n;i++){
@@ -118,7 +121,7 @@ var data = <%- data %>;
               $(hids[i]).text(headings[i]);
               $(ids[i]).text(parsed[i]);
             }
-            $("#L4").attr('style', "line-height: 22px; width: auto; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word; inline-block;  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
+            $("#L4").attr('style', "top:70%; line-height: 110%; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
           }
           else if(data[0].Category == "Software"){
 
@@ -136,7 +139,7 @@ var data = <%- data %>;
               $(ids[i]).text(parsed[i]);
             }
 
-            $("#L3").attr('style', "line-height: 130%;background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 10em; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px; height:9em;");
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 95%; min-width: 0px; max-width: 95%; max-height: 60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
           }
           else if(data[0].Category == "Service"){
             var parsed = (data[0].Symptoms).split("|");

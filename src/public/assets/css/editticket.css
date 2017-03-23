@@ -76,9 +76,11 @@ fieldset1{
   position: absolute;
   top: 21%;
   padding-top: 0%;
-  line-height: 2px;
-  max-height: 10px;
+  /*line-height: 2px;*/
+  height: 90%;
+  max-height: 90%;
   overflow-y:auto;
+  width: 90%;
   /*overflow-x:auto;*/
   padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
