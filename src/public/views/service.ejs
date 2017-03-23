@@ -120,14 +120,8 @@
     
     <script> 
       $(document).ready(function(){
-        var flag = false;
         var len = 1;
         $('#collapse1 .dropdown-inverse li > a').click(function(e){
-          console.log(flag);
-          if(flag){
-            console.log("it matched");
-            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-one', '#changeType')");
-          }
         
           while (len != 1){
             console.log("#panel"+len)
@@ -172,7 +166,9 @@
           len++;
           $('#accordion').append(content);
           $('#collapse2 .dropdown-inverse li > a').click(function(e){
-          $('#collapse2 .status').text(this.innerHTML);
+            $('#collapse2 .status').text(this.innerHTML);
+            console.log("it matched");
+            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-one', '#changeType')");
           });
         }
         
@@ -186,7 +182,7 @@
              ' </div>'+
               '<div id="collapse3" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse3\',\'#collapse4\');colorHeader(\'#heading-three\',\'#changeAccess\')">Next</button>  '              +
+                '<button type="button" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse3\',\'#collapse4\',);colorHeader(\'#heading-three\',\'#changeAccess\')">Next</button>  '              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What is the asset tag of'+
@@ -280,13 +276,11 @@
         $('#type-button').text(this.innerHTML);
         });
       });
-    </script>
-    
-    <script>
+    </script>   
+
 
     <footer>
       <% include ./partials/footer %>
-    </footer>
-    
+    </footer>    
   </body>
 </html> 
