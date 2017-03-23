@@ -29,9 +29,12 @@
             <div class="panel-heading" id="heading-one">
               <h4 class="panel-title">
                 Step 1: Service Type <a class="changer" id="changeType" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse5')" style="visibility:hidden"> Change </a>
-                </h4>
+              </h4>
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
+              <div id="confirmation-buttons">
+                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
+              </div>
               <div class="issue-description">
                 Please select the type of request that you have
               </div>
@@ -46,9 +49,6 @@
                   <li><a href="#">Surplus Equipment</a></li>
                 </ul>
               </div>        
-              <div id="next-btn">
-                <a href="#" id="btn-change"><button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button> </a>               
-              </div>
             </div>          
           </div>
         </div>
@@ -120,27 +120,35 @@
     
     <script> 
       $(document).ready(function(){
+        var flag = false;
         var len = 1;
         $('#collapse1 .dropdown-inverse li > a').click(function(e){
+          console.log(flag);
+          if(flag){
+            console.log("it matched");
+            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-one', '#changeType')");
+          }
         
-        while (len != 1){
-          console.log("#accordion"+len)
-          $("#accordion" + len).remove();
-          len--;
-        }
+          while (len != 1){
+            console.log("#panel"+len)
+            $("#panel" + len).remove();
+            len--;
+          }
         $('#btn-change').attr('href', '#')
         $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
-        
+          flag = true;
           var content = 
-        ' <div class="panel-group" id="accordion2">' +
-          '<div class="panel panel-default">' +
+          '<div class="panel panel-default" id="panel2">' +
             ' <div class="panel-heading" id="heading-two">'+
               ' <h4 class="panel-title">'+
                 '  Step 2: System Access <a class="changer" id="changeAccess" onclick="undo(\'#collapse2\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse5\')" style="visibility:hidden"> Change </a>'+
                   '</h4>'+
             ' </div>'+
               '<div id="collapse2" class="panel-collapse collapse">'+
+              '<div id="confirmation-buttons">'+
+                '<button type="button" id="access-btn" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse2\',\'#collapse3\', \'#system-button\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
+              '</div>'+
               ' <div class="issue-description">'+
                   '<p1>Which system would'+
                 ' <br>you like to get access to?</p1>'+
@@ -158,13 +166,8 @@
                  
                   '</ul>'+
               ' </div>     '   +
-              ' <div id="next-btn">'+
-                  '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse2\',\'#collapse3\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
-              ' </div>'+
               '</div> ' +        
-            '</div>'+
-        '  </div>' +
-        '</div>';
+            '</div>'
           
           len++;
           $('#accordion').append(content);
@@ -175,114 +178,103 @@
         
         if (this.innerHTML.match(/Move Equipment/i)){
           var content =
-          '<div class="panel-group" id="accordion3">'+
-          '<div class="panel panel-default">' +
+          '<div class="panel panel-default" id="panel3">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
               '  Step 3: Asset Tags'+
               '</h4>'+
              ' </div>'+
               '<div id="collapse3" class="panel-collapse collapse">'+
+              '<div id="confirmation-buttons">'+
+                '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse3\',\'#collapse4\');colorHeader(\'#heading-three\',\'#changeAccess\')">Next</button>  '              +
+              '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What is the asset tag of'+
                 '  <br>the equipment you would like'+
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
-                ' <div id="next-btn">'+
-                    '<button type="button" class="btn btn-primary" onclick="toggleAccordian(\'#collapse3\',\'#collapse4\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
-                ' </div>'+
                 ' <div class="panel-text-box">'+
                   '<input type="text" id="asset-tag-text">'+
                 '</div>'+
                 '</div> ' +        
               '</div>'+
-          '  </div>'+
-          '</div>'+
           
-          '<div class="panel-group" id="accordion4">'+
-          '<div class="panel panel-default">' +
+          '<div class="panel panel-default" id="panel4">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
               '  Step 4: Destination '+
               '</h4>'+
              ' </div>'+
               '<div id="collapse4" class="panel-collapse collapse">'+
+              '<div id="confirmation-buttons">'+
+                '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>Next</button>  '              +
+              '</div>'+
                ' <div class="issue-description">'+
                   '<p1>Where would you like this'+
                 '  <br>equipment moved to?'+
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
-                ' <div id="next-btn">'+
-                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()")">Next</button></a>  '              +
-                ' </div>'+
                 '<textarea name="paragraph_text" cols="60" rows="7" id="text-block"></textarea>'+
                 '</div> ' +        
-              '</div>'+
-          '  </div>'+
-          '</div>';
+              '</div>'
           len += 2;
           $('#accordion').append(content);
         }
         
         if (this.innerHTML.match(/Surplus Equipment/i)){
           var content =
-          '<div class="panel-group" id="accordion3">'+
-          '<div class="panel panel-default">' +
+          '<div class="panel panel-default" id="panel3">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
               '  Step 3: Asset Tags '+
               '</h4>'+
              ' </div>'+
               '<div id="collapse3" class="panel-collapse collapse">'+
+              '<div id="confirmation-buttons">'+
+                  '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>Next</button>  '              +
+              '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What is the asset tag of'+
                 '  <br>the equipment you would like'+
                 '<br> moved or surplused?</p1>'+
              '   </div>'+
-                ' <div id="next-btn">'+
-                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()")">Next</button></a>  '              +
-                ' </div>'+
                ' <div class="panel-text-box">'+
                   '<input type="text" id="asset-tag-text">'+
                 '</div>'+
                 '</div> ' +        
-              '</div>'+
-          '  </div>'+
-          '</div>';
+              '</div>'
           len++;
           $('#accordion').append(content);
         }
         
         if (this.innerHTML.match(/New Software/i)){
           var content =
-          '<div class="panel-group" id="accordion2">'+
-          '<div class="panel panel-default">' +
+          '<div class="panel panel-default" id="panel2">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
               '  Step 2: Software Name'+
               '</h4>'+
              ' </div>'+
               '<div id="collapse2" class="panel-collapse collapse">'+
+              '<div id="confirmation-buttons">'+
+                '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>Next</button>  '              +
+              '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What software are you'+
                 '  <br>looking for?</p1>'+
              '   </div>'+
-                ' <div id="next-btn">'+
-                    '<a href="/home"><button type="button" class="btn btn-primary" onclick="postData()">Next</button></a>  '              +
-                ' </div>'+
                 '<input id="input-1a" type="file" class="file" data-show-preview="false">'+
                 '<label class="control-label" id="label-error">Tell us the name of the software:</label>'+
                 '<textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>'+
                 '</div> ' +        
-              '</div>'+
-          '  </div>'+
-          '</div>';
+              '</div>'         
           len++;
           $('#accordion').append(content);
         }
+        $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         if (this.innerHTML.match(/New Equipment/i) || this.innerHTML.match(/System Access/i)){
           $('#next-btn').attr('onClick', 'postData()');
-          $('#btn-change').attr('href', '/home')
+          $('#next-btn').attr('href', '/home');
         }
         console.log(len);
         $('#type-button').text(this.innerHTML);
