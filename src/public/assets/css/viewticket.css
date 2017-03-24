@@ -31,7 +31,7 @@ fieldset1{
   left:2%;
   padding-left: 0px;
   margin-left: 0px;
-  height:15%;
+  height:30%;
   width: 90%;
   overflow-y:auto;
   /*overflow-x:auto;*/
@@ -48,13 +48,13 @@ fieldset1{
   /*max-height:10px; */
 
 }
-
+/*
 #hist_date{
   line-height: 22px;
 }
 #hist_text{
   line-height: 22px;
-}
+}*/
 
 #categ{
   padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
@@ -117,7 +117,7 @@ fieldset1{
 }
 
 p {  
-  line-height: 10px;
+  line-height: 20px;
 }
 
 #divider { 
@@ -224,7 +224,7 @@ p {
 
 #text_results{
   position: absolute;
-  left: 1.8%;
+  left: 2%;
   line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
   font-family: 'Inder', sans-serif;
   border: 0;

@@ -31,6 +31,7 @@
 <script type="text/javascript" src="javascrip.js"></script>
 <script type="text/javascript">
 var data = <%- data %>;
+var edits = <%- edits %>;
   console.log(data);
 </script>
     <div class="card" id="super-card-mytickets">
@@ -82,13 +83,38 @@ var data = <%- data %>;
           <div id="desc-text">
             <textarea class="control-label" id="text_results"></textarea>
             <div id="history">
-              <form3>
+              <form3 id="histForm">
                 <fieldset>
-                  <label class="control-label" id="hist_date">June16,1990</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date">July 12,2017</label><p><span class="control-label" id="hist_text">This is an example of something that was changed</span></p>
+<!--                 <script>
+                  console.log(edits);
+                  var n = Object.keys(edits).length;
+                  // alert(n);
+                  for(var e=0;e<n;e++){
+                    var node = document.createTextNode(edits[e].EDate);
+                    var editDate = document.createElement("LABEL");
+                    editDate.appendChild(node);
+
+                    var node1 = document.createTextNode(edits[e].Edit);
+                    var editContent = document.createElement("p");
+                    editContent.appendChild(node1);
+
+                    var element = document.getElementById("histFrom");
+                    element.appendChild(editDate);
+                    element.appendChild(editContent);
+                  }
+                </script> -->
+
+<!--                   <label class="control-label" id="hist_date1">June16,1990</label><p><span class="control-label" id="hist_text1">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date2">July 12,2017</label><p><span class="control-label" id="hist_text2">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date3">July 12,2017</label><p><span class="control-label" id="hist_text3">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date4">July 12,2017</label><p><span class="control-label" id="hist_text4">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
+                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p> -->
                 </fieldset>
               </form3>
 
@@ -184,7 +210,24 @@ var data = <%- data %>;
           }
           $('#stat').text(data[0].CallStatus);
         });
-        
+
+      // --------------Dynamic Edits Generator ---------------------
+                                    console.log(edits);
+                  var n = Object.keys(edits).length;
+                  // alert(n);
+                  for(var e=0;e<n;e++){
+                    var node = document.createTextNode(edits[e].EDate);
+                    var editDate = document.createElement("LABEL");
+                    editDate.appendChild(node);
+
+                    var node1 = document.createTextNode(edits[e].Edit);
+                    var editContent = document.createElement("p");
+                    editContent.appendChild(node1);
+
+                    var element = document.getElementById("history");
+                    element.appendChild(editDate);
+                    element.appendChild(editContent);
+                  }
       </script>
 
     <footer>

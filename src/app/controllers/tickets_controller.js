@@ -14,7 +14,12 @@ exports.view = function(req,res){            // VIEW TICKET
     var ticketData;
     if (err) throw err
       console.log('You are now connected...')
-    
+      
+    connection.query('SELECT EditID, Edit, EDate FROM 395project.edits WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
+        if (err) throw err
+            editVar = JSON.stringify(result);
+          
+    });
     if (err) throw err
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
@@ -24,6 +29,7 @@ exports.view = function(req,res){            // VIEW TICKET
             console.log(ticketData);
             res.render((__dirname + '/../../public/views/viewticket.ejs'), {
             data:ticketData,
+            edits:editVar,
             username:req.user.username,  
             });
     });

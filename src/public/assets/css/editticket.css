@@ -223,11 +223,12 @@ p {
 
 #text_results{
   position: absolute;
+  left:2%;
   line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
   font-family: 'Inder', sans-serif;
   border: 0;
   background-color: #eeeeee;
-  padding-left: 0.5%;
+  /*padding-left: 0.5%;*/
   margin-bottom: 15px;
   height: 17%;
   top:38%;
