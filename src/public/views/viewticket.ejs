@@ -32,7 +32,6 @@
 <script type="text/javascript">
 var data = <%- data %>;
 var edits = <%- edits %>;
-  console.log(data);
 </script>
     <div class="card" id="super-card-mytickets">
         <hr id="divider">
@@ -84,38 +83,7 @@ var edits = <%- edits %>;
             <textarea class="control-label" id="text_results"></textarea>
             <div id="history">
               <form3 id="histForm">
-                <fieldset>
-<!--                 <script>
-                  console.log(edits);
-                  var n = Object.keys(edits).length;
-                  // alert(n);
-                  for(var e=0;e<n;e++){
-                    var node = document.createTextNode(edits[e].EDate);
-                    var editDate = document.createElement("LABEL");
-                    editDate.appendChild(node);
 
-                    var node1 = document.createTextNode(edits[e].Edit);
-                    var editContent = document.createElement("p");
-                    editContent.appendChild(node1);
-
-                    var element = document.getElementById("histFrom");
-                    element.appendChild(editDate);
-                    element.appendChild(editContent);
-                  }
-                </script> -->
-
-<!--                   <label class="control-label" id="hist_date1">June16,1990</label><p><span class="control-label" id="hist_text1">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date2">July 12,2017</label><p><span class="control-label" id="hist_text2">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date3">July 12,2017</label><p><span class="control-label" id="hist_text3">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date4">July 12,2017</label><p><span class="control-label" id="hist_text4">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p>
-                  <label class="control-label" id="hist_date5">July 12,2017</label><p><span class="control-label" id="hist_text5">This is an example of something that was changed</span></p> -->
-                </fieldset>
               </form3>
 
             </div>
@@ -124,17 +92,24 @@ var edits = <%- edits %>;
           <div id="stat-lb">
             <label class="control-label">Status:</label>
             <span class="label label-default" id="stat"></span>
+            
 
           </div>
+          <label class="control-label" id="res-lb"></label><p><pre id="res"></pre>
         </div>
       </div>
 
       <script>
         $(document).ready(function(){
+          var getRes = (data[0].Symptoms).split("RESOLUTION=");
+          if (getRes.length==2){
 
+              $('#res-lb').text("Resolution Notes:");
+              $('#res').text(getRes[1]);
+          }
           if(data[0].Category == "Hardware"){
 
-            var parsed = (data[0].Symptoms).split("|");
+            var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
@@ -151,7 +126,7 @@ var edits = <%- edits %>;
           }
           else if(data[0].Category == "Software"){
 
-            var parsed = (data[0].Symptoms).split("|");
+            var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["Affected Systems","System Status","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
@@ -168,7 +143,7 @@ var edits = <%- edits %>;
             $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 95%; min-width: 0px; max-width: 95%; max-height: 60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
           }
           else if(data[0].Category == "Service"){
-            var parsed = (data[0].Symptoms).split("|");
+            var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             if(parsed[0]=="System Access"){
               var headings = ["Service Type","","","",""];
@@ -202,32 +177,41 @@ var edits = <%- edits %>;
               $(ids[i]).text(parsed[i]);
             }
           }
-
+          // CATEGORY IDENTIFIER
           $('#categ').text(data[0].Category);
+          // STATUS IDENTIFIER
           if(data[0].CallStatus =="Closed"){
             $('#stat').css('background-color', '#F44336');
-
+            $('#stat').text(data[0].CallStatus);
           }
-          $('#stat').text(data[0].CallStatus);
+          else if(getRes.length==2){  //resolved ticket case
+
+            $('#stat').css('background-color', '#BDA0CB');
+            $('#stat').text("Resolved");
+          }                           
+          else{
+            $('#stat').text(data[0].CallStatus);
+          }
         });
 
       // --------------Dynamic Edits Generator ---------------------
-                                    console.log(edits);
-                  var n = Object.keys(edits).length;
-                  // alert(n);
-                  for(var e=0;e<n;e++){
-                    var node = document.createTextNode(edits[e].EDate);
-                    var editDate = document.createElement("LABEL");
-                    editDate.appendChild(node);
+      var n = Object.keys(edits).length;
+      // alert(n);
+      for(var e=0;e<n;e++){
+        var node = document.createTextNode(edits[e].EDate);
+        var editDate = document.createElement("LABEL");
+        editDate.appendChild(node);
 
-                    var node1 = document.createTextNode(edits[e].Edit);
-                    var editContent = document.createElement("p");
-                    editContent.appendChild(node1);
+        var node1 = document.createTextNode(edits[e].Edit);
+        var editContent = document.createElement("p");
+        editContent.appendChild(node1);
 
-                    var element = document.getElementById("history");
-                    element.appendChild(editDate);
-                    element.appendChild(editContent);
-                  }
+        var element = document.getElementById("history");
+        element.appendChild(editDate);
+        element.appendChild(editContent);
+      }
+
+
       </script>
 
     <footer>
