@@ -37,6 +37,8 @@ var data = <%- data %>;
         <hr id="divider">
         <hr id="divider1">
         <hr id="divider2">
+        <hr id="divider3">
+        <hr id="divider4">
         <div class="super-panel-heading">
           <a href="/categories" class="channel-name stripe-two">Resolve Ticket</a>
         </div>
@@ -93,7 +95,7 @@ var data = <%- data %>;
           <div id="res-text">
             <textarea id="res_box"></textarea>
           </div>
-          <button type="button" id="confirm-btn" onclick="postData()" class="btn btn-primary">Confirm</button>
+          <a href="/mytickets"><button type="button" id="confirm-btn" onclick="postData()" class="btn btn-primary">Confirm</button></a>
         </div>
       </div>
 
@@ -133,7 +135,7 @@ var data = <%- data %>;
               $(ids[i]).text(parsed[i]);
             }
 
-            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 95%; min-width: 0px; max-width: 95%; max-height: 60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+           $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 105%; min-width: 0px; max-width: 105%; height:120%;max-height: 120%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
           }
           else if(data[0].Category == "Service"){
             var parsed = (data[0].Symptoms).split("|");
