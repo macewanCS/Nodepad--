@@ -123,9 +123,14 @@
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj2 = <%- closedTickets %>;
-
            for(var i = 0; i < Object.keys(obj2).length; i++) {
-                if (obj2[i].CallStatus == "Open"){
+                if (obj2[i].CallStatus == "Open" && obj2[i].Resolve == '1'){
+                  
+                  obj2[i].CallStatus = "Closed"
+                  obj2[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
+                }
+                else if (obj2[i].CallStatus == "Open"){
+                  
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
@@ -185,11 +190,16 @@
            <script>
            var obj3 = <%- allTickets %>;
               for(var i = 0; i < Object.keys(obj3).length; i++) {
-                if (obj3[i].CallStatus == "Open"){
+                if (obj3[i].CallStatus == "Open" && obj3[i].Resolve == '1'){
+                
+                  obj3[i].CallStatus = "Closed"
+                  obj3[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
+                }
+                else if (obj3[i].CallStatus == "Open"){
                   obj3[i].action = "<button type=button autoWidth=on id=view class=btn btn-secondary>View</button> <button type=button autoWidth=on id=edit class=btn btn-secondary>Edit</button> <button type=button autoWidth=on id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj3[i].action = "<button type=button width=100% name=closed id=view class=btn btn-secondary>View</button>"
+                  obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
                 }
               }
 
@@ -259,20 +269,6 @@
 
                     tid=data.CallID;
                     window.location="/mytickets/view"+tid;
-                    // window.location="/mytickets/" + tid + "/view"
-
-                    //  $("#viewlink").change(function(){
-                    //       alert(tid);
-                    //       document.location.href = "/mytickets/" + tid + "/view"
-                    //   });
-
-                    // $("#view").change(function(){
-                    //       alert(tid);
-                    //       document.location.href = "/mytickets/:" + tid + "/view"
-                    //   });
-                   
-                    //alert(tid);
-                    //alert(data.CallID);
                   });
 
                 $(table).on( 'click', '#edit', function () {  // EDIT BUTTON

@@ -28,7 +28,7 @@ exports.mytickets = function(req, res){
       console.log('You are now connected...')
       
 
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed";', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed";', function(err, result) {
 
         if (err) throw err
             myVar = JSON.stringify(result);
@@ -37,18 +37,18 @@ exports.mytickets = function(req, res){
     console.log('closed');
     if (err) throw err
 
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open";', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Open";', function(err, result) {
 
         if (err) throw err
             myVar2 = JSON.stringify(result);
             console.log(myVar2);
     });
-    console.log('open');
+    // console.log('open');
     
     if (err) throw err
 
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CustID="' + req.user.id + '";', function(err, result) {
-
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog;', function(err, result) {
+        console.log(req.user.Site);
         if (err) throw err
             myVar3 = JSON.stringify(result);
             console.log(myVar3);
@@ -57,10 +57,11 @@ exports.mytickets = function(req, res){
             openTickets:myVar2,
             closedTickets:myVar,
             username:req.user.username,
+            branch:req.user.Site,
             
             });
     });
-    console.log('all');
+    // console.log('all');
     connection.end();
   });
 }
