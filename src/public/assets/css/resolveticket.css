@@ -42,7 +42,87 @@ fieldset1{
   max-width: 80%;
   /*width:1px;*/
   /*max-height:10px; */
+}
 
+#divider { 
+    position:absolute;
+    top:30%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:58.5%;
+    height:28%;
+    background-color: #eeeeee;
+    left:1.5%;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /*border-style: inset;*/
+    /*border-width: 1px;*/
+}
+
+#divider1 { 
+    position:absolute;
+    top:9.75%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:58.5%;
+    height:19%;
+    background-color: #eeeeee;
+    left:39.5%;
+    /*display: block;*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+/*    border-style: inset;
+    border-width: 1px;*/
+}
+
+#divider2 { 
+    position:absolute;
+    top:9.75%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:37%;
+    height:19%;
+    background-color: #eeeeee;
+    left:1.5%;
+    /*display: block;*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+/*    border-style: inset;
+    border-width: 1px;*/
+}
+
+              /*2nd Row Right*/
+#divider3 { 
+    position:absolute;
+    top:30%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:37%;
+    height:28%;
+    background-color: #eeeeee;
+    left:61%;
+    /*display: block;*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+/*    border-style: inset;
+    border-width: 1px;*/
+}
+
+#divider4 { 
+    position:absolute;
+    top:59.5%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
+    width:96.5%;
+    height:34%;
+    background-color: #eeeeee;
+    left:1.5%;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /*border-style: inset;*/
+    /*border-width: 1px;*/
 }
 
 /*#hist_date{
@@ -66,12 +146,8 @@ fieldset1{
   position: absolute;
   top: 21%;
   padding-top: 0%;
-  height: 80%;
-  /*line-height: 2px;*/
-  /*max-height: 100px;*/
+  height: 40%;
   overflow-y:auto;
-  /*width: 90%;*/
-  /*overflow-x:auto;*/
   padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 #L4{
@@ -116,54 +192,6 @@ p {
   line-height: 10px;
 }
 
-#divider { 
-    position:absolute;
-    top:30%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
-    width:97%;
-    height:60%;
-    background-color: #eeeeee;
-    left:1.5%;
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    /*border-style: inset;*/
-    /*border-width: 1px;*/
-}
-
-#divider1 { 
-    position:absolute;
-    top:9.75%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
-    width:58.5%;
-    height:18%;
-    background-color: #eeeeee;
-    left:39.5%;
-    /*display: block;*/
-    margin-top: 1em;
-    margin-bottom: 1em;
-/*    border-style: inset;
-    border-width: 1px;*/
-}
-
-#divider2 { 
-    position:absolute;
-    top:9.75%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
-    width:35%;
-    height:18%;
-    background-color: #eeeeee;
-    left:1.5%;
-    /*display: block;*/
-    margin-top: 1em;
-    margin-bottom: 1em;
-/*    border-style: inset;
-    border-width: 1px;*/
-}
-
 #button-container{ 
   width: relative;
   margin-left: 0%;
@@ -190,15 +218,17 @@ p {
 #text_results_id{
     left:2%;
 }
+
 #text_results{
   position: absolute;
-  left:2%;
-  line-height: 22px; width: 93%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
+  padding-left: 0%; 
+  left: 2%;
+  line-height: 22px; width: 58%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
   font-family: 'Inder', sans-serif;
   border: 0;
   background-color: #eeeeee;
   margin-bottom: 15px;
-  height: 17%;
+  height: 20%;
   top:38%;
 }
 
@@ -245,26 +275,25 @@ p {
 #confirm-btn{
   position: absolute;
   left:82%;
-  width:40px;
-  min-width: 8em;
-  top: 93%;
-
+  width:10%;
+  min-width: 4em;
+  top: 95.5%;
 }
 
 #res-lb {
+  left: 2.5%;
   position: absolute;
-  left:2%;
   padding-bottom: 0em;
   padding-top: 3em;
-  top: 51%;
+  top: 57%;
 }
 
 #res_box{
   position: absolute;
-  left:2%;
+  left: 2.5%;
   /*margin: 0 auto 0 auto;*/
   border-radius: 5px;
-  width: 95%;
+  width: 90%;
   height: 30%;
-  top:58%;
+  top:64%;
 }
