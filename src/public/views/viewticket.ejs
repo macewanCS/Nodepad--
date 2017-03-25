@@ -202,6 +202,8 @@ var edits = <%- edits %>;
       var n = Object.keys(edits).length;
       // alert(n);
       for(var e=0;e<n;e++){
+
+        edits[e].EDate = edits[e].EDate.slice(0,10)
         var node = document.createTextNode(edits[e].EDate);
         var editDate = document.createElement("LABEL");
         editDate.appendChild(node);
