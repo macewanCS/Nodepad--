@@ -1,36 +1,48 @@
+
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!-- Dependencies -->
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script> <!-- MUST BE AT THE TOP (DECLARED FIRST) -->
+
+
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <style><background-color: blue></style>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../assets/css/branchtickets.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <% include ./partials/head %>
   </head>
+  
   <body>
     <header>
       <% include ./partials/header %>
-    <!-- Dependencies -->
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script> <!-- MUST BE AT THE TOP (DECLARED FIRST) -->
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
-    
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
-
-    <link rel="stylesheet" href="../assets/css/branchtickets.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </header>
 
+    <script> var tid;
+             var myBranch = <%- branch %>;
+     </script>
+    
     <div>
     <div class="card" id="super-card-mytickets">
 
       <div class="super-panel-heading">
-        <a href="/categories" class="channel-name stripe-one">BranchTickets</a>
+        <a href="/categories" class="channel-name stripe-two">Branch Tickets</a>
       </div>
 
       <div class="panel panel-default bootcards-summary align-middle">
-        <label style="margin-left: 10px">Chose your desired branch:</label>
-        <div class="dropdown">
+     <label style="margin-left: 10px">Chose your desired branch:</label>
+        <div class="dropdown" id=dropdown-div>
         <button class="btn btn-info dropdown-toggle status" id="branchSelector" type="button" data-toggle="dropdown">Select Branch
         <span class="caret"></span></button>
         <ul class="dropdown-menu dropdown-inverse">
@@ -60,8 +72,6 @@
           <li><a href="#" name='temp' value='UAC'>eplGo U of A</a></li>
         </ul>
       </div>
-      <script>
-      </script>
         <div id="table-holder" class="container">
   
           <ul class="nav nav-tabs">
@@ -80,22 +90,11 @@
            var myOpen, myClose, myAll;
            var obj1 = <%- openTickets %>;
            var myTemp;
-           // console.log('<%- branch %>');
-              for(var i = 0; i < Object.keys(obj1).length; i++) { // TURN THIS INTO FUNCTION
-                if (obj1[i].CallStatus == "Open"){
-                  myTemp = JSON.stringify(obj1[i].CallID);
-                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
-                }
-                else{
-                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
-                }
-                obj1[i].TempDate = obj1[i].TempDate.slice(0,10);
-              }
+
              $(document).ready(function(){
                myOpen = $('#myOpenTable').DataTable( {
                  "order": [[0, "desc"]],
                  "autoWidth": false,
-                 "pagingType": "full",
                  "aaData": obj1,
                  "aoColumns": [
                    { "mDataProp": "CallID"},
@@ -106,16 +105,36 @@
                    { "mDataProp": "action" },
                    { "mDataProp": "Site" }
                  ],
-                 "columnDefs": [ {"targets": 0}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false }, {"targets": 6, "width": "2%", "visible": false} ],
-              });
+                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "8%"}, {"targets":1, "className": "dt-left", "width": "10%"} , {"targets": 2, "className": "dt-center", "width": "10%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "8%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "22%", "searchable": false, "sortable": false, }, {"targets": 6, "width": "2%", "visible": false} ]
+               });
+    
 
                //  Set up branch filters
                 dropdown_handler('#myOpenTable');
 
                 // Get the CALLID(ticket id) from the row of the selected button
                 table_button_handler('#myOpenTable');
-            });
+             });
 
+              for(var i = 0; i < Object.keys(obj1).length; i++) { // TURN THIS INTO FUNCTION
+                if (obj1[i].CallStatus == "Open" && myBranch == "IT"){
+        
+                  myTemp = JSON.stringify(obj1[i].CallID);
+                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button> <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
+                }
+                else{
+                  obj1[i].action = "<button type=button style='width:100%' id=view class=btn btn-secondary>View</button>"
+                }
+              }
+
+              for(var i = 0; i < Object.keys(obj1).length; i++) { //merge this for loop with the one above to reduce redundent code
+                  obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
+              }
+
+              //var obj1JSON = JSON.parse(JSON.stringify(obj1));
+
+
+            
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -124,7 +143,7 @@
                <tr>
                  <th>CallID:</th>
                  <th>Date:</th>
-                 <th>Submitted:</th>
+                 <th>Category:</th>
                  <th>Description:</th>
                  <th>Status:</th>
                  <th>Action:</th>
@@ -135,23 +154,31 @@
 
 
 
-          <!-- CLOSED TICKETS TAB CONTENT -->
+          <!-- CLOSED TICKETS TAB CONTENT                                   CLOSED     CLOSED     CLOSED                       -->
           <div id="closedTab" class="tab-pane fade">
            <h3>Closed Tickets</h3>
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
            var obj2 = <%- closedTickets %>;
            for(var i = 0; i < Object.keys(obj2).length; i++) {
-                if (obj2[i].CallStatus == "Open"){
+                if (obj2[i].CallStatus == "Open" && obj2[i].Resolve == '1'){
+                  
+                  obj2[i].CallStatus = "Closed"
+                  obj2[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
+                }
+                else if (obj2[i].CallStatus == "Open" && myBranch == "IT"){
+                  
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
+                  obj2[i].action = "<button type=button style='width:100%' id=view name=closed class=btn btn-secondary>View</button>"
                 }
               }
+
               for(var i = 0; i < Object.keys(obj2).length; i++) {
                   obj2[i].TempDate = obj2[i].TempDate.slice(0,10)
               }
+
              $(document).ready(function(){
                myClose = $('#myClosedTable').DataTable( {
                 "order": [[0, "desc"]],
@@ -164,9 +191,9 @@
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" },
-                   { "mDataProp": "Site" },
+                   { "mDataProp": "Site" }
                  ],
-                 "columnDefs": [ {"targets": 0}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false }, {"targets": 6, "width": "2%", "visible": false} ]
+                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "8%"}, {"targets":1, "className": "dt-left", "width": "10%"} , {"targets": 2, "className": "dt-center", "width": "10%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "8%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "22%", "searchable": false, "sortable": false, }, {"targets": 6, "width": "2%", "visible": false} ]
                });
 
                dropdown_handler('#myClosedTable');
@@ -175,7 +202,11 @@
                 // Get the CALLID(ticket id) from the row of the selected button
                table_button_handler('#myClosedTable');
              });
+
+
+
             console.log("Creating closed tickets");
+
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -185,10 +216,9 @@
                  <th>CallID:</th>
                  <th>Date:</th>
                  <th>Category:</th>
-                 <th>Desc:</th>
+                 <th>Description:</th>
                  <th>Status:</th>
                  <th>Action:</th>
-
              </tr>
              </thead>
            </table>
@@ -201,16 +231,24 @@
            <script>
            var obj3 = <%- allTickets %>;
               for(var i = 0; i < Object.keys(obj3).length; i++) {
-                if (obj3[i].CallStatus == "Open"){
-                  obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
+                if (obj3[i].CallStatus == "Open" && obj3[i].Resolve == '1'){
+                
+                  obj3[i].CallStatus = "Closed"
+                  obj3[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
+                }
+                else if (obj3[i].CallStatus == "Open" && myBranch == "IT"){
+                  obj3[i].action = "<button type=button autoWidth=on id=view class=btn btn-secondary>View</button> <button type=button autoWidth=on id=edit class=btn btn-secondary>Edit</button> <button type=button autoWidth=on id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
+                  obj3[i].action = "<button type=button style='width:100%' id=view class=btn btn-secondary>View</button>"
                 }
               }
+
               for(var i = 0; i < Object.keys(obj3).length; i++) {
                   obj3[i].TempDate = obj3[i].TempDate.slice(0,10)
               }
+
+
              $(document).ready(function(){
                myAll = $('#myAllTable').DataTable( {
                 "order": [[0, "desc"]],
@@ -223,17 +261,20 @@
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" },
-                   { "mDataProp": "Site" },
+                   { "mDataProp": "Site" }
                  ],
-                 "columnDefs": [ {"targets": 0}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false }, {"targets": 6, "width": "2%", "visible": false} ]
+                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "8%"}, {"targets":1, "className": "dt-left", "width": "10%"} , {"targets": 2, "className": "dt-center", "width": "10%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "8%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "22%", "searchable": false, "sortable": false,}, {"targets": 6, "width": "2%", "visible": false} ]
                });
+
                dropdown_handler('#myAllTable');
                               //  Set up branch filters
 
                 // Get the CALLID(ticket id) from the row of the selected button
                table_button_handler('#myAllTable');
              });
+
             console.log("Creating closed tickets");
+
            </script>
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -243,7 +284,7 @@
                  <th>CallID:</th>
                  <th>Date:</th>
                  <th>Category:</th>
-                 <th>Desc:</th>
+                 <th>Description:</th>
                  <th>Status:</th>
                  <th>Action:</th>
              </tr>
@@ -255,13 +296,10 @@
     </div>
   </div>
   </div>
-
-
-
-
+           
         <script>  //This function handles the on click events for all the "view" buttons 
            function table_button_handler(table){
-              
+
                 $(table).on( 'click', '#view', function () { // VIEW BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -273,9 +311,11 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
-                                
-                    bootbox.alert("#data.CallID");
+
+                    tid=data.CallID;
+                    window.location="/mytickets/view"+tid;
                   });
+
                 $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -287,8 +327,11 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
-                    alert("this is edi");
+                    tid=data.CallID;
+                    window.location="/mytickets/edit"+tid;
+                    // alert(data.CallID);
                   });
+
                 $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
                     console.log("HEY");
                     if(table == "#myOpenTable"){
@@ -300,11 +343,16 @@
                     else{
                       var data = myAll.row($(this).parents('tr')).data();
                     }
-                    alert(data.CallID);
+
+                    tid=data.CallID;
+                    window.location="/mytickets/resolve"+tid;
+
+                    // alert(data.CallID);
                   });
             }
 
             // ---------------------------------------------------------------
+
             function dropdown_handler(target){
 
               $('.dropdown-inverse li > a').click(function(e){
@@ -422,10 +470,8 @@
 
          </script>
 
-
-    <footer>
+ <footer>
       <% include ./partials/footer %>
     </footer>
-    
   </body>
-</html> 
+</html>

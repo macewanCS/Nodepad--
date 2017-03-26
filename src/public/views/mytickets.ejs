@@ -72,7 +72,7 @@
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets":1, "className": "dt-left", "width": "10%"} , {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "10%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "24%", "searchable": false } ]
+                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "8%"}, {"targets":1, "className": "dt-left", "width": "10%"} , {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "10%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "24%", "searchable": false, "sortable": false, } ]
                });
               
                 // This is how we get the CALLID(ticket id) from the row of the selected button
@@ -86,7 +86,7 @@
                   obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button> <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj1[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
+                  obj1[i].action = "<button type=button style='width:100%' id=view class=btn btn-secondary>View</button>"
                 }
               }
 
@@ -134,7 +134,7 @@
                   obj2[i].action = "<button type=button id=view class=btn btn-secondary>View</button>  <button type=button id=edit class=btn btn-secondary>Edit</button>  <button type=button id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj2[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
+                  obj2[i].action = "<button type=button style='width:100%' id=view name=closed class=btn btn-secondary>View</button>"
                 }
               }
 
@@ -155,7 +155,7 @@
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets": 1, "className": "dt-left", "width": "10%"},{"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "10%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "25%", "searchable": false } ]
+                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "8%"}, {"targets": 1, "className": "dt-left", "width": "10%"},{"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "10%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "25%", "searchable": false,"sortable": false,  } ]
                });
 
                table_button_handler('#myClosedTable');
@@ -199,7 +199,7 @@
                   obj3[i].action = "<button type=button autoWidth=on id=view class=btn btn-secondary>View</button> <button type=button autoWidth=on id=edit class=btn btn-secondary>Edit</button> <button type=button autoWidth=on id=resolve class=btn btn-secondary>Resolve</button>"
                 }
                 else{
-                  obj3[i].action = "<button type=button id=view class=btn btn-secondary>View</button>"
+                  obj3[i].action = "<button type=button style='width:100%' id=view class=btn btn-secondary>View</button>"
                 }
               }
 
@@ -221,7 +221,7 @@
                    { "mDataProp": "CallStatus" },
                    { "mDataProp": "action" }
                  ],
-                 "columnDefs": [ {"targets": 0, "visible": false}, {"targets":1, "className": "dt-left", "width": "10%"} , {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "10%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "24%", "searchable": false } ]
+                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "8%"}, {"targets":1, "className": "dt-left", "width": "10%"} , {"targets": 2, "className": "dt-center", "width": "12%"},{"targets": 3, "width": "40%"},{"targets": 4, "className": "dt-center", "width": "10%"}, {"targets": 5,"className": "dt-center", "data": null,"width": "24%", "searchable": false, "sortable": false, } ]
                });
 
                table_button_handler('#myAllTable');

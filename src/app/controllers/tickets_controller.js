@@ -30,6 +30,7 @@ exports.view = function(req,res){            // VIEW TICKET
             res.render((__dirname + '/../../public/views/viewticket.ejs'), {
             data:ticketData,
             edits:editVar,
+            cid:req.params.ticketid,
             username:req.user.username,  
             });
     });
