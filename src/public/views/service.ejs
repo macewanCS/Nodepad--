@@ -78,46 +78,6 @@
       };
     </script>
     
-    <script>
-    function colorHeader(header, change){
-      $(change).css('visibility', 'visible');
-      $(header).css('background-color', 'rgb(170,170,170)');
-    };
-    </script>
-    
-    <script>
-    function toggleAccordian(close, open){
-        console.log("toggling ");
-        console.log($(close));
-        console.log($(open));
-        $(close).collapse("hide");
-        console.log("closed");
-        $(open).collapse("show");
-      };
-    </script>
-    
-    <script>
-    function toggleAccordianCheck(close, open, mandatory){   
-      if ($(mandatory).val().length > 0){
-        $(close).collapse("toggle");
-        $(open).collapse("toggle");
-      } else {
-        alert("Please fill it out the information before proceeding")
-      }
-    };
-    </script>
-    
-    <script>
-      function undo(open, close1, close2, close3, close4){
-        $(close1).collapse("hide");
-        $(close2).collapse("hide");
-        $(close3).collapse("hide");
-        $(close4).collapse("hide");
-        $(open).collapse("show");
-      };
-    
-    </script>
-    
     <script> 
       $(document).ready(function(){
         var len = 1;
@@ -280,8 +240,8 @@
         });
       });
     </script>   
-
-
+    
+    
     <footer>
       <% include ./partials/footer %>
     </footer>    
