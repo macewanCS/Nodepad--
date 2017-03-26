@@ -45,13 +45,13 @@
                   <li><a href="#">Bibliocommons</a></li>
                   <li><a href="#">Dayforce</a></li>
                   <li><a href="#">iNovah</a></li>
-                  <li><a href="#">Internet/network access</a></li>
+                  <li><a href="#">Internet access</a></li>
                   <li><a href="#">LibraryOnline</a></li>
                   <li><a href="#">Peoplesoft</a></li>
-                  <li><a href="#">Public website / www.epl.ca</a></li>
+                  <li><a href="#">www.epl.ca</a></li>
                   <li><a href="#">SAP</a></li>
-                  <li><a href="#">S:/ drive / file share</a></li>
-                  <li><a href="#">StaffWeb/Active Directory</a></li>
+                  <li><a href="#">file share</a></li>
+                  <li><a href="#">StaffWeb</a></li>
                   <li><a href="#">VPN</a></li>
                   <li><a href="#">Workflows</a></li>
                   <li><a href="#">Other </a></li>
@@ -180,9 +180,34 @@
   
     <script>
       function postData(req, res){
+        
+        var affected = $("#type-button").text();
+        
+        console.log(affected);
+        
+        if (affected === "Internet access"){
+          console.log("swapping");
+          affected = "Internet/network access";
+        }
+        
+        if (affected === "www.epl.ca"){
+          console.log("swapping");
+          affected = "Public website / www.epl.ca";
+        }
+        
+        if (affected === "file share"){
+          console.log("swapping");
+          affected = "S:/ drive / file share";
+        }
+        
+        if (affected === "StaffWeb"){
+          console.log("swapping");
+          affected = "StaffWeb/Active Directory";
+        }
+        
         var http = new XMLHttpRequest();
         console.log("clicked the next button");
-        var params = "AffectedSystem=" + $("#type-button").text() + "&SystemStatus="+ $('input[name=options]:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
+        var params = "AffectedSystem=" + affected + "&SystemStatus="+ $('input[name=options]:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
         console.log(params);
         var url = "/createSoftware";
         console.log("sent " + http.status + " " + http.readyState);
