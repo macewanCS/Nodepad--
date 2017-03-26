@@ -28,12 +28,12 @@
       <% include ./partials/header %>
     </header>
    <script type="text/javascript" src="../view.json></script>
-<script type="text/javascript" src="javascrip.js"></script>
-<script type="text/javascript">
-var data = <%- data %>;
-var edits = <%- edits %>;
-var tid = <%- cid %>;
-</script>
+    <script type="text/javascript" src="javascrip.js"></script>
+    <script type="text/javascript">
+    var data = <%- data %>;
+    var edits = <%- edits %>;
+    var tid = <%- cid %>;
+    </script>
     <div class="card" id="super-card-mytickets">
         <hr id="divider">
         <hr id="divider1">
@@ -41,7 +41,7 @@ var tid = <%- cid %>;
         <hr id="divider3">
         <hr id="divider4">
         <div class="super-panel-heading">
-          <a href="/categories" class="channel-name stripe-two">View Ticket</a>
+          <a href="/mytickets/view" class="channel-name stripe-two">View Ticket</a>
         </div>
 
         <div class="container" id="button-container">
@@ -140,6 +140,42 @@ var tid = <%- cid %>;
             var headings = ["Affected Systems","System Status","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
             var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+          }
+          else if(data[0].Category == "Password"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["System","Username","Full Name","",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2", "#L3", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+          }
+          else if(data[0].Category == "General"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = [""]
+            var hids = ["#H1"];
+            var ids = ["#text_results"];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
