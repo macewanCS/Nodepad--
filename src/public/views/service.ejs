@@ -121,7 +121,7 @@
     <script> 
       $(document).ready(function(){
         var len = 1;
-        $('#collapse1 .dropdown-inverse li > a').click(function(e){
+        $('.dropdown-inverse li > a').click(function(e){
           $('#next-btn').text("Next");
           while (len != 1){
             console.log("#panel"+len)
@@ -130,6 +130,8 @@
           }
         $('#btn-change').attr('href', '#')
         $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
+        $('.status').text(this.innerHTML);
+        $('.status').append('<span class=\"caret\"></span>')
         if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
           flag = true;
           var content = 
@@ -148,7 +150,7 @@
                 ' you like to get access to?</p1>'+
               ' </div>'+
               ' <div class="dropdown">'+
-                ' <button class="btn btn-primary dropdown-toggle status" id="system-button" type="button" data-toggle="dropdown">System Name'+
+                ' <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">System Name'+
                   '<span class="caret"></span></button>'+
                 ' <ul class="dropdown-menu dropdown-inverse">'+
                   ' <li><a href="#">Dayforce</a></li>'+
@@ -167,6 +169,7 @@
           $('#accordion').append(content);
           $('#collapse2 .dropdown-inverse li > a').click(function(e){
             $('#collapse2 .status').text(this.innerHTML);
+            $('#collapse2 .status').append('<span class=\"caret\"></span>')
             console.log("it matched");
             $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two', '#changeAccess')");
           });
@@ -274,7 +277,6 @@
           $('#next-btn').text("Submit");
         }
         console.log(len);
-        $('#type-button').text(this.innerHTML);
         });
       });
     </script>   
