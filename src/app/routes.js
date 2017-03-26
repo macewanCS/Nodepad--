@@ -4,6 +4,7 @@ var home_controller = require("./controllers/home_controller.js");
 var branch_controller = require("./controllers/branch_controller.js");
 var edit_controller = require("./controllers/edit_controller.js");
 var resolve_controller = require("./controllers/resolve_controller.js")
+var announcements_controller = require("./controllers/announcements_controller.js")
   
   module.exports = function(app, passport) {
   app.get("/", function(req,res){
@@ -41,9 +42,7 @@ var resolve_controller = require("./controllers/resolve_controller.js")
     res.render((__dirname + '/../public/views/success.ejs'), {username:req.user.username});
   });
 
-  app.get('/announcements',isAuthenticated, function(req, res){
-    res.render((__dirname + '/../public/views/announcements.ejs'), {username:req.user.username});
-  });
+  app.get('/announcements',isAuthenticated, announcements_controller.announcement);
 
   app.get('/help', isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/help.ejs'), {username:req.user.username});
