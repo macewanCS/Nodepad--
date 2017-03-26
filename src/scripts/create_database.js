@@ -19,16 +19,16 @@ connection.query(' \
 	)');
 
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("brett", 1, "1234", "MIL")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("brett", 1, "1234", "MLW")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jack", 2, "1234", "MIL")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jack", 2, "1234", "MLW")\
 	');
 connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jordan", 3, "1234", "CLR")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 4, "1234", "MLM")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 4, "1234", "GMLM")\
 	');
 
 connection.query('\
@@ -51,22 +51,22 @@ connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ABB","AbbotsField - Penny McKee");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CLR","Calder");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CAL","Calder");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CAP","Capilano");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CPL","Capilano");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CDS","Castle Downs");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CSD","Castle Downs");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CTP","Century Park LRT Lending Macine");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CPLM","Century Park LRT Lending Macine");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("CLV","Clareview");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ENS","Enterprise Square (Downtown)");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ESQ","Enterprise Square (Downtown)");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HIG","Highlands");\
@@ -75,28 +75,28 @@ connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("IDY","Idylwydlde (Bonnie Doon)");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("JSP","Jasper Place");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("JPL","Jasper Place");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("LOH","Lois Hole (Callingwood)");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("LHL","Lois Hole (Callingwood)");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MLM","Macewan Lending Machine");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("GMLM","Macewan Lending Machine");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MCE","McConachie");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MCN","McConachie");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MEA","Meadows");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MIL","Mill Woods");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("MLW","Mill Woods");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("RIV","Riverbend");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("SPR","Sprucewood");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("SPW","Sprucewood");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("STR","Strathcona");\
@@ -105,10 +105,10 @@ connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WHP","West Henday Promenade (Lewis Estates)");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WHC","Whitemud Crossing");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WMC","Whitemud Crossing");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WOD","Woodcroft");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WOO","Woodcroft");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HR","Human Resources");\
