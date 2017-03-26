@@ -78,7 +78,7 @@
            var myOpen, myClose, myAll;
            var obj1 = <%- openTickets %>;
            var myTemp;
-           
+           // console.log('<%- branch %>');
               for(var i = 0; i < Object.keys(obj1).length; i++) { // TURN THIS INTO FUNCTION
                 if (obj1[i].CallStatus == "Open"){
                   myTemp = JSON.stringify(obj1[i].CallID);
@@ -108,7 +108,7 @@
               });
 
                //  Set up branch filters
-                dropdown_handler();
+                dropdown_handler('#myOpenTable');
 
                 // Get the CALLID(ticket id) from the row of the selected button
                 table_button_handler('#myOpenTable');
@@ -156,14 +156,21 @@
                  "autoWidth": false,
                  "aaData": obj2,
                  "aoColumns": [
+                   { "mDataProp": "CallID"},
                    { "mDataProp": "TempDate"},
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
-                   { "mDataProp": "action" }
+                   { "mDataProp": "action" },
+                   { "mDataProp": "Site" },
                  ],
-                 "columnDefs": [ {"targets": 1, "width": "12%"}, {"targets": 2, "width": "70%"},{"targets": 3, "width": "2%"}, {"targets": 4, "width": "10%","data": null, "defaultContent": "<button>View</button>" } ]
+                 "columnDefs": [ {"targets": 0}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false }, {"targets": 6, "width": "2%", "visible": false} ]
                });
+
+               dropdown_handler('#myClosedTable');
+                              //  Set up branch filters
+
+                // Get the CALLID(ticket id) from the row of the selected button
                table_button_handler('#myClosedTable');
              });
             console.log("Creating closed tickets");
@@ -173,7 +180,7 @@
            <table id="myClosedTable" class="display">
              <thead>
                <tr>
-
+                 <th>CallID:</th>
                  <th>Date:</th>
                  <th>Category:</th>
                  <th>Desc:</th>
@@ -208,14 +215,20 @@
                  "autoWidth": false,
                  "aaData": obj3,
                  "aoColumns": [
+                   { "mDataProp": "CallID"},
                    { "mDataProp": "TempDate"},
                    { "mDataProp": "Category" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "CallStatus" },
-                   { "mDataProp": "action" }
+                   { "mDataProp": "action" },
+                   { "mDataProp": "Site" },
                  ],
-                 "columnDefs" : [{"targets": 1, "width": "12%"},{"targets": 2, "width": "50%"},{"targets": 3, "width": "2%"},{ "width": "22%", "targets": 4 }]
+                 "columnDefs": [ {"targets": 0}, {"targets": 2, "width": "12%"},{"targets": 3, "width": "60%"},{"targets": 4, "width": "2%"}, {"targets": 5,"data": null,"width": "26%", "searchable": false }, {"targets": 6, "width": "2%", "visible": false} ]
                });
+               dropdown_handler('#myAllTable');
+                              //  Set up branch filters
+
+                // Get the CALLID(ticket id) from the row of the selected button
                table_button_handler('#myAllTable');
              });
             console.log("Creating closed tickets");
@@ -225,11 +238,12 @@
            <table id="myAllTable" class="display">
              <thead>
                <tr>
-                 <th>Date</th>
-                 <th>Category</th>
-                 <th>Desc</th>
-                 <th>Status</th>
-                 <th>Action</th>
+                 <th>CallID:</th>
+                 <th>Date:</th>
+                 <th>Category:</th>
+                 <th>Desc:</th>
+                 <th>Status:</th>
+                 <th>Action:</th>
              </tr>
              </thead>
            </table>
@@ -289,7 +303,7 @@
             }
 
             // ---------------------------------------------------------------
-            function dropdown_handler(){
+            function dropdown_handler(target){
 
               $('.dropdown-inverse li > a').click(function(e){
                 $('.status').text(this.innerHTML);
@@ -297,10 +311,10 @@
               });
               //use $(".dropdown-toggle").text() to retrieve current branch
 
-              $("#myOpenTable").dataTable().fnFilter("null", "6"); // Default Branch
+              $(target).dataTable().fnFilter('<%- branch %>', "6"); // Default Branch
 
               $("[name='temp']").click(function (evt) {
-                $("#myOpenTable").dataTable().fnFilter(alias($(".dropdown-toggle").text()), "6"); // On Branch Selection
+                $(target).dataTable().fnFilter(alias($(".dropdown-toggle").text()), "6"); // On Branch Selection
                 
                 myOpen.draw();
               });
@@ -316,7 +330,7 @@
                   case 'Assessment & Research':
                       return "PMR";
                   case 'Calder':
-                      return "CAL";
+                      return "CLR";
                   case 'Call In Pool':
                       return "CIP";
                   case 'Capilano':

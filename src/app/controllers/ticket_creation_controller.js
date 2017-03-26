@@ -142,7 +142,7 @@ exports.software = function(req, res){
       lastRec = addLastRecord(result);
       var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
 
-      connection.query(queryString, [lastRec, appendedString, sPriority, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "Software", "Employee", stringDate, req.body.Site]);
+      connection.query(queryString, [lastRec, appendedString, sPriority, "Web", today.toLocaleDateString(), today.toTimeString().slice(0,8), req.user.id, "selfserve", "Open", "Software", "Employee", stringDate, req.user.Site]);
       connection.query(queryStringAsign, [lastRec, appendedString, team, "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
       connection.end();
     });
