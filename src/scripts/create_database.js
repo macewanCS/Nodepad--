@@ -30,6 +30,9 @@ connection.query('\
 connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 4, "1234", "GMLM")\
 	');
+connection.query('\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("cam", 5, "1234", "IT")\
+	');
 
 connection.query('\
 	CREATE TABLE `395project`.`branch` (\
