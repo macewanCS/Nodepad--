@@ -44,6 +44,7 @@ connection.query('\
 	`CallID` varchar(8) NOT NULL,\
 	`Edit` text NULL, \
 	`EDate` date  NULL, \
+	`CustID` int null, \
 	PRIMARY KEY(`EditID`) \
 	)');
 
@@ -122,6 +123,19 @@ connection.query('SELECT * FROM `395project`.`branch`', function(err, rows){
 		console.log(rows);
 	}
 });
+
+connection.query('\
+	CREATE TABLE `395project`.`announcements` (\
+	`AID` int NOT NULL AUTO_INCREMENT, \
+	`Title` text NULL,\
+	`Announcement` text Null,\
+	`SubmittedDate` Date Null, \
+	PRIMARY KEY(`AID`)\
+	)');
+
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("MILLWOODS OUTAGE", "There is an outage at the millwoods branch, this should be fixed within the next day or so","2017/3/25");');
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Maintenance", "There will be a schedules service from the 29th to the 30th of march, sorry for any inconvenience that calls","2017/3/27");');
+
 connection.query('\
  CREATE TABLE `395project`.`profile` ( \
  `CustID` INT  NOT NULL, \
