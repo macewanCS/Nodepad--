@@ -17,12 +17,12 @@ exports.edit = function(req,res){                 // EDIT TICKET
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
 
-    var queryString = "INSERT INTO edits (CallID, Edit, EDate) values (?,?,?)";
+    var queryString = "INSERT INTO edits (CallID, Edit, EDate, CustID) values (?,?,?,?)";
 
     var ticketID = req.body.TicketID;
     var edit = req.body.Editinfo;
 
-    connection.query(queryString, [ticketID,edit,stringDate]);
+    connection.query(queryString, [ticketID,edit,stringDate,req.user.id]);
     console.log("Ending insertion, check the database to confirm");
     connection.end();
   });
