@@ -8,6 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
   </head>
   <body>
     <header>
@@ -29,33 +32,31 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
-                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#equip-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
+                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#select-type'); colorHeader('#heading-one', '#changeType')">Next</button>                
               </div>
               <div class="issue-description">
                 Please select the type of equipment that you are having trouble with
               </div>
               <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle status type-button" id="equip-button" type="button" data-toggle="dropdown">Equipment Type
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-inverse">
-                  <li><a href="#">AWE</a></li>
-                  <li><a href="#">Barcode scanner</a></li>
-                  <li><a href="#">Cell phone</a></li>
-                  <li><a href="#">Gate</a></li>
-                  <li><a href="#">Hotspot</a></li>
-                  <li><a href="#">iPad</a></li>
-                  <li><a href="#">Laptop</a></li>
-                  <li><a href="#">Laser printer</a></li>
-                  <li><a href="#">Monitor/LCD</a></li>
-                  <li><a href="#">Receipt printer</a></li>
-                  <li><a href="#">PC</a></li>
-                  <li><a href="#">Projector</a></li>
-                  <li><a href="#">RFID pad</a></li>
-                  <li><a href="#">Self-checkout</a></li>
-                  <li><a href="#">Smart Chute</a></li>
-                  <li><a href="#">Sorter</a></li>
-                  <li><a href="#">Other</a></li>
-                </ul>
+                <select class="selectpicker type-button" data-live-search="true" data-dropup-auto="false" title="Request Type" id="select-type">
+                  <option>AWE</option>
+                  <option>Barcode scanner</option>
+                  <option>Cell phone</option>
+                  <option>Gate</option>
+                  <option>Hotspot</option>
+                  <option>iPad</option>
+                  <option>Laptop</option>
+                  <option>Laser printer</option>
+                  <option>Monitor/LCD</option>
+                  <option>Receipt printer</option>
+                  <option>PC</option>
+                  <option>Projector</option>
+                  <option>RFID pad</option>
+                  <option>Self-checkout</option>
+                  <option>Smart Chute</option>
+                  <option>Sorter</option>
+                  <option>Other</option>
+                </select>
               </div> 
             </div>          
           </div>
@@ -128,7 +129,7 @@
 
     <script>
     function showInfo(){
-  var equipment = $("#equip-button").text();
+  var equipment = $('#select-type').find("option:selected").text();
   var assetTag = $('#asset-tag-text').val();    
   var deviceName = $('#name-text').val();
   var ticketInfo =  $('#desc-text').val();
@@ -175,9 +176,7 @@
     <script>
     function postData(req, res){
       var http = new XMLHttpRequest();
-      console.log("clicked the submit button");
-      console.log($("#type-button").text());
-      var params = "EquipmentType=" + $("#equip-button").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#desc-text').val()
+      var params = "EquipmentType=" + $('#select-type').find("option:selected").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#desc-text').val()
       +"&ErrorMessageText=" + document.getElementById('error-text').value;
       console.log(params);
       var url = "/createHardware";
@@ -197,10 +196,11 @@
     </script>
 
     <script>
-    $('.dropdown-inverse li > a').click(function(e){
+    $('.selectpicker').on('change',function(){
+        console.log("boop");
       $('#accordion2').remove();
       $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')");
-      if(this.innerHTML.match(/iPad/i) || this.innerHTML.match(/Laptop/i) || this.innerHTML.match(/PC/i) || this.innerHTML.match(/Self-checkout/i)){
+      if($('#select-type').find("option:selected").text().match(/iPad/i) || $('#select-type').find("option:selected").text().match(/Laptop/i) || $('#select-type').find("option:selected").text().match(/PC/i) || $('#select-type').find("option:selected").text().match(/Self-checkout/i)){
         console.log("it matched");
         $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         var content =
@@ -230,8 +230,6 @@
           '</div>';
         $('#accordion #equipment-panel').after(content);
       }
-      $('.status').text(this.innerHTML);
-      $('.status').append('<span class=\"caret\"></span>')
     });
     </script>
     
