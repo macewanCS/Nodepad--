@@ -6,6 +6,7 @@
     <script src="../assets/js/ticketscripts.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width">
     <script>document.documentElement.className = "js";</script>
@@ -33,13 +34,13 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
-                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
+                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#service-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
               </div>
               <div class="issue-description">
                 Please select the type of request that you have
               </div>
               <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type
+                <button class="btn btn-primary dropdown-toggle status type-button" id="service-button" type="button" data-toggle="dropdown">Request Type
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-inverse">
                   <li><a href="#">System Access</a></li>
@@ -59,7 +60,7 @@
       function postData(req, res){
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
-        var params = "EquipmentType=" + $("#type-button").text() + "&System=" + $("#system-button").text() +  "&AssetTag=" + $('#asset-tag-text').val()
+        var params = "EquipmentType=" + $("#service-button").text() + "&System=" + $("#system-button").text() +  "&AssetTag=" + $('#asset-tag-text').val()
         + "&Location=" +$('#text-block').val() + "&SoftwareName=" + $("#text-block-2").val();
         console.log(params);
         var url = "/createService";
@@ -78,6 +79,53 @@
       };
     </script>
     
+    <script>
+      function showInfo(){
+      console.log("showing info");
+  var service = $("#service-button").text();
+  var system = $("#system-button").text();    
+  var assettag = $('#asset-tag-text').val();
+  var locate =  $('#text-block').val();
+  var software = $("#text-block-2").val();
+  if (assettag === ""){
+    assettag = "n/a";
+  }
+  if (locate === ""){
+    locate = "n/a";
+  }
+  if (software === ""){
+    software = "n/a";
+  }
+  if (system === ""){
+    system = "n/a";
+  }
+  bootbox.confirm({
+    title: "Please confirm your information:",
+    message: "<b>Service Type:</b> " + service +
+        "<br><b>System Name:</b> " + system +
+        "<br><b>Asset Tag:</b> " + assettag +
+        "<br><b>Destination:</b> " + locate +
+        "<br><b>Software:</b> " + software,
+    buttons: {
+        confirm: {
+          label: 'Submit',
+          class: 'btn-success',    
+    },
+      cancel: {
+        label: 'Go back',
+        class: 'btn-danger'
+    }
+    },
+    callback: function (result) { 
+      if(result){        
+        postData();
+        window.location.href = "/success";
+      }
+    }
+  });
+}
+</script>
+
     <script> 
       $(document).ready(function(){
         var len = 1;
@@ -110,7 +158,7 @@
                 ' you like to get access to?</p1>'+
               ' </div>'+
               ' <div class="dropdown">'+
-                ' <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">System Name'+
+                ' <button class="btn btn-primary dropdown-toggle status type-button" id="system-button" type="button" data-toggle="dropdown">System Name'+
                   '<span class="caret"></span></button>'+
                 ' <ul class="dropdown-menu dropdown-inverse">'+
                   ' <li><a href="#">Dayforce</a></li>'+
@@ -166,7 +214,7 @@
              ' </div>'+
               '<div id="collapse4" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" class="btn btn-primary" onclick="postData()")">Submit</button>'              +
+                '<button type="button" class="btn btn-primary" onclick="showInfo()")">Submit</button>'              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>Where would you like this'+
@@ -190,7 +238,7 @@
              ' </div>'+
               '<div id="collapse3" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                  '<button type="button" class="btn btn-primary" onclick="postData()")">Submit</button>  '              +
+                  '<button type="button" class="btn btn-primary" onclick="showInfo()")">Submit</button>  '              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What is the asset tag of'+
@@ -216,7 +264,7 @@
              ' </div>'+
               '<div id="collapse2" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" class="btn btn-primary" onclick="postData()")">Submit</button>'              +
+                '<button type="button" class="btn btn-primary" onclick="showInfo()")">Submit</button>'              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What software are you'+
@@ -232,7 +280,7 @@
         }
         $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         if (this.innerHTML.match(/New Equipment/i) || this.innerHTML.match(/System Access/i)){
-          $('#next-btn').attr('onClick', 'postData()');
+          $('#next-btn').attr('onClick', 'showInfo()');
           $('#next-btn').attr('href', '/home');
           $('#next-btn').text("Submit");
         }

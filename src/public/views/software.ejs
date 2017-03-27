@@ -32,13 +32,13 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
-                <button id="next-btn" type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#type-button'); colorHeader('#heading-one', '#changeSystem')">Next</button>                
+                <button id="next-btn" type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#system-button'); colorHeader('#heading-one', '#changeSystem')">Next</button>                
               </div>
               <div class="issue-description">
                 Please select the relative system that you are having trouble with.
               </div> 
               <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">System
+                <button class="btn btn-primary dropdown-toggle status type-button" id="system-button" type="button" data-toggle="dropdown">System
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-inverse">
                   <li><a href="#">Apps.epl.ca</a></li>
@@ -135,7 +135,7 @@
    <!--This is for the confirmation-->
   <script>
   function showInfo(){
-    var equipment = $("#type-button").text();
+    var equipment = $("#system-button").text();
     var systemStatus = $('input[name=options]:checked').val();
     var ticketInfo =  $('#text-block').val();
     var errorInfo = document.getElementById('text-block-2').value;
@@ -181,7 +181,7 @@
     <script>
       function postData(req, res){
         
-        var affected = $("#type-button").text();
+        var affected = $("#system-button").text();
         
         console.log(affected);
         
