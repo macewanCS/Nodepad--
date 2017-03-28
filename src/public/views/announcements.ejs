@@ -10,10 +10,9 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
     <style><background-color: blue></style>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
-
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <link rel="stylesheet" href="../assets/css/announcements.css">
 
     <meta charset="utf-8">
@@ -46,7 +45,7 @@
       </div>
 
       <div class="panel panel-default bootcards-summary align-middle">
-      <button id="create" type="button" class="btn btn-primary">Create an Announcement</button> 
+      <button id="create" type="button" class="btn btn-primary" onclick="getInfo()">Create an Announcement</button> 
      <script>
        
      </script>
@@ -109,7 +108,43 @@
     </div>
   </div>
   </div>
+    <script>
+      function getInfo(){
 
+        bootbox.confirm({
+          title: "Please confirm your information:",
+          message: "<form id='infos' action=''>\
+    Subject:<br><input type='text' name='subject' /><br/>\
+    Message:<br><input type='text' name='message' />\
+    </form>",
+          buttons: {
+            confirm: {
+              label: 'Submit',
+              class: 'btn-success',    
+            },
+          cancel: {
+              label: 'Go back',
+              class: 'btn-danger'
+          }
+          },
+        callback: function (result) { 
+          if(result){
+            var subject = infos.elements[0].value;
+            var message = infos.elements[1].value;
+            console.log(subject);
+            console.log(message);
+            postData();
+            //window.location.href = "/success";
+          }
+        }
+        });
+      }
+      function postData(req, res){
+            alert(subject);
+            alert(message);  
+        //alert(res);
+      }
+    </script>
   <footer>
     <% include ./partials/footer %>
   </footer>
