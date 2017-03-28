@@ -169,7 +169,7 @@
            for(var i = 0; i < Object.keys(obj2).length; i++) {
                 if (obj2[i].CallStatus == "Open" && obj2[i].Resolve == '1'){
                   
-                  obj2[i].CallStatus = "Closed"
+                  obj2[i].CallStatus = "Resolved"
                   obj2[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
                 }
                 else if (obj2[i].CallStatus == "Open" && myBranch == "IT"){
@@ -239,7 +239,7 @@
               for(var i = 0; i < Object.keys(obj3).length; i++) {
                 if (obj3[i].CallStatus == "Open" && obj3[i].Resolve == '1'){
                 
-                  obj3[i].CallStatus = "Closed"
+                  obj3[i].CallStatus = "Resolved"
                   obj3[i].action = "<button type=button id=view name=closed class=btn btn-secondary>View</button>"
                 }
                 else if (obj3[i].CallStatus == "Open" && myBranch == "IT"){
