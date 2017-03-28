@@ -2,12 +2,56 @@
 <html>
   <head>
     <% include ./partials/head %>
+    <link rel="stylesheet" href="../assets/css/help.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
     <header>
       <% include ./partials/header %>
     </header>
-    This is the help screen
+
+
+<!--help card-->
+  <div class="card" id="help-card">
+    <div class="card-block">
+      <h4 class="card-title"><a href="/help" class="channel-name stripe-three">Help</a></h4>
+      <ul class="list-group list-group-flush" id="help-body" >
+        <li class="list-group-item">
+          <b><font size="+2">Reset iPad:</font></b><br>Some problems with iPads can be easily solved by resetting it. This is called a hard reset. in order to give an iPad a hard reset you need to:
+          <ul>
+            <li>Press the sleep button on the <b>top-right side</b> and hold it down
+                <br><img src="../images/sleep.jpg"></li>
+            <li>at the same time, press the <b>home</b> button on the bottom center and hold it down
+                <br><img src="../images/home.jpg"></li>            
+            <li>Hold for 10 seconds, until the apple logo appears
+                <br><img src="../images/reset.jpg"></li>
+          </ul>
+          <!--Reset guide end-->
+        </li>
+        
+
+      <!--Cable guide start-->
+      <li class="list-group-item">
+        <b><font size="+2">Cable guide:</font></b> 
+          <br>Technology is always changing, and the cables connecting your monitors, iPads, cellphones, and modems to your computer is always changing, here is a list of some of those cables:
+          <ul>
+            <li>USB cables have changed over the years, here is a visual aid of the differing USB types:
+                <br><img src="../images/cables/usb.jpg"></li>
+            <li>There is an assortment of HD video cables, here is a quick view of the cables to connect a computer to a monitor
+              <br><img src="../images/cables/video.jpg"><br><img src="../images/cables/component.jpg"><img src="../images/cables/composite.jpg"></li>
+            <li>The ethernet cable plugs the computer to the modem, and from the modem to the wall, giving your computer internet, this is what it looks like:
+                <br><img src="../images/cables/ethernet.jpeg"></li>
+          </ul>          
+          <!-- Cables guide end -->
+      </li>
+      
+  </ul>
+     
+    </div>
+  </div>
+</div>
+  <!--help card-->
     <footer>
       <% include ./partials/footer %>
     </footer>
