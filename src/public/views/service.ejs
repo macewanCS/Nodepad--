@@ -32,7 +32,7 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
-                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#service-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
+                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#service-button', '#heading-one', '#changeType')">Next</button>                
               </div>
               <div class="issue-description">
                 Please select the type of request that you have
@@ -147,7 +147,7 @@
             ' </div>'+
               '<div id="collapse2" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" id="access-btn" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse2\',\'#collapse3\', \'#system-button\');colorHeader(\'#heading-two\',\'#changeAccess\')">Next</button>  '              +
+                '<button type="button" id="access-btn" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse2\',\'#collapse3\', \'#system-button\', \'#heading-two\',\'#changeAccess\')">Next</button>  '              +
               '</div>'+
               ' <div class="issue-description">'+
                   '<p1>Which system would'+
@@ -170,7 +170,7 @@
           $('#accordion').append(content);
           $('#collapse2 .selectpicker').on('change',function(){
             console.log("it matched");
-            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two', '#changeAccess')");
+            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3','#heading-two', '#changeAccess')");
           });
         }
         
@@ -184,7 +184,7 @@
              ' </div>'+
               '<div id="collapse3" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse3\',\'#collapse4\',\'#asset-tag-text\');colorHeader(\'#heading-three\',\'#changeATag\')">Next</button>  '              +
+                '<button type="button" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse3\',\'#collapse4\',\'#asset-tag-text\', \'#heading-three\',\'#changeATag\')">Next</button>  '              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What is the asset tag of'+
@@ -271,7 +271,7 @@
           len++;
           $('#accordion').append(content);
         }
-        $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
+        $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2', '#heading-one', '#changeType')");
         if ($(this).find("option:selected").text().match(/New Equipment/i) || $(this).find("option:selected").text().match(/System Access/i)){
           $('#next-btn').attr('onClick', 'showInfo()');
           $('#next-btn').attr('href', '/home');
