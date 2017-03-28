@@ -117,6 +117,7 @@ textarea{
 .changer{
   color: #0645AD !important;
   margin-left: 1em;
+  cursor: pointer;
 }
 
 #sub-card{
