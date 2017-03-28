@@ -37,7 +37,7 @@ exports.mytickets = function(req, res){
     console.log('closed');
     if (err) throw err
 
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Open";', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null;', function(err, result) {
 
         if (err) throw err
             myVar2 = JSON.stringify(result);
