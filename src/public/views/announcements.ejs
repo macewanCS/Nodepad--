@@ -32,9 +32,13 @@
     <script> 
       var tid; 
       var data = <%-announcements%>
+      var branch = '<%-branch%>'
+
+
     </script>
     
     <div>
+
     <div class="card" id="super-card-mytickets">
 
       <div class="super-panel-heading">
@@ -42,7 +46,10 @@
       </div>
 
       <div class="panel panel-default bootcards-summary align-middle">
-     
+      <button id="create" type="button" class="btn btn-primary">Create an Announcement</button> 
+     <script>
+       
+     </script>
         <div id="table-holder" class="container">
   
 
@@ -57,7 +64,10 @@
                   data[i].SubmittedDate = data[i].SubmittedDate.slice(0,10)
               }
 
+
              $(document).ready(function(){
+
+
                myAnnouncements = $('#announcementsTable').DataTable( {
                 "order": [[0, "desc"]],
                  "autoWidth": false,
@@ -76,6 +86,10 @@
                });
              });
 
+              branch = 'IT'; //only for testing
+              if(branch == "IT"){
+                $('#create').attr('style', "visibility: visible;");
+              }
 
            </script>
 

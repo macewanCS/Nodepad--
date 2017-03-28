@@ -31,7 +31,7 @@
 }
 
 .channel-name {
-  border-left-color: #1464f6;
+  border-left-color: #77BC1F;
   background-color: #3f4344;
   padding: 10px 25px;
   color: #FFF;
@@ -61,6 +61,12 @@
   width: 150px;
   color: #000;
 }
-.btn{
-background-color: 'blue'
+
+#create{
+  position: relative;
+  top: 35px;
+  left:75%;
+  opacity: 0.65;
+  visibility: hidden;
+
 }
