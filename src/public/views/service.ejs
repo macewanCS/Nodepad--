@@ -6,14 +6,13 @@
     <script src="../assets/js/ticketscripts.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width">
     <script>document.documentElement.className = "js";</script>
-    <script src="../vendor/jquery-1.9.1.js"></script>
-    <script src="../vendor/json2.js"></script>
-    <script src="../src/jquery.collapse.js"></script>
-    <script src="../src/jquery.collapse_storage.js"></script>
-    <script src="../src/jquery.collapse_cookie_storage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
   </head>
   <body>
     <header>
@@ -33,22 +32,20 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
-                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#type-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
+                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#service-button'); colorHeader('#heading-one', '#changeType')">Next</button>                
               </div>
               <div class="issue-description">
                 Please select the type of request that you have
               </div>
               <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">Request Type
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-inverse">
-                  <li><a href="#">System Access</a></li>
-                  <li><a href="#">Move Equipment</a></li>
-                  <li><a href="#">New Software</a></li>
-                  <li><a href="#">New Equipment</a></li>
-                  <li><a href="#">Surplus Equipment</a></li>
-                </ul>
-              </div>        
+                <select class="selectpicker type-button" data-live-search="true" data-dropup-auto="false" title="Request Type" id="select-type">
+                  <option>System Access</option>
+                  <option>Move Equipment</option>
+                  <option>New Software</option>
+                  <option>New Equipment</option>
+                  <option>Surplus Equipment</option>
+                </select>     
+              </div>
             </div>          
           </div>
         </div>
@@ -59,7 +56,7 @@
       function postData(req, res){
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
-        var params = "EquipmentType=" + $("#type-button").text() + "&System=" + $("#system-button").text() +  "&AssetTag=" + $('#asset-tag-text').val()
+        var params = "EquipmentType=" + $('#select-type').find("option:selected").text() + "&System=" + $('#select-access').find("option:selected").text() +  "&AssetTag=" + $('#asset-tag-text').val()
         + "&Location=" +$('#text-block').val() + "&SoftwareName=" + $("#text-block-2").val();
         console.log(params);
         var url = "/createService";
@@ -79,50 +76,59 @@
     </script>
     
     <script>
-    function colorHeader(header, change){
-      $(change).css('visibility', 'visible');
-      $(header).css('background-color', 'rgb(170,170,170)');
-    };
-    </script>
-    
-    <script>
-    function toggleAccordian(close, open){
-        console.log("toggling ");
-        console.log($(close));
-        console.log($(open));
-        $(close).collapse("hide");
-        console.log("closed");
-        $(open).collapse("show");
-      };
-    </script>
-    
-    <script>
-    function toggleAccordianCheck(close, open, mandatory){   
-      if ($(mandatory).val().length > 0){
-        $(close).collapse("toggle");
-        $(open).collapse("toggle");
-      } else {
-        alert("Please fill it out the information before proceeding")
+      function showInfo(){
+      console.log("showing info");
+  var service = $('#select-type').find("option:selected").text();
+  var system =  $('#select-access').find("option:selected").text();    
+  var assettag = $('#asset-tag-text').val();
+  var locate =  $('#text-block').val();
+  var software = $("#text-block-2").val();
+  if (assettag === ""){
+    assettag = "n/a";
+  }
+  if (locate === ""){
+    locate = "n/a";
+  }
+  if (software === ""){
+    software = "n/a";
+  }
+  if (system === ""){
+    system = "n/a";
+  }
+  bootbox.confirm({
+    title: "Please confirm your information:",
+    message: "<b>Service Type:</b> " + service +
+        "<br><b>System Name:</b> " + system +
+        "<br><b>Asset Tag:</b> " + assettag +
+        "<br><b>Destination:</b> " + locate +
+        "<br><b>Software:</b> " + software,
+    buttons: {
+        confirm: {
+          label: 'Submit',
+          class: 'btn-success',    
+    },
+      cancel: {
+        label: 'Go back',
+        class: 'btn-danger'
+    }
+    },
+    callback: function (result) { 
+      if(result){        
+        postData();
+        window.location.href = "/success";
       }
-    };
-    </script>
-    
-    <script>
-      function undo(open, close1, close2, close3, close4){
-        $(close1).collapse("hide");
-        $(close2).collapse("hide");
-        $(close3).collapse("hide");
-        $(close4).collapse("hide");
-        $(open).collapse("show");
-      };
-    
-    </script>
-    
+    }
+  });
+}
+</script>
+
     <script> 
       $(document).ready(function(){
         var len = 1;
-        $('#collapse1 .dropdown-inverse li > a').click(function(e){
-        
+        $('.selectpicker').on('change',function(){
+          console.log("running");
+          console.log($(this).find("option:selected").text());
+          $('#next-btn').text("Next");
           while (len != 1){
             console.log("#panel"+len)
             $("#panel" + len).remove();
@@ -130,7 +136,7 @@
           }
         $('#btn-change').attr('href', '#')
         $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
-        if (this.innerHTML.match(/Surplus Equipment/i) || this.innerHTML.match(/Move Equipment/i)){
+        if ($(this).find("option:selected").text().match(/Surplus Equipment/i) || $(this).find("option:selected").text().match(/Move Equipment/i)){
           flag = true;
           var content = 
           '<div class="panel panel-default" id="panel2">' +
@@ -148,31 +154,27 @@
                 ' you like to get access to?</p1>'+
               ' </div>'+
               ' <div class="dropdown">'+
-                ' <button class="btn btn-primary dropdown-toggle status" id="system-button" type="button" data-toggle="dropdown">System Name'+
-                  '<span class="caret"></span></button>'+
-                ' <ul class="dropdown-menu dropdown-inverse">'+
-                  ' <li><a href="#">Dayforce</a></li>'+
-                  ' <li><a href="#">iNovah</a></li>'+
-                  ' <li><a href="#">Library Online</a></li>'+
-                  ' <li><a href="#">SAP</a></li>'+
-                    '<li><a href="#">S:/ Drive Folder</a></li>'+
-                  ' <li><a href="#">VPN</a></li>'+
-                 
-                  '</ul>'+
+                '<select class="selectpicker type-button" data-live-search="true" data-dropup-auto="false" title="Request Type" id="select-access">'+
+                  '<option>Dayforce</option>'+
+                  '<option>iNovah</option>'+
+                  '<option>Library Online</option>'+
+                  '<option>SAP</option>'+
+                  '<option>>S:/ Drive Folder</option>'+
+                  '<option>>VPN</option>'+
+                '</select>'+ 
               ' </div>     '   +
               '</div> ' +        
             '</div>'
           
           len++;
           $('#accordion').append(content);
-          $('#collapse2 .dropdown-inverse li > a').click(function(e){
-            $('#collapse2 .status').text(this.innerHTML);
+          $('#collapse2 .selectpicker').on('change',function(){
             console.log("it matched");
             $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3'); colorHeader('#heading-two', '#changeAccess')");
           });
         }
         
-        if (this.innerHTML.match(/Move Equipment/i)){
+        if ($(this).find("option:selected").text().match(/Move Equipment/i)){
           var content =
           '<div class="panel panel-default" id="panel3">' +
            ' <div class="panel-heading" id="heading-three">'+
@@ -203,7 +205,7 @@
              ' </div>'+
               '<div id="collapse4" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" class="btn btn-primary" onclick="postData()")">Submit</button>'              +
+                '<button type="button" class="btn btn-primary" onclick="checkFilled(\'#text-block\')")">Submit</button>'              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>Where would you like this'+
@@ -215,9 +217,10 @@
               '</div>'
           len += 2;
           $('#accordion').append(content);
+          $('#collapse2 .selectpicker').selectpicker('show');
         }
         
-        if (this.innerHTML.match(/Surplus Equipment/i)){
+        if ($(this).find("option:selected").text().match(/Surplus Equipment/i)){
           var content =
           '<div class="panel panel-default" id="panel3">' +
            ' <div class="panel-heading" id="heading-one">'+
@@ -227,7 +230,7 @@
              ' </div>'+
               '<div id="collapse3" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                  '<button type="button" class="btn btn-primary" onclick="postData()")">Submit</button>  '              +
+                  '<button type="button" class="btn btn-primary" onclick="checkFilled(\'#asset-tag-text\')")">Submit</button>  '              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What is the asset tag of'+
@@ -239,11 +242,12 @@
                 '</div>'+
                 '</div> ' +        
               '</div>'
+              $('#collapse2 .selectpicker').selectpicker('show');
           len++;
           $('#accordion').append(content);
         }
         
-        if (this.innerHTML.match(/New Software/i)){
+        if ($(this).find("option:selected").text().match(/New Software/i)){
           var content =
           '<div class="panel panel-default" id="panel2">' +
            ' <div class="panel-heading" id="heading-one">'+
@@ -253,32 +257,32 @@
              ' </div>'+
               '<div id="collapse2" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" class="btn btn-primary" onclick="postData()")">Next</button>'              +
+                '<button type="button" class="btn btn-primary" onclick="checkFilled(\'#text-block-2\')")">Submit</button>'              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What software are you'+
                 '  looking for?</p1>'+
              '   </div>'+
-                '<textarea name="paragraph_text" cols="50" rows="5" id="text-block-2" class="text-area"></textarea>'+
-                '<input id="input-1a" type="file" class="file" data-show-preview="false">'+
-                '<label class="control-label" id="label-error">Tell us the name of the software:</label>'+
+                '<div class="text-area">' +
+                '<textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>'+
+                '</div>' +
                 '</div> ' +        
               '</div>'         
           len++;
           $('#accordion').append(content);
         }
         $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
-        if (this.innerHTML.match(/New Equipment/i) || this.innerHTML.match(/System Access/i)){
-          $('#next-btn').attr('onClick', 'postData()');
+        if ($(this).find("option:selected").text().match(/New Equipment/i) || $(this).find("option:selected").text().match(/System Access/i)){
+          $('#next-btn').attr('onClick', 'showInfo()');
           $('#next-btn').attr('href', '/home');
+          $('#next-btn').text("Submit");
         }
         console.log(len);
-        $('#type-button').text(this.innerHTML);
         });
       });
     </script>   
-
-
+    
+    
     <footer>
       <% include ./partials/footer %>
     </footer>    

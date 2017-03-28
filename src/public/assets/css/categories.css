@@ -32,16 +32,16 @@
   text-align: center;
   position: relative;
   height: 125px; 
-  width: 150px;
+  width: 96%;
   color: #000;
 }
 
 .panel-default {
   width: 85%;
   position: relative;
-  top: 6em;
+  top: 20%;
   border-color: #000;
-  left:5em;
+  left: 7%;
 }
 
 .bootcards-summary .panel-body > .row > div {
@@ -99,4 +99,16 @@
 .channel-name:hover{
   background-color: #585d5e;
   color: #FFF;
+}
+@media screen and (max-width: 768px){
+  body, html {
+margin: 0;
+width: 100% ;
+}
+#super-card{ 
+  width: 100%;
+  left:0;
+  top:0%;
+  margin:0;
+}
 }

@@ -14,14 +14,9 @@ if (($(mandatory).val() == null)){
   return;
 }
 if (($(mandatory).val().length > 0) && !($(mandatory).val().match(/^\s$/))){
-    console.log($(mandatory).val());
     $(close).collapse("toggle");
     $(open).collapse("toggle");
   } else {
-    console.log($(mandatory).val());
-    console.log(!($(mandatory).val() == null));
-    console.log(($(mandatory).val().length > 0));
-    console.log(!($(mandatory).val().match(/^\s$/)));
     alert("Please fill it out the information before proceeding");
   }
 };
@@ -35,12 +30,10 @@ function undo(open, close1, close2, close3, close4){
 };
 
 function checkFilled(mandatory){
-  console.log($(mandatory).val())
   if ($(mandatory).val().length > 0){
     showInfo();
   } 
   else {
-    console.log($(mandatory).val());
     alert("Please fill it out the information before proceeding")
   }
 }
