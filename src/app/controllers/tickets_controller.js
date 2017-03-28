@@ -123,7 +123,7 @@ exports.mytickets = function(req, res){
     });
     console.log('closed');
     if (err) throw err
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open";', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open" and Resolve is null', function(err, result) {
         if (err) throw err
             myVar2 = JSON.stringify(result);
             console.log(myVar2);
