@@ -61,6 +61,9 @@
                myAnnouncements = $('#announcementsTable').DataTable( {
                 "order": [[0, "desc"]],
                  "autoWidth": false,
+                 "bInfo" : false,
+                 "paging": false,
+                 "searching": false,
                  "aaData": data,
                  "aoColumns": [
 
@@ -69,7 +72,7 @@
                    { "mDataProp": "Announcement"},
                    { "mDataProp": "AID"},
                  ],
-                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "6%"}, {"targets": 1, "className": "dt-left", "width": "15%"}, {"targets": 2, "className": "dt-left", "width": "50%"}, {"targets": 3, "className": "dt-left", "width": "2.5%"}]
+                 "columnDefs": [ {"targets": 0, "sortable": false,  "className": "dt-left", "width": "6%"}, {"targets": 1, "className": "dt-left", "sortable": false, "width": "15%"}, {"targets": 2, "className": "dt-left", "sortable": false, "width": "50%"}, {"targets": 3, "className": "dt-left", "visible": false, "sortable": false, "width": "2.5%"}]
                });
              });
 
@@ -78,6 +81,13 @@
 
            <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
            <table id="announcementsTable" class="display">
+            <thead>
+               <tr>
+                 <th>Date:</th>
+                 <th>Subject:</th>
+                 <th>Message:</th>
+             </tr>
+             </thead>
            </table>
          </div>
         </div>
