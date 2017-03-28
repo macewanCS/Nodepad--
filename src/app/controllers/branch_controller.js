@@ -27,8 +27,8 @@ exports.mytickets = function(req, res){
     if (err) throw err
       console.log('You are now connected...')
       
-
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed";', function(err, result) {
+      var openQueryString = changeQueryStringOpen(req.user.Site);
+      connection.query(openQueryString, function(err, result) {
 
         if (err) throw err
             myVar = JSON.stringify(result);
@@ -36,8 +36,8 @@ exports.mytickets = function(req, res){
     });
     console.log('closed');
     if (err) throw err
-
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null;', function(err, result) {
+      var openQueryString = changeQueryStringOpen(req.user.Site);
+      connection.query(openQueryString, function(err, result) {
 
         if (err) throw err
             myVar2 = JSON.stringify(result);
@@ -64,4 +64,21 @@ exports.mytickets = function(req, res){
     // console.log('all');
     connection.end();
   });
+}
+
+function changeQueryStringOpen(site)
+{
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null and Site != "HR"';
+  if (site == "IT" || site == "HR"){
+    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null;';
+  }
+  return string;
+}
+function changeQueryStringClosed(site)
+{
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed" and resolve is null and Site != "HR"';
+  if (site == "IT" || site == "HR"){
+    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed" and resolve is null;';
+  }
+  return string;
 }
