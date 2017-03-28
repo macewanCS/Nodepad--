@@ -25,7 +25,7 @@ connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jack", 2, "1234", "MLW")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jordan", 3, "1234", "CLR")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jordan", 3, "1234", "CAL")\
 	');
 connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 4, "1234", "GMLM")\
