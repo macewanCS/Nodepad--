@@ -9,12 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
-    
     <link rel="stylesheet" href="../assets/css/hardware.css">
     <script src="../assets/js/ticketscripts.js"></script>
   </head>
-  <body>
-    
+  <body> 
     <header>
       <% include ./partials/header %>
     </header>
@@ -34,7 +32,7 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
-                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#select-type'); colorHeader('#heading-one', '#changeType')">Next</button>                
+                <button type="button" id="next-btn" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse3', '#select-type', '#heading-one', '#changeType')">Next</button>                
               </div>
               <div class="issue-description">
                 Please select the type of equipment that you are having trouble with
@@ -72,8 +70,8 @@
             </div>
             <div id="collapse3" class="panel-collapse collapse">
               <div id="confirmation-buttons">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4'); colorHeader('#heading-three', '#changeName')">Skip</button>
-                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse3', '#collapse4', '#name-text'); colorHeader('#heading-three', '#changeName')">Next</button>                
+                <button type="button" class="btn btn-primary" onclick="toggleAccordian('#collapse3', '#collapse4', '#heading-three', '#changeName')">Skip</button>
+                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse3', '#collapse4', '#name-text', '#heading-three', '#changeName')">Next</button>                
               </div>
               <div class="issue-description">
                 Please enter the device name for the hardware that you are having problems with
@@ -93,7 +91,7 @@
             </div>
             <div id="collapse4" class="panel-collapse collapse">
               <div id="confirmation-buttons">
-                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse4', '#collapse5', '#desc-text'); colorHeader('#heading-four', '#changeDesc')">Next</button>                
+                <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse4', '#collapse5', '#desc-text', '#heading-four', '#changeDesc')">Next</button>                
               </div>
               <div class="issue-description">
                 Tell us anything you think is relevant to the problems
@@ -128,54 +126,73 @@
     </div>
 
     <script>
-    function showInfo(){
-  var equipment = $('#select-type').find("option:selected").text();
-  var assetTag = $('#asset-tag-text').val();    
-  var deviceName = $('#name-text').val();
-  var ticketInfo =  $('#desc-text').val();
-  var errorInfo = document.getElementById('error-text').value;
-  var errorImage = $("#input-1a").val();
-  if (assetTag === ""){
-    assetTag = "n/a";
-  }
-  if (deviceName === ""){
-    deviceName = "n/a";
-  }
-  if (errorInfo === ""){
-    errorInfo = "n/a";
-  }
-  bootbox.confirm({
-    title: "Please confirm your information:",
-    message: "<b>Equipment Type:</b> " + equipment +
-        "<br><b>Asset Tag:</b> " + assetTag +
-        "<br><b>device Name:</b> " + deviceName +
-        "<br><b>Description:</b> " + ticketInfo +
-        "<br><b>Error Information:</b> " + errorInfo +"",
-    buttons: {
-        confirm: {
-          label: 'Submit',
-          class: 'btn-success',    
-    },
-      cancel: {
-        label: 'Go back',
-        class: 'btn-danger'
-    }
-    },
-    callback: function (result) { 
-      if(result){        
-        postData();
-        window.location.href = "/success";
+      function showInfo(){
+        var equipment = $('#select-type').find("option:selected").text();
+        var assetTag = $('#asset-tag-text').val();    
+        var deviceName = $('#name-text').val();
+        var ticketInfo =  $('#desc-text').val();
+        var errorInfo = document.getElementById('error-text').value;
+        var errorImage = $("#input-1a").val();
+        if (assetTag === ""){
+          assetTag = "n/a";
+        }
+        if (typeof assetTag == "undefined"){
+          assetTag = "n/a";
+        }
+        if (deviceName === ""){
+          deviceName = "n/a";
+        }
+        if (errorInfo === ""){
+          errorInfo = "n/a";
+        }
+        bootbox.confirm({
+          title: "Please confirm your information:",
+          message: "<b>Equipment Type:</b> " + equipment +
+              "<br><b>Asset Tag:</b> " + assetTag +
+              "<br><b>device Name:</b> " + deviceName +
+              "<br><b>Description:</b> " + ticketInfo +
+              "<br><b>Error Information:</b> " + errorInfo,
+          buttons: {
+            confirm: {
+              label: 'Submit',
+              class: 'btn-success',    
+            },
+          cancel: {
+              label: 'Go back',
+              class: 'btn-danger'
+          }
+          },
+        callback: function (result) { 
+          if(result){        
+            postData();
+            window.location.href = "/success";
+          }
+        }
+        });
       }
-    }
-  });
-}
-</script>
-    
+    </script>
     <script>
     function postData(req, res){
+    var equipment = $('#select-type').find("option:selected").text();
+        var assetTag = $('#asset-tag-text').val();    
+        var deviceName = $('#name-text').val();
+        var ticketInfo =  $('#desc-text').val();
+        var errorInfo = document.getElementById('error-text').value;
+        if (assetTag === ""){
+          assetTag = "n/a";
+        }
+        if (typeof assetTag == "undefined"){
+          assetTag = "n/a";
+        }
+        if (deviceName === ""){
+          deviceName = "n/a";
+        }
+        if (errorInfo === ""){
+          errorInfo = "n/a";
+        }
       var http = new XMLHttpRequest();
-      var params = "EquipmentType=" + $('#select-type').find("option:selected").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#desc-text').val()
-      +"&ErrorMessageText=" + document.getElementById('error-text').value;
+      var params = "EquipmentType=" + equipment + "&AssetTag="+ assetTag + "&Name=" + deviceName + "&Description=" + ticketInfo
+      +"&ErrorMessageText=" + errorInfo;
       console.log(params);
       var url = "/createHardware";
       console.log("sent " + http.status + " " + http.readyState);
@@ -192,12 +209,11 @@
         return true;
       };
     </script>
-
     <script>
     $('.selectpicker').on('change',function(){
         console.log("boop");
       $('#accordion2').remove();
-      $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3'); colorHeader('#heading-one', '#changeType')");
+      $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3','#heading-one', '#changeType')");
       if($('#select-type').find("option:selected").text().match(/iPad/i) || $('#select-type').find("option:selected").text().match(/Laptop/i) || $('#select-type').find("option:selected").text().match(/PC/i) || $('#select-type').find("option:selected").text().match(/Self-checkout/i)){
         console.log("it matched");
         $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
@@ -229,11 +245,9 @@
         $('#accordion #equipment-panel').after(content);
       }
     });
-    </script>
-    
+    </script>  
     <footer>
       <% include ./partials/footer %>
-    </footer>
-    
+    </footer>  
   </body>
 </html> 
