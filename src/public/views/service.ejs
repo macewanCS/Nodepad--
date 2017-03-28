@@ -54,10 +54,31 @@
    
     <script>
       function postData(req, res){
+        var service = $('#select-type').find("option:selected").text();
+        var system =  $('#select-access').find("option:selected").text();    
+        var assettag = $('#asset-tag-text').val();
+        var locate =  $('#text-block').val();
+        var software = $("#text-block-2").val();
+        var softLoc = $('#text-block-loc').val();
+        if (typeof assettag == "undefined"){
+          assettag = "n/a";
+        }
+        if (typeof locate == "undefined"){
+          locate = "n/a";
+        }
+        if (typeof software == "undefined"){
+          software = "n/a";
+        }
+        if (system == ""){
+        system = "n/a";
+        }
+        if (typeof softLoc == "undefined"){
+          softLoc = "n/a";
+        }
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
-        var params = "EquipmentType=" + $('#select-type').find("option:selected").text() + "&System=" + $('#select-access').find("option:selected").text() +  "&AssetTag=" + $('#asset-tag-text').val()
-        + "&Location=" +$('#text-block').val() + "&SoftwareName=" + $("#text-block-2").val();
+        var params = "EquipmentType=" + service + "&System=" + system +  "&AssetTag=" + assettag
+        + "&Location=" +locate + "&SoftwareName=" + software + "&SoftwareLocation=" + softLoc ;
         console.log(params);
         var url = "/createService";
         console.log("sent " + http.status + " " + http.readyState);
@@ -84,17 +105,20 @@
   var locate =  $('#text-block').val();
   var software = $("#text-block-2").val();
   var softLoc = $('#text-block-loc').val();
-  if (assettag === ""){
+  if (typeof assettag == "undefined"){
     assettag = "n/a";
   }
-  if (locate === ""){
+  if (typeof locate == "undefined"){
     locate = "n/a";
   }
-  if (software === ""){
+  if (typeof software == "undefined"){
     software = "n/a";
   }
-  if (system === ""){
+  if ( system === ""){
     system = "n/a";
+  }
+  if (typeof softLoc == "undefined"){
+    softLoc = "n/a";
   }
   bootbox.confirm({
     title: "Please confirm your information:",
