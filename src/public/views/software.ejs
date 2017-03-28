@@ -9,6 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
     
   </head>
   <body>
@@ -32,34 +35,30 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
-                <button id="next-btn" type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#type-button'); colorHeader('#heading-one', '#changeSystem')">Next</button>                
+                <button id="next-btn" type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse1', '#collapse2', '#select-type'); colorHeader('#heading-one', '#changeSystem')">Next</button>                
               </div>
               <div class="issue-description">
                 Please select the relative system that you are having trouble with.
               </div> 
               <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle status" id="type-button" type="button" data-toggle="dropdown">System
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-inverse">
-                  <li><a href="#">Apps.epl.ca</a></li>
-                  <li><a href="#">Bibliocommons</a></li>
-                  <li><a href="#">Dayforce</a></li>
-                  <li><a href="#">iNovah</a></li>
-                  <li><a href="#">Internet/network access</a></li>
-                  <li><a href="#">LibraryOnline</a></li>
-                  <li><a href="#">Peoplesoft</a></li>
-                  <li><a href="#">Public website / www.epl.ca</a></li>
-                  <li><a href="#">SAP</a></li>
-                  <li><a href="#">S:/ drive / file share</a></li>
-                  <li><a href="#">StaffWeb/Active Directory</a></li>
-                  <li><a href="#">VPN</a></li>
-                  <li><a href="#">Workflows</a></li>
-                  <li><a href="#">Other </a></li>
-                </ul>
+                <select class="selectpicker type-button" data-live-search="true" data-dropup-auto="false" title="Request Type" id="select-type">                  <li><a href="#">Apps.epl.ca</a></li>
+                  <option>Bibliocommons</option>
+                  <option>Dayforce</option>
+                  <option>iNovah</option>
+                  <option>Internet access</option>
+                  <option>LibraryOnline</option>
+                  <option>Peoplesoft</option>
+                  <option>www.epl.ca</option>
+                  <option>SAP</option>
+                  <option>file share</option>
+                  <option>StaffWeb</option>
+                  <option>VPN</option>
+                  <option>Workflows</option>
+                  <option>Other </option>
+                </select>
               </div>        
             </div>
           </div>          
-        </div>
       
         <!-- This is the panel for system status --> 
         <div class="panel panel-default">
@@ -118,13 +117,9 @@
             <div id="confirmation-buttons">
               <button type="button" class="btn btn-primary" onclick="showInfo()">Submit</button>             
             </div>
-            <label id="label-error">Or tell us the steps to replicate the problem:</label>
-            <div class="text-upload">
+            <div class="issue-description">Please describe the steps to reproduce the problem:</div>
+            <div class="text-area">
               <textarea name="paragraph_text" cols="50" rows="5" id="text-block-2"></textarea>
-            </div>
-            <div>
-              <label>Select A File</label>
-              <input id="input-1a" type="file" class="file" data-show-preview="false">
             </div>
           </div>
         </div>
@@ -135,7 +130,7 @@
    <!--This is for the confirmation-->
   <script>
   function showInfo(){
-    var equipment = $("#type-button").text();
+    var equipment = $('#select-type').find("option:selected").text();
     var systemStatus = $('input[name=options]:checked').val();
     var ticketInfo =  $('#text-block').val();
     var errorInfo = document.getElementById('text-block-2').value;
@@ -180,9 +175,34 @@
   
     <script>
       function postData(req, res){
+        
+        var affected = $('#select-type').find("option:selected").text();
+        
+        console.log(affected);
+        
+        if (affected === "Internet access"){
+          console.log("swapping");
+          affected = "Internet/network access";
+        }
+        
+        if (affected === "www.epl.ca"){
+          console.log("swapping");
+          affected = "Public website / www.epl.ca";
+        }
+        
+        if (affected === "file share"){
+          console.log("swapping");
+          affected = "S:/ drive / file share";
+        }
+        
+        if (affected === "StaffWeb"){
+          console.log("swapping");
+          affected = "StaffWeb/Active Directory";
+        }
+        
         var http = new XMLHttpRequest();
         console.log("clicked the next button");
-        var params = "AffectedSystem=" + $("#type-button").text() + "&SystemStatus="+ $('input[name=options]:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
+        var params = "AffectedSystem=" + affected + "&SystemStatus="+ $('input[name=options]:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
         console.log(params);
         var url = "/createSoftware";
         console.log("sent " + http.status + " " + http.readyState);
@@ -197,14 +217,6 @@
         http.send(params);
         console.log("sent " + http.status + " " + http.readyState);
       };
-    </script>
-    
-    <script>
-    $('.dropdown-inverse li > a').click(function(e){
-      $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
-      $('.status').text(this.innerHTML);
-      $('.status').append('<span class=\"caret\"></span>')
-    });
     </script>
     
     <footer>
