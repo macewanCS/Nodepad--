@@ -34,6 +34,12 @@
   padding-bottom: 15px;
 
 }
+#help-body{
+
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 #help-card{
 
   position: relative;
