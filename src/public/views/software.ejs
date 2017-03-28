@@ -133,23 +133,17 @@
     var equipment = $('#select-type').find("option:selected").text();
     var systemStatus = $('input[name=options]:checked').val();
     var ticketInfo =  $('#text-block').val();
-    var errorInfo = document.getElementById('text-block-2').value;
-    var errorImage = $("#input-1a").val();
-    if (systemStatus === ""){
-      systemStatus = "n/a";
-    }
-    if (errorInfo === ""){
+    var errorInfo = $('#text-block-2').val();
+    console.log(errorInfo + "asdasd");
+    if (errorInfo == ""){
       errorInfo = "n/a";
     }
-    
     bootbox.confirm({
       title: "Please confirm your information:",
       message: "<b>Affected System:</b> " + equipment +
                "<br><b>System Status:</b> " + systemStatus +
                "<br><b>Description:</b> " + ticketInfo +
-               "<br><b>Error Information:</b> " + errorInfo +
-               "<br><b>Error url:</b> " + errorImage +
-               "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
+               "<br><b>Error Information:</b> " + errorInfo,
       buttons: {
           confirm: {
               label: 'Submit',
@@ -175,6 +169,16 @@
   
     <script>
       function postData(req, res){
+      
+      var systemStatus = $('input[name=options]:checked').val();
+      var ticketInfo =  $('#text-block').val();
+      var errorInfo = $('#text-block-2').val();
+      if (typeof systemStatus == "undefined"){
+        systemStatus = "n/a";
+      }
+      if (typeof errorInfo == "undefined"){
+        errorInfo = "n/a";
+      }
         
         var affected = $('#select-type').find("option:selected").text();
         
@@ -202,7 +206,7 @@
         
         var http = new XMLHttpRequest();
         console.log("clicked the next button");
-        var params = "AffectedSystem=" + affected + "&SystemStatus="+ $('input[name=options]:checked').val() + "&Description=" + $('#text-block').val() + "&ProblemCause=" + $('#text-block-2').val();
+        var params = "AffectedSystem=" + affected + "&SystemStatus="+ systemStatus + "&Description=" + ticketInfo + "&ProblemCause=" + errorInfo;
         console.log(params);
         var url = "/createSoftware";
         console.log("sent " + http.status + " " + http.readyState);
