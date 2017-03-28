@@ -72,6 +72,11 @@
   margin: 0;
 }
 
+#subTitle{
+
+  padding-left: 10px;
+}
+
 #col1, #col2{
 
   padding: 0;
@@ -79,11 +84,18 @@
 
 /*table*/
 
-#myOpenTable   {
+#myOpenTable, #branchTable {
+ 
   height: relative;
   margin-left:0px;
   margin-bottom: 0px;
+  
+  table-layout: fixed;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
 #openTab, #branchTable_wrapper{
 
   padding-left: 10px;
@@ -98,7 +110,10 @@
   margin-left: 100px;
   margin-right: 100px;
 }
+#open-card, #branch-card{
 
+   height: 300px;
+}
 #deck{
 
   margin-right: 0px;
