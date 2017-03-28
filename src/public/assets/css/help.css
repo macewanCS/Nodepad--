@@ -1,0 +1,48 @@
+
+/*Card headers*/
+.channel-name{
+  
+  background-color: #3f4344;
+  padding: 10px 10px;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  border-left-width: 10px;
+  border-left-style: solid;
+  font-weight: bold;
+  width: 200px;
+  position: relative;
+
+}
+
+.channel-name:hover{
+  background-color: #585d5e;
+  color: #FFF;
+}
+
+
+.channel-name.stripe-three{
+  border-left-color: #631878;
+}
+
+/*cards */
+.card{
+
+  background-color: white;
+  margin: 10px;
+  padding-bottom: 15px;
+
+}
+#help-card{
+
+  position: relative;
+  left: 15%;
+  width: 70%;
+  
+}
+
+.card-title{
+
+  padding-top: 10px;  
+}
