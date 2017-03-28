@@ -98,12 +98,17 @@ var data = <%- data %>;
 
       <script>
         $(document).ready(function(){
+          var getRes = (data[0].Symptoms).split("RESOLUTION=");
+          if (getRes.length==2){
 
+              $('#res-lb').text("Resolution Notes:");
+              $('#res').text(getRes[1]);
+          }
           if(data[0].Category == "Hardware"){
 
-            var parsed = (data[0].Symptoms).split("|");
+            var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
-            var headings = ["Equip Type","Asset Tag","Device","Error Message",""]
+            var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
             var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
             for(var i=0;i<n;i++){
@@ -114,11 +119,11 @@ var data = <%- data %>;
               $(hids[i]).text(headings[i]);
               $(ids[i]).text(parsed[i]);
             }
-            $("#L4").attr('style', "line-height: 22px; width: auto; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word; inline-block;  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
+            $("#L4").attr('style', "top:70%; line-height: 110%; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
           }
           else if(data[0].Category == "Software"){
 
-            var parsed = (data[0].Symptoms).split("|");
+            var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["Affected Systems","System Status","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
@@ -132,10 +137,46 @@ var data = <%- data %>;
               $(ids[i]).text(parsed[i]);
             }
 
-           $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+          }
+          else if(data[0].Category == "Password"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["System","Username","Full Name","",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2", "#L3", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+          }
+          else if(data[0].Category == "General"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = [""]
+            var hids = ["#H1"];
+            var ids = ["#text_results"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
           }
           else if(data[0].Category == "Service"){
-            var parsed = (data[0].Symptoms).split("|");
+            var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             if(parsed[0]=="System Access"){
               var headings = ["Service Type","","","",""];
@@ -145,7 +186,7 @@ var data = <%- data %>;
               var headings = ["Service Type","System Access","Asset Tags","","", ""];
               var ids = ["#L1","#L2","#L3", "#text_results", "#L5"];
               $('#text_results_id').text('Destination:')
-              
+
             }
             else if(parsed[0]=="New Software"){
               var headings = ["Service Type","Software Name","","",""]
@@ -169,14 +210,21 @@ var data = <%- data %>;
               $(ids[i]).text(parsed[i]);
             }
           }
-
+          // CATEGORY IDENTIFIER
           $('#categ').text(data[0].Category);
+          // STATUS IDENTIFIER
           if(data[0].CallStatus =="Closed"){
             $('#stat').css('background-color', '#F44336');
-
+            $('#stat').text(data[0].CallStatus);
           }
+          else if(getRes.length==2){  //resolved ticket case
 
-          $('#stat').text(data[0].CallStatus);
+            $('#stat').css('background-color', '#BDA0CB');
+            $('#stat').text("Resolved");
+          }                           
+          else{
+            $('#stat').text(data[0].CallStatus);
+          }
         });
       </script>
 

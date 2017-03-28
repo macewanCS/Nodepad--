@@ -1,16 +1,93 @@
+
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!-- Dependencies -->
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script> <!-- MUST BE AT THE TOP (DECLARED FIRST) -->
+
+
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <style><background-color: blue></style>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../assets/css/announcements.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <% include ./partials/head %>
   </head>
+  
   <body>
     <header>
       <% include ./partials/header %>
     </header>
-    This is the announcements screen
-    <footer>
-      <% include ./partials/footer %>
-    </footer>
+
+    <script> 
+      var tid; 
+      var data = <%-announcements%>
+    </script>
     
+    <div>
+    <div class="card" id="super-card-mytickets">
+
+      <div class="super-panel-heading">
+        <a href="/announcements" class="channel-name stripe-two">Announcements</a>
+      </div>
+
+      <div class="panel panel-default bootcards-summary align-middle">
+     
+        <div id="table-holder" class="container">
+  
+
+          <div class="tab-content">
+
+          <!-- Set contents per tab -->
+          <div id="announcTable" class="tab-pane fade in active">
+           <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+           <script>
+
+           for(var i = 0; i < Object.keys(data).length; i++) { 
+                  data[i].SubmittedDate = data[i].SubmittedDate.slice(0,10)
+              }
+
+             $(document).ready(function(){
+               myAnnouncements = $('#announcementsTable').DataTable( {
+                "order": [[0, "desc"]],
+                 "autoWidth": false,
+                 "aaData": data,
+                 "aoColumns": [
+
+                   { "mDataProp": "SubmittedDate"},
+                   { "mDataProp": "Title"},
+                   { "mDataProp": "Announcement"},
+                   { "mDataProp": "AID"},
+                 ],
+                 "columnDefs": [ {"targets": 0, "className": "dt-left", "width": "6%"}, {"targets": 1, "className": "dt-left", "width": "15%"}, {"targets": 2, "className": "dt-left", "width": "50%"}, {"targets": 3, "className": "dt-left", "width": "2.5%"}]
+               });
+             });
+
+
+           </script>
+
+           <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+           <table id="announcementsTable" class="display">
+           </table>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer>
+    <% include ./partials/footer %>
+  </footer>
   </body>
-</html> 
+</html>
