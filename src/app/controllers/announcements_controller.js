@@ -21,6 +21,7 @@ exports.announcement = function(req, res){
             res.render((__dirname + '/../../public/views/announcements.ejs'), {
             announcements:resultVar,
             username:req.user.username,
+            branch:req.user.Site,
             
             });
     });
