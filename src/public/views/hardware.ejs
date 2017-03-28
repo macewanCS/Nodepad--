@@ -136,6 +136,9 @@
         if (assetTag === ""){
           assetTag = "n/a";
         }
+        if (typeof assetTag == "undefined"){
+          assetTag = "n/a";
+        }
         if (deviceName === ""){
           deviceName = "n/a";
         }
@@ -148,9 +151,7 @@
               "<br><b>Asset Tag:</b> " + assetTag +
               "<br><b>device Name:</b> " + deviceName +
               "<br><b>Description:</b> " + ticketInfo +
-              "<br><b>Error Information:</b> " + errorInfo +
-              "<br><b>Error url:</b> " + errorImage +
-              "<br><b>Error Image:</b> <img src='" + errorImage + "'>",
+              "<br><b>Error Information:</b> " + errorInfo,
           buttons: {
             confirm: {
               label: 'Submit',
@@ -172,9 +173,26 @@
     </script>
     <script>
     function postData(req, res){
+    var equipment = $('#select-type').find("option:selected").text();
+        var assetTag = $('#asset-tag-text').val();    
+        var deviceName = $('#name-text').val();
+        var ticketInfo =  $('#desc-text').val();
+        var errorInfo = document.getElementById('error-text').value;
+        if (assetTag === ""){
+          assetTag = "n/a";
+        }
+        if (typeof assetTag == "undefined"){
+          assetTag = "n/a";
+        }
+        if (deviceName === ""){
+          deviceName = "n/a";
+        }
+        if (errorInfo === ""){
+          errorInfo = "n/a";
+        }
       var http = new XMLHttpRequest();
-      var params = "EquipmentType=" + $('#select-type').find("option:selected").text() + "&AssetTag="+ $('#asset-tag-text').val() + "&Name=" + $('#name-text').val() + "&Description=" + $('#desc-text').val()
-      +"&ErrorMessageText=" + document.getElementById('error-text').value;
+      var params = "EquipmentType=" + equipment + "&AssetTag="+ assetTag + "&Name=" + deviceName + "&Description=" + ticketInfo
+      +"&ErrorMessageText=" + errorInfo;
       console.log(params);
       var url = "/createHardware";
       console.log("sent " + http.status + " " + http.readyState);
