@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+   
 
 
     <% include ./partials/head %>
@@ -97,7 +99,7 @@
           <div id="res-text">
             <textarea id="res_box"></textarea>
           </div>
-          <a href="/mytickets"><button type="button" id="confirm-btn" onclick="postData()" class="btn btn-primary">Confirm</button></a>
+          <button type="button" id="confirm-btn" onclick="showInfo()" class="btn btn-primary">Confirm</button>
         </div>
       </div>
 
@@ -255,7 +257,34 @@
         console.log("sent " + http.status + " " + http.readyState);
       };
       </script>
+<script>
 
+    function showInfo(){
+      
+      var resolveInfo = $("#res_box").val()
+      
+      bootbox.confirm({
+        title: "<b>Please confirm your ticket resolution:<b>",
+        message: resolveInfo,
+        buttons: {
+            confirm: {
+              label: 'Submit',
+              class: 'btn-success',    
+        },
+          cancel: {
+            label: 'Go back',
+            class: 'btn-danger'
+        }
+        },
+        callback: function (result) { 
+          if(result){        
+            postData();
+            window.location.href = "/edit-success";
+          }
+        }
+      });
+    }
+    </script>
     <footer>
       <% include ./partials/footer %>
     </footer>

@@ -43,9 +43,9 @@
 <div class="row allign-items-start" id="branch-rows">
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="col1">
     <!--My Tickets-->
-    <div class="card" >
+    <div class="card" id="open-card" >
       <div class="card-block">
-        <h3 class="card-title"><a  href="/MyTickets" class="channel-name stripe-one">Open Tickets</a></h3>
+        <h3 class="card-title"><a  href="/MyTickets" class="channel-name stripe-one">My Open Tickets</a></h3>
          <div id="openTab" class="tab-pane fade in active" >
            <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
            <script>
@@ -53,7 +53,6 @@
           for(var i = 0; i < Object.keys(obj1).length; i++) {
               obj1[i].TempDate = obj1[i].TempDate.slice(0,10)
               }
-           
 
               $(document).ready(function(){
                var myOpen = $('#myOpenTable').DataTable( {
@@ -79,12 +78,11 @@
                   "sPaginationType": "full_numbers",
                   "lengthChange": false,
                                     
-                   "columnDefs": [ {"targets": 0, "width": "20%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%", "data": null, "defaultContent": "n/a"}]
+                   "columnDefs": [ {"targets": 0, "width": "20%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "10%", "data": null, "defaultContent": "n/a"}]
                });
  
              });
 
-            
            </script>
 
             <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -104,14 +102,14 @@
   </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="col2">
-    <div class="card">
+    <div class="card" id="branch-card">
       <div class="card-block">
         <h3 class="card-title"><a  href="/branchtickets" class="channel-name stripe-four">My Branch Tickets</a></h3>
              <script>
               var branch = <%- branchTickets %>;
-              //console.log(branch);
-              for(var i = 0; i < Object.keys(obj1).length; i++) {
-                  branch[i].TempDate = obj1[i].TempDate.slice(0,10)
+              
+              for(var i = 0; i < Object.keys(branch).length; i++) {
+                  branch[i].TempDate = branch[i].TempDate.slice(0,10)
               }
               $(document).ready(function(){
                 $('#branchTable').DataTable( {
@@ -131,7 +129,7 @@
                   "bPaginate": false,
                   "lengthChange": false,
 
-                 "columnDefs": [ {"targets": 0, "width": "20%"}, {"targets": 1, "width": "70%"},{"targets": 2, "width": "2%", "data": null, "defaultContent": "n/a"}]
+                 "columnDefs": [ {"targets": 0, "width": "20%"}, {"targets": 1, "width": "50%"}, {"targets": 2, "width": "10%", "data": null, "defaultContent": "n/a"}]
                });
 
               });
@@ -155,16 +153,15 @@
 </div>
 <!--Deck-->
 
-
  <!--help card-->
   <div class="card" id="help-card">
     <div class="card-block">
       <h4 class="card-title"><a href="/help" class="channel-name stripe-three">Help</a></h4>
+      <h6 class="card-subtitle mb-2 text-muted" id="subTitle"><font size="+2">Here is a list of guides that are available from the help page:</font></h6>
       <ul class="list-group list-group-flush" id="help-body" >
-        <li class="list-group-item"><b>Reset iPad: </b>click <a href="http://i.imgur.com/R390EId.jpg">here</a> for an easy guide to hard reset an iPad</li>
-        <li class="list-group-item"><b>Cable guide:</b> click <a href="http://i.imgur.com/R390EId.jpg">here</a> for an easy guide to learn about cables</li>
-        <li class="list-group-item"><b>This isn't dynamic...</b>We don't have a list of help issues for users</li>
-        </ul>
+        <li class="list-group-item"><b>Reset iPad: </b></li>
+        <li class="list-group-item"><b>Cable guide:</b></li>
+      </ul>
      
     </div>
   </div>
