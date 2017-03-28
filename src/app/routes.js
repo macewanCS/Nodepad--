@@ -57,6 +57,7 @@ var announcements_controller = require("./controllers/announcements_controller.j
   });
 
   app.get('/announcements',isAuthenticated, announcements_controller.announcement);
+  app.post('/createAnnouncement',announcements_controller.add);
 
   app.get('/help', isAuthenticated, function(req, res){
     res.render((__dirname + '/../public/views/help.ejs'), {username:req.user.username});
