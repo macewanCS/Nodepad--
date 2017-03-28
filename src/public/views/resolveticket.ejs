@@ -28,11 +28,12 @@
       <% include ./partials/header %>
     </header>
    <script type="text/javascript" src="../view.json></script>
-<script type="text/javascript" src="javascrip.js"></script>
-<script type="text/javascript">
-var data = <%- data %>;
-  console.log(data);
-</script>
+    <script type="text/javascript" src="javascrip.js"></script>
+    <script type="text/javascript">
+      var data = <%- data %>;
+      console.log(data);
+    </script>
+
     <div class="card" id="super-card-mytickets">
         <hr id="divider">
         <hr id="divider1">
@@ -48,7 +49,7 @@ var data = <%- data %>;
           <div id="buttons">
 <!--            <button id="edit-btn" type="button" class="btn btn-outline-secondary">Edit</button> 
            <button id="resolve-btn" type="button" class="btn btn-outline-secondary">Resolve</button> -->
-           <button id="exit-btn" type="button" class="btn btn-outline-secondary">Exit</button> 
+           <a href="/mytickets"><button id="exit-btn" type="button" class="btn btn-primary">Exit</button></a>          
           </div>
         </div>
         <div class="container" id="body-container">

@@ -25,9 +25,9 @@ exports.home = function(req, res){
     
     var myVar3;
     if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallStatus= "Open" and CustID="' + req.user.id + '" LIMIT 5;', function(err, result) {
+      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallStatus= "Open" and CustID="' + req.user.id + '" Order By TempDate Desc LIMIT 5;', function(err, result) {
         if (err) throw err
-            connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE Site="' + req.user.Site + '" LIMIT 5;', function(err, branchResult) {
+            connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE Site="' + req.user.Site + '" Order By TempDate Desc LIMIT 5;', function(err, branchResult) {
             myVar3 = JSON.stringify(result);
             branch = JSON.stringify(branchResult);
             res.render((__dirname + '/../../public/views/home.ejs'), {
