@@ -25,25 +25,30 @@
 .channel-name.stripe-two{
   border-left-color: #1464f6;
 }
+.card-title{
+
+	padding-top: 10px;
+}
 #home-button{
 
-	margin-left: 45%;
-	margin-right: 50%;
+	text-align: center;
+	margin: auto;
 
 }
 #outter-card{
-	margin-top: 15%;
+	margin-top: 28px;
 	margin-left: 10%;
 	margin-right: 10%;
-	padding-bottom: 5%;
+	margin-bottom: 20px;
+	padding-bottom: 2%;
+	height: 90%;
 }
 
 #inner-card{
-	
+	width: 100%;
 	position: center;
-	margin-left: 10%;
-	margin-right: 10%;
-	margin-top: 10%;
+	margin-top: 5%;
+	padding-bottom: 20%;
 }
 
 #inner-title{
@@ -52,9 +57,10 @@
 }
 
 #inner-body{
-	margin-left: 15%;
-	margin-right: 15%
-	padding-top: 10%;
+	
+	padding-top: 5%;
+	
+	text-align: center;
 }
 .card{
 	width: 100%
