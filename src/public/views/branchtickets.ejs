@@ -36,14 +36,13 @@
 
     <script> var tid;
              var myBranch = '<%- branch %>';
-             alert(myBranch);
      </script>
     
     <div>
     <div class="card" id="super-card-mytickets">
 
       <div class="super-panel-heading">
-        <a href="/categories" class="channel-name stripe-two">Branch Tickets</a>
+        <a href="/branchtickets" class="channel-name stripe-two">Branch Tickets</a>
       </div>
 
       <div class="panel panel-default bootcards-summary align-middle">
@@ -51,7 +50,9 @@
         <div class="dropdown" id=dropdown-div>
                 <select class="selectpicker type-button" data-live-search="true" data-dropup-auto="false" id="select-type">
                   <option name='temp' data-hidden="true">Pick A Branch</option>
-                  <option name='temp'>My Home Branch</option>
+                  <option name='temp'>Show All</option> 
+                  <option name='temp'>Home Branch</option>
+                  <option value="" disabled="disabled">─────────────────────────</option>
                   <option name='temp'>Abbotsfield</option>
                   <option name='temp'>Calder</option>
                   <option name='temp'>Capilano</option>
@@ -473,7 +474,9 @@
                       return "MNJ";
                   case 'eplGO U of A':
                       return "UAC";
-                  case 'My Home Branch':
+                  case "Show All":
+                      return "";
+                  case 'Home Branch':
                      return "HOME";
               }
             };
