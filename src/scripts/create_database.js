@@ -33,6 +33,10 @@ connection.query('\
 connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("cam", 5, "1234", "IT")\
 	');
+connection.query('\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("max", 6, "package", "HR")\
+	');
+
 
 connection.query('\
 	CREATE TABLE `395project`.`branch` (\
@@ -280,6 +284,9 @@ function getDateString(obj){
 }
 connection.query('\
     INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100048", "1", "Employee", "| | |  Renewal line not responding |", "Service", "Open", "1/3/2016", "2016/2/23", "MLW");\
+    ');
+connection.query('\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100089", "1", "Employee", "Sunny is being mean to me", "HR", "Open", "1/3/2016", "2016/2/23", "HR");\
     ');
 
 connection.query('\

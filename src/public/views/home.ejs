@@ -107,7 +107,7 @@
         <h3 class="card-title"><a  href="/branchtickets" class="channel-name stripe-four">My Branch Tickets</a></h3>
              <script>
               var branch = <%- branchTickets %>;
-              
+  
               for(var i = 0; i < Object.keys(branch).length; i++) {
                   branch[i].TempDate = branch[i].TempDate.slice(0,10)
               }

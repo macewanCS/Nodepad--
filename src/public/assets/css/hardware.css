@@ -16,7 +16,7 @@
 
 .dropdown {
   max-width: 40%;
-  left: 70%;
+  left: 55%;
   top:17%;
   width: 25%;
   margin: 0;
@@ -36,7 +36,7 @@
 }
 
 .panel-text-box {
-  left:70%;
+  left:55%;
   bottom: 2.2em;
   position:relative;
   width: 25%;
@@ -117,6 +117,7 @@ textarea{
 .changer{
   color: #0645AD !important;
   margin-left: 1em;
+  cursor: pointer;
 }
 
 #sub-card{
@@ -185,9 +186,18 @@ width: 100% ;
     width: 30%;
     top: 8%;
 }
-#head-nav #logout-button {
-  position: absolute;
-  left: 90%;
-  top: 60px;
+
+.text-area {
+  position:relative;
+  left: 42%;
+  top: -12%;
+  width: 40%;
+  height: 50%;
+}
+#radio-button{
+  position: relative;
+  padding-left: 43%;
+  margin-top: -1%;
+
 }
 }
