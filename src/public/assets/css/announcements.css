@@ -1,3 +1,6 @@
+#announcTable{
+  padding-top: 20px;
+}
 #announcTable tr td {
     height: 100px;
 }
