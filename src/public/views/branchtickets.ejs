@@ -321,43 +321,9 @@
                     }
 
                     tid=data.CallID;
-                    window.location="/mytickets/view"+tid;
+                    window.location="/branchtickets/view"+tid;
                   });
-
-                $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
-                    console.log("HEY");
-                    if(table == "#myOpenTable"){
-                      var data = myOpen.row($(this).parents('tr')).data();
-                    }
-                    else if(table == "#myClosedTable"){
-                      var data = myClose.row($(this).parents('tr')).data();
-                    }
-                    else{
-                      var data = myAll.row($(this).parents('tr')).data();
-                    }
-                    tid=data.CallID;
-                    window.location="/mytickets/edit"+tid;
-                    // alert(data.CallID);
-                  });
-
-                $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
-                    console.log("HEY");
-                    if(table == "#myOpenTable"){
-                      var data = myOpen.row($(this).parents('tr')).data();
-                    }
-                    else if(table == "#myClosedTable"){
-                      var data = myClose.row($(this).parents('tr')).data();
-                    }
-                    else{
-                      var data = myAll.row($(this).parents('tr')).data();
-                    }
-
-                    tid=data.CallID;
-                    window.location="/mytickets/resolve"+tid;
-
-                    // alert(data.CallID);
-                  });
-            }
+              }
 
             // ---------------------------------------------------------------
 
