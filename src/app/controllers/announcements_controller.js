@@ -29,3 +29,24 @@ exports.announcement = function(req, res){
     connection.end();
   });
 }
+
+exports.add = function(req,res){
+    var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: '395project'
+  });
+
+  connection.connect(function(err) {
+    if (err) throw err
+      var queryString = "INSERT into announcements (Title,Announcement,SubmittedDate) VALUES (?,?,?)";
+      var title = req.body.Subject;
+      var message = req.body.Message;
+      var today = new Date();
+      var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
+      connection.query(queryString,[title,message,stringDate]);
+      connection.end();
+  });
+
+}
