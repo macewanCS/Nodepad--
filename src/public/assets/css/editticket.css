@@ -78,7 +78,7 @@ fieldset1{
   padding-top: 0%;
   /*line-height: 2px;*/
   height: 90%;
-  max-height: 90%;
+  max-height: 100%;
   overflow-y:auto;
   width: 90%;
   /*overflow-x:auto;*/
@@ -105,16 +105,16 @@ fieldset1{
   padding-left: 0.5%;
   /*top:20%;*/
 }
-/*#H4{
+#H4{
   position: absolute;
-  top:30px;
-  left: 0px;
+  top:45px;
+  left: 0.5%;
 }
-#H5{
+/*#H5{
     position: relative;
   top:100%;
-}*/
-
+}
+*/
 p {  
   line-height: 10px;
 }

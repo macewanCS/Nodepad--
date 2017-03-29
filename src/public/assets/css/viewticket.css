@@ -169,15 +169,15 @@ fieldset1{
   position: absolute;
   top: 21%;
   padding-top: 0%;
-  height: 80%;
+  height: 95%;
   overflow-y:auto;
   padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 #L4{
   position: absolute;
-  top: 145%;
+  top: 200px;
   height: 20%;
-  width: 100%;
+  width: 0%
   /*left:3px;*/
   padding-left: 1%;
   margin-top:0px;
