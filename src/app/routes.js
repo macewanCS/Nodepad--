@@ -96,7 +96,7 @@ var announcements_controller = require("./controllers/announcements_controller.j
   
   //Branch Tickets
   app.get('/branchtickets', isAuthenticated, branch_controller.mytickets);
-  app.get('/branchtickets/:ticketid/view', branch_controller.view);
+  app.get('/branchtickets/view:ticketid', isAuthenticated, branch_controller.view);
   app.get('/branchtickets/:ticketid/edit', branch_controller.edit);
 
   //Mytickets
