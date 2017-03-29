@@ -189,6 +189,7 @@
            <script>
            var obj3 = <%- allTickets %>;
               for(var i = 0; i < Object.keys(obj3).length; i++) {
+                
                 if (obj3[i].CallStatus == "Open" && obj3[i].Resolve == '1'){
                 
                   obj3[i].CallStatus = "Resolved"
