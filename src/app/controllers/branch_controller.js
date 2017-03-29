@@ -108,17 +108,17 @@ function changeQueryStringOpen(site)
 }
 function changeQueryStringClosed(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null) and Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null) and Site != "HR"';
   if (site == "IT" || site == "HR"){
-    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
+    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
   }
   return string;
 }
 function changeQueryStringAll(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog Where Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog Where Site != "HR"';
   if (site == "IT" || site == "HR"){
-    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog';
+    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog';
   }
   return string;
 }
