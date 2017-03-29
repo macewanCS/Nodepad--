@@ -1,0 +1,269 @@
+#super-card-mytickets{
+  background: #fff;
+  position: relative;
+  left: 15%;
+  height: 900px;
+  width: 70%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 0%;
+}
+
+fieldset0{
+  position: relative;
+  width: 40%;
+  padding-left:0.5%;
+  /*padding-left: 1%;*/
+  /*left:20em;*/
+  top: 12%;
+}
+
+fieldset1{
+  position: absolute;
+  width: 55%;
+  top: 12%;
+  left:40%;
+}
+
+#history-lb{
+  position: absolute;
+  top:61.5%;
+  left:2%;
+}
+
+/* THIS IS THE BOX CONTAINING OUR EDIT DESCRIPTIONS*/
+#history{ 
+  position: absolute;
+  top:64%;
+  left:2%;
+  padding-left: 0px;
+  margin-left: 0px;
+  height:30%;
+  width: 100%;
+  overflow-y:auto;
+  max-width: 96%;
+  line-height: 22px;
+}
+
+#div0{
+  position: absolute;
+  overflow-y:auto;
+  max-width: 80%;
+
+}
+
+#divider { 
+    position:absolute;
+    top:30%;
+    width:58.5%;
+    height:28%;
+    background-color: #eeeeee;
+    left:1.5%;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#divider1 { 
+    position:absolute;
+    top:9.75%;
+    width:58.5%;
+    height:19%;
+    background-color: #eeeeee;
+    left:39.5%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#divider2 { 
+    position:absolute;
+    top:9.75%;
+    width:37%;
+    height:19%;
+    background-color: #eeeeee;
+    left:1.5%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
+              /*2nd Row Right*/
+#divider3 { 
+    position:absolute;
+    top:30%;
+    width:37%;
+    height:28%;
+    background-color: #eeeeee;
+    left:61%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
+#divider4 { 
+    position:absolute;
+    top:59.5%;
+    width:96.5%;
+    height:34%;
+    background-color: #eeeeee;
+    left:1.5%;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
+#res-lb{
+  position: absolute;
+  top:33%;
+  left:61.5%;
+  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+}
+
+#res{
+  position: absolute;
+  top:35%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  left:61%;
+  height:22%;
+  width:37%;
+  white-space: normal; word-wrap: break-word;
+  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+}
+
+#categ{
+  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+
+/* ------------ Labels --------------- */
+#L1{
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+#L2{
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+#L3{
+  position: absolute;
+  top: 21%;
+  padding-top: 0%;
+  height: 95%;
+  overflow-y:auto;
+  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+}
+
+#L4{
+  position: absolute;
+  top: 200px;
+  height: 20%;
+  width: 0%
+  padding-left: 1%;
+  margin-top:0px;
+  margin: 0px;
+  overflow-y:auto;
+  border:0px;
+  background-color: #eeeeee;
+}
+
+#L5{
+  border:0px;background-color: #eeeeee;
+}
+
+/*---------- Headers -----------------------*/
+#H1{
+  padding-left:0.5%;
+}
+#H2{
+  padding-left:0.5%;
+}
+#H3{
+  padding-left: 0.5%;
+}
+#H4{
+  position: absolute;
+  top: 50%;
+  left:5px;
+}
+#H5{
+    position: relative;
+  top:100%;
+}
+/*--------------------------------------*/
+
+p {  
+  line-height: 20px;
+}
+
+
+#button-container{ 
+  width: relative;
+  margin-left: 0%;
+  padding-top: 4em;
+}
+
+#body-container{ 
+  width: relative;
+  padding-top: 1.25em;
+}
+
+#exit-btn {
+  position: relative;
+  font-weight: bold;
+  opacity: 0.7;
+  left:0%;
+  width:15%;
+  min-width: 3.5em;
+}
+
+#desc-lb {
+  position: absolute;
+  padding-bottom: 0em;
+  padding-left:0.5%;
+  padding-top: 3em;
+  top: 31%;
+}
+
+#text_results{
+  position: absolute;
+  padding-left: 0%; 
+  left: 2%;
+  line-height: 22px; width: 58%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
+  font-family: 'Inder', sans-serif;
+  border: 0;
+  background-color: #eeeeee;
+  margin-bottom: 15px;
+  height: 20%;
+  top:38%;
+}
+
+#stat-lb{
+  position: absolute;
+  top:33%;
+  padding-left:0.5%;
+}
+
+#stat{
+  opacity: 0.70;
+  background-color: #81C784;
+}
+
+.channel-name {
+  border-left-color: #fec63d;
+  background-color: #3f4344;
+  padding: 10px 25px;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  border-left-width: 10px;
+  border-left-style: solid;
+  z-index: 9;
+  font-weight: bold;
+  width: 200px;
+  position: absolute;
+}
+
+.channel-name:hover{
+  background-color: #585d5e;
+  color: #FFF;
+}

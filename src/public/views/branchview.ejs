@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- Dependencies -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <style><background-color: blue></style>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/branchview.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <% include ./partials/head %>
+  </head>
+  
+  <body>
+    <header>
+      <% include ./partials/header %>
+    </header>
+   <script type="text/javascript" src="../view.json></script>
+    <script type="text/javascript" src="javascrip.js"></script>
+    <script type="text/javascript">
+    var data = <%- data %>;
+    var edits = <%- edits %>;
+    var tid = <%- cid %>;
+    </script>
+    <div class="card" id="super-card-mytickets">
+        <hr id="divider">
+        <hr id="divider1">
+        <hr id="divider2">
+        <hr id="divider3">
+        <hr id="divider4">
+        <div class="super-panel-heading">
+          <a class="channel-name stripe-two">View Ticket</a>
+        </div>
+
+        <div class="container" id="button-container">
+
+          <div id="buttons">
+           <a href="/branchtickets"><button id="exit-btn" type="button" class="btn btn-primary">Exit</button></a>
+          </div>
+        </div>
+        <div class="container" id="body-container">
+          <div id="cate-lb">
+            <form1>
+              <fieldset0>
+                <label class="control-label">Category</label><p><span class="control-label" id="categ"></span></p>
+                <label class="control-label" id="H1"></label><p><span class="control-label" id="L1"></span></p>
+                <label class="control-label" id="H2"></label><p><span class="control-label" id="L2"></span></p>
+
+              </fieldset0>
+              <!-- <div id=div0> -->
+              <fieldset1>
+                <label class="control-label" id="H3"></label><pre id="L3"></pre>
+                <label class="control-label" id="H4"></label><p><pre id="L4"></pre>
+                <label class="control-label" id="H5"></label><p><pre id="L5"></pre>
+              </fieldset1>
+              <!-- </div> -->
+            </form1>
+          </div>
+
+          <div>
+            <p0 id="symptoms0"></p0>
+            <p1 id="symptoms1"></p1>
+            <p2 id="symptoms2"></p2>
+            <p3 id="symptoms3"></p3>
+            <p4 id="symptoms4"></p4>
+          </div>
+
+          <div id="desc-lb">
+            <label  id=text_results_id class="control-label">Description of the problem:</label>
+          </div>
+
+          <div id="desc-text">
+            <pre class="control-label" id="text_results"></pre>
+            <div id="history">
+              <form3 id="histForm">
+
+              </form3>
+            </div>
+            <!-- <textarea disabled id="text_results" readonly></textarea> -->
+          <label id="history-lb">Changelog<label>
+
+          </div>
+          <div id="stat-lb">
+            <label class="control-label">Status:</label>
+            <span class="label label-default" id="stat"></span>
+            
+
+          </div>
+          <label class="control-label" id="res-lb"></label><p><pre id="res"></pre>
+        </div>
+      </div>
+
+
+
+      // --------------------------------------------------------------------------------
+      <script>
+        $(document).ready(function(){
+          button_handler();
+          var getRes = (data[0].Symptoms).split("RESOLUTION=");
+          if (getRes.length==2){
+
+              $('#res-lb').text("Resolution Notes:");
+              $('#res').text(getRes[1]);
+          }
+          if(data[0].Category == "Hardware"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+            $("#L4").attr('style', "top:70%; line-height: 110%; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
+          }
+          else if(data[0].Category == "Software"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["Affected Systems","System Status","Problem Replication","",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:140px; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+          }
+          else if(data[0].Category == "Password"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = ["System","Username","Full Name","",""]
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var ids = ["#L1","#L2", "#L3", "#L4", "#L5"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+          }
+          else if(data[0].Category == "General"){
+
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            var headings = [""]
+            var hids = ["#H1"];
+            var ids = ["#text_results"];
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined"){
+                parsed[i]="N/A";
+                
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+
+            $("#L3").attr('style', "line-height: 130%; padding-top:0px; margin-top:0px; background-color: #eeeeee; width: 100%; min-width: 0px; max-width: 100%; height:100%;max-height: 100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;");
+          }
+          else if(data[0].Category == "Service"){
+            var parsed = (getRes[0]).split("|");
+            var n = parsed.length;                          //how many entries in array
+            if(parsed[0]=="System Access"){
+              var headings = ["Service Type","","","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else if(parsed[0]=="Move Equipment "){  //fix move equipment later
+              var headings = ["Service Type","System Access","Asset Tags","","", ""];
+              var ids = ["#L1","#L2","#L3", "#text_results", "#L5"];
+              $('#text_results_id').text('Destination:')
+
+            }
+            else if(parsed[0]=="New Software"){
+              var headings = ["Service Type","Software Name","","",""]
+              var ids = ["#L1","","", "", "#L2"];
+            }
+            else if(parsed[0]=="New Equipment"){
+              var headings = ["Service Type","","","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            else{
+              var headings = ["Service Type","System Access","Asset Tags","",""];
+              var ids = ["#L1","#L2","#L3", "#L4", "#L5"];
+            }
+            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+
+            for(var i=0;i<n;i++){
+              if(parsed[i] ==" undefined" || parsed[i] =="undefined" || parsed[i] ==" undefined " || parsed[i] ==" "){
+                parsed[i]="";
+              }
+              $(hids[i]).text(headings[i]);
+              $(ids[i]).text(parsed[i]);
+            }
+          }
+          // CATEGORY IDENTIFIER
+          $('#categ').text(data[0].Category);
+          // STATUS IDENTIFIER
+          if(data[0].CallStatus =="Closed"){
+            $('#stat').css('background-color', '#F44336');
+            $('#stat').text(data[0].CallStatus);
+          }
+          else if(getRes.length==2){  //resolved ticket case
+
+            $('#stat').css('background-color', '#BDA0CB');
+            $('#stat').text("Resolved");
+          }                           
+          else{
+            $('#stat').text(data[0].CallStatus);
+          }
+        });
+
+      // --------------Dynamic Edits Generator ---------------------
+      var n = Object.keys(edits).length;
+      // alert(n);
+      for(var e=0;e<n;e++){
+
+        edits[e].EDate = edits[e].EDate.slice(0,10)
+        var node = document.createTextNode(edits[e].EDate);
+        var editDate = document.createElement("LABEL");
+        editDate.appendChild(node);
+
+        var node1 = document.createTextNode(edits[e].Edit);
+        var editContent = document.createElement("p");
+        editContent.appendChild(node1);
+
+        var element = document.getElementById("history");
+        element.appendChild(editDate);
+        element.appendChild(editContent);
+      }
+
+      // ------------------------------------------------------
+      function button_handler(table){
+
+               // EDIT BUTTON
+                $('#edit-btn').click(function() {
+                     window.location="/mytickets/edit"+tid;
+                  });
+
+
+                $('#resolve-btn').click(function() { //RESOLVE BUTTON
+                    window.location="/mytickets/resolve"+tid;
+                  });
+            }
+
+
+      </script>
+
+    <footer>
+      <% include ./partials/footer %>
+    </footer>
+  </body>
+</html>
