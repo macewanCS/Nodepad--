@@ -46,6 +46,12 @@
   padding-bottom: 15px;
 
 }
+#announcementsTable_wrapper{
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
 
 #announcement-card, #help-card{
   margin-top: 15px;
