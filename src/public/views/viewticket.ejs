@@ -27,13 +27,16 @@
     <header>
       <% include ./partials/header %>
     </header>
-   <script type="text/javascript" src="../view.json></script>
-    <script type="text/javascript" src="javascrip.js"></script>
-    <script type="text/javascript">
-    var data = <%- data %>;
-    var edits = <%- edits %>;
-    var tid = <%- cid %>;
+
+   <!-- <script type="text/javascript" src="../view.json"></script> -->
+    <!-- <script type="text/javascript" src="javascrip.js"></script> -->
+    <script>
+      var data = <%- data %>;
+      var edits = <%- edits %>;
+      var tid = <%- cid %>;
     </script>
+
+
     <div class="card" id="super-card-mytickets">
         <hr id="divider">
         <hr id="divider1">
@@ -106,7 +109,6 @@
 
 
 
-      // --------------------------------------------------------------------------------
       <script>
         $(document).ready(function(){
           button_handler();
@@ -226,13 +228,18 @@
           $('#categ').text(data[0].Category);
           // STATUS IDENTIFIER
           if(data[0].CallStatus =="Closed"){
+
             $('#stat').css('background-color', '#F44336');
             $('#stat').text(data[0].CallStatus);
+            $('#resolve-btn').remove();
+            $('#edit-btn').remove();
           }
           else if(getRes.length==2){  //resolved ticket case
 
             $('#stat').css('background-color', '#BDA0CB');
             $('#stat').text("Resolved");
+            $('#resolve-btn').remove();
+            $('#edit-btn').remove();
           }                           
           else{
             $('#stat').text(data[0].CallStatus);
