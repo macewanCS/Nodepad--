@@ -115,7 +115,7 @@
           title: "Please confirm your information:",
           message: "<form id='infos' action=''>\
     Subject:<br><input type='text' name='subject' /><br/>\
-    Message:<br><input type='text' name='message' />\
+    Message:<br><textarea rows ='4' cols='50' name='message' />\
     </form>",
           buttons: {
             confirm: {
@@ -134,7 +134,7 @@
             console.log(subject);
             console.log(message);
             postData();
-            //window.location.href = "/success";
+            window.location.href = "/announcements";
           }
         }
         });
