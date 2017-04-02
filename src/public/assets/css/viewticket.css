@@ -13,8 +13,6 @@ fieldset0{
   position: relative;
   width: 40%;
   padding-left:0.5%;
-  /*padding-left: 1%;*/
-  /*left:20em;*/
   top: 12%;
 }
 
@@ -58,8 +56,6 @@ fieldset1{
 #divider { 
     position:absolute;
     top:30%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
     width:58.5%;
     height:28%;
     background-color: #eeeeee;
@@ -67,15 +63,11 @@ fieldset1{
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
-    /*border-style: inset;*/
-    /*border-width: 1px;*/
 }
 
 #divider1 { 
     position:absolute;
     top:9.75%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
     width:58.5%;
     height:19%;
     background-color: #eeeeee;

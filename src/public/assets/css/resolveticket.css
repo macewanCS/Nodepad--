@@ -112,18 +112,15 @@ fieldset1{
 #divider4 { 
     position:absolute;
     top:59.5%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
     width:96.5%;
-    height:34%;
+    height:32%;
     background-color: #eeeeee;
     left:1.5%;
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
-    /*border-style: inset;*/
-    /*border-width: 1px;*/
 }
+
 
 /*#hist_date{
   line-height: 22px;
@@ -276,11 +273,12 @@ p {
 
 #confirm-btn{
   position: absolute;
-  left:82%;
+  left:88%;
   width:10%;
   min-width: 4em;
-  top: 95.5%;
+  top: 94.5%;
 }
+
 
 #res-lb {
   left: 2.5%;
@@ -293,9 +291,9 @@ p {
 #res_box{
   position: absolute;
   left: 2.5%;
-  /*margin: 0 auto 0 auto;*/
+  resize: none;
   border-radius: 5px;
-  width: 90%;
-  height: 30%;
+  width: 94%;
+  height: 28%;
   top:64%;
 }
