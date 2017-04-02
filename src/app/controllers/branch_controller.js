@@ -1,7 +1,39 @@
 var mysql = require('mysql');
 
-exports.view = function(req,res){
-  res.send("You entered " + req.params.ticketid + " right? if it isnt please tell Jack and he can fix it and then things will work and he wont be sad.");
+exports.view = function(req,res){            // VIEW TICKET
+
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: '395project'
+  });
+  
+  connection.connect(function(err) {
+    
+    var ticketData;
+    if (err) throw err
+          
+    connection.query('SELECT EditID, Edit, EDate FROM 395project.edits WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
+        if (err) throw err
+            editVar = JSON.stringify(result);
+          
+    });
+    if (err) throw err
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
+        if (err) throw err
+
+            ticketData = JSON.stringify(result);
+            res.render((__dirname + '/../../public/views/branchview.ejs'), {
+            data:ticketData,
+            edits:editVar,
+            cid:req.params.ticketid,
+            username:req.user.username,  
+            });
+    });
+    connection.end();
+  });
+
 };
 
 exports.edit = function(req,res){
@@ -76,17 +108,17 @@ function changeQueryStringOpen(site)
 }
 function changeQueryStringClosed(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null) and Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null) and Site != "HR"';
   if (site == "IT" || site == "HR"){
-    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
+    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
   }
   return string;
 }
 function changeQueryStringAll(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog Where Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog Where Site != "HR"';
   if (site == "IT" || site == "HR"){
-    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site FROM 395project.calllog';
+    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, Site, Resolve FROM 395project.calllog';
   }
   return string;
 }

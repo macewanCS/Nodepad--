@@ -89,17 +89,34 @@
 }
 
 /*table*/
-
-#myOpenTable, #branchTable, #announcementsTable {
- 
+#announcementsTable{
+  position: relative;
   height: relative;
+  left:0.5%;
+  /*padding-left: 2%;*/
+  width: 99%;
   margin-left:0px;
   margin-bottom: 0px;
-  
-  table-layout: fixed;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  table-layout: fixed;
+}
+
+#myOpenTable, #branchTable, #announcementsTable {
+  height: relative;
+  margin-left:0px;
+  margin-bottom: 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  table-layout: fixed;
+}
+#myOpenTable.dataTable td, #branchTable.dataTable td, #announcementsTable.dataTable td{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
 }
 
 #openTab, #branchTable_wrapper{
