@@ -15,7 +15,7 @@ exports.announcement = function(req, res){
     
     if (err) throw err
 
-      connection.query('SELECT AID, Title, Announcement, SubmittedDate from 395project.announcements Order by AID Desc Limit 5;', function(err, result) {
+      connection.query('SELECT AID, Title, Announcement, SubmittedDate from 395project.announcements Order by AID Desc Limit 10;', function(err, result) {
             resultVar = JSON.stringify(result);
             console.log(resultVar);
             res.render((__dirname + '/../../public/views/announcements.ejs'), {
