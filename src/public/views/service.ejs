@@ -180,7 +180,7 @@
           }
         $('#btn-change').attr('href', '#')
         $('#next-btn').attr('onClick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
-        if ($(this).find("option:selected").text().match(/Surplus Equipment/i) || $(this).find("option:selected").text().match(/Move Equipment/i) || $(this).find("option:selected").text().match(/System Access/i)){
+        if ($(this).find("option:selected").text().match(/System Access/i)){
           var content = 
           '<div class="panel panel-default" id="panel2">' +
             ' <div class="panel-heading" id="heading-two">'+
@@ -219,15 +219,15 @@
         
         if ($(this).find("option:selected").text().match(/Move Equipment/i)){
           var content =
-          '<div class="panel panel-default" id="panel3">' +
-           ' <div class="panel-heading" id="heading-three">'+
+          '<div class="panel panel-default" id="panel2">' +
+           ' <div class="panel-heading" id="heading-two">'+
              ' <h4 class="panel-title">'+
-              '  Step 3: Asset Tags <a class="changer" id="changeATag" onclick="undo(\'#collapse3\', \'#collapse1\', \'#collapse2\', \'#collapse4\', \'#collapse5\')" style="visibility:hidden"> Change </a>'+
+              '  Step 2: Asset Tags <a class="changer" id="changeATag" onclick="undo(\'#collapse2\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse5\')" style="visibility:hidden"> Change </a>'+
               '</h4>'+
              ' </div>'+
-              '<div id="collapse3" class="panel-collapse collapse">'+
+              '<div id="collapse2" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
-                '<button type="button" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse3\',\'#collapse4\',\'#asset-tag-text\', \'#heading-three\',\'#changeATag\')">Next</button>  '              +
+                '<button type="button" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse2\',\'#collapse3\',\'#asset-tag-text\', \'#heading-two\',\'#changeATag\')">Next</button>  '              +
               '</div>'+
                ' <div class="issue-description">'+
                   '<p1>What is the asset tag of'+
@@ -240,13 +240,13 @@
                 '</div> ' +        
               '</div>'+
           
-          '<div class="panel panel-default" id="panel4">' +
-           ' <div class="panel-heading" id="heading-four">'+
+          '<div class="panel panel-default" id="panel3">' +
+           ' <div class="panel-heading" id="heading-three">'+
              ' <h4 class="panel-title">'+
-              '  Step 4: Destination '+
+              '  Step 3: Destination '+
               '</h4>'+
              ' </div>'+
-              '<div id="collapse4" class="panel-collapse collapse">'+
+              '<div id="collapse3" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
                 '<button type="button" class="btn btn-primary" onclick="checkFilled(\'#text-block\')")">Submit</button>'              +
               '</div>'+
@@ -265,13 +265,13 @@
         
         if ($(this).find("option:selected").text().match(/Surplus Equipment/i)){
           var content =
-          '<div class="panel panel-default" id="panel3">' +
+          '<div class="panel panel-default" id="panel2">' +
            ' <div class="panel-heading" id="heading-one">'+
              ' <h4 class="panel-title">'+
-              '  Step 3: Asset Tags '+
+              '  Step 2: Asset Tags '+
               '</h4>'+
              ' </div>'+
-              '<div id="collapse3" class="panel-collapse collapse">'+
+              '<div id="collapse2" class="panel-collapse collapse">'+
               '<div id="confirmation-buttons">'+
                   '<button type="button" class="btn btn-primary" onclick="checkFilled(\'#asset-tag-text\')")">Submit</button>  '              +
               '</div>'+
