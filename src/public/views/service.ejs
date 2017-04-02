@@ -407,7 +407,39 @@
           len++;
           $('#accordion').append(content);
           $('#collapse2 .selectpicker').selectpicker('show');
+          
+          $('#collapse2 .selectpicker').on('change',function(){
+            
+            if ($(this).find("option:selected").text().match(/Other/i)){
+            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3', '#heading-two', '#changeSystem')");
+            console.log("It matched");
+            var content =
+        '<div class="panel-group" id="other-panel">' +
+            '<div class="panel panel-default">' +
+              '<div class="panel-heading" id="heading-three">' +
+                '<h4 class="panel-title">' +
+                  'Step 2A: Equipment Name<a id="changeAsset" class="changer" onclick="undo(\'#collapse3\', \'#collapse1\', \'#collapse2\', \'#collapse3\', \'#collapse5\')" style="visibility:hidden"> Change </a>' +
+                '</h4>' +
+              '</div>' +
+              '<div id="collapse3" class="panel-collapse collapse">' +
+                '<div id="confirmation-buttons">' +
+                  '<button type="button" id="other-btn" class="btn btn-primary" onclick="checkFilled(\'#equip-text\')">Submit</button>  '  +       
+                '</div>' +
+                '<div class="issue-description">' +
+                    'Please enter the name of the service you are having trouble accessing'+
+                '</div>' +
+                '<div class="panel-text-box">' +
+                  '<input type="text" id="equip-text">' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+          $('#accordion #panel2').after(content);
+            }
+            console.log($(this).find("option:selected").text());
+          });
         }
+        
         console.log(len);
         });
       });
