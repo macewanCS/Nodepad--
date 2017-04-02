@@ -57,7 +57,7 @@
                   <option name='temp'>Calder</option>
                   <option name='temp'>Capilano</option>
                   <option name='temp'>Castle Downs</option>
-                  <option name='temp'>Century Park LRT</option>
+                  <option name='temp'>Century Park LM</option>            
                   <option name='temp'>Clareview</option>
                   <option name='temp'>Enterprise Square</option>
                   <option name='temp'>Highlands</option>
@@ -331,6 +331,8 @@
             function dropdown_handler(target){
 
               //use $(".dropdown-toggle").text() to retrieve current branch
+              var settings = $(target).dataTable().fnSettings();
+              
 
               $(target).dataTable().fnFilter('<%- branch %>', "6"); // Default Branch
               $('.selectpicker').on('change', function(){
@@ -340,11 +342,18 @@
                 
                 if(tempBranch=='HOME'){
                   tempBranch = homeBranch;
+                 $(target).dataTable().fnFilter(tempBranch, "6"); // On Branch Selection 
+               }
+                 else if(tempBranch == ''){
+                   $(target).dataTable().fnFilter(tempBranch, "6"); // On Branch Selection 
                 }
-                $(target).dataTable().fnFilter(tempBranch, "6"); // On Branch Selection
-                  myOpen.draw();
+                else{
+                  $(target).dataTable().fnFilter("^\\s*"+tempBranch+"\\s*$", "6", true); // On Branch Selection 
+                }
+                  myOpen.draw();                                                        // Needed to use REGEX in filter for exact match only
               });
             }
+
             
             // ----------------------------------------------------------------
             function alias(branch){
