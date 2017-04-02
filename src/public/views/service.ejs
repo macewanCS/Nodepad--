@@ -106,7 +106,6 @@
     
     <script>
       function showInfo(){
-      console.log("showing info");
   var service = $('#select-type').find("option:selected").text();
   var system =  $('#select-access').find("option:selected").text();    
   var assettag = $('#asset-tag-text').val();
@@ -115,37 +114,51 @@
   var softLoc = $('#text-block-loc').val();
   var personAccs = $('#text-block-acs').val();
   var equipType = $('#select-equip').val();
-  if (typeof assettag == "undefined"){
-    assettag = "n/a";
+  var outString = "";
+
+  if (typeof service != "undefined"){
+
+    outString = outString + "<b>Service Type:</b> " + service;
+  } 
+
+  if (system != ""){
+
+    outString = outString + "<br><b>System Name:</b> " + system;
+  }   
+
+  if (typeof assettag != "undefined"){
+
+    outString = outString + "<br><b>Asset Tag:</b> " + assettag;
+  }   
+
+  if (typeof locate != "undefined"){
+
+    outString = outString + "<br><b>Destination:</b> " + locate;
+  }   
+
+  if (typeof software != "undefined"){
+
+    outString = outString + "<br><b>Software:</b> " + software;
   }
-  if (typeof locate == "undefined"){
-    locate = "n/a";
+
+  if (typeof softLoc != "undefined"){
+
+    outString = outString + "<br><b>Install Location:</b> " + softLoc;
   }
-  if (typeof software == "undefined"){
-    software = "n/a";
+
+  if (typeof personAccs != "undefined"){
+
+    outString = outString + "<br><b>Accessor:</b> " + personAccs;
   }
-  if ( system === ""){
-    system = "n/a";
+
+  if (typeof equipType != "undefined"){
+
+    outString = outString + "<br><b>Equipment Type:</b> " + equipType;
   }
-  if (typeof softLoc == "undefined"){
-    softLoc = "n/a";
-  }
-  if (typeof personAccs == "undefined"){
-    personAccs = "n/a";
-  }
-  if (typeof equipType == "undefined"){
-    equipType = "n/a";
-  }
+
   bootbox.confirm({
     title: "Please confirm your information:",
-    message: "<b>Service Type:</b> " + service +
-        "<br><b>System Name:</b> " + system +
-        "<br><b>Asset Tag:</b> " + assettag +
-        "<br><b>Destination:</b> " + locate +
-        "<br><b>Software:</b> " + software +
-         "<br><b>Install Location:</b> " + softLoc +
-         "<br><b>Accessor:</b> " + personAccs +
-         "<br><b>Equipment Type:</b> " + equipType,
+    message: outString,
     buttons: {
         confirm: {
           label: 'Submit',
