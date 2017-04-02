@@ -183,6 +183,7 @@
       $(document).ready(function(){
         var len = 1;
         $('.selectpicker').on('change',function(){
+          
           console.log("running");
           console.log($(this).find("option:selected").text());
           $('#next-btn').text("Next");
@@ -409,7 +410,9 @@
           $('#collapse2 .selectpicker').selectpicker('show');
           
           $('#collapse2 .selectpicker').on('change',function(){
-            
+            $('#other-panel').remove();
+          $('#access-btn').attr('onclick', "checkFilled(\'#select-equip\')");
+           $('#access-btn').html("Submit");
             if ($(this).find("option:selected").text().match(/Other/i)){
             $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3', '#heading-two', '#changeSystem')");
             console.log("It matched");
@@ -435,6 +438,8 @@
             '</div>' +
           '</div>';
           $('#accordion #panel2').after(content);
+         $('#access-btn').html("Next");
+          
             }
             console.log($(this).find("option:selected").text());
           });
