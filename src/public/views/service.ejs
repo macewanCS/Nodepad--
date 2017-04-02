@@ -60,7 +60,7 @@
         var locate =  $('#text-block').val();
         var software = $("#text-block-2").val();
         var softLoc = $('#text-block-loc').val();
-        var personAccs = $('text-block-acs').val();
+        var personAccs = $('#text-block-acs').val();
         var equipType = $('#select-equip').val();
         if (typeof assettag == "undefined"){
           assettag = "n/a";
@@ -86,7 +86,7 @@
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
         var params = "EquipmentType=" + service + "&System=" + system +  "&AssetTag=" + assettag
-        + "&Location=" +locate + "&SoftwareName=" + software + "&SoftwareLocation=" + softLoc + "&Accessor=" +personAccs + "&equipType=" +equipType;
+        + "&Location=" +locate + "&SoftwareName=" + software + "&SoftwareLocation=" + softLoc + "&Accessor=" + personAccs + "&equipType=" + equipType;
         console.log(params);
         var url = "/createService";
         console.log("sent " + http.status + " " + http.readyState);
