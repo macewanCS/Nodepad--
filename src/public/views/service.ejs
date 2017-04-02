@@ -61,6 +61,7 @@
         var software = $("#text-block-2").val();
         var softLoc = $('#text-block-loc').val();
         var personAccs = $('text-block-acs').val();
+        var equipType = $('#select-equip').val();
         if (typeof assettag == "undefined"){
           assettag = "n/a";
         }
@@ -79,10 +80,13 @@
         if (typeof personAccs == "undefined"){
           personAccs = "n/a";
         }
+        if (typeof equipType == "undefined"){
+          equipType = "n/a";
+        }
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
         var params = "EquipmentType=" + service + "&System=" + system +  "&AssetTag=" + assettag
-        + "&Location=" +locate + "&SoftwareName=" + software + "&SoftwareLocation=" + softLoc + "&Accessor=" +personAccs;
+        + "&Location=" +locate + "&SoftwareName=" + software + "&SoftwareLocation=" + softLoc + "&Accessor=" +personAccs + "&equipType=" +equipType;
         console.log(params);
         var url = "/createService";
         console.log("sent " + http.status + " " + http.readyState);
@@ -110,6 +114,7 @@
   var software = $("#text-block-2").val();
   var softLoc = $('#text-block-loc').val();
   var personAccs = $('#text-block-acs').val();
+  var equipType = $('#select-equip').val();
   if (typeof assettag == "undefined"){
     assettag = "n/a";
   }
@@ -128,6 +133,9 @@
   if (typeof personAccs == "undefined"){
     personAccs = "n/a";
   }
+  if (typeof equipType == "undefined"){
+    equipType = "n/a";
+  }
   bootbox.confirm({
     title: "Please confirm your information:",
     message: "<b>Service Type:</b> " + service +
@@ -136,7 +144,8 @@
         "<br><b>Destination:</b> " + locate +
         "<br><b>Software:</b> " + software +
          "<br><b>Install Location:</b> " + softLoc +
-         "<br><b>Accessor:</b> " + personAccs,
+         "<br><b>Accessor:</b> " + personAccs +
+         "<br><b>Equipment Type:</b> " + equipType,
     buttons: {
         confirm: {
           label: 'Submit',
@@ -345,15 +354,51 @@
         }
         $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2', '#heading-one', '#changeType')");
         if ($(this).find("option:selected").text().match(/New Equipment/i)){
-          $('#next-btn').attr('onClick', 'showInfo()');
-          $('#next-btn').attr('href', '/home');
-          $('#next-btn').text("Submit");
+          var content = 
+          '<div class="panel panel-default" id="panel2">' +
+            ' <div class="panel-heading" id="heading-two">'+
+              ' <h4 class="panel-title">'+
+                '  Step 2: Equipment Type <a class="changer" id="changeAccess" onclick="undo(\'#collapse2\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse5\')" style="visibility:hidden"> Change </a>'+
+                  '</h4>'+
+            ' </div>'+
+              '<div id="collapse2" class="panel-collapse collapse">'+
+              '<div id="confirmation-buttons">'+
+                '<button type="button" id="access-btn" class="btn btn-primary" onclick="checkFilled(\'#select-equip\')">Submit</button>  '              +
+              '</div>'+
+              ' <div class="issue-description">'+
+                  '<p1>What kind of new equipment are you looking for?</p1>'+
+              ' </div>'+
+              ' <div class="dropdown">'+
+                '<select class="selectpicker type-button" data-live-search="true" data-dropup-auto="false" title="Request Type" id="select-equip">'+
+                  '<option>AWE</option>'+
+                  '<option>Barcode scanner</option>'+
+                  '<option>Cell phone</option>'+
+                  '<option>Gate</option>'+
+                  '<option>Hotspot</option>'+
+                  '<option>iPad</option>'+
+                  '<option>Laptop</option>'+
+                  '<option>Laser printer</option>'+
+                  '<option>Monitor/LCD</option>'+
+                  '<option>Receipt printer</option>'+
+                  '<option>PC</option>'+
+                  '<option>Projector</option>'+
+                  '<option>RFID pad</option>'+
+                  '<option>Self-checkout</option>'+
+                  '<option>Smart Chute</option>'+
+                  '<option>Sorter</option>'+
+                  '<option>Other</option>'+
+                '</select>'+ 
+              ' </div>     '   +
+              '</div> ' +        
+            '</div>';
+          len++;
+          $('#accordion').append(content);
+          $('#collapse2 .selectpicker').selectpicker('show');
         }
         console.log(len);
         });
       });
     </script>   
-    
     
     <footer>
       <% include ./partials/footer %>
