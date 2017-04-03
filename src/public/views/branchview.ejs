@@ -48,6 +48,7 @@
 
           <div id="buttons">
            <a href="/branchtickets"><button id="exit-btn" type="button" class="btn btn-primary">Exit</button></a>
+           <label class="control-label" id="H6">Ticket Creator</label><span id="L6"></span>
           </div>
         </div>
         <div class="container" id="body-container">
@@ -107,6 +108,7 @@
       <script>
         $(document).ready(function(){
           $('#L5').text(data[0].Site);
+          $('#L6').text(data[0].username);
 
           button_handler();
           var getRes = (data[0].Symptoms).split("RESOLUTION=");
@@ -130,7 +132,7 @@
               $(hids[i]).text(headings[i]);
               $(ids[i]).text(parsed[i]);
             }
-            $("#L4").attr('style', "top:74%; line-height: 20px; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:90%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
+            $("#L4").attr('style', "top:88%; line-height: 20px; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:90%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
           }
           else if(data[0].Category == "Software"){
 
