@@ -224,8 +224,8 @@
                   '<option>iNovah</option>'+
                   '<option>Library Online</option>'+
                   '<option>SAP</option>'+
-                  '<option>>S:/ Drive Folder</option>'+
-                  '<option>>VPN</option>'+
+                  '<option>S:/ Drive Folder</option>'+
+                  '<option>VPN</option>'+
                 '</select>'+ 
               ' </div>     '   +
               '</div> ' +        
@@ -422,10 +422,10 @@
           $('#access-btn').attr('onclick', "checkFilled(\'#select-equip\')");
            $('#access-btn').html("Submit");
             if ($(this).find("option:selected").text().match(/Other/i)){
-            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3', '#heading-two', '#changeSystem')");
+            $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3', '#heading-two', '#changeAccess')");
             console.log("It matched");
             var content =
-        '<div class="panel-group" id="other-panel">' +
+        '<div class="panel-group" id="panel3">' +
             '<div class="panel panel-default">' +
               '<div class="panel-heading" id="heading-three">' +
                 '<h4 class="panel-title">' +
@@ -447,7 +447,7 @@
           '</div>';
           $('#accordion #panel2').after(content);
          $('#access-btn').html("Next");
-          
+          len++;
             }
             console.log($(this).find("option:selected").text());
           });
