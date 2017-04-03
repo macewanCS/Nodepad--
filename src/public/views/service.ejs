@@ -425,7 +425,7 @@
             $('#access-btn').attr('onclick', "toggleAccordian('#collapse2', '#collapse3', '#heading-two', '#changeSystem')");
             console.log("It matched");
             var content =
-        '<div class="panel-group" id="other-panel">' +
+        '<div class="panel-group" id="panel3">' +
             '<div class="panel panel-default">' +
               '<div class="panel-heading" id="heading-three">' +
                 '<h4 class="panel-title">' +
@@ -447,7 +447,7 @@
           '</div>';
           $('#accordion #panel2').after(content);
          $('#access-btn').html("Next");
-          
+          len++;
             }
             console.log($(this).find("option:selected").text());
           });

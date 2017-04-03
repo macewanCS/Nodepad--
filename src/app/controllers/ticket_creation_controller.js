@@ -58,7 +58,7 @@ exports.service = function(req, res){
     connection.query("SELECT * FROM calllog ORDER BY CallID DESC LIMIT 1", function(err,result){
       var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)"
       var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
-s
+
       var appendedString = req.body.EquipmentType + " | " + req.body.System + " | " + req.body.AssetTag + " | " + req.body.Location + " | " + req.body.SoftwareName + " | " + req.body.SoftwareLocation + " | " + req.body.Accessor + " | " + req.body.equipType; 
       console.log(req.body.Accessor);
       lastRec = addLastRecord(result);
