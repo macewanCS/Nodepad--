@@ -72,7 +72,7 @@
           software = "n/a";
         }
         if (system == ""){
-        system = "n/a";
+          system = "n/a";
         }
         if (typeof softLoc == "undefined"){
           softLoc = "n/a";
@@ -113,7 +113,6 @@
   var software = $("#text-block-2").val();
   var softLoc = $('#text-block-loc').val();
   var personAccs = $('#text-block-acs').val();
-  var equipType = $('#select-equip').val();
   var outString = "";
 
   if (typeof service != "undefined"){
@@ -150,10 +149,14 @@
 
     outString = outString + "<br><b>Accessor:</b> " + personAccs;
   }
-
-  if (typeof equipType != "undefined"){
-
-    outString = outString + "<br><b>Equipment Type:</b> " + equipType;
+  console.log("checking equip-text");
+  if (typeof $('#equip-text').val() == "undefined"){
+    if (typeof $('#select-equip').val() != "undefined"){
+      outString = outString + "<br><b>Equipment Type:</b> " + $('#select-equip').val();
+    }
+  }
+  else {
+    outString = outString + "<br><b>Equipment Type:</b> " + $('#equip-text').val();
   }
 
   bootbox.confirm({
