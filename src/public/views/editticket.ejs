@@ -98,7 +98,7 @@ var data = <%- data %>;
       <script>
         $(document).ready(function(){
           
-          var getRes = (data[0].Symptoms).split("|Res:");
+          var getRes = (data[0].Symptoms).split(" | Resolution:");
           if (getRes.length==2){
 
               $('#res-lb').text("Resolution Notes:");
