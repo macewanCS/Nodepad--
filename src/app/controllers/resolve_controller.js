@@ -20,7 +20,7 @@ exports.resolve = function(req,res){                 // EDIT TICKET
     var queryString = "UPDATE calllog set resolve = " + 1 + ", symptoms = concat(symptoms, ?) where CallID = ?"
 
     var ticketID = req.body.TicketID;
-    var resolve = "RESOLUTION=" + req.body.Resolveinfo;
+    var resolve = " | Resolution:" + req.body.Resolveinfo;
 
     connection.query(queryString, [resolve, ticketID]);
     console.log("Ending insertion, check the database to confirm");

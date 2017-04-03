@@ -110,7 +110,7 @@
       <script>
         $(document).ready(function(){
           button_handler();
-          var getRes = (data[0].Symptoms).split("RESOLUTION=");
+          var getRes = (data[0].Symptoms).split(" | Resolution:");
           if (getRes.length==2){
 
               $('#res-lb').text("Resolution Notes");
