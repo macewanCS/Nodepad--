@@ -27,9 +27,9 @@ exports.home = function(req, res){
     if (err) throw err
     connection.query('SELECT AID, Title, Announcement, SubmittedDate from 395project.announcements Order by AID Desc Limit 3;', function(err, announcementsRes){
     if (err) throw err
-      connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallStatus= "Open" and CustID="' + req.user.id + '" and resolve is null Order By TempDate Desc LIMIT 5;', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallStatus= "Open" and CustID="' + req.user.id + '" and resolve is null Order By TempDate Desc LIMIT 5;', function(err, result) {
         if (err) throw err
-            connection.query('SELECT Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE Site="' + req.user.Site + '" and resolve is null Order By TempDate Desc LIMIT 5;', function(err, branchResult) {
+            connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE Site="' + req.user.Site + '" and resolve is null Order By TempDate Desc LIMIT 5;', function(err, branchResult) {
             announ = JSON.stringify(announcementsRes);
             console.log(announ);
             myVar3 = JSON.stringify(result);

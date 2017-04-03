@@ -19,22 +19,6 @@
   margin-left: 0%;
 }
 
-fieldset0{
-  position: relative;
-  width: 40%;
-  padding-left:0.5%;
-  /*padding-left: 1%;*/
-  /*left:20em;*/
-  top: 12%;
-}
-
-fieldset1{
-  position: absolute;
-  width: 55%;
-  top: 12%;
-  left:40%;
-}
-
 #history{
   position: absolute;
   top:55%;
@@ -45,16 +29,6 @@ fieldset1{
   line-height: 22px;
 }
 
-#div0{
-  position: absolute;
-  overflow-y:auto;
-  /*overflow-x:auto;*/
-  max-width: 80%;
-  /*width:1px;*/
-  /*max-height:10px; */
-
-}
-
 #hist_date{
   line-height: 22px;
 }
@@ -62,67 +36,82 @@ fieldset1{
   line-height: 22px;
 }
 
-#categ{
-  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+#change-lb {
+  left: 2.5%;
+  position: absolute;
+  padding-bottom: 0em;
+  padding-top: 3em;
+  top: 57%;
 }
 
-#L1{
-  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
-}
-#L2{
-  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
-}
-#L3{
+#change_box{
   position: absolute;
-  top: 21%;
-  padding-top: 0%;
-  /*line-height: 2px;*/
-  height: 90%;
-  max-height: 100%;
+  left: 2.5%;
+  resize: none;
+  border-radius: 5px;
+  width: 94%;
+  height: 28%;
+  top:64%;
+}
+
+#super-card-mytickets{
+  background: #fff;
+  position: relative;
+  left: 15%;
+  height: 900px;
+  width: 70%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 0%;
+}
+
+fieldset0{
+  position: relative;
+  width: 40%;
+  padding-left:0.5%;
+  top: 12%;
+}
+
+fieldset1{
+  position: absolute;
+  width: 55%;
+  top: 12%;
+  left:40%;
+}
+
+#history-lb{
+  position: absolute;
+  top:61.5%;
+  left:2%;
+}
+
+/* THIS IS THE BOX CONTAINING OUR EDIT DESCRIPTIONS*/
+#history{ 
+  position: absolute;
+  top:64%;
+  left:2%;
+  padding-left: 0px;
+  margin-left: 0px;
+  height:30%;
+  width: 100%;
   overflow-y:auto;
-  width: 90%;
   /*overflow-x:auto;*/
-  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
-}
-#L4{
-  position: absolute;
-  top: 145%;
-  height: 10px;
-  overflow-y:auto;
-  border:0px;background-color: #eeeeee;
-}
-#L5{
-  border:0px;background-color: #eeeeee;
+  max-width: 96%;
+  line-height: 22px;
 }
 
-#H1{
-  padding-left:0.5%;
-}
-#H2{
-  padding-left:0.5%;
-}
-#H3{
-  padding-left: 0.5%;
-  /*top:20%;*/
-}
-#H4{
+#div0{
   position: absolute;
-  top:45px;
-  left: 0.5%;
+  overflow-y:auto;
+  /*overflow-x:auto;*/
+  max-width: 80%;
+  /*width:1px;*/
+  /*max-height:10px; */
 }
-/*#H5{
-    position: relative;
-  top:100%;
-}
-*/
-p {  
-  line-height: 10px;
-}
+
 #divider { 
     position:absolute;
     top:30%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
     width:58.5%;
     height:28%;
     background-color: #eeeeee;
@@ -130,15 +119,11 @@ p {
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
-    /*border-style: inset;*/
-    /*border-width: 1px;*/
 }
 
 #divider1 { 
     position:absolute;
     top:9.75%;
-    /*size:40px;    */
-    /*opacity: 0.1;*/
     width:58.5%;
     height:19%;
     background-color: #eeeeee;
@@ -186,6 +171,8 @@ p {
 #divider4 { 
     position:absolute;
     top:59.5%;
+    /*size:40px;    */
+    /*opacity: 0.1;*/
     width:96.5%;
     height:32%;
     background-color: #eeeeee;
@@ -193,6 +180,93 @@ p {
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
+    /*border-style: inset;*/
+    /*border-width: 1px;*/
+}
+
+#res-lb{
+  position: absolute;
+  top:33%;
+  left:61.5%;
+  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+}
+
+#res{
+  position: absolute;
+  top:35%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  left:61%;
+  height:22%;
+  width:37%;
+  white-space: normal; word-wrap: break-word;
+  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+}
+
+#categ{
+  padding-left:0.75%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+#L1{
+  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+#L2{
+  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
+#L3{
+  position: absolute;
+  top: 28%;
+  padding-top: 0%;
+  height: 95%;
+  overflow-y:auto;
+  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+}
+#L4{
+  position: absolute;
+  top: 200px;
+  height: 30%;
+  width: 0%
+  /*left:3px;*/
+  padding-left: 0.75%;
+  margin-top:0px;
+  margin: 0px;
+  overflow-y:auto;
+  border:0px;
+  background-color: #eeeeee;
+}
+#L5{
+  position: relative;
+  /*padding-top: 3px;*/
+  left: 24%;
+  /*width: 10px;*/
+  top:132px; 
+  border:0px;
+  background-color: #eeeeee;
+}
+
+#H1{
+  padding-left:0.5%;
+}
+#H2{
+  padding-left:0.5%;
+}
+#H3{
+  padding-left: 0.5%;
+  /*top:20%;*/
+}
+#H4{
+  position: absolute;
+  top: 64%;
+  left:0.65%;
+  /*padding-left: 0.05%;*/
+}
+#H5{
+    position: relative;
+    padding-left: 0.5%;
+    left:50px;
+    top:155px;
+}
+p {  
+  line-height: 15px;
 }
 
 #button-container{ 
@@ -252,8 +326,9 @@ p {
 #text_results{
   position: absolute;
   padding-left: 0%; 
-  left: 2%;
-  line-height: 22px; width: 58%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
+  padding-top: 0px;
+  left: 2.25%;
+  line-height: 22px; width: 56%; min-width: 0px; max-width: 93%; max-height: 50em; white-space: normal; word-wrap: break-word;
   font-family: 'Inder', sans-serif;
   border: 0;
   background-color: #eeeeee;
@@ -269,7 +344,8 @@ p {
 }
 
 #stat{
-  background-color: #c5e1a5;
+  opacity: 0.70;
+  background-color: #81C784;
 }
 
 .channel-name {
@@ -291,22 +367,4 @@ p {
 .channel-name:hover{
   background-color: #585d5e;
   color: #FFF;
-}
-
-#change-lb {
-  left: 2.5%;
-  position: absolute;
-  padding-bottom: 0em;
-  padding-top: 3em;
-  top: 57%;
-}
-
-#change_box{
-  position: absolute;
-  left: 2.5%;
-  resize: none;
-  border-radius: 5px;
-  width: 94%;
-  height: 28%;
-  top:64%;
 }

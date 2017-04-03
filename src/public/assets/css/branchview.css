@@ -132,44 +132,47 @@ fieldset1{
   font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 
-#categ{
-  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
-}
 
-/* ------------ Labels --------------- */
+#categ{
+  padding-left:0.75%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+}
 #L1{
-  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L2{
-  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L3{
   position: absolute;
-  top: 21%;
+  top: 22%;
   padding-top: 0%;
   height: 95%;
   overflow-y:auto;
-  padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
-
 #L4{
   position: absolute;
   top: 200px;
-  height: 20%;
+  height: 30%;
   width: 0%
-  padding-left: 1%;
+  /*left:3px;*/
+  padding-left: 0.75%;
   margin-top:0px;
   margin: 0px;
   overflow-y:auto;
   border:0px;
   background-color: #eeeeee;
 }
-
 #L5{
-  border:0px;background-color: #eeeeee;
+  position: relative;
+  /*padding-top: 3px;*/
+  left: 24%;
+  /*width: 10px;*/
+  top:133.5px; 
+  border:0px;
+  background-color: #eeeeee;
 }
 
-/*---------- Headers -----------------------*/
 #H1{
   padding-left:0.5%;
 }
@@ -178,22 +181,23 @@ fieldset1{
 }
 #H3{
   padding-left: 0.5%;
+  /*top:20%;*/
 }
 #H4{
   position: absolute;
   top: 50%;
-  left:5px;
+  left:0.65%;
+  /*padding-left: 0.05%;*/
 }
 #H5{
     position: relative;
-  top:100%;
+    padding-left: 0.5%;
+    left:50px;
+    top:155px;
 }
-/*--------------------------------------*/
-
 p {  
-  line-height: 20px;
+  line-height: 15px;
 }
-
 
 #button-container{ 
   width: relative;
@@ -226,8 +230,9 @@ p {
 #text_results{
   position: absolute;
   padding-left: 0%; 
-  left: 2%;
-  line-height: 22px; width: 58%; min-width: 0px; max-width: 95%; max-height: 50em; white-space: normal; word-wrap: break-word;
+  padding-top: 0px;
+  left: 2.25%;
+  line-height: 22px; width: 56%; min-width: 0px; max-width: 93%; max-height: 50em; white-space: normal; word-wrap: break-word;
   font-family: 'Inder', sans-serif;
   border: 0;
   background-color: #eeeeee;

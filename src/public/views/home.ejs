@@ -98,26 +98,31 @@
                    { "mDataProp": "TempDate" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "Category" },
+                   { "mDataProp": "CallID"}
                  ],
                   "filter": false,
-
                   "lengthChange": false,
-                  "deferRender": true,
                   "bsort": false,
                   "bsortClasses": false,
                   "bInfo": false,
                   "autoWidth": false,
                   "bPaginate": false,
-                  "pageLength": 7,
-                  "deferRender": true,
-                  "sPaginationType": "full_numbers",
                   "lengthChange": false,
-                                    
-                   "columnDefs": [ {"targets": 0, "width": "13%"}, {"targets": 1, "width": "65%"},{"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"}]
+                  "bSort": false,
+                   "columnDefs": [ {"targets": 0, "width": "13%"},
+                   {"targets": 1, "width": "65%"},
+                   {"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"},
+                   {"targets": 3, "width": "10%","data": null, "visible": false}]
                });
- 
-             });
 
+               $('#myOpenTable').on('click','tr', function(){
+
+                  var data = myOpen.row(this).data();
+                  
+                   window.location.href = "/mytickets/view"+data.CallID;
+                  });
+
+             });
            </script>
 
             <link rel="#dataTable" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
@@ -127,6 +132,7 @@
                   <th>Date:</th>
                   <th>Description:</th>
                   <th>Category:</th>
+                  <th>CallID:</th>
                 </tr>
               </thead>
             </table>
@@ -147,7 +153,7 @@
                   branch[i].TempDate = branch[i].TempDate.slice(0,10)
               }
               $(document).ready(function(){
-                $('#branchTable').DataTable( {
+                var myClose = $('#branchTable').DataTable( {
                  "order": [[0, "desc"]],
                  "autoWidth": false,
                  "aaData": branch,
@@ -155,6 +161,7 @@
                    { "mDataProp": "TempDate" },
                    { "mDataProp": "Symptoms" },
                    { "mDataProp": "Category" },
+                   { "mDataProp": "CallID" },
                  ],
                   "filter": false,
                   "bsort": false,
@@ -163,9 +170,22 @@
                   "autoWidth": false,
                   "bPaginate": false,
                   "lengthChange": false,
-
-                 "columnDefs": [ {"targets": 0, "width": "13%"}, {"targets": 1, "width": "65%"}, {"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"}]
+                  "bSort": false,
+                 "columnDefs": [ 
+                 {"targets": 0, "width": "13%"},
+                 {"targets": 1, "width": "65%"},
+                 {"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"},
+                 {"targets": 3, "width": "13%", "data": null, "visible": false}]
                });
+
+
+  
+               $('#branchTable').on('click','tr', function(){
+
+                  var data = myClose.row(this).data();
+                  
+                   window.location.href = "/mytickets/view"+data.CallID;
+                  })
 
               });
             </script>
@@ -177,6 +197,7 @@
                   <th>Date:</th>
                   <th>Description:</th>
                   <th>Category:</th>
+                  <th>Call ID:</th>
                 </tr>
               </thead>
             </table>
@@ -200,8 +221,7 @@
     </div>
   </div>
   <!--help card-->
-
-
+  
   <footer>
     <% include ./partials/footer %>
   </footer>
