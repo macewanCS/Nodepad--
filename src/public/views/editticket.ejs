@@ -97,6 +97,7 @@ var data = <%- data %>;
     
       <script>
         $(document).ready(function(){
+          
           var getRes = (data[0].Symptoms).split("RESOLUTION=");
           if (getRes.length==2){
 
@@ -108,8 +109,8 @@ var data = <%- data %>;
             var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
-            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
-            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
+            var hids = ["#H1","#H2", "#H3", "#H4", ""];
+            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", ""];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -125,8 +126,8 @@ var data = <%- data %>;
             var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["Affected Systems","System Status","Problem Replication","",""]
-            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
-            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
+            var hids = ["#H1","#H2", "#H3", "#H4", ""];
+            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", ""];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -143,8 +144,8 @@ var data = <%- data %>;
             var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
             var headings = ["System","Username","Full Name","",""]
-            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
-            var ids = ["#L1","#L2", "#L3", "#L4", "#L5"];
+            var hids = ["#H1","#H2", "#H3", "#H4", ""];
+            var ids = ["#L1","#L2", "#L3", "#L4", ""];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -185,7 +186,7 @@ var data = <%- data %>;
             else if(parsed[0]=="Move Equipment "){  //fix move equipment later
               
               var headings = ["Service Type","System Access","Asset Tag","","", ""];
-              var ids = ["#L1","#L2","#L3", "#text_results", "#L5"];
+              var ids = ["#L1","#L2","#L3", "#text_results", ""];
               $('#text_results_id').text('Destination:');
             }
             else if(parsed[0]=="New Software "){
@@ -203,7 +204,7 @@ var data = <%- data %>;
               var ids = ["#L1","#L2","#L3", "", ""];
             }
 
-            var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
+            var hids = ["#H1","#H2", "#H3", "#H4", ""];
 
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined" || parsed[i] =="undefined" || parsed[i] ==" undefined " || parsed[i] ==" " || parsed[i] =="N/A"){
