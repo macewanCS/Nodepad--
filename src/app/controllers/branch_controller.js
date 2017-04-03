@@ -100,7 +100,7 @@ exports.mytickets = function(req, res){
 
 function changeQueryStringOpen(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog, 395project.users WHERE CallStatus="Open" and resolve is null and calllog.Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null and calllog.Site != "HR"';
   if (site == "IT" || site == "HR"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null';
   }
@@ -108,15 +108,15 @@ function changeQueryStringOpen(site)
 }
 function changeQueryStringClosed(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog, 395project.users WHERE (CallStatus="Closed" or (CallStatus="Open" and resolve is not null)) and calllog.Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog WHERE (CallStatus="Closed" or (CallStatus="Open" and resolve is not null)) and calllog.Site != "HR"';
   if (site == "IT" || site == "HR"){
-    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog, 395project.users WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
+    string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
   }
   return string;
 }
 function changeQueryStringAll(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog, 395project.users Where calllog.Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog Where calllog.Site != "HR"';
   if (site == "IT" || site == "HR"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog';
   }
