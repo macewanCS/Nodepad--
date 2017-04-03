@@ -133,16 +133,34 @@
     var systemStatus = $('input[name=options]:checked').val();
     var ticketInfo =  $('#text-block').val();
     var errorInfo = $('#text-block-2').val();
-    console.log(errorInfo + "asdasd");
-    if (errorInfo == ""){
-      errorInfo = "n/a";
+    var outString = "";
+
+    if (typeof equipment != "undefined"){
+
+    outString = outString + "<b>Affected System:</b> " + equipment;
+    
     }
+
+    if (typeof systemStatus != "undefined"){
+
+    outString = outString + "<br><b>System Status:</b> " + systemStatus;
+    
+    }
+
+    if (typeof ticketInfo != "undefined"){
+
+    outString = outString + "<br><b>Description:</b> " + ticketInfo;
+    
+    }
+    if (typeof errorInfo != "undefined"){
+
+    outString = outString + "<br><b>Description:</b> " + errorInfo;
+    
+    }
+
     bootbox.confirm({
       title: "Please confirm your information:",
-      message: "<b>Affected System:</b> " + equipment +
-               "<br><b>System Status:</b> " + systemStatus +
-               "<br><b>Description:</b> " + ticketInfo +
-               "<br><b>Error Information:</b> " + errorInfo,
+      message: outString,
       buttons: {
           confirm: {
               label: 'Submit',

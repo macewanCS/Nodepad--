@@ -133,25 +133,29 @@
         var ticketInfo =  $('#desc-text').val();
         var errorInfo = document.getElementById('error-text').value;
         var errorImage = $("#input-1a").val();
-        if (assetTag === ""){
-          assetTag = "n/a";
+        var outString = "";
+        if (typeof equipment != "undefined"){
+
+          outString = outString + "<b>Equipment Type:</b> " + equipment;
+        } 
+
+        if (typeof assetTag != "undefined"){
+
+          outString = outString + "<br><b>Asset Tag:</b> " + assetTag;
+        } 
+        
+        if (typeof deviceName != "undefined"){
+
+          outString = outString + "<br><b>Device Name:</b> " + deviceName;
         }
-        if (typeof assetTag == "undefined"){
-          assetTag = "n/a";
-        }
-        if (deviceName === ""){
-          deviceName = "n/a";
-        }
-        if (errorInfo === ""){
-          errorInfo = "n/a";
+
+        if (typeof deviceName != "undefined"){
+
+          outString = outString + "<br><b>Error Information:</b> " + errorInfo;
         }
         bootbox.confirm({
           title: "Please confirm your information:",
-          message: "<b>Equipment Type:</b> " + equipment +
-              "<br><b>Asset Tag:</b> " + assetTag +
-              "<br><b>device Name:</b> " + deviceName +
-              "<br><b>Description:</b> " + ticketInfo +
-              "<br><b>Error Information:</b> " + errorInfo,
+          message: outString,
           buttons: {
             confirm: {
               label: 'Submit',

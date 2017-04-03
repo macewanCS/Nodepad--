@@ -264,8 +264,8 @@
       var resolveInfo = $("#res_box").val()
       
       bootbox.confirm({
-        title: "<b>Your resolving your ticket is as follows:<b>",
-        message: resolveInfo + "<br>Is this correct?",
+        title: "<b>Please confirm your ticket resolution:<b>",
+        message: "<b>Please confirm your reason:</b><br>"+ resolveInfo,
         buttons: {
             confirm: {
               label: 'Submit',
