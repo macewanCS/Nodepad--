@@ -61,7 +61,7 @@
         var software = $("#text-block-2").val();
         var softLoc = $('#text-block-loc').val();
         var personAccs = $('#text-block-acs').val();
-        var equipType = $('#select-equip').val();
+        var equipType;
         if (typeof assettag == "undefined"){
           assettag = "n/a";
         }
@@ -80,8 +80,13 @@
         if (typeof personAccs == "undefined"){
           personAccs = "n/a";
         }
-        if (typeof equipType == "undefined"){
-          equipType = "n/a";
+        if (typeof $('#equip-text').val() == "undefined"){
+          if (typeof $('#select-equip').val() != "undefined"){
+            equipType = $('#select-equip').val();
+          }
+        }
+        else {
+          equipType = $('#equip-text').val();
         }
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
