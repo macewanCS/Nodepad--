@@ -20,7 +20,7 @@ exports.view = function(req,res){            // VIEW TICKET
           
     });
     if (err) throw err
-      connection.query('SELECT CallID, username, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog, 395project.users WHERE CallID="' + req.params.ticketid + '" and 395project.calllog.CustID = 395project.users.id;', function(err, result) {
+      connection.query('SELECT CallID, username, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog, 395project.users WHERE CallID="' + req.params.ticketid + '" and 395project.calllog.CustID = 395project.users.id;', function(err, result) {
         if (err) throw err
 
             ticketData = JSON.stringify(result);

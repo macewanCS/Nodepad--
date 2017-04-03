@@ -173,6 +173,16 @@ fieldset1{
   background-color: #eeeeee;
 }
 
+#L6{
+  position: relative;
+  /*padding-top: 3px;*/
+  left: 52%;
+  /*width: 10px;*/
+  top:0px; 
+  border:0px;
+  background-color: #ffffff;
+}
+
 #H1{
   padding-left:0.5%;
 }
@@ -194,6 +204,13 @@ fieldset1{
     padding-left: 0.5%;
     left:37px;
     top:155px;
+}
+
+#H6{
+    position: relative;
+    padding-left: 0.5%;
+    left:50%;
+    top:0px;
 }
 p {  
   line-height: 15px;

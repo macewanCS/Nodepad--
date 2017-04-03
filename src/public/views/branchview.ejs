@@ -48,6 +48,7 @@
 
           <div id="buttons">
            <a href="/branchtickets"><button id="exit-btn" type="button" class="btn btn-primary">Exit</button></a>
+           <label class="control-label" id="H6">Ticket Creator</label><span id="L6"></span>
           </div>
         </div>
         <div class="container" id="body-container">
@@ -107,6 +108,7 @@
       <script>
         $(document).ready(function(){
           $('#L5').text(data[0].Site);
+          $('#L6').text(data[0].username);
 
           button_handler();
           var getRes = (data[0].Symptoms).split("RESOLUTION=");
