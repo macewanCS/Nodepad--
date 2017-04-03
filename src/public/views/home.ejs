@@ -106,14 +106,15 @@
                   "bsortClasses": false,
                   "bInfo": false,
                   "autoWidth": false,
-                  "bPaginate": false,                  
-                  "sPaginationType": "full_numbers",
+                  "bPaginate": false,
                   "lengthChange": false,
-                          
-                   "columnDefs": [ {"targets": 0, "width": "13%"}, {"targets": 1, "width": "65%"},{"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"},  {"targets": 3, "width": "10%","data": null, "defaultContent": "n/a"}]
+                  "bSort": false,
+                   "columnDefs": [ {"targets": 0, "width": "13%"},
+                   {"targets": 1, "width": "65%"},
+                   {"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"},
+                   {"targets": 3, "width": "10%","data": null, "visible": false}]
                });
 
-            
                $('#myOpenTable').on('click','tr', function(){
 
                   var data = myOpen.row(this).data();
@@ -169,9 +170,12 @@
                   "autoWidth": false,
                   "bPaginate": false,
                   "lengthChange": false,
-
-                 "columnDefs": [ {"targets": 0, "width": "13%"}, {"targets": 1, "width": "65%"}, {"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"},
-                 {"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"}]
+                  "bSort": false,
+                 "columnDefs": [ 
+                 {"targets": 0, "width": "13%"},
+                 {"targets": 1, "width": "65%"},
+                 {"targets": 2, "width": "13%", "data": null, "defaultContent": "n/a"},
+                 {"targets": 3, "width": "13%", "data": null, "visible": false}]
                });
 
 

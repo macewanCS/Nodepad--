@@ -20,7 +20,12 @@
   background-color: #585d5e;
   color: #FFF;
 }
+#myOpenTable tr, #branchTable tr{
 
+  cursor: hand;
+  cursor: pointer;
+
+ }
 /*Customization of stripe in the card headers*/
 .channel-name.stripe-one{
   border-left-color: #1464f6;
