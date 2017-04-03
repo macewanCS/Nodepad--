@@ -66,7 +66,7 @@
               <fieldset1>
                 <label class="control-label" id="H3"></label><pre id="L3"></pre>
                 <label class="control-label" id="H4"></label><p><pre id="L4"></pre>
-                <label class="control-label" id="H5"></label><p><pre id="L5"></pre>
+                <label class="control-label" id="H5"></label><p><span id="L5"></span></p>
               </fieldset1>
               <!-- </div> -->
             </form1>
@@ -133,13 +133,13 @@
               $(hids[i]).text(headings[i]);
               $(ids[i]).text(parsed[i]);
             }
-            $("#L4").attr('style', "top:70%; line-height: 110%; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:60%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
+            $("#L4").attr('style', "top:95%; line-height: 18px; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 110%; height:100%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
           }
           else if(data[0].Category == "Software"){
 
             var parsed = (getRes[0]).split("|");
             var n = parsed.length;                          //how many entries in array
-            var headings = ["Affected Systems","System Status","Problem Replication","",""]
+            var headings = ["Affected Systems","System Offline/Broken?","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4"];
             var ids = ["#L1","#L2","#text_results", "#L3", "#L4", ""];
             for(var i=0;i<n;i++){
