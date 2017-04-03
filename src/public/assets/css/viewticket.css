@@ -150,7 +150,6 @@ fieldset1{
 #categ{
   padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
-
 #L1{
   padding-left:0.5%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
@@ -202,12 +201,9 @@ fieldset1{
     position: relative;
   top:100%;
 }
-
 p {  
-  line-height: 20px;
+  line-height: 15px;
 }
-
-
 #button-container{ 
   width: relative;
   margin-left: 0%;
