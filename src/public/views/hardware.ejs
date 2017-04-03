@@ -134,11 +134,9 @@
         var errorImage = $("#input-1a").val();
         var outString = "";
         if (typeof $('#equip-name-text').val() != "undefined"){
-          console.log("was undefined");
           outString = outString + "<b>Equipment Type:</b> " + $('#equip-name-text').val();
         } 
         else {
-        console.log("was not undefined");
           outString = outString + "<b>Equipment Type:</b> " + $('#select-type').find("option:selected").text();
         }
 
@@ -151,11 +149,15 @@
 
           outString = outString + "<br><b>Device Name:</b> " + deviceName;
         }
+        if (typeof ticketInfo != "undefined"){
 
+          outString = outString + "<br><b>Problem Description:</b> " + ticketInfo;
+        }
         if (typeof deviceName != "undefined"){
 
           outString = outString + "<br><b>Error Information:</b> " + errorInfo;
         }
+
         bootbox.confirm({
           title: "Please confirm your information:",
           message: outString,
@@ -180,7 +182,7 @@
     </script>
     <script>
     function postData(req, res){
-    var equipment = $('#select-type').find("option:selected").text();
+    var equipment;
         var assetTag = $('#asset-tag-text').val();    
         var deviceName = $('#name-text').val();
         var ticketInfo =  $('#desc-text').val();
@@ -196,6 +198,12 @@
         }
         if (errorInfo === ""){
           errorInfo = "n/a";
+        }
+        if (typeof $('#equip-name-text').val() != "undefined"){
+          equipment = $('#equip-name-text').val();
+        } 
+        else {
+         equipment = $('#select-type').find("option:selected").text();
         }
       var http = new XMLHttpRequest();
       var params = "EquipmentType=" + equipment + "&AssetTag="+ assetTag + "&Name=" + deviceName + "&Description=" + ticketInfo
