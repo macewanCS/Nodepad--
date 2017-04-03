@@ -21,7 +21,9 @@
   color: #FFF;
 }
 
-
+.card-block{
+  margin-top: 2em;
+}
 .channel-name.stripe-three{
   border-left-color: #631878;
 }
