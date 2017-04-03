@@ -267,8 +267,8 @@ connection.query('\
 	`Resolve` int NULL \
 	)');
 
-var abbreviations = ["ABB","CAL","CPL","CSD","CPLM","CLV","CMA","ESQ","GMLM","HR","HIG","IDY","JPL","LHL","LON","MCN","MEA","MLW","RIV","SPW","STR","WHP","WMC","WOO","UAC"];
-var fullnames = ["AbbotsField","Calder","Capilano","Castle Downs", "Century Park Lending Machine","Clareview","Collection Management","Enterprise Square","Grant Macewan Lending Machine","Human Resources","Highlands","Idylwydlde","Jasper Place", "Lois Hole", "Londonderry", "McConachie", "Meadows", "Mill Woods", "Riverbend", "Sprucewood","Strathcona", "West Henday", "Whitemud", "Woodcroft", "eplGO U of A"];
+var abbreviations = ["ABB","CAL","CPL","CSD","CPLM","CLV","CMA","ESQ","GMLM","HIG","IDY","JPL","LHL","LON","MCN","MEA","MLW","RIV","SPW","STR","WHP","WMC","WOO","UAC"];
+var fullnames = ["AbbotsField","Calder","Capilano","Castle Downs", "Century Park Lending Machine","Clareview","Collection Management","Enterprise Square","Grant Macewan Lending Machine","Highlands","Idylwydlde","Jasper Place", "Lois Hole", "Londonderry", "McConachie", "Meadows", "Mill Woods", "Riverbend", "Sprucewood","Strathcona", "West Henday", "Whitemud", "Woodcroft", "eplGO U of A"];
 
 var date = new Date();
 var stringDateTest = getDateString(date);
@@ -361,18 +361,20 @@ connection.query('\
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100070", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CAL");\
 	');
-
+var num = 100070;
 for (var i = 0; i <fullnames.length;i++)
 {
-	var num = 100070;
-	num = num + i;
+	num = num + 1
 	for (var j=0; j<4;j++){
 		console.log("This ran");
+		num = num + 1;
 	connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + num + '", "3", "Employee", "This is a ticket for ' + fullnames[i] + '", "General", "Closed","5/9/2016", "2016/5/9", "' + abbreviations[i] + '");\
 	');
 }
 }
+
+
 //connection.query('\
 	//UPDATE `395project`.`calllog` set symptoms = concat(symptoms, 123);\
 	//');
