@@ -365,9 +365,9 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100070", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CAL");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100071", "2", "Employee", "Excel | No | Excel is super slow for me | n/a", "Software", "Closed", "5/11/2016", "2016/5/11", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100071", "1", "Employee", "Excel | No | Excel is super slow for me | n/a", "Software", "Closed", "5/11/2016", "2016/5/11", "MLW");\
 	');
-var num = 100070;
+var num = 100071;
 for (var i = 0; i <fullnames.length;i++)
 {
 	num = num + 1
@@ -382,7 +382,7 @@ for (var i = 0; i <fullnames.length;i++)
 
 for (var i = 0; i <4; i++)
 {
-	var hrNum = 10191;
+	var hrNum = 100192;
 	hrNum += i;
 	connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + hrNum + '", "3", "Employee", "This is a ticket for Human Resources", "HR", "Closed","5/9/2016", "2016/5/9", "HR");\
