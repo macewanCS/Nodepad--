@@ -331,8 +331,14 @@
               //use $(".dropdown-toggle").text() to retrieve current branch
               var settings = $(target).dataTable().fnSettings();
               
-
-              $(target).dataTable().fnFilter('<%- branch %>', "6"); // Default Branch
+              if('<%- branch %>' == "IT"){
+                $(target).dataTable().fnFilter("", "6"); 
+              }
+              else{
+                $(target).dataTable().fnFilter('<%- branch %>', "6"); 
+              }
+              
+               // Default Branch
               $('.selectpicker').on('change', function(){
                 var homeBranch = '<%- branch %>'
                 var tempBranch = $('.selectpicker').find("option:selected").text()
