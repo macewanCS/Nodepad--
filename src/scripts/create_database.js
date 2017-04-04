@@ -142,7 +142,9 @@ connection.query('\
 
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("MILLWOODS OUTAGE", "There is an outage at the millwoods branch, this should be fixed within the next day or so","2017/3/25");');
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Maintenance", "There will be a schedules service from the 29th to the 30th of march, sorry for any inconvenience that calls","2017/3/27");');
-
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Maintenance", "Service is over","2017/3/30");');
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("iNovah", "We are aware of problems with the inovah system and are working ona fix","2017/3/22");');
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Passwords", "Remember to not share your passwords, we have had multiple reports have passwords being stolen","2017/4/5");');
 connection.query('\
  CREATE TABLE `395project`.`profile` ( \
  `CustID` INT  NOT NULL, \
