@@ -267,8 +267,8 @@ connection.query('\
 	`Resolve` int NULL \
 	)');
 
-var abbreviations = ["ABB","CAL","CPL","CSD","CPLM","CLV","CMA","ESQ","GMLM","HR","HIG","IDY","JPL","LHL","LON","MCN","MEA","MLW","RIV","SPW","STR","WHP","WMC","WOO","UAC"];
-var fullnames = ["AbbotsField","Calder","Capilano","Castle Downs", "Century Park Lending Machine","Clareview","Collection Management","Enterprise Square","Grant Macewan Lending Machine","Human Resources","Highlands","Idylwydlde","Jasper Place", "Lois Hole", "Londonderry", "McConachie", "Meadows", "Mill Woods", "Riverbend", "Sprucewood","Strathcona", "West Henday", "Whitemud", "Woodcroft", "eplGO U of A"];
+var abbreviations = ["ABB","CAL","CPL","CSD","CPLM","CLV","CMA","ESQ","GMLM","HIG","IDY","JPL","LHL","LON","MCN","MEA","MLW","RIV","SPW","STR","WHP","WMC","WOO","UAC"];
+var fullnames = ["AbbotsField","Calder","Capilano","Castle Downs", "Century Park Lending Machine","Clareview","Collection Management","Enterprise Square","Grant Macewan Lending Machine","Highlands","Idylwydlde","Jasper Place", "Lois Hole", "Londonderry", "McConachie", "Meadows", "Mill Woods", "Riverbend", "Sprucewood","Strathcona", "West Henday", "Whitemud", "Woodcroft", "eplGO U of A"];
 
 var date = new Date();
 var stringDateTest = getDateString(date);
@@ -299,19 +299,19 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, `TempDate`, `Site`) VALUES ("100049", "1", "Employee", "| | |  Computer wont boot | ", "Hardware", "Open", "1/4/2016", "2016/01/16", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100050", "1", "Employee", "Inovah | Brett", "Password Request", "Closed", "2/22/2016", "2016/2/22", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100050", "1", "Employee", "Inovah | Brett", "Password", "Closed", "2/22/2016", "2016/2/22", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100051", "1", "Employee", "other |I forgot my password again for user input", "Password Request", "Closed", "2/15/2016", "2016/2/15", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100051", "1", "Employee", "other | I forgot my password again for user input", "Password", "Closed", "2/15/2016", "2016/2/15", "MLW");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100052", "1", "Employee", "Inovah | Brett", "Password Request", "Open", "3/27/2016", "2016/3/27", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100053", "1", "Employee", "| | |  Laptop says that there are no users installed |", "Hardware", "Open", "3/1/2016", "2016/3/1", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100053", "1", "Employee", "Barcode scanner | n/a | fdsa |  This is important, barcode scanner does not work| n/a", "Hardware", "Open", "3/1/2016", "2016/3/1", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100054", "1", "Employee", "| | |  Router got coffee spilled on it |", "Hardware", "Open", "3/2/2016", "2016/3/2", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100054", "1", "Employee", "Barcode scanner | n/a | fdsa |  This is important, barcode scanner does not work| n/a", "Hardware", "Open", "3/2/2016", "2016/3/2", "MLW");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100055", "1", "Employee", "| | | Inovah is down", "Software", "Closed", "4/1/2016", "2016/4/1", "MLW");\
@@ -320,10 +320,10 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100056", "1", "Employee", "| | | All projecters need to be moved", "Service", "Closed", "4/2/2016", "2016/4/2", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100057", "1", "Employee", "| | | Laptop screen is flickering everytime i launch word |", "Hardware", "Closed", "4/3/2016","2016/4/3", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100057", "1", "Employee", "Laptop| n/a | fdsa |  This is important, laptop does not work | n/a", "Hardware", "Closed", "4/3/2016","2016/4/3", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100058", "1", "Employee", "| | | New screen we ordered had dead pixels |", "Hardware", "Open", "4/4/2016", "2016/4/4", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100058", "1", "Employee", "Monitor | n/a | fdsa |  New Screen we ordered had dead pixels | n/a", "Hardware", "Open", "4/4/2016", "2016/4/4", "MLW");\
 	');
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100059", "1", "Employee", "I dont know how to connect to the wifi", "General", "Closed", "4/5/2016", "2016/4/5", "MLW");\
@@ -332,26 +332,27 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100060", "1", "Employee", "I need help in making the printer work", "General", "Closed", "4/6/2016", "2016/4/6", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100061", "1", "Employee", " | | | | Wires frayed under margerets desk again, we think its on purpose", "Service", "Open", "4/6/2016", "2016/4/6", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100061", "1", "Employee", " Keyboard Wires | n/a | w1r3 |  Margeret keeps fraying her wires | n/a ", "Service", "Open", "4/6/2016", "2016/4/6", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100062", "1", "Employee", "| | | Weird circle on one monitor, screen flickers | ", "Hardware", "Open","4/7/2016", "2016/4/7", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100062", "1", "Employee", "Monitor/LCD | n/a | r1ng |  Weird black circle on monitor | n/a", "Hardware", "Open","4/7/2016", "2016/4/7", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100063", "1", "Employee", "| | | Circle getting bigger, seems spooky", "Hardware |", "Open","5/7/2016", "2016/5/7", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100063", "1", "Employee", "Monitor/LCD | n/a | r1ng |  Circle getting bigger | n/a", "Hardware", "Open","5/7/2016", "2016/5/7", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100064", "1", "Employee", "| | | ALL IS GOOD |", "Hardware", "Closed", "5/8/2016", "2016/5/8", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100064", "1", "Employee", "Monitor/LCD | n/a | r1ng |  All is good | n/a", "Hardware", "Closed", "5/8/2016", "2016/5/8", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100065", "1", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100065", "1", "Employee", "Wires | n/a | r1ng |  Margeret keeps fraying her keyboard wires and we need more | n/a", "Hardware", "Closed","5/9/2016", "2016/5/9", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100066", "2", "Employee", "inovah  | Jack", "Service", "Closed", "5/10/2016", "2016/5/10", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100066", "2", "Employee", "inovah  | Jack", "Password", "Closed", "5/10/2016", "2016/5/10", "MLW");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100067", "2", "Employee", "inovah | Jack", "Service", "Open", "5/11/2016", "2016/5/11", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100067", "2", "Employee", "inovah | Jack", "Password", "Open", "5/11/2016", "2016/5/11", "MLW");\
 	');
+
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100068", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CAL");\
 	');
@@ -361,18 +362,32 @@ connection.query('\
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100070", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CAL");\
 	');
-
+connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100071", "2", "Employee", "Excel | No | Excel is super slow for me | n/a", "Software", "Closed", "5/11/2016", "2016/5/11", "MLW");\
+	');
+var num = 100070;
 for (var i = 0; i <fullnames.length;i++)
 {
-	var num = 100070;
-	num = num + i;
+	num = num + 1
 	for (var j=0; j<4;j++){
 		console.log("This ran");
+		num = num + 1;
 	connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + num + '", "3", "Employee", "This is a ticket for ' + fullnames[i] + '", "General", "Closed","5/9/2016", "2016/5/9", "' + abbreviations[i] + '");\
 	');
 }
 }
+
+for (var i = 0; i <4; i++)
+{
+	var hrNum = 10191;
+	hrNum += i;
+	connection.query('\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + hrNum + '", "3", "Employee", "This is a ticket for Human Resources", "HR", "Closed","5/9/2016", "2016/5/9", "HR");\
+	');
+}
+
+
 //connection.query('\
 	//UPDATE `395project`.`calllog` set symptoms = concat(symptoms, 123);\
 	//');
