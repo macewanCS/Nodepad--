@@ -53,7 +53,8 @@ exports.home = function(req, res){
 }
 function changeBranchString(Site){
   var str = "";
-  if (site = "IT"){
+  console.log(Site + "\n\n\n\n");
+  if (Site == "IT"){
     str = 'Select CallID, Category, CallStatus, Symptoms, TempDate From 395project.calllog where CallStatus = "Open" and resolve is null Order By TempDate Desc Limit 5;'
   }
   else{
