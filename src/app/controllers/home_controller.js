@@ -29,7 +29,8 @@ exports.home = function(req, res){
     if (err) throw err
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallStatus= "Open" and CustID="' + req.user.id + '" and resolve is null Order By TempDate Desc LIMIT 5;', function(err, result) {
         if (err) throw err
-            connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE Site="' + req.user.Site + '" and resolve is null Order By TempDate Desc LIMIT 5;', function(err, branchResult) {
+          var connectionString = changeBranchString(req.user.Site);
+            connection.query(connectionString, function(err, branchResult) {
             announ = JSON.stringify(announcementsRes);
             console.log(announ);
             myVar3 = JSON.stringify(result);
@@ -49,4 +50,15 @@ exports.home = function(req, res){
   });
 
   });
+}
+function changeBranchString(Site){
+  var str = "";
+  console.log(Site + "\n\n\n\n");
+  if (Site == "IT"){
+    str = 'Select CallID, Category, CallStatus, Symptoms, TempDate From 395project.calllog where CallStatus = "Open" and resolve is null Order By TempDate Desc Limit 5;'
+  }
+  else{
+   str = 'SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallStatus = "Open" and Site="' + Site + '" and resolve is null Order By TempDate Desc LIMIT 5;';
+  }
+  return str;
 }
