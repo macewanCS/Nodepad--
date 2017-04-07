@@ -23,6 +23,17 @@ fieldset1{
   left:40%;
 }
 
+#history-info{
+  /*color: #B4886B;*/
+  position: relative;
+  left: 10px;
+  font-weight: normal !important;
+  display: block;
+  width: 150px;
+  /*float: left;*/
+
+}
+
 #history-lb{
   position: absolute;
   top:61.5%;
