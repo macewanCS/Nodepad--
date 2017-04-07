@@ -9,35 +9,34 @@ exports.forms = function(req, res){
   
   module.exports = req.params.form;
   
-  console.log("started looking with " + req.params.form);
   if (req.params.form.match(/hardware/i)){
-    console.log("Its a hardware ticket, eh");
+
     res.render((__dirname + '/../../public/views/hardware.ejs'), {username:req.user.username});
     category = "hardware";
   }
   else if (req.params.form.match(/software/i)){
-    console.log("Its a software ticket, eh");
+
     res.render((__dirname + '/../../public/views/software.ejs'), {username:req.user.username});
     category = "software";
   }
   else if (req.params.form.match(/password/i)){
-    console.log("Its a password ticket, eh");
+
     res.render((__dirname + '/../../public/views/password.ejs'), {username:req.user.username});
     category = "password";
   }
   else if (req.params.form.match(/service/i)){
-    console.log("Its a service ticket, eh");
+
     res.render((__dirname + '/../../public/views/service.ejs'), {username:req.user.username});
     category = "service";
   }
   else if (req.params.form.match(/general/i)){
-    console.log("Its a general ticket, eh");
+
     res.render((__dirname + '/../../public/views/general.ejs'), {username:req.user.username});
     category = "general";
   }
 }
 exports.service = function(req, res){
-  console.log("create service is running");
+
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -45,11 +44,11 @@ exports.service = function(req, res){
     database: '395project'
   });
   
-  console.log(req.body.EquipmentType);
+
   
   connection.connect(function(err) {
     
-    console.log("Beginning insertion");
+
     var lastRec;
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
@@ -62,7 +61,7 @@ exports.service = function(req, res){
       var queryString = "INSERT INTO calllog (CallID,Symptoms,Priority,CallSource,RecvdDate,RecvdTime,CustID,Tracker,CallStatus,Category,CustType,TempDate,Site) values (?,?,?,?,?,?,?,?,?,?,?,?,?)"
       var queryStringAsign = "Insert into asgnmnt (CallID,Description, TeamName, AssignedBy, Status, DateAssign, TimeAssign) values (?,?,?,?,?,?,?)";
       var appendedString = req.body.EquipmentType + " | " + req.body.System + " | " + req.body.AssetTag + " | " + req.body.Location + " | " + req.body.SoftwareName + " | " + req.body.SoftwareLocation + " | " + req.body.Accessor + " | " + req.body.equipType; 
-      console.log(req.body.Accessor);
+
       lastRec = addLastRecord(result);
 
     //insertion into calllog and asgnmnt tables  
@@ -70,16 +69,14 @@ exports.service = function(req, res){
     connection.query(queryStringAsign, [lastRec, appendedString, team,  "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
     connection.end();
   });
-    console.log("Ending insertion, check the database to confirm");
-    res.send('www.google.ca');
-    console.log("Oh shit wuddup");
+
+
+
   });
 };
 
 exports.hardware = function(req, res){
-  console.log("Create hardware is running");
-  console.log(req.body);
-  console.log(req.user.Site);
+
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -87,10 +84,10 @@ exports.hardware = function(req, res){
     database: '395project'
   });
   
-  console.log(req.body.EquipmentType);
+
   connection.connect(function(err) {
     var hPrioVal = changePriorityHardware(req.body.EquipmentType);
-    console.log("Beginning insertion");
+
     var lastRec;
     var today = new Date();
     var team = changeHardwareTeam(req.body.EquipmentType);
@@ -109,18 +106,15 @@ exports.hardware = function(req, res){
         connection.query(queryStringAsign, [lastRec, appendedString, team, "Selfserve", "Unacknowledged", today.toLocaleDateString(), today.toTimeString().slice(0,8)]);
 
         connection.end();
-        console.log("Insert is over");
+
     });
     
-    console.log("Ending insertion, check the database to confirm");
-    
-    console.log("last \n\n\n" + lastRec);
+
   });
 }
 
 exports.software = function(req, res){
-  console.log("Create software is running");
-  console.log(req.body);
+
   var sPriority = changePrioritySoftware(req.body.SystemStatus);
   var connection = mysql.createConnection({
     host: 'localhost',
@@ -129,13 +123,11 @@ exports.software = function(req, res){
     database: '395project'
   });
   
-  if (req.body.AffectedSystem == "Dayforce"){
-    console.log("Hey it matched");
-  }
+
   
   connection.connect(function(err) {
     
-    console.log("Beginning insertion");
+
     
     var today = new Date();
     var lastRec;
@@ -158,7 +150,7 @@ exports.software = function(req, res){
       connection.end();
     });
     
-    console.log("Ending insertion, check the database to confirm");
+
   });
 
 }
