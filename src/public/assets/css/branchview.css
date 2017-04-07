@@ -40,12 +40,12 @@ fieldset1{
 /* THIS IS THE BOX CONTAINING OUR EDIT DESCRIPTIONS*/
 #history{ 
   position: absolute;
-  top:64%;
-  left:2%;
+  top:65%;
+  left:2.2%;
   padding-left: 0px;
   margin-left: 0px;
   height:30%;
-  width: 100%;
+  width: 95%;
   overflow-y:auto;
   max-width: 96%;
   line-height: 22px;
@@ -150,7 +150,7 @@ fieldset1{
 }
 #L3{
   position: absolute;
-  top: 28%;
+  top: 29.5%;
   padding-top: 0%;
   height: 95%;
   overflow-y:auto;
@@ -161,7 +161,8 @@ fieldset1{
   top: 200px;
   height: 30%;
   width: 0%
-  padding-left: 1px;
+  left:0px;
+  padding-left: 4px;
   margin-top:0px;
   margin: 0px;
   overflow-y:auto;
