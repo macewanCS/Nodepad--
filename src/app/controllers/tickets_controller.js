@@ -21,19 +21,25 @@ exports.view = function(req,res){            // VIEW TICKET
           
     });
     if (err) throw err
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, CustID FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
 
             ticketData = JSON.stringify(result);
+            console.log(result[0].CallID);
             console.log(req.params.ticketid);
-            console.log(ticketData);
+            if(req.user.id == result[0].CustID){
             res.render((__dirname + '/../../public/views/viewticket.ejs'), {
             data:ticketData,
             edits:editVar,
             cid:req.params.ticketid,
             username:req.user.username,  
             });
-    });
+    }
+    else{
+      res.redirect(('../../'));
+      console.log("Stop messing with the url cam");
+    }
+  });
     connection.end();
   });
 
@@ -56,16 +62,22 @@ exports.edit = function(req,res){                 // EDIT TICKET
       console.log('You are now connected...')
     
     if (err) throw err
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
+      connection.query('SELECT CallID, Category,CustID, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
 
             ticketData = JSON.stringify(result);
             console.log(req.params.ticketid);
             console.log(ticketData);
+            if(req.user.id == result[0].CustID){
             res.render((__dirname + '/../../public/views/editticket.ejs'), {
             data:ticketData,
             username:req.user.username,  
             });
+          }
+      else{
+      res.redirect(('../../'));
+      console.log("Stop messing with the url cam");
+    }
     });
     connection.end();
   });
@@ -86,16 +98,22 @@ exports.resolve = function(req,res){
       console.log('You are now connected...')
     
     if (err) throw err
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
+      connection.query('SELECT CallID, Category,CustID, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
 
             ticketData = JSON.stringify(result);
             console.log(req.params.ticketid);
             console.log(ticketData);
+            if(req.user.id == result[0].CustID){
             res.render((__dirname + '/../../public/views/resolveticket.ejs'), {
             data:ticketData,
             username:req.user.username,  
             });
+          }
+            else{
+              res.redirect(('../../'));
+              console.log("Stop messing with the url cam");
+            }
     });
     connection.end();
   });
