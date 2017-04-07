@@ -345,8 +345,13 @@
                 tempBranch = alias(tempBranch);
                 
                 if(tempBranch=='HOME'){
+                  if('<%- branch %>' == "IT"){
+                    $(target).dataTable().fnFilter("", "6");
+                  }
+                  else{
                   tempBranch = homeBranch;
                  $(target).dataTable().fnFilter(tempBranch, "6"); // On Branch Selection 
+               }
                }
                  else if(tempBranch == ''){
                    $(target).dataTable().fnFilter(tempBranch, "6"); // On Branch Selection 

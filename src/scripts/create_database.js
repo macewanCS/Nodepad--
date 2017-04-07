@@ -142,7 +142,9 @@ connection.query('\
 
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("MILLWOODS OUTAGE", "There is an outage at the millwoods branch, this should be fixed within the next day or so","2017/3/25");');
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Maintenance", "There will be a schedules service from the 29th to the 30th of march, sorry for any inconvenience that calls","2017/3/27");');
-
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Maintenance", "Service is over","2017/3/30");');
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("iNovah", "We are aware of problems with the inovah system and are working ona fix","2017/3/22");');
+connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Passwords", "Remember to not share your passwords, we have had multiple reports have passwords being stolen","2017/4/3");');
 connection.query('\
  CREATE TABLE `395project`.`profile` ( \
  `CustID` INT  NOT NULL, \
@@ -363,9 +365,9 @@ connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100070", "3", "Employee", "| | | Wires frayed under margerets desk |", "Hardware", "Closed","5/9/2016", "2016/5/9", "CAL");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100071", "2", "Employee", "Excel | No | Excel is super slow for me | n/a", "Software", "Closed", "5/11/2016", "2016/5/11", "MLW");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100071", "1", "Employee", "Excel | No | Excel is super slow for me | n/a", "Software", "Closed", "5/11/2016", "2016/5/11", "MLW");\
 	');
-var num = 100070;
+var num = 100071;
 for (var i = 0; i <fullnames.length;i++)
 {
 	num = num + 1
@@ -380,7 +382,7 @@ for (var i = 0; i <fullnames.length;i++)
 
 for (var i = 0; i <4; i++)
 {
-	var hrNum = 10191;
+	var hrNum = 100192;
 	hrNum += i;
 	connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + hrNum + '", "3", "Employee", "This is a ticket for Human Resources", "HR", "Closed","5/9/2016", "2016/5/9", "HR");\
