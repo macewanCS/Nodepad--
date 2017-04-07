@@ -199,7 +199,7 @@ label{
 
 #stat-lb{
   position: absolute;
-  top:32.5%;
+  top:32.2%;
   left:2.1%;
 }
 
@@ -234,8 +234,8 @@ label{
 
 #exit-btn {
   position: absolute;
+  background-color: #757575;
   font-weight: bold;
-  opacity: 0.8;
   left:83%;
   width:15%;
   min-width: 3.5em;
