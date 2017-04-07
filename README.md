@@ -16,7 +16,7 @@ This web applications was built to run best with the following tools:
 1. Clone the repository with <pre>git clone https://github.com/macewanCS/Nodepad--</pre>
 2. Navigate into the root of the repository
 3. Install all dependencies using <pre>npm install</pre>
-4. Install MySQL and create a user named temp with the command <pre>CREATE USER 'temp'@'localhost' IDENTIFIED BY '1234';</pre>
+4. Install MySQL and login with the command <pre>mysql -u (username) -p </pre>and create a user named temp with the command <pre>CREATE USER 'temp'@'localhost' IDENTIFIED BY '1234';</pre>
 5. Give that user permissions with the command <pre>GRANT ALL PRIVILEGES ON * . * TO 'temp'@'localhost';</pre>
 6. Initialize the database with <pre>node src/scripts/create_database.js</pre>
 7. Launch the application using <pre>node src/main.js</pre>
