@@ -11,7 +11,6 @@ exports.edit = function(req,res){                 // EDIT TICKET
   
   connection.connect(function(err) {
     
-    console.log("Beginning insertion");
     var lastRec;
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
