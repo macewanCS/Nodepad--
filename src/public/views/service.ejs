@@ -84,9 +84,12 @@
           if (typeof $('#select-equip').val() != "undefined"){
             equipType = $('#select-equip').val();
           }
+          else {
+            equipType = "n/a";
+          }
         }
         else {
-          equipType = $('#equip-text').val();
+            equipType = $('#equip-text').val();
         }
         var http = new XMLHttpRequest();
         console.log("clicked the submit button");
@@ -436,7 +439,7 @@
                   '<button type="button" id="other-btn" class="btn btn-primary" onclick="checkFilled(\'#equip-text\')">Submit</button>  '  +       
                 '</div>' +
                 '<div class="issue-description">' +
-                    'Please enter the name of the service you are having trouble accessing'+
+                    'What is the name of the equipment that you need?'+
                 '</div>' +
                 '<div class="panel-text-box">' +
                   '<input type="text" id="equip-text">' +

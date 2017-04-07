@@ -27,7 +27,7 @@
         <!-- This is the accordian for software tickets -->
         <div class="accordian-group" id="accordian">
           <!-- This is the panel for affected systems --> 
-          <div class="panel panel-default">
+          <div class="panel panel-default" id="affected-panel">
             <div class="panel-heading" id="heading-one">
               <h4 class="panel-title"> 
                 Step 1: Affected System<a class="changer" id="changeSystem" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
@@ -63,12 +63,12 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-two">
             <h4 class="panel-title">
-              Step 2: System Status<a class="changer" id="changeStatus" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
+              Step 2: System Status<a class="changer" id="changeSysStatus" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse2" class="panel-collapse collapse">
             <div id="confirmation-buttons">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse2', '#collapse3', 'input[name=options]:checked', '#heading-two', '#changeStatus')">Next</button>  
+              <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse2', '#collapse3', 'input[name=options]:checked', '#heading-two', '#changeSysStatus')">Next</button>  
             </div>
             <div class="issue-description">
               Is the system completely offline/broken? Please select an option.
@@ -238,6 +238,38 @@
         http.send(params);
         console.log("sent " + http.status + " " + http.readyState);
       };
+    </script>
+    
+    <script>
+    $('.selectpicker').on('change',function(){
+      console.log($('#select-type').find("option:selected").text());
+      if ($('#select-type').find("option:selected").text().match(/Other/i)){
+        console.log("Other was selected");
+        $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse1A'); colorHeader('#heading-one', '#changeSystem')");
+        var content =
+          '<div class="panel-group" id="accordion1A">' +
+            '<div class="panel panel-default">' +
+              '<div class="panel-heading" id="heading-1A">' +
+                '<h4 class="panel-title">' +
+                  'Step 1A: System Name <a id="changeSysName" class="changer" onclick="undo(\'#collapse1A\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse2\')" style="visibility:hidden"> Change </a>' +
+                '</h4>' +
+              '</div>' +
+              '<div id="collapse1A" class="panel-collapse collapse">' +
+                '<div id="confirmation-buttons">' +
+                  '<button type="button" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse1A\', \'#collapse2\', \'#sys-name-text\'); colorHeader(\'#heading-1A\',\'#changeSysName\')">Next</button>' +
+                '</div>' +
+                '<div class="issue-description">' +
+                  '<p1>What is the name of the hardware you are having an issue with?</p1>' +
+                '</div>' +
+                '<div class="panel-text-box">' +
+                  '<input type="text" id="sys-name-text">' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        $('#accordian #affected-panel').after(content);
+      }
+    });
     </script>
     
     <footer>
