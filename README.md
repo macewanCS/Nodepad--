@@ -30,5 +30,6 @@ This web applications was built to run best with the following tools:
 | Library User  | jack  | 1234  | Mill Woods  |
 | Library User  | brett  | 1234  | Mill Woods  |
 | Library User  | jordan  | 1234  | Calder  |
+| Library User  | sunny  | 1234  | Grant MacEwan LM  |
 | IT User  | cam  | 1234  | IT  |
 | HR User  | max  | package  | HR  |
