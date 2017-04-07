@@ -76,14 +76,14 @@ var data = <%- data %>;
             <label class="control-label">Changes</label>
           </div>
           <div id="changes-text">
-            <textarea id="change_box"></textarea>
+            <textarea id="change-box"></textarea>
           </div>
           
           <div id="desc-lb">
-            <label class="control-label">Description of the problem:</label>
+            <label class="control-label">Description of the problem</label>
           </div>
           <div id="desc-text">
-            <pre class="control-label" id="text_results"></pre>
+            <pre class="control-label" id="text-results"></pre>
           </div>
           <div id="stat-lb">
             <label class="control-label">Status:</label>
@@ -110,7 +110,7 @@ var data = <%- data %>;
             var n = parsed.length;                          //how many entries in array
             var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", ""];
-            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", ""];
+            var ids = ["#L1","#L2", "#L3", "#text-results", "#L4", ""];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -127,7 +127,7 @@ var data = <%- data %>;
             var n = parsed.length;                          //how many entries in array
             var headings = ["Affected Systems","System Offline/Broken?","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", ""];
-            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", ""];
+            var ids = ["#L1","#L2","#text-results", "#L3", "#L4", ""];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -163,7 +163,7 @@ var data = <%- data %>;
             var n = parsed.length;                          //how many entries in array
             var headings = [""]
             var hids = ["#H1"];
-            var ids = ["#text_results"];
+            var ids = ["#text-results"];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -186,8 +186,8 @@ var data = <%- data %>;
             else if(parsed[0]=="Move Equipment "){  //fix move equipment later
               
               var headings = ["Service Type","System Access","Asset Tag","","", ""];
-              var ids = ["#L1","#L2","#L3", "#text_results", ""];
-              $('#text_results_id').text('Destination:');
+              var ids = ["#L1","#L2","#L3", "#text-results", ""];
+              $('#text-results-id').text('Destination:');
             }
             else if(parsed[0]=="New Software "){
               var headings = ["Service Type","Software Name","PC Name","",""]
@@ -236,7 +236,7 @@ var data = <%- data %>;
       function postData(req, res){
         var http = new XMLHttpRequest();
         console.log("clicked the next button");
-        var params = "Editinfo=" + $("#change_box").val() + "&TicketID=" + data[0].CallID;
+        var params = "Editinfo=" + $("#change-box").val() + "&TicketID=" + data[0].CallID;
         console.log(data.CallID);
         console.log(params);
         var url = "/mytickets/edit:ticketid";
@@ -257,8 +257,8 @@ var data = <%- data %>;
 
     function showInfo(){
       console.log("getting here");
-      var editInfo = $("#change_box").val();
-      console.log($("#change_box").val());
+      var editInfo = $("#change-box").val();
+      console.log($("#change-box").val());
       bootbox.confirm({
         title: "<b>Please confirm your ticket edit:<b>",
         message: "<b>Info to be added to the log:</b><br>"+ editInfo,

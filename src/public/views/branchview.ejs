@@ -70,26 +70,19 @@
             </form1>
           </div>
 
-          <div>
-            <p0 id="symptoms0"></p0>
-            <p1 id="symptoms1"></p1>
-            <p2 id="symptoms2"></p2>
-            <p3 id="symptoms3"></p3>
-            <p4 id="symptoms4"></p4>
-          </div>
 
           <div id="desc-lb">
-            <label  id=text_results_id class="control-label">Description of the problem:</label>
+            <label  id=text-results-id class="control-label">Description of the problem</label>
           </div>
 
           <div id="desc-text">
-            <pre class="control-label" id="text_results"></pre>
+            <pre class="control-label" id="text-results"></pre>
             <div id="history">
               <form3 id="histForm">
 
               </form3>
             </div>
-            <!-- <textarea disabled id="text_results" readonly></textarea> -->
+            <!-- <textarea disabled id="text-results" readonly></textarea> -->
           <label id="history-lb">Changelog<label>
 
           </div>
@@ -99,7 +92,7 @@
             
 
           </div>
-          <label class="control-label" id="res-lb"></label><p><pre id="res"></pre>
+          <label class="control-label" id="res-lb">Resolution Notes</label><p><pre id="res"></pre>
         </div>
       </div>
 
@@ -123,7 +116,7 @@
             var n = parsed.length;                          //how many entries in array
             var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", ""];
-            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", ""];
+            var ids = ["#L1","#L2", "#L3", "#text-results", "#L4", ""];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -132,7 +125,7 @@
               $(hids[i]).text(headings[i]);
               $(ids[i]).text(parsed[i]);
             }
-            $("#L4").attr('style', "top:88%; line-height: 20px; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:90%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
+            $("#L4").attr('style', "top:80px; line-height: 20px; padding-top:0px; margin-top:0px; background-color: #eeeeee;border: 0; width: 100%; min-width: 0px; max-width: 100%; max-height: 90%; height:90%; white-space: normal; word-wrap: break-word; inline-block;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;") 
           }
           else if(data[0].Category == "Software"){
 
@@ -140,7 +133,7 @@
             var n = parsed.length;                          //how many entries in array
             var headings = ["Affected Systems","System Status","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", ""];
-            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", ""];
+            var ids = ["#L1","#L2","#text-results", "#L3", "#L4", ""];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -176,7 +169,7 @@
             var n = parsed.length;                          //how many entries in array
             var headings = [""]
             var hids = ["#H1"];
-            var ids = ["#text_results"];
+            var ids = ["#text-results"];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -201,8 +194,8 @@
             else if(parsed[0]=="Move Equipment "){  //fix move equipment later
               
               var headings = ["Service Type","System Access","Asset Tag","","", ""];
-              var ids = ["#L1","#L2","#L3", "#text_results", ""];
-              $('#text_results_id').text('Destination:');
+              var ids = ["#L1","#L2","#L3", "#text-results", ""];
+              $('#text-results_id').text('Destination:');
             }
             else if(parsed[0]=="New Software "){
               var headings = ["Service Type","Software Name","PC Name","",""]

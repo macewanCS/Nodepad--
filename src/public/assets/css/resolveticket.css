@@ -10,11 +10,9 @@
 }
 
 fieldset0{
-  position: relative;
+  position: absolute;
   width: 40%;
   padding-left:0.5%;
-  /*padding-left: 1%;*/
-  /*left:20em;*/
   top: 12%;
 }
 
@@ -28,10 +26,7 @@ fieldset1{
 #div0{
   position: absolute;
   overflow-y:auto;
-  /*overflow-x:auto;*/
   max-width: 80%;
-  /*width:1px;*/
-  /*max-height:10px; */
 }
 
 #divider { 
@@ -94,14 +89,15 @@ fieldset1{
 }
 
 
+
 #categ{
-  padding-left:0.75%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L1{
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.6%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L2{
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.7%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L3{
   position: absolute;
@@ -109,15 +105,14 @@ fieldset1{
   padding-top: 0%;
   height: 95%;
   overflow-y:auto;
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+  padding-left:0.1%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 #L4{
   position: absolute;
   top: 200px;
   height: 30%;
   width: 0%
-  /*left:3px;*/
-  padding-left: 0.75%;
+  padding-left: 0%;
   margin-top:0px;
   margin: 0px;
   overflow-y:auto;
@@ -160,6 +155,10 @@ p {
   line-height: 15px;
 }
 
+label{
+  font-size:17px;
+}
+
 
 #button-container{ 
   width: relative;
@@ -175,20 +174,16 @@ p {
 #desc-lb {
   position: absolute;
   padding-bottom: 0em;
-  left:2%;
+  padding-left: 2.1%;
   padding-top: 3em;
-  top: 31%;
-
+  top: 30.75%;
 }
 
-#desc-text {
-  /*margin: 0 auto 0 auto;*/
-}
-#text_results_id{
+#text-results-id{
     left:2%;
 }
 
-#text_results{
+#text-results{
   position: absolute;
   padding-left: 0%; 
   padding-top: 0px;
@@ -204,14 +199,16 @@ p {
 
 #stat-lb{
   position: absolute;
-  top:33%;
-  left:2%;
+  top:32.5%;
+  left:2.1%;
 }
 
 #stat{
-  opacity: 0.65;
+  opacity: 1.0;
+  font-size: 13.5px;
   background-color: #81C784;
 }
+
 
 .channel-name {
   border-left-color: #1464f6;
@@ -236,10 +233,10 @@ p {
 
 
 #exit-btn {
-  position: relative;
+  position: absolute;
   font-weight: bold;
-  opacity: 0.7;
-  left:0%;
+  opacity: 0.8;
+  left:83%;
   width:15%;
   min-width: 3.5em;
 }
@@ -254,7 +251,7 @@ p {
 
 
 #res-lb {
-  left: 2.5%;
+  left: 2.1%;
   position: absolute;
   padding-bottom: 0em;
   padding-top: 3em;
@@ -263,10 +260,10 @@ p {
 
 #res_box{
   position: absolute;
-  left: 2.5%;
+  left: 2.1%;
   resize: none;
   border-radius: 5px;
-  width: 94%;
+  width: 95%;
   height: 28%;
-  top:64%;
+  top:64.5%;
 }
