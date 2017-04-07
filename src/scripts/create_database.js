@@ -35,7 +35,7 @@ connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("cam", 5, "' + hash + '", "IT")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("max", 6, "' + maxHash + '", "HR")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("max", 6, "' + maxHash + '", "HRS")\
 	');
 
 
@@ -262,7 +262,7 @@ connection.query('\
     INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100048", "1", "Employee", "| | |  Renewal line not responding |", "Service", "Open", "1/3/2016", "2016/2/23", "MLW");\
     ');
 connection.query('\
-    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100089", "1", "Employee", "Sunny is being mean to me", "HR", "Open", "1/3/2016", "2016/2/23", "HR");\
+    INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100089", "1", "Employee", "Sunny is being mean to me", "HRS", "Open", "1/3/2016", "2016/2/23", "HRS");\
     ');
 
 connection.query('\
@@ -358,7 +358,7 @@ for (var i = 0; i <4; i++)
 	var hrNum = 100192;
 	hrNum += i;
 	connection.query('\
-	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + hrNum + '", "3", "Employee", "This is a ticket for Human Resources", "HR", "Closed","5/9/2016", "2016/5/9", "HR");\
+	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + hrNum + '", "3", "Employee", "This is a ticket for Human Resources", "HRS", "Closed","5/9/2016", "2016/5/9", "HRS");\
 	');
 }
 
