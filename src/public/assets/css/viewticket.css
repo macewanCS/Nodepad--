@@ -10,7 +10,7 @@
 }
 
 fieldset0{
-  position: relative;
+  position: absolute;
   width: 40%;
   padding-left:0.5%;
   top: 12%;
@@ -23,10 +23,18 @@ fieldset1{
   left:40%;
 }
 
+#history-info{
+  position: relative;
+  left: 10px;
+  font-weight: normal !important;
+  display: block;
+  width: 150px;
+}
+
 #history-lb{
   position: absolute;
   top:61.5%;
-  left:2%;
+  left:2.1%;
 }
 
 /* THIS IS THE BOX CONTAINING OUR EDIT DESCRIPTIONS*/
@@ -39,7 +47,6 @@ fieldset1{
   height:30%;
   width: 100%;
   overflow-y:auto;
-  /*overflow-x:auto;*/
   max-width: 96%;
   line-height: 22px;
 }
@@ -130,9 +137,9 @@ fieldset1{
 
 #res-lb{
   position: absolute;
-  top:33%;
+  top:32.4%;
   left:61.5%;
-  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+  font-family: 'Inder', sans-serif;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 
 #res{
@@ -148,13 +155,13 @@ fieldset1{
 }
 
 #categ{
-  padding-left:0.75%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L1{
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.6%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L2{
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.7%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L3{
   position: absolute;
@@ -162,15 +169,14 @@ fieldset1{
   padding-top: 0%;
   height: 95%;
   overflow-y:auto;
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+  padding-left:0.1%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 #L4{
   position: absolute;
   top: 200px;
   height: 30%;
   width: 0%
-  /*left:3px;*/
-  padding-left: 0.75%;
+  padding-left: 0%;
   margin-top:0px;
   margin: 0px;
   overflow-y:auto;
@@ -213,6 +219,10 @@ p {
   line-height: 15px;
 }
 
+label{
+  font-size:17px;
+}
+
 #button-container{ 
   width: relative;
   margin-left: 0%;
@@ -226,20 +236,16 @@ p {
 
 #edit-btn {
   position: relative;
-  /*color:teal;*/
   font-weight: bold;
-  opacity: 0.7;
-  /*background-color: #283593;*/
+  opacity: 0.8;
   left:0%;
   width:15%;
   min-width: 3.5em;
 }
 
 #resolve-btn {
-/*  overflow: hidden;
-  text-overflow: ellipsis;*/
   font-weight: bold;
-  opacity: 0.7;
+  opacity: 0.8;
   position: relative;
   left:0%;
   width:15%;
@@ -247,10 +253,11 @@ p {
 }
 
 #exit-btn {
-  position: relative;
+  position: absolute;
+  background-color:#757575;
   font-weight: bold;
-  opacity: 0.7;
-  left:0%;
+  opacity: 1;
+  left:83%;
   width:15%;
   min-width: 3.5em;
 }
@@ -258,16 +265,12 @@ p {
 #desc-lb {
   position: absolute;
   padding-bottom: 0em;
-  padding-left:0.5%;
+  padding-left:0.65%;
   padding-top: 3em;
-  top: 31%;
+  top: 30.75%;
 }
 
-#desc-text {
-  /*margin: 0 auto 0 auto;*/
-}
-
-#text_results{
+#text-results{
   position: absolute;
   padding-left: 0%; 
   padding-top: 0px;
@@ -283,12 +286,13 @@ p {
 
 #stat-lb{
   position: absolute;
-  top:33%;
-  padding-left:0.5%;
+  top:32.2%;
+  left:2.1%;
 }
 
 #stat{
-  opacity: 0.70;
+  opacity: 1.0;
+  font-size: 13.5px;
   background-color: #81C784;
 }
 

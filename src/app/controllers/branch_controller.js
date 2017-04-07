@@ -57,33 +57,30 @@ exports.mytickets = function(req, res){
     
     var myVar, myVar2, myVar3;
     if (err) throw err
-      console.log('You are now connected...')
       
+      //grab the closed tickets depending on the logged in user
       var closedQueryString = changeQueryStringClosed(req.user.Site);
       connection.query(closedQueryString, function(err, result) {
 
         if (err) throw err
             myVar = JSON.stringify(result);
-            console.log(myVar);
+
     });
-    console.log('closed');
     if (err) throw err
+      //Grab the open tickets depending on the logged in user
       var openQueryString = changeQueryStringOpen(req.user.Site);
       connection.query(openQueryString, function(err, result) {
 
         if (err) throw err
             myVar2 = JSON.stringify(result);
-            console.log(myVar2);
     });
-    // console.log('open');
     
     if (err) throw err
       var allQueryString = changeQueryStringAll(req.user.Site);
+    //Grab all the tickets depending on logged in user
       connection.query(allQueryString, function(err, result) {
-        console.log(req.user.Site);
         if (err) throw err
             myVar3 = JSON.stringify(result);
-            console.log(myVar3);
             res.render((__dirname + '/../../public/views/branchtickets.ejs'), {
             allTickets:myVar3,
             openTickets:myVar2,
@@ -93,7 +90,6 @@ exports.mytickets = function(req, res){
             
             });
     });
-    // console.log('all');
     connection.end();
   });
 }

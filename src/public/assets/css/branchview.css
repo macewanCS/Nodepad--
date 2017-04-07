@@ -10,11 +10,9 @@
 }
 
 fieldset0{
-  position: relative;
+  position: absolute;
   width: 40%;
   padding-left:0.5%;
-  /*padding-left: 1%;*/
-  /*left:20em;*/
   top: 12%;
 }
 
@@ -23,6 +21,14 @@ fieldset1{
   width: 55%;
   top: 12%;
   left:40%;
+}
+
+#history-info{
+  position: relative;
+  left: 10px;
+  font-weight: normal !important;
+  display: block;
+  width: 150px;
 }
 
 #history-lb{
@@ -115,9 +121,9 @@ fieldset1{
 
 #res-lb{
   position: absolute;
-  top:33%;
+  top:32.4%;
   left:61.5%;
-  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+  font-family: 'Inder', sans-serif;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 
 #res{
@@ -134,29 +140,28 @@ fieldset1{
 
 
 #categ{
-  padding-left:0.75%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.5%;font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L1{
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.6%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L2{
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
+  padding-left:0.7%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;
 }
 #L3{
   position: absolute;
-  top: 29%;
+  top: 28%;
   padding-top: 0%;
   height: 95%;
   overflow-y:auto;
-  padding-left:0.75%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+  padding-left:0.1%; font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 #L4{
   position: absolute;
   top: 200px;
   height: 30%;
   width: 0%
-  /*left:3px;*/
-  padding-left: 0.75%;
+  padding-left: 1px;
   margin-top:0px;
   margin: 0px;
   overflow-y:auto;
@@ -165,22 +170,14 @@ fieldset1{
 }
 #L5{
   position: relative;
-  /*padding-top: 3px;*/
   left: 24%;
-  /*width: 10px;*/
-  top:133.5px; 
+  top:130px; 
   border:0px;
   background-color: #eeeeee;
 }
-
 #L6{
   position: relative;
-  /*padding-top: 3px;*/
-  left: 52%;
-  /*width: 10px;*/
-  top:0px; 
-  border:0px;
-  background-color: #ffffff;
+  left:20px;
 }
 
 #H1{
@@ -191,29 +188,25 @@ fieldset1{
 }
 #H3{
   padding-left: 0.5%;
-  /*top:20%;*/
 }
 #H4{
   position: absolute;
-  top: 61%;
-  left:0.65%;
-  /*padding-left: 0.05%;*/
+  top: 60%;
+  left:0%;
 }
 #H5{
     position: relative;
     padding-left: 0.5%;
-    left:37px;
-    top:155px;
+    left:25px;
+    top:154px;
 }
 
-#H6{
-    position: relative;
-    padding-left: 0.5%;
-    left:50%;
-    top:0px;
-}
 p {  
   line-height: 15px;
+}
+
+label{
+  font-size:17px;
 }
 
 #button-container{ 
@@ -228,10 +221,11 @@ p {
 }
 
 #exit-btn {
-  position: relative;
+  position: absolute;
   font-weight: bold;
-  opacity: 0.7;
-  left:0%;
+  background-color: #757575;
+  opacity: 1;
+  left:83%;
   width:15%;
   min-width: 3.5em;
 }
@@ -239,12 +233,12 @@ p {
 #desc-lb {
   position: absolute;
   padding-bottom: 0em;
-  padding-left:0.5%;
+  padding-left:0.70%;
   padding-top: 3em;
-  top: 31%;
+  top: 30.75%;
 }
 
-#text_results{
+#text-results{
   position: absolute;
   padding-left: 0%; 
   padding-top: 0px;
@@ -260,12 +254,13 @@ p {
 
 #stat-lb{
   position: absolute;
-  top:33%;
-  padding-left:0.5%;
+  top:32.2%;
+  left:2.1%;
 }
 
 #stat{
-  opacity: 0.70;
+  opacity: 1.0;
+  font-size: 13.5px;
   background-color: #81C784;
 }
 

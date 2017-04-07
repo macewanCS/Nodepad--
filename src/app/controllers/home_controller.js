@@ -25,17 +25,21 @@ exports.home = function(req, res){
     
     var myVar3;
     if (err) throw err
+      //Get the announcements
     connection.query('SELECT AID, Title, Announcement, SubmittedDate from 395project.announcements Order by AID Desc Limit 3;', function(err, announcementsRes){
+    
     if (err) throw err
+      //Get the open tickets for the user
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallStatus= "Open" and CustID="' + req.user.id + '" and resolve is null Order By TempDate Desc LIMIT 5;', function(err, result) {
+        
         if (err) throw err
+
+          //Get the branch tickets
           var connectionString = changeBranchString(req.user.Site);
             connection.query(connectionString, function(err, branchResult) {
             announ = JSON.stringify(announcementsRes);
-            console.log(announ);
             myVar3 = JSON.stringify(result);
             branch = JSON.stringify(branchResult);
-            console.log(branch);
             res.render((__dirname + '/../../public/views/home.ejs'), {
             
             openTickets:myVar3,
@@ -53,7 +57,6 @@ exports.home = function(req, res){
 }
 function changeBranchString(Site){
   var str = "";
-  console.log(Site + "\n\n\n\n");
   if (Site == "IT"){
     str = 'Select CallID, Category, CallStatus, Symptoms, TempDate From 395project.calllog where CallStatus = "Open" and resolve is null Order By TempDate Desc Limit 5;'
   }

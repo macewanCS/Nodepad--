@@ -8,11 +8,9 @@ exports.resolve = function(req,res){                 // EDIT TICKET
     database: '395project'
   });
   
-  console.log(req.body.EquipmentType);
   
   connection.connect(function(err) {
     
-    console.log("Beginning insertion");
     var lastRec;
     var today = new Date();
     var stringDate = today.getFullYear() + "/" + (parseInt(today.getMonth()) + 1) + "/" + today.getDate();
@@ -23,7 +21,6 @@ exports.resolve = function(req,res){                 // EDIT TICKET
     var resolve = " | Resolution:" + req.body.Resolveinfo;
 
     connection.query(queryString, [resolve, ticketID]);
-    console.log("Ending insertion, check the database to confirm");
     connection.end();
   });
 };

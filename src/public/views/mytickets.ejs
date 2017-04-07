@@ -163,7 +163,7 @@
 
 
 
-            console.log("Creating closed tickets");
+
 
            </script>
 
@@ -229,7 +229,6 @@
               // $("[name='closed']").width('75%');
              });
 
-            console.log("Creating closed tickets");
 
            </script>
 
@@ -257,7 +256,7 @@
            function table_button_handler(table){
 
                 $(table).on( 'click', '#view', function () { // VIEW BUTTON
-                    console.log("HEY");
+
                     if(table == "#myOpenTable"){
                       var data = myOpen.row($(this).parents('tr')).data();
                     }
@@ -273,7 +272,7 @@
                   });
 
                 $(table).on( 'click', '#edit', function () {  // EDIT BUTTON
-                    console.log("HEY");
+
                     if(table == "#myOpenTable"){
                       var data = myOpen.row($(this).parents('tr')).data();
                     }
@@ -289,7 +288,7 @@
                   });
 
                 $(table).on( 'click', '#resolve', function () { //RESOLVE BUTTON
-                    console.log("HEY");
+
                     if(table == "#myOpenTable"){
                       var data = myOpen.row($(this).parents('tr')).data();
                     }

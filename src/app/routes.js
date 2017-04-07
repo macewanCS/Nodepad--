@@ -22,7 +22,7 @@ var announcements_controller = require("./controllers/announcements_controller.j
     failureRedirect : '/',
   }),
         function(req, res) {
-            console.log("hello");
+
 
             if (req.body.remember) {
               req.session.cookie.maxAge = 1000 * 60 * 3;
@@ -83,7 +83,7 @@ var announcements_controller = require("./controllers/announcements_controller.j
   app.get('/home', isAuthenticated, home_controller.home);
   app.get('/home/:ticketid/view', home_controller.view);
   app.get('/user1', function(req, res) {
-        console.log("Shits fucked yo");
+
             if (req.user === undefined) {
                 // The user is not logged in
                 res.json({});

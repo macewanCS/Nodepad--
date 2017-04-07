@@ -9,7 +9,7 @@
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="../assets/js/ticketscripts.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/resolveticket.css">
 
@@ -80,11 +80,11 @@
           </div>
 
           <div id="desc-lb">
-            <label id=text_results_id class="control-label">Description of the problem:</label>
+            <label id=text-results-id class="control-label">Description of the problem</label>
           </div>
           <div id="desc-text">
 
-            <pre class="control-label" id="text_results"></pre>
+            <pre class="control-label" id="text-results"></pre>
           </div>
           <div id="stat-lb">
             <label class="control-label">Status:</label>
@@ -98,7 +98,7 @@
           <div id="res-text">
             <textarea id="res_box"></textarea>
           </div>
-          <button type="button" id="confirm-btn" onclick="showInfo()" class="btn btn-primary">Confirm</button>
+          <button type="button" id="confirm-btn" onclick="checkFilled('#res_box')" class="btn btn-primary">Confirm</button>
         </div>
       </div>
 
@@ -116,7 +116,7 @@
             var n = parsed.length;                          //how many entries in array
             var headings = ["Equip Type","Asset Tag","Device Name","Error Message",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
-            var ids = ["#L1","#L2", "#L3", "#text_results", "#L4", "#L5"];
+            var ids = ["#L1","#L2", "#L3", "#text-results", "#L4", "#L5"];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -133,7 +133,7 @@
             var n = parsed.length;                          //how many entries in array
             var headings = ["Affected Systems","System Offline/Broken?","Problem Replication","",""]
             var hids = ["#H1","#H2", "#H3", "#H4", "#H5"];
-            var ids = ["#L1","#L2","#text_results", "#L3", "#L4", "#L5"];
+            var ids = ["#L1","#L2","#text-results", "#L3", "#L4", "#L5"];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -169,7 +169,7 @@
             var n = parsed.length;                          //how many entries in array
             var headings = [""]
             var hids = ["#H1"];
-            var ids = ["#text_results"];
+            var ids = ["#text-results"];
             for(var i=0;i<n;i++){
               if(parsed[i] ==" undefined"){
                 parsed[i]="N/A";
@@ -192,8 +192,8 @@
             else if(parsed[0]=="Move Equipment "){  //fix move equipment later
               
               var headings = ["Service Type","System Access","Asset Tag","","", ""];
-              var ids = ["#L1","#L2","#L3", "#text_results", ""];
-              $('#text_results_id').text('Destination:');
+              var ids = ["#L1","#L2","#L3", "#text-results", ""];
+              $('#text-results-id').text('Destination:');
             }
             else if(parsed[0]=="New Software "){
               var headings = ["Service Type","Software Name","PC Name","",""]
@@ -242,14 +242,14 @@
       <script>
       function postData(req, res){
         var http = new XMLHttpRequest();
-        console.log("clicked the next button");
+
         var params = "Resolveinfo=" + $("#res_box").val() + "&TicketID=" + data[0].CallID;
-        console.log(data.CallID);
-        console.log(params);
+
+
         var url = "/mytickets/resolve:ticketid";
-        console.log("sent " + http.status + " " + http.readyState);
+
         http.open("POST", url, true);
-        console.log(url + " " + http.status + " " + http.readyState);
+
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.onreadystatechange = function() {//Call a function when the state changes.
           if(http.readyState == 4 && http.status == 200) {
@@ -257,7 +257,7 @@
           }
         };
         http.send(params);
-        console.log("sent " + http.status + " " + http.readyState);
+
       };
       </script>
 <script>
