@@ -23,6 +23,7 @@ This web applications was built to run best with the following tools:
 8. The web application should now run at <pre>localhost:8080</pre>
 9. Login using one of the user accounts listed below
 
+
 ## Seeded Users
 | Account Type  |  Username | Password  | Branch  |
 |---|---|---|---|

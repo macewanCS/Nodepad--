@@ -230,7 +230,6 @@
       $('#accordion2').remove();
       $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse3','#heading-one', '#changeType')");
       if($('#select-type').find("option:selected").text().match(/iPad/i) || $('#select-type').find("option:selected").text().match(/Laptop/i) || $('#select-type').find("option:selected").text().match(/PC/i) || $('#select-type').find("option:selected").text().match(/Self-checkout/i)){
-
         $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse2'); colorHeader('#heading-one', '#changeType')");
         var content =
           '<div class="panel-group" id="accordion2">' +
