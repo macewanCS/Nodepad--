@@ -140,38 +140,15 @@ connection.query('\
 	PRIMARY KEY(`AID`)\
 	)');
 
+//announcements query
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("MILLWOODS OUTAGE", "There is an outage at the millwoods branch, this should be fixed within the next day or so","2017/3/25");');
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Maintenance", "There will be a schedules service from the 29th to the 30th of march, sorry for any inconvenience that calls","2017/3/27");');
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Maintenance", "Service is over","2017/3/30");');
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("iNovah", "We are aware of problems with the inovah system and are working ona fix","2017/3/22");');
 connection.query('INSERT INTO `395project`.`announcements` (`Title`,`Announcement`,`SubmittedDate`) VALUES ("Passwords", "Remember to not share your passwords, we have had multiple reports have passwords being stolen","2017/4/3");');
-connection.query('\
- CREATE TABLE `395project`.`profile` ( \
- `CustID` INT  NOT NULL, \
-	`CustType` varchar(50) NULL, \
-	`FirstName` varchar(20) NULL, \
-	`LastName` varchar(30) NULL, \
-	`Phone` varchar(25) NULL, \
-	`Site` varchar(3) NULL, \
-	`EMailID` varchar(50) NULL, \
-	`Notes` text NULL, \
-	`ModBy` varchar(96) NULL, \
-	`ModDate` varchar(10) NULL, \
-	`ModTime` varchar(8) NULL, \
-	`FormerName` varchar(25) NULL, \
-	`DTLastMod` int NULL, \
-	`RecvdDate` varchar(10) NULL, \
-	`RecvdTime` varchar(8) NULL, \
-	`Title` varchar(25) NULL, \
-	PRIMARY KEY(`CustID`) \
-)');
 
-connection.query('\
-	INSERT INTO `395project`.`profile` (`CustID`, `CustType`, `FirstName`, `LastName`, `Phone`, `Site`) VALUES ("1", "1", "Brett", "Anderson", "780-905-7400", "MLW"); \
-');
-connection.query('\
-	INSERT INTO `395project`.`profile` (`CustID`, `CustType`, `FirstName`, `LastName`, `Phone`, `Site`) VALUES ("2", "2", "Jack", "Staples", "780-905-7410", "MLW"); \
-	')
+
+//other table for inserting in made tickets
 connection.query('\
 	CREATE TABLE `395project`.`asgnmnt`(\
 	`AssignedBy` varchar(96) NULL, \
@@ -205,7 +182,7 @@ connection.query('\
 	`TempNotes` text NULL, \
 	`TempTime` int NULL \
 	)');
-
+//two premade asgnmnt tickets.
 connection.query('\
 	INSERT INTO `395project`.`asgnmnt`(`AssignedBy`,`Assignee`,`Description`,`HEATSeq`) VALUES ("ja", "ja", "the public doc", 1);\
 	');
@@ -213,6 +190,7 @@ connection.query('\
 	INSERT INTO `395project`.`asgnmnt`(`AssignedBy`,`Assignee`,`Description`,`HEATSeq`) VALUES ("kh", "ch", "there is no ga", 2);\
 	');
 
+//main ticket insertion table
 connection.query('\
 	CREATE TABLE `395project`.`calllog`( \
 	`CallID` varchar(8) NULL, \
@@ -268,7 +246,7 @@ connection.query('\
 	`Site` varchar(4) NULL, \
 	`Resolve` int NULL \
 	)');
-
+//all branches and their abreviations
 var abbreviations = ["ABB","CAL","CPL","CSD","CPLM","CLV","CMA","ESQ","GMLM","HIG","IDY","JPL","LHL","LON","MCN","MEA","MLW","RIV","SPW","STR","WHP","WMC","WOO","UAC"];
 var fullnames = ["AbbotsField","Calder","Capilano","Castle Downs", "Century Park Lending Machine","Clareview","Collection Management","Enterprise Square","Grant Macewan Lending Machine","Highlands","Idylwydlde","Jasper Place", "Lois Hole", "Londonderry", "McConachie", "Meadows", "Mill Woods", "Riverbend", "Sprucewood","Strathcona", "West Henday", "Whitemud", "Woodcroft", "eplGO U of A"];
 
@@ -287,6 +265,7 @@ function getDateString(obj){
 	monthInt += 1;
 	return string = obj.getFullYear() + "/" + monthInt + "/" + date.getDate();
 }
+//INSERTINg seeded TICKETS------------------------------------------------------
 connection.query('\
     INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`,`TempDate`, `Site`) VALUES ("100048", "1", "Employee", "| | |  Renewal line not responding |", "Service", "Open", "1/3/2016", "2016/2/23", "MLW");\
     ');
@@ -367,7 +346,9 @@ connection.query('\
 connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("100071", "1", "Employee", "Excel | No | Excel is super slow for me | n/a", "Software", "Closed", "5/11/2016", "2016/5/11", "MLW");\
 	');
+//End seeded tickets------------------------------------------------------------
 var num = 100071;
+//Branch seeding
 for (var i = 0; i <fullnames.length;i++)
 {
 	num = num + 1
@@ -379,7 +360,7 @@ for (var i = 0; i <fullnames.length;i++)
 	');
 }
 }
-
+//HR seeding
 for (var i = 0; i <4; i++)
 {
 	var hrNum = 100192;
