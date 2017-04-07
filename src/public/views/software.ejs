@@ -240,9 +240,7 @@
     
     <script>
     $('.selectpicker').on('change',function(){
-      console.log($('#select-type').find("option:selected").text());
       if ($('#select-type').find("option:selected").text().match(/Other/i)){
-        console.log("Other was selected");
         $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse1A'); colorHeader('#heading-one', '#changeSystem')");
         var content =
           '<div class="panel-group" id="accordion1A">' +
