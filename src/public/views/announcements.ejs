@@ -131,7 +131,7 @@
           if(result){
             var subject = infos.elements[0].value;
             var message = infos.elements[1].value;
-            if (subject > 0 && message > 0){
+            if (subject.length > 0 && message.length > 0){
             postData();
             window.location.href = "/announcements";
           }
