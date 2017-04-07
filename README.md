@@ -8,6 +8,7 @@
 
 ## Requirements:
 This web applications was built to run best with the following tools:
+* NPM <pre>sudo apt-get install npm</pre>
 * [Node.JS Version 6.9.4](https://nodejs.org/download/release/v6.9.4/)
 * [Ubuntu Linux Version 16.04 LTS](http://releases.ubuntu.com/16.04/)
 * [Google Chrome](https://www.google.com/chrome/)
