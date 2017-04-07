@@ -123,14 +123,7 @@ connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HR","Human Resources");\
 	');
 
-connection.query('SELECT * FROM `395project`.`branch`', function(err, rows){
-	if (err){
-		return done(err);
-	}
-	else{
-		console.log(rows);
-	}
-});
+
 
 connection.query('\
 	CREATE TABLE `395project`.`announcements` (\
@@ -255,9 +248,7 @@ var date = new Date();
 var stringDateTest = getDateString(date);
 date1 = new Date("2016/01/10");
 var stringDateTest2 = date1.getFullYear() + "/" + (parseInt(date1.getMonth()) + 1) + "/" + date1.getDate();
-console.log(stringDateTest);
-console.log(date1.getDate());
-console.log(stringDateTest2);
+
 
 function getDateString(obj){
 	var string;
@@ -354,7 +345,7 @@ for (var i = 0; i <fullnames.length;i++)
 {
 	num = num + 1
 	for (var j=0; j<4;j++){
-		console.log("This ran");
+
 		num = num + 1;
 	connection.query('\
 	INSERT INTO `395project`.`calllog` (`CallID`, `CustID`, `CustType`, `Symptoms`, `Category`, `CallStatus`, `RecvdDate`, 	`TempDate`, `Site`) VALUES ("' + num + '", "3", "Employee", "This is a ticket for ' + fullnames[i] + '", "General", "Closed","5/9/2016", "2016/5/9", "' + abbreviations[i] + '");\
