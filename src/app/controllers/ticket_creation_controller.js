@@ -39,7 +39,7 @@ exports.service = function(req, res){
 
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });
@@ -79,7 +79,7 @@ exports.hardware = function(req, res){
 
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });
@@ -118,7 +118,7 @@ exports.software = function(req, res){
   var sPriority = changePrioritySoftware(req.body.SystemStatus);
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });
@@ -158,7 +158,7 @@ exports.software = function(req, res){
 exports.password = function(req,res){
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });
@@ -192,7 +192,7 @@ exports.password = function(req,res){
 exports.general = function(req,res){
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });

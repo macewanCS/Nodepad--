@@ -3,7 +3,7 @@ var mysql = require('mysql');
 exports.edit = function(req,res){                 // EDIT TICKET
     var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });

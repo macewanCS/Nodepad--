@@ -16,7 +16,7 @@ exports.home = function(req, res){
   
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });

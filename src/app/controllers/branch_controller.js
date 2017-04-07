@@ -4,7 +4,7 @@ exports.view = function(req,res){            // VIEW TICKET
 
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });
@@ -48,7 +48,7 @@ exports.mytickets = function(req, res){
   
   var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'temp',
     password: '1234',
     database: '395project'
   });
@@ -96,7 +96,7 @@ exports.mytickets = function(req, res){
 
 function changeQueryStringOpen(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null and calllog.Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null and calllog.Site != "HRS"';
   if (site == "IT" || site == "HRS"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null';
   }
@@ -104,7 +104,7 @@ function changeQueryStringOpen(site)
 }
 function changeQueryStringClosed(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog WHERE (CallStatus="Closed" or (CallStatus="Open" and resolve is not null)) and calllog.Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog WHERE (CallStatus="Closed" or (CallStatus="Open" and resolve is not null)) and calllog.Site != "HRS"';
   if (site == "IT" || site == "HRS"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
   }
@@ -112,7 +112,7 @@ function changeQueryStringClosed(site)
 }
 function changeQueryStringAll(site)
 {
-  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog Where calllog.Site != "HR"';
+  var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog Where calllog.Site != "HRS"';
   if (site == "IT" || site == "HRS"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog';
   }
