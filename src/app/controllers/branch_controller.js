@@ -97,7 +97,7 @@ exports.mytickets = function(req, res){
 function changeQueryStringOpen(site)
 {
   var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null and calllog.Site != "HR"';
-  if (site == "IT" || site == "HR"){
+  if (site == "IT" || site == "HRS"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site FROM 395project.calllog WHERE CallStatus="Open" and resolve is null';
   }
   return string;
@@ -105,7 +105,7 @@ function changeQueryStringOpen(site)
 function changeQueryStringClosed(site)
 {
   var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog WHERE (CallStatus="Closed" or (CallStatus="Open" and resolve is not null)) and calllog.Site != "HR"';
-  if (site == "IT" || site == "HR"){
+  if (site == "IT" || site == "HRS"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog WHERE CallStatus="Closed" or (CallStatus="Open" and resolve is not null)';
   }
   return string;
@@ -113,7 +113,7 @@ function changeQueryStringClosed(site)
 function changeQueryStringAll(site)
 {
   var string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog Where calllog.Site != "HR"';
-  if (site == "IT" || site == "HR"){
+  if (site == "IT" || site == "HRS"){
     string = 'Select CallID, Category, CallStatus, Symptoms, TempDate, calllog.Site, Resolve FROM 395project.calllog';
   }
   return string;
