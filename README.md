@@ -17,7 +17,7 @@ This web applications was built to run best with the following tools:
 2. Navigate into the root of the repository
 3. Install all dependencies using <pre>npm install</pre>
 4. Initialize the database with <pre>node src/scripts/create_database.js</pre>
-5. Launch the database using <pre>node src/main.js</pre>
+5. Launch the application using <pre>node src/main.js</pre>
 6. The web application should now run at <pre>localhost:8080</pre>
 7. Login using one of the user accounts listed below
 
