@@ -4,7 +4,7 @@
 
 var mysql = require('mysql');
 var dbconfig = require('../config/database');
-
+var bcrypt = require('bcrypt-nodejs')
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('DROP DATABASE ' + dbconfig.database);
 connection.query('CREATE DATABASE ' + dbconfig.database);
@@ -13,28 +13,29 @@ connection.query(' \
 	CREATE TABLE `395project`.`users` ( \
 	`username` varchar(20) NULL,\
 	`id` INT NOT NULL, \
-	`password` varchar(20) NULL, \
+	`password` varchar(100) NULL, \
 	`Site` varchar(4) NULL, \
 	PRIMARY KEY (`id`)\
 	)');
-
+var hash = bcrypt.hashSync("1234");
+var maxHash = bcrypt.hashSync("package");
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("brett", 1, "1234", "MLW")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("brett", 1, "' + hash + '", "MLW")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jack", 2, "1234", "MLW")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jack", 2, "' + hash + '", "MLW")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jordan", 3, "1234", "CAL")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("jordan", 3, "' + hash + '", "CAL")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 4, "1234", "GMLM")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("sunny", 4, "' + hash + '", "GMLM")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("cam", 5, "1234", "IT")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("cam", 5, "' + hash + '", "IT")\
 	');
 connection.query('\
-	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("max", 6, "package", "HR")\
+	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("max", 6, "' + maxHash + '", "HR")\
 	');
 
 
