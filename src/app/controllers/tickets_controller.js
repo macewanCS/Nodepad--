@@ -133,7 +133,7 @@ exports.mytickets = function(req, res){
     if (err) throw err
 
       //getting all of the closed tickets, except for hr
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Resolve FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed" and Category!="HR" or ( CustID="' + req.user.id + '" and Resolve="1" and Category!="HR");', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Resolve FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed" and Category!="HRS" or ( CustID="' + req.user.id + '" and Resolve="1" and Category!="HRS");', function(err, result) {
         if (err) throw err
             myVar = JSON.stringify(result);
 
@@ -141,7 +141,7 @@ exports.mytickets = function(req, res){
 
     if (err) throw err
       //Getting the open tickets and non resolved tickets
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open" and Resolve is null and Category!="HR"', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open" and Resolve is null and Category!="HRS"', function(err, result) {
         if (err) throw err
             myVar2 = JSON.stringify(result);
 
@@ -150,7 +150,7 @@ exports.mytickets = function(req, res){
     
     if (err) throw err
       //getting all of them
-      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Resolve FROM 395project.calllog WHERE CustID="' + req.user.id + '" and Category!="HR";', function(err, result) {
+      connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Resolve FROM 395project.calllog WHERE CustID="' + req.user.id + '" and Category!="HRS";', function(err, result) {
         if (err) throw err
             myVar3 = JSON.stringify(result);
 
