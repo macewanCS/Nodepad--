@@ -133,8 +133,14 @@
             var message = infos.elements[1].value;
             console.log(subject);
             console.log(message);
+            if (subject > 0 && message > 0){
             postData();
             window.location.href = "/announcements";
+          }
+          else{
+            alert("Please fill out all info");
+            getInfo();
+          }
           }
         }
         });
