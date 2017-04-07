@@ -6,7 +6,7 @@ var mysql = require('mysql');
 var dbconfig = require('../config/database');
 var bcrypt = require('bcrypt-nodejs')
 var connection = mysql.createConnection(dbconfig.connection);
-connection.query('DROP DATABASE ' + dbconfig.database);
+//connection.query('DROP DATABASE ' + dbconfig.database);
 connection.query('CREATE DATABASE ' + dbconfig.database);
 
 connection.query(' \
@@ -120,7 +120,7 @@ connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("WOO","Woodcroft");\
 	');
 connection.query('\
-	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HR","Human Resources");\
+	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("HRS","Human Resources");\
 	');
 
 
