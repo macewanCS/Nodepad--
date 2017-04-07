@@ -199,36 +199,35 @@
         
         var affected = $('#select-type').find("option:selected").text();
         
-        console.log(affected);
+
         
         if (affected === "Internet access"){
-          console.log("swapping");
+
           affected = "Internet/network access";
         }
         
         if (affected === "www.epl.ca"){
-          console.log("swapping");
+
           affected = "Public website / www.epl.ca";
         }
         
         if (affected === "file share"){
-          console.log("swapping");
           affected = "S:/ drive / file share";
         }
         
         if (affected === "StaffWeb"){
-          console.log("swapping");
+
           affected = "StaffWeb/Active Directory";
         }
         
         var http = new XMLHttpRequest();
-        console.log("clicked the next button");
+
         var params = "AffectedSystem=" + affected + "&SystemStatus="+ systemStatus + "&Description=" + ticketInfo + "&ProblemCause=" + errorInfo;
-        console.log(params);
+
         var url = "/createSoftware";
-        console.log("sent " + http.status + " " + http.readyState);
+
         http.open("POST", url, true);
-        console.log(url + " " + http.status + " " + http.readyState);
+
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.onreadystatechange = function() {//Call a function when the state changes.
           if(http.readyState == 4 && http.status == 200) {
@@ -236,7 +235,7 @@
           }
         };
         http.send(params);
-        console.log("sent " + http.status + " " + http.readyState);
+
       };
     </script>
     

@@ -50,12 +50,9 @@ module.exports = function(passport) {
                 // if the user is found but the password is wrong
                 //rows[0].password;
                 if (!bcrypt.compareSync(password,rows[0].password)){
-                  console.log(password.toString() + " first");
-                  console.log(rows[0].password.toString() + " second");
                   return done(null, false, console.log('loginMessage', 'Oops! Wrong password.')); // log if the wrong password is entered
                 }
                 // all is well, return successful user
-                console.log("IT LOGGED IN, OH FUCK YEAH BUD!");
                 return done(null, rows[0]);
             });
         })

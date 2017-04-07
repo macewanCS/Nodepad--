@@ -212,7 +212,7 @@
                table_button_handler('#myClosedTable');
              });
 
-            console.log("Creating closed tickets");
+
 
            </script>
 
@@ -280,7 +280,7 @@
                table_button_handler('#myAllTable');
              });
 
-            console.log("Creating closed tickets");
+
 
            </script>
 
@@ -308,7 +308,7 @@
            function table_button_handler(table){
 
                 $(table).on( 'click', '#view', function () { // VIEW BUTTON
-                    console.log("HEY");
+
                     if(table == "#myOpenTable"){
                       var data = myOpen.row($(this).parents('tr')).data();
                     }

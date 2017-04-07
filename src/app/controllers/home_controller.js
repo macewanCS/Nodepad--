@@ -38,10 +38,8 @@ exports.home = function(req, res){
           var connectionString = changeBranchString(req.user.Site);
             connection.query(connectionString, function(err, branchResult) {
             announ = JSON.stringify(announcementsRes);
-            console.log(announ);
             myVar3 = JSON.stringify(result);
             branch = JSON.stringify(branchResult);
-            console.log(branch);
             res.render((__dirname + '/../../public/views/home.ejs'), {
             
             openTickets:myVar3,
@@ -59,7 +57,6 @@ exports.home = function(req, res){
 }
 function changeBranchString(Site){
   var str = "";
-  console.log(Site + "\n\n\n\n");
   if (Site == "IT"){
     str = 'Select CallID, Category, CallStatus, Symptoms, TempDate From 395project.calllog where CallStatus = "Open" and resolve is null Order By TempDate Desc Limit 5;'
   }

@@ -131,9 +131,7 @@
           if(result){
             var subject = infos.elements[0].value;
             var message = infos.elements[1].value;
-            console.log(subject);
-            console.log(message);
-            if (subject > 0 && message > 0){
+            if (subject.length > 0 && message.length > 0){
             postData();
             window.location.href = "/announcements";
           }
@@ -155,7 +153,6 @@
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.onreadystatechange = function() {//Call a function when the state changes.
         if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
         }
         };
         http.send(params);
