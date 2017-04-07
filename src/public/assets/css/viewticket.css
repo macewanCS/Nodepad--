@@ -24,14 +24,11 @@ fieldset1{
 }
 
 #history-info{
-  /*color: #B4886B;*/
   position: relative;
   left: 10px;
   font-weight: normal !important;
   display: block;
   width: 150px;
-  /*float: left;*/
-
 }
 
 #history-lb{
@@ -140,9 +137,9 @@ fieldset1{
 
 #res-lb{
   position: absolute;
-  top:33%;
+  top:32.4%;
   left:61.5%;
-  font-family: 'Inder', sans-serif;color:#666;margin-bottom: 15px;border:0px;background-color: #eeeeee;
+  font-family: 'Inder', sans-serif;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
 
 #res{
@@ -257,8 +254,9 @@ label{
 
 #exit-btn {
   position: absolute;
+  background-color:#757575;
   font-weight: bold;
-  opacity: 0.8;
+  opacity: 1;
   left:83%;
   width:15%;
   min-width: 3.5em;
@@ -288,7 +286,7 @@ label{
 
 #stat-lb{
   position: absolute;
-  top:32.5%;
+  top:32.2%;
   left:2.1%;
 }
 

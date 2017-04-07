@@ -23,6 +23,14 @@ fieldset1{
   left:40%;
 }
 
+#history-info{
+  position: relative;
+  left: 10px;
+  font-weight: normal !important;
+  display: block;
+  width: 150px;
+}
+
 #history-lb{
   position: absolute;
   top:61.5%;
@@ -113,7 +121,7 @@ fieldset1{
 
 #res-lb{
   position: absolute;
-  top:33%;
+  top:32.4%;
   left:61.5%;
   font-family: 'Inder', sans-serif;margin-bottom: 15px;border:0px;background-color: #eeeeee;
 }
@@ -215,7 +223,8 @@ label{
 #exit-btn {
   position: absolute;
   font-weight: bold;
-  opacity: 0.8;
+  background-color: #757575;
+  opacity: 1;
   left:83%;
   width:15%;
   min-width: 3.5em;
@@ -245,7 +254,7 @@ label{
 
 #stat-lb{
   position: absolute;
-  top:32.5%;
+  top:32.2%;
   left:2.1%;
 }
 
