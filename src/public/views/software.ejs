@@ -27,10 +27,10 @@
         <!-- This is the accordian for software tickets -->
         <div class="accordian-group" id="accordian">
           <!-- This is the panel for affected systems --> 
-          <div class="panel panel-default">
+          <div class="panel panel-default" id="affected-panel">
             <div class="panel-heading" id="heading-one">
               <h4 class="panel-title"> 
-                Step 1: Affected System<a class="changer" id="changeSystem" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
+                Step 1: Affected System<a class="changer" id="changeSystem" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse1A')" style="visibility:hidden"> Change </a>
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
@@ -63,12 +63,12 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-two">
             <h4 class="panel-title">
-              Step 2: System Status<a class="changer" id="changeStatus" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
+              Step 2: System Status<a class="changer" id="changeSysStatus" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4', '#collapse1A')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse2" class="panel-collapse collapse">
             <div id="confirmation-buttons">
-              <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse2', '#collapse3', 'input[name=options]:checked', '#heading-two', '#changeStatus')">Next</button>  
+              <button type="button" class="btn btn-primary" onclick="toggleAccordianCheck('#collapse2', '#collapse3', 'input[name=options]:checked', '#heading-two', '#changeSysStatus')">Next</button>  
             </div>
             <div class="issue-description">
               Is the system completely offline/broken? Please select an option.
@@ -91,7 +91,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-three">
             <h4 class="panel-title">
-              Step 3: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4')" style="visibility:hidden"> Change </a>
+              Step 3: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4', '#collapse1A')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse3" class="panel-collapse collapse">
@@ -129,35 +129,29 @@
    <!--This is for the confirmation-->
   <script>
   function showInfo(){
-    var equipment = $('#select-type').find("option:selected").text();
+    var equipment;
     var systemStatus = $('input[name=options]:checked').val();
     var ticketInfo =  $('#text-block').val();
     var errorInfo = $('#text-block-2').val();
     var outString = "";
 
-    if (typeof equipment != "undefined"){
-
-    outString = outString + "<b>Affected System:</b> " + equipment;
-    
+    if (typeof $('#sys-name-text').val() != "undefined"){
+      outString = outString + "<b>Affected System:</b> " + $('#sys-name-text').val();
     }
-
-    if (typeof systemStatus != "undefined"){
-
-    outString = outString + "<br><b>System Status:</b> " + systemStatus;
+    else {    
+      outString = outString + "<b>Affected System:</b> " + $('#select-type').find("option:selected").text();
+    }
     
+    if (typeof systemStatus != "undefined"){
+    outString = outString + "<br><b>System Status:</b> " + systemStatus; 
     }
 
     if (typeof ticketInfo != "undefined"){
-
-    outString = outString + "<br><b>Description:</b> " + ticketInfo;
-    
+    outString = outString + "<br><b>Description of Problem:</b> " + ticketInfo;   
     }
-    if (typeof errorInfo != "undefined"){
-
-    outString = outString + "<br><b>Description:</b> " + errorInfo;
-    
+    if (errorInfo != ""){
+      outString = outString + "<br><b>Problem Cause:</b> " + errorInfo;
     }
-
     bootbox.confirm({
       title: "Please confirm your information:",
       message: outString,
@@ -196,18 +190,18 @@
       if (typeof errorInfo == "undefined"){
         errorInfo = "n/a";
       }
-        
-        var affected = $('#select-type').find("option:selected").text();
-        
-
-        
+        var affected;
+        if (typeof $('#sys-name-text').val() != "undefined"){
+          affected = $('#sys-name-text').val();
+        }
+        else {    
+          affected = $('#select-type').find("option:selected").text();
+        }
         if (affected === "Internet access"){
-
           affected = "Internet/network access";
         }
         
         if (affected === "www.epl.ca"){
-
           affected = "Public website / www.epl.ca";
         }
         
@@ -216,14 +210,11 @@
         }
         
         if (affected === "StaffWeb"){
-
           affected = "StaffWeb/Active Directory";
         }
         
         var http = new XMLHttpRequest();
-
         var params = "AffectedSystem=" + affected + "&SystemStatus="+ systemStatus + "&Description=" + ticketInfo + "&ProblemCause=" + errorInfo;
-
         var url = "/createSoftware";
 
         http.open("POST", url, true);
@@ -237,6 +228,36 @@
         http.send(params);
 
       };
+    </script>
+    
+    <script>
+    $('.selectpicker').on('change',function(){
+      if ($('#select-type').find("option:selected").text().match(/Other/i)){
+        $('#next-btn').attr('onclick', "toggleAccordian('#collapse1', '#collapse1A'); colorHeader('#heading-one', '#changeSystem')");
+        var content =
+          '<div class="panel-group" id="accordion1A">' +
+            '<div class="panel panel-default">' +
+              '<div class="panel-heading" id="heading-1A">' +
+                '<h4 class="panel-title">' +
+                  'Step 1A: System Name <a id="changeSysName" class="changer" onclick="undo(\'#collapse1A\', \'#collapse1\', \'#collapse3\', \'#collapse4\', \'#collapse2\')" style="visibility:hidden"> Change </a>' +
+                '</h4>' +
+              '</div>' +
+              '<div id="collapse1A" class="panel-collapse collapse">' +
+                '<div id="confirmation-buttons">' +
+                  '<button type="button" class="btn btn-primary" onclick="toggleAccordianCheck(\'#collapse1A\', \'#collapse2\', \'#sys-name-text\'); colorHeader(\'#heading-1A\',\'#changeSysName\')">Next</button>' +
+                '</div>' +
+                '<div class="issue-description">' +
+                  '<p1>What is the name of the hardware you are having an issue with?</p1>' +
+                '</div>' +
+                '<div class="panel-text-box">' +
+                  '<input type="text" id="sys-name-text">' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        $('#accordian #affected-panel').after(content);
+      }
+    });
     </script>
     
     <footer>
