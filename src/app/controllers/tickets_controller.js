@@ -14,13 +14,14 @@ exports.view = function(req,res){            // VIEW TICKET
     var ticketData;
     if (err) throw err
       console.log('You are now connected...')
-      
+      //getting the edit log for the ticket
     connection.query('SELECT EditID, Edit, EDate FROM 395project.edits WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
             editVar = JSON.stringify(result);
           
     });
     if (err) throw err
+      //Getting the ticket from the database that the user clicked on
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, CustID FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
 
@@ -36,7 +37,7 @@ exports.view = function(req,res){            // VIEW TICKET
             });
     }
     else{
-      res.redirect(('../../'));
+      res.redirect(('../../logout'));
       console.log("Stop messing with the url cam");
     }
   });
@@ -62,6 +63,7 @@ exports.edit = function(req,res){                 // EDIT TICKET
       console.log('You are now connected...')
     
     if (err) throw err
+      //getting the ticket for the user
       connection.query('SELECT CallID, Category,CustID, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
 
@@ -75,7 +77,7 @@ exports.edit = function(req,res){                 // EDIT TICKET
             });
           }
       else{
-      res.redirect(('../../'));
+      res.redirect(('../../logout'));
       console.log("Stop messing with the url cam");
     }
     });
@@ -98,6 +100,7 @@ exports.resolve = function(req,res){
       console.log('You are now connected...')
     
     if (err) throw err
+      //getting the ticket that the user clicked on
       connection.query('SELECT CallID, Category,CustID, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CallID="' + req.params.ticketid + '";', function(err, result) {
         if (err) throw err
 
@@ -111,7 +114,7 @@ exports.resolve = function(req,res){
             });
           }
             else{
-              res.redirect(('../../'));
+              res.redirect(('../../logout'));
               console.log("Stop messing with the url cam");
             }
     });
@@ -133,7 +136,7 @@ exports.mytickets = function(req, res){
     var myVar, myVar2, myVar3;
     if (err) throw err
       console.log('You are now connected...')
-      
+      //getting all of the closed tickets, except for hr
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Resolve FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Closed" and Category!="HR" or ( CustID="' + req.user.id + '" and Resolve="1" and Category!="HR");', function(err, result) {
         if (err) throw err
             myVar = JSON.stringify(result);
@@ -141,6 +144,7 @@ exports.mytickets = function(req, res){
     });
     console.log('closed');
     if (err) throw err
+      //Getting the open tickets and non resolved tickets
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate FROM 395project.calllog WHERE CustID="' + req.user.id + '" and CallStatus="Open" and Resolve is null and Category!="HR"', function(err, result) {
         if (err) throw err
             myVar2 = JSON.stringify(result);
@@ -149,6 +153,7 @@ exports.mytickets = function(req, res){
     console.log('open');
     
     if (err) throw err
+      //getting all of them
       connection.query('SELECT CallID, Category, CallStatus, Symptoms, TempDate, Resolve FROM 395project.calllog WHERE CustID="' + req.user.id + '" and Category!="HR";', function(err, result) {
         if (err) throw err
             myVar3 = JSON.stringify(result);
