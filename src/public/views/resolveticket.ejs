@@ -9,7 +9,7 @@
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="../assets/js/ticketscripts.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/resolveticket.css">
 
@@ -98,7 +98,7 @@
           <div id="res-text">
             <textarea id="res_box"></textarea>
           </div>
-          <button type="button" id="confirm-btn" onclick="showInfo()" class="btn btn-primary">Confirm</button>
+          <button type="button" id="confirm-btn" onclick="checkFilled('#res_box')" class="btn btn-primary">Confirm</button>
         </div>
       </div>
 
