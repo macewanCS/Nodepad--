@@ -129,18 +129,19 @@
    <!--This is for the confirmation-->
   <script>
   function showInfo(){
-    var equipment = $('#select-type').find("option:selected").text();
+    var equipment;
     var systemStatus = $('input[name=options]:checked').val();
     var ticketInfo =  $('#text-block').val();
     var errorInfo = $('#text-block-2').val();
     var outString = "";
 
-    if (typeof equipment != "undefined"){
-
-    outString = outString + "<b>Affected System:</b> " + equipment;
-    
+    if (typeof $('#sys-name-text').val() != "undefined"){
+      outString = outString + "<b>Affected System:</b> " + $('#sys-name-text').val();
     }
-
+    else {    
+      outString = outString + "<b>Affected System:</b> " + $('#select-type').find("option:selected").text();
+    }
+    
     if (typeof systemStatus != "undefined"){
 
     outString = outString + "<br><b>System Status:</b> " + systemStatus;
@@ -149,14 +150,15 @@
 
     if (typeof ticketInfo != "undefined"){
 
-    outString = outString + "<br><b>Description:</b> " + ticketInfo;
+    outString = outString + "<br><b>Description of Problem:</b> " + ticketInfo;
     
     }
     if (typeof errorInfo != "undefined"){
 
-    outString = outString + "<br><b>Description:</b> " + errorInfo;
+    outString = outString + "<br><b>Problem Cause:</b> " + errorInfo;
     
     }
+    
 
     bootbox.confirm({
       title: "Please confirm your information:",
@@ -197,34 +199,33 @@
         errorInfo = "n/a";
       }
         
-        var affected = $('#select-type').find("option:selected").text();
-        
+        var affected;
+        if (typeof $('#sys-name-text').val() != "undefined"){
+          affected = $('#sys-name-text').val();
+        }
+        else {    
+          affected = $('#select-type').find("option:selected").text();
+        }
         console.log(affected);
         
         if (affected === "Internet access"){
-          console.log("swapping");
           affected = "Internet/network access";
         }
         
         if (affected === "www.epl.ca"){
-          console.log("swapping");
           affected = "Public website / www.epl.ca";
         }
         
         if (affected === "file share"){
-          console.log("swapping");
           affected = "S:/ drive / file share";
         }
         
         if (affected === "StaffWeb"){
-          console.log("swapping");
           affected = "StaffWeb/Active Directory";
         }
         
         var http = new XMLHttpRequest();
-        console.log("clicked the next button");
         var params = "AffectedSystem=" + affected + "&SystemStatus="+ systemStatus + "&Description=" + ticketInfo + "&ProblemCause=" + errorInfo;
-        console.log(params);
         var url = "/createSoftware";
         console.log("sent " + http.status + " " + http.readyState);
         http.open("POST", url, true);
