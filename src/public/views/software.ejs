@@ -30,7 +30,7 @@
           <div class="panel panel-default" id="affected-panel">
             <div class="panel-heading" id="heading-one">
               <h4 class="panel-title"> 
-                Step 1: Affected System<a class="changer" id="changeSystem" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
+                Step 1: Affected System<a class="changer" id="changeSystem" onclick="undo('#collapse1', '#collapse2', '#collapse3', '#collapse4', '#collapse1A')" style="visibility:hidden"> Change </a>
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
               <div id="confirmation-buttons">
@@ -63,7 +63,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-two">
             <h4 class="panel-title">
-              Step 2: System Status<a class="changer" id="changeSysStatus" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4')" style="visibility:hidden"> Change </a>
+              Step 2: System Status<a class="changer" id="changeSysStatus" onclick="undo('#collapse2', '#collapse1', '#collapse3', '#collapse4', '#collapse1A')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse2" class="panel-collapse collapse">
@@ -91,7 +91,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" id="heading-three">
             <h4 class="panel-title">
-              Step 3: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4')" style="visibility:hidden"> Change </a>
+              Step 3: Description of Problem <a class="changer" id="changeDesc" onclick="undo('#collapse3', '#collapse2', '#collapse1', '#collapse4', '#collapse1A')" style="visibility:hidden"> Change </a>
             </h4>
           </div>
           <div id="collapse3" class="panel-collapse collapse">
@@ -143,23 +143,15 @@
     }
     
     if (typeof systemStatus != "undefined"){
-
-    outString = outString + "<br><b>System Status:</b> " + systemStatus;
-    
+    outString = outString + "<br><b>System Status:</b> " + systemStatus; 
     }
 
     if (typeof ticketInfo != "undefined"){
-
-    outString = outString + "<br><b>Description of Problem:</b> " + ticketInfo;
-    
+    outString = outString + "<br><b>Description of Problem:</b> " + ticketInfo;   
     }
-    if (typeof errorInfo != "undefined"){
-
-    outString = outString + "<br><b>Problem Cause:</b> " + errorInfo;
-    
+    if (errorInfo != ""){
+      outString = outString + "<br><b>Problem Cause:</b> " + errorInfo;
     }
-    
-
     bootbox.confirm({
       title: "Please confirm your information:",
       message: outString,
