@@ -85,7 +85,7 @@ General Questions | What is the problem? | N/A | I am having trouble with my per
 
 Before the user can submit their form, they will be shown their information and asked if it is correct, if it is not correct they will have the option to go back and edit the previously entered information. 
 
-
+_This was completed as well with the confirmation_
 ## Users
 
 This system will have 3 main kinds of users.
