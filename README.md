@@ -11,7 +11,7 @@ This web applications was built to run best with the following tools:
 * NPM <pre>sudo apt-get install npm</pre>
 * [Node.JS Version 6.9.4](https://nodejs.org/download/release/v6.9.4/)
   * install by command line with the Node Version Manager <pre> curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash </pre>
-  * then run <pre>nvm install v6.9.4</pre>
+  * RESTART YOUR TERMINAL. Then run <pre>nvm install v6.9.4</pre>
 * [Ubuntu Linux Version 16.04 LTS](http://releases.ubuntu.com/16.04/)
 * [Google Chrome](https://www.google.com/chrome/)
 * [MySQL Version 5.7.17](https://www.mysql.com/)
