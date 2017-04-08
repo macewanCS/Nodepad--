@@ -21,8 +21,8 @@ This web applications was built to run best with the following tools:
 3. Install all dependencies using <pre>npm install</pre>
 4. Install MySQL and login with the command <pre>mysql -u (username) -p </pre>and create a user named temp with the command <pre>CREATE USER 'temp'@'localhost' IDENTIFIED BY '1234';</pre>
 5. Give that user permissions with the command <pre>GRANT ALL PRIVILEGES ON * . * TO 'temp'@'localhost';</pre>
-6. Initialize the database with <pre>node src/scripts/create_database.js</pre>
-7. Launch the application using <pre>node src/main.js</pre>
+6. Initialize the database with <pre>node scripts/create_database.js</pre>
+7. Launch the application using <pre>node main.js</pre>
 8. The web application should now run at <pre>localhost:8080</pre>
 9. Login using one of the user accounts listed below
 
