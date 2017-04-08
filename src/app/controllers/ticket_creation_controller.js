@@ -40,7 +40,7 @@ exports.service = function(req, res){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   
@@ -80,7 +80,7 @@ exports.hardware = function(req, res){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   
@@ -119,7 +119,7 @@ exports.software = function(req, res){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   
@@ -159,7 +159,7 @@ exports.password = function(req,res){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
 
@@ -193,7 +193,7 @@ exports.general = function(req,res){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
 

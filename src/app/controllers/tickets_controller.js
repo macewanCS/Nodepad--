@@ -5,7 +5,7 @@ exports.view = function(req,res){            // VIEW TICKET
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   
@@ -51,7 +51,7 @@ exports.edit = function(req,res){                 // EDIT TICKET
     var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   
@@ -87,7 +87,7 @@ exports.resolve = function(req,res){
     var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   
@@ -123,7 +123,7 @@ exports.mytickets = function(req, res){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   

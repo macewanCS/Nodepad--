@@ -5,7 +5,7 @@ exports.announcement = function(req, res){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
   
@@ -32,7 +32,7 @@ exports.add = function(req,res){
     var connection = mysql.createConnection({
     host: 'localhost',
     user: 'temp',
-    password: '1234',
+    password: 'password1',
     database: '395project'
   });
 
