@@ -1,22 +1,22 @@
-#EPL Ticketing System
+# EPL Ticketing System
 
 Our goal is to create a web application that allows EPL workers to create tickets online, which will be inserted into their current database system.
 
 This system will be written in JavaScript using the Nodejs framework.
 
-#Using the Ticketing System
+# Using the Ticketing System
 
-#General Design
+# General Design
 
 Our system will be designed similarly to the design of the [EPL website] (https://www.epl.ca/). This should give our targetted audience, EPL workers, some baseline familiarity with the system.
 
-#How a User Navigates the Site
+# How a User Navigates the Site
 
 A user will be able to click the links in the header of the page to browse between the different screens on the site.
 
 A user will also be able to navigate the site from the footer.
 
-##Logging in
+## Logging in
 
 When you first navigate to the site, you will be prompted to login using a username and password. You must have a previously created EPL account to login to the system. 
 
@@ -24,7 +24,7 @@ This initial page also has the option to let a user recover a forgotten password
 
 After a succesful login, a user will be brought to the home screen.
 
-##Home Screen
+## Home Screen
 
 This screen will provide a brief overview of each of the other screens in the application. 
 
@@ -32,7 +32,7 @@ A user will be able to see recent announcements, tickets they created, and ticke
 
 They will also be able to see some general help that could help them solve their issue before submitting a ticket. 
 
-##Viewing Personal Tickets
+## Viewing Personal Tickets
 
 The system will allow a user to view all of their submitted tickets by clicking on the My Tickets screen. 
 
@@ -47,13 +47,13 @@ From this page there will also be the ability to edit the Ticket and self close 
   * **Closing a Ticket**
   A user can resolve their ticket, but will be required to enter their solution to the problem before it can be resolved.
 
-##Viewing Branch Tickets
+## Viewing Branch Tickets
 
 A user wil be able to see tickets made at their branch by navigating to the Branch Tickets screen. This will include open and closed tickets.
 
 This screen will be similar to the individual ticket screen in design. Searching will be accomplished in the same way as the my tickets screen.
 
-##Submitting a ticket
+## Submitting a ticket
 
 The system will allow a user to submit a ticket into the HEAT database.  
 
@@ -71,7 +71,7 @@ There will be five categories for users to choose from when creating a ticket.
   
 Each of the categories will have different mandatory information to be filled in, which will require a different form.
 
-####Mandatory information table
+#### Mandatory information table
 
 Category | Required Information | Non-Required information | Example
 --------- | -------------------- | ----------------------  | ----------
@@ -85,7 +85,7 @@ General Questions | What is the problem? | N/A | I am having trouble with my per
 Before the user can submit their form, they will be shown their information and asked if it is correct, if it is not correct they will have the option to go back and edit the previously entered information. 
 
 
-##Users
+## Users
 
 This system will have 3 main kinds of users.
 
@@ -102,19 +102,19 @@ This system will have 3 main kinds of users.
   * An IT superuser can change the help screen
 
   
-##Mobile
+## Mobile
 
 A user can visit the site from mobile platforms
 
 It will have the same functionality as the desktop page
 
-##Announcements
+## Announcements
 
 A user can view important announcements from IT
 
 The Announcements will be sorted from newest to oldest in descending order
 
-##Help
+## Help
 
 The system will have a help section that is for simple guides and tutorials.
 
