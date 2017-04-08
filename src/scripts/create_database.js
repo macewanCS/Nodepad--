@@ -6,9 +6,10 @@ var mysql = require('mysql');
 var dbconfig = require('../config/database');
 var bcrypt = require('bcrypt-nodejs')
 var connection = mysql.createConnection(dbconfig.connection);
+//---------------------Uncomment the below line if you want to recreate the database from scratch after creating it once
 //connection.query('DROP DATABASE ' + dbconfig.database);
 connection.query('CREATE DATABASE ' + dbconfig.database);
-
+//creating users table
 connection.query(' \
 	CREATE TABLE `395project`.`users` ( \
 	`username` varchar(20) NULL,\
@@ -19,6 +20,7 @@ connection.query(' \
 	)');
 var hash = bcrypt.hashSync("1234");
 var maxHash = bcrypt.hashSync("package");
+//inserting into the users tbale
 connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("brett", 1, "' + hash + '", "MLW")\
 	');
@@ -38,14 +40,14 @@ connection.query('\
 	INSERT INTO `395project`.`users`(`username`,`id`,`password`, `Site`) VALUES ("max", 6, "' + maxHash + '", "HRS")\
 	');
 
-
+//creating branch table
 connection.query('\
 	CREATE TABLE `395project`.`branch` (\
 	`FullName` varchar(60) NULL,\
 	`Site` varchar(4) NOT NULL, \
 	PRIMARY KEY(`Site`) \
 	)');
-
+//creating edit table
 connection.query('\
 	CREATE TABLE `395project`.`edits` (\
 	`EditID` INT NOT NULL AUTO_INCREMENT, \
@@ -55,7 +57,7 @@ connection.query('\
 	`CustID` int null, \
 	PRIMARY KEY(`EditID`) \
 	)');
-
+//inserting branches
 connection.query('\
 	INSERT INTO `395project`.`branch` (`Site`, `FullName`) VALUES ("ABB","AbbotsField - Penny McKee");\
 	');
@@ -124,7 +126,7 @@ connection.query('\
 	');
 
 
-
+//creating announcement table
 connection.query('\
 	CREATE TABLE `395project`.`announcements` (\
 	`AID` int NOT NULL AUTO_INCREMENT, \
