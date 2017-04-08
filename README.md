@@ -15,6 +15,9 @@ This web applications was built to run best with the following tools:
 * [Ubuntu Linux Version 16.04 LTS](http://releases.ubuntu.com/16.04/)
 * [Google Chrome](https://www.google.com/chrome/)
 * [MySQL Version 5.7.17](https://www.mysql.com/)
+ * installed with <pre>sudo apt-get install mysql-server</pre>
+ * when prompted for a password enter "1234"
+ * setup the installation with <pre>sudo mysql_secure_installation</pre> select no for the setup questions it ask.
 ## Installation by Command Line
 1. Clone the repository with <pre>git clone https://github.com/macewanCS/Nodepad--</pre>
 2. Navigate into the src directory of the repository
