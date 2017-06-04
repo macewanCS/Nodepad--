@@ -1,4 +1,4 @@
-##Library Worker
+## Library Worker
 
 * As a library worker I need to report issues to IT through an online web portal.
 
@@ -26,15 +26,15 @@
 
 - As a library worker I need verification screens when I add, create, or resolve a ticket.
 
-##HR Worker
+## HR Worker
 
 - As a HR worker, I need to see all HR tickets in the system instead of branch tickets.
 
-##Branch Manager
+## Branch Manager
 
 * As a branch manager I need to see and edit all the IT tickets for my branch.
 
-##System Manager
+## System Manager
 
 - As a system manager I need to create new announcements
 
